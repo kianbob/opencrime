@@ -24,6 +24,8 @@ const tools = [
   { href: '/crime-stories', title: 'Crime Stories', desc: 'Data-driven narratives of turnarounds, crises, and surprises', icon: '📖' },
   { href: '/arrest-efficiency', title: 'Arrest Efficiency', desc: 'How effective is policing? Arrests vs crimes by type', icon: '🔒' },
   { href: '/cargo-theft', title: 'Cargo Theft', desc: '272K FBI cargo theft incidents — data nobody else has', icon: '📦' },
+  { href: '/arrest-demographics', title: 'Arrest Demographics', desc: 'Who gets arrested? By race, sex, age, and offense type', icon: '👥' },
+  { href: '/arson', title: 'Arson Data', desc: 'Arson by property type with clearance rates', icon: '🔥' },
 ];
 
 export default function ToolsPage() {
