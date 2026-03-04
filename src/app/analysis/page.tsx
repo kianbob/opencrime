@@ -15,6 +15,10 @@ const articles = [
   { slug: 'police-funding', title: 'Police Funding and Crime Rates: What the Data Shows', desc: 'Do cities that spend more on policing have less crime? We analyze the relationship between police budgets and crime rates.', tag: 'ANALYSIS' },
   { slug: 'drug-crime', title: 'The Drug-Crime Connection: From Crack to Fentanyl', desc: 'How drug epidemics have shaped American crime waves from the 1980s crack crisis to today\'s fentanyl surge.', tag: 'DEEP DIVE' },
   { slug: 'domestic-violence', title: 'Domestic Violence in America: The Hidden Epidemic', desc: 'Over 40% of female murder victims are killed by intimate partners. The data behind America\'s most underreported crime.', tag: 'ANALYSIS' },
+  { slug: 'mass-shootings', title: 'Mass Shootings vs Total Gun Violence: What the Data Shows', desc: 'Mass shootings dominate headlines but account for less than 2% of gun deaths. The real picture is very different.', tag: 'DEEP DIVE' },
+  { slug: 'car-theft-crisis', title: 'The Car Theft Crisis: Why Vehicle Theft Is Surging', desc: 'Motor vehicle theft surged 25% since 2019. A design flaw, TikTok, and organized crime explain why.', tag: 'ANALYSIS' },
+  { slug: 'defund-police', title: 'Did "Defund the Police" Cause a Crime Surge?', desc: 'What actually happened to police budgets, staffing, and crime rates after 2020. The data is more nuanced than either side admits.', tag: 'DEEP DIVE' },
+  { slug: 'organized-retail-theft', title: 'Organized Retail Theft: Is Shoplifting Really Out of Control?', desc: 'Viral videos say yes. The NRF retracted its $100B figure. What the FBI data and retail industry data actually show.', tag: 'ANALYSIS' },
 ];
 
 const tagColors: Record<string, string> = {

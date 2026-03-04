@@ -7,6 +7,10 @@ const articles = [
   { slug: 'drug-crime', title: 'The Drug-Crime Connection: From Crack to Fentanyl', date: '2026-03-04' },
   { slug: 'domestic-violence', title: 'Domestic Violence in America: The Hidden Epidemic', date: '2026-03-04' },
   { slug: 'racial-disparities', title: 'Crime Victimization: Who Bears the Burden?', date: '2026-03-04' },
+  { slug: 'mass-shootings', title: 'Mass Shootings vs Total Gun Violence: What the Data Shows', date: '2026-03-04' },
+  { slug: 'car-theft-crisis', title: 'The Car Theft Crisis: Why Vehicle Theft Is Surging', date: '2026-03-04' },
+  { slug: 'defund-police', title: 'Did "Defund the Police" Cause a Crime Surge?', date: '2026-03-04' },
+  { slug: 'organized-retail-theft', title: 'Organized Retail Theft: Is Shoplifting Really Out of Control?', date: '2026-03-04' },
 ];
 
 export async function GET() {

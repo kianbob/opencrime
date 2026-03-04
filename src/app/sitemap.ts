@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/downloads', '/privacy', '/most-improved', '/cargo-theft',
     '/tools/state-compare', '/tools/risk-calculator',
     '/violent-crime', '/property-crime', '/robbery-statistics', '/assault-statistics',
+    '/analysis/mass-shootings', '/analysis/car-theft-crisis', '/analysis/defund-police', '/analysis/organized-retail-theft',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
     '/analysis/police-funding', '/analysis/drug-crime',
