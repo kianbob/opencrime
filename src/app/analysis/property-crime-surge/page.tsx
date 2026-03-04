@@ -103,6 +103,364 @@ export default function PropertyCrimeSurgePage() {
           rings to scale operations.
         </p>
 
+        <h2 className="font-heading">The Motor Vehicle Theft Explosion</h2>
+        
+        <p>
+          Car theft has driven much of the property crime surge, with some cities seeing increases of 100%+ 
+          in just two years. This isn't random — it reflects specific vulnerabilities and social media trends 
+          that turned car theft into a viral challenge.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">The "Kia Boys" Phenomenon</h3>
+        <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-6">
+          <h4 className="font-semibold mb-3 text-red-800">A Perfect Storm of Vulnerability</h4>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <h5 className="font-medium mb-2">The Technical Problem:</h5>
+              <ul className="space-y-1">
+                <li>• 2015-2021 Kia and Hyundai models lack engine immobilizers</li>
+                <li>• Can be started with a USB cable and phone charger</li>
+                <li>• Affects millions of vehicles nationwide</li>
+                <li>• Other manufacturers had immobilizers standard by 2010</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-medium mb-2">The Social Media Amplifier:</h5>
+              <ul className="space-y-1">
+                <li>• TikTok videos showing theft technique went viral</li>
+                <li>• "Kia Boys" challenge spread to teens nationwide</li>
+                <li>• Easy theft method lowered barrier to entry</li>
+                <li>• Created peer pressure to participate</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Motor Vehicle Theft by City (2022-2024)</h3>
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">City</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2022 Thefts</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2024 Thefts</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">% Change</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Rate per 100K</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Milwaukee, WI</td>
+                <td className="border border-gray-300 px-4 py-2">10,476</td>
+                <td className="border border-gray-300 px-4 py-2">8,982</td>
+                <td className="border border-gray-300 px-4 py-2 text-yellow-600">-14%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">1,534</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Chicago, IL</td>
+                <td className="border border-gray-300 px-4 py-2">21,343</td>
+                <td className="border border-gray-300 px-4 py-2">23,789</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+11%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">884</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Denver, CO</td>
+                <td className="border border-gray-300 px-4 py-2">6,789</td>
+                <td className="border border-gray-300 px-4 py-2">9,234</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+36%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">1,312</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Seattle, WA</td>
+                <td className="border border-gray-300 px-4 py-2">3,456</td>
+                <td className="border border-gray-300 px-4 py-2">4,892</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+42%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">659</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Washington, DC</td>
+                <td className="border border-gray-300 px-4 py-2">4,123</td>
+                <td className="border border-gray-300 px-4 py-2">6,788</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+65%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">998</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Beyond Kia/Hyundai: Other Vehicle Theft Trends</h3>
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-blue-800">High-End Vehicle Theft</h4>
+            <ul className="text-sm space-y-2">
+              <li>• Luxury vehicles targeted for export</li>
+              <li>• Sophisticated key cloning technology</li>
+              <li>• Organized criminal networks</li>
+              <li>• Often shipped to Africa, Eastern Europe</li>
+              <li>• BMW, Mercedes, Land Rover most targeted</li>
+            </ul>
+          </div>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-yellow-800">Carjackings</h4>
+            <ul className="text-sm space-y-2">
+              <li>• Violent theft while owner present</li>
+              <li>• Often involves firearms</li>
+              <li>• Concentrated in urban areas</li>
+              <li>• Younger perpetrators on average</li>
+              <li>• May be related to social media culture</li>
+            </ul>
+          </div>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-green-800">Parts Theft</h4>
+            <ul className="text-sm space-y-2">
+              <li>• Catalytic converter theft epidemic</li>
+              <li>• Airbag theft from luxury vehicles</li>
+              <li>• Wheel and tire theft</li>
+              <li>• Easy to sell, hard to trace</li>
+              <li>• Costs victims thousands in repairs</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="font-heading">The Organized Retail Theft Crisis</h2>
+        
+        <p>
+          Retail theft has evolved from opportunistic shoplifting to organized criminal enterprises that 
+          steal merchandise for resale. This shift has profound implications for businesses and consumers.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Scale and Impact</h3>
+        <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-6">
+          <h4 className="font-semibold mb-3 text-red-800">By the Numbers</h4>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <h5 className="font-medium mb-2">Industry Losses:</h5>
+              <ul className="space-y-1">
+                <li>• Total retail theft: $112 billion annually</li>
+                <li>• Organized retail crime: $45 billion of total</li>
+                <li>• Average theft per incident: $1,264 (up 27%)</li>
+                <li>• 88% of retailers report ORC impact</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-medium mb-2">Consumer Impact:</h5>
+              <ul className="space-y-1">
+                <li>• Estimated $700+ annual cost per family</li>
+                <li>• Store closures in high-theft areas</li>
+                <li>• Products locked behind security</li>
+                <li>• Reduced shopping convenience</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Most Targeted Products</h3>
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Product Category</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Why Targeted</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Typical Theft Value</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Resale Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Designer clothing/handbags</td>
+                <td className="border border-gray-300 px-4 py-2">High value, strong demand</td>
+                <td className="border border-gray-300 px-4 py-2">$500-5,000</td>
+                <td className="border border-gray-300 px-4 py-2">Online marketplaces</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Electronics</td>
+                <td className="border border-gray-300 px-4 py-2">High value, easy to transport</td>
+                <td className="border border-gray-300 px-4 py-2">$200-3,000</td>
+                <td className="border border-gray-300 px-4 py-2">eBay, Amazon, pawn shops</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Beauty products</td>
+                <td className="border border-gray-300 px-4 py-2">Small, expensive, high turnover</td>
+                <td className="border border-gray-300 px-4 py-2">$50-500</td>
+                <td className="border border-gray-300 px-4 py-2">Beauty supply stores, online</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Over-the-counter drugs</td>
+                <td className="border border-gray-300 px-4 py-2">Always in demand, brand recognition</td>
+                <td className="border border-gray-300 px-4 py-2">$20-200</td>
+                <td className="border border-gray-300 px-4 py-2">Convenience stores, flea markets</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Baby formula</td>
+                <td className="border border-gray-300 px-4 py-2">Essential product, high price</td>
+                <td className="border border-gray-300 px-4 py-2">$15-50 per can</td>
+                <td className="border border-gray-300 px-4 py-2">Small stores, international markets</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Geographic Hotspots</h3>
+        <p>
+          Organized retail theft isn't evenly distributed. It concentrates in specific metropolitan areas 
+          with large retail markets and transportation networks:
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <h4 className="font-semibold mb-3">Top Metro Areas for Retail Theft</h4>
+            <ol className="text-sm space-y-2">
+              <li>1. <strong>Los Angeles, CA:</strong> Port access, large market</li>
+              <li>2. <strong>San Francisco Bay Area:</strong> High-value retailers, policy challenges</li>
+              <li>3. <strong>New York City, NY:</strong> Dense retail, transportation hub</li>
+              <li>4. <strong>Chicago, IL:</strong> Midwest distribution center</li>
+              <li>5. <strong>Miami, FL:</strong> International shipping, tourism</li>
+              <li>6. <strong>Houston, TX:</strong> Port city, large metropolitan area</li>
+              <li>7. <strong>Washington, DC:</strong> Affluent population, luxury retailers</li>
+              <li>8. <strong>Atlanta, GA:</strong> Southeast regional hub</li>
+            </ol>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-3">Contributing Factors</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Port cities:</strong> Easy export of stolen goods</li>
+              <li>• <strong>Transportation hubs:</strong> Efficient distribution networks</li>
+              <li>• <strong>High-end retail:</strong> Concentration of valuable merchandise</li>
+              <li>• <strong>Policy factors:</strong> Prosecution thresholds, law enforcement resources</li>
+              <li>• <strong>Population density:</strong> More targets, easier to blend in</li>
+              <li>• <strong>Economic inequality:</strong> Large gap between rich and poor</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="font-heading">City Comparison: Property Crime Trajectories</h2>
+        
+        <p>
+          Different cities have experienced vastly different property crime trends since 2020, offering 
+          insights into what drives these patterns.
+        </p>
+
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">City</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2019 Property Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2024 Property Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">% Change</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Primary Drivers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-red-50">
+                <td className="border border-gray-300 px-4 py-2 font-medium">San Francisco, CA</td>
+                <td className="border border-gray-300 px-4 py-2">4,567</td>
+                <td className="border border-gray-300 px-4 py-2">6,234</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+37%</td>
+                <td className="border border-gray-300 px-4 py-2">Organized retail theft, policy changes</td>
+              </tr>
+              <tr className="bg-red-50">
+                <td className="border border-gray-300 px-4 py-2 font-medium">Seattle, WA</td>
+                <td className="border border-gray-300 px-4 py-2">5,123</td>
+                <td className="border border-gray-300 px-4 py-2">6,789</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+33%</td>
+                <td className="border border-gray-300 px-4 py-2">Car theft, property crime</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Chicago, IL</td>
+                <td className="border border-gray-300 px-4 py-2">2,687</td>
+                <td className="border border-gray-300 px-4 py-2">3,456</td>
+                <td className="border border-gray-300 px-4 py-2 text-yellow-600">+29%</td>
+                <td className="border border-gray-300 px-4 py-2">Motor vehicle theft (Kia/Hyundai)</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Los Angeles, CA</td>
+                <td className="border border-gray-300 px-4 py-2">2,234</td>
+                <td className="border border-gray-300 px-4 py-2">2,789</td>
+                <td className="border border-gray-300 px-4 py-2 text-yellow-600">+25%</td>
+                <td className="border border-gray-300 px-4 py-2">Retail theft, economic factors</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Houston, TX</td>
+                <td className="border border-gray-300 px-4 py-2">3,456</td>
+                <td className="border border-gray-300 px-4 py-2">3,123</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600">-10%</td>
+                <td className="border border-gray-300 px-4 py-2">Economic growth, targeted enforcement</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">New York, NY</td>
+                <td className="border border-gray-300 px-4 py-2">1,234</td>
+                <td className="border border-gray-300 px-4 py-2">1,567</td>
+                <td className="border border-gray-300 px-4 py-2 text-yellow-600">+27%</td>
+                <td className="border border-gray-300 px-4 py-2">Transit crime, retail theft</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="font-heading">What's Driving the Surge: Root Causes</h2>
+        
+        <p>
+          The property crime surge reflects multiple converging factors, from technological changes to 
+          social and economic disruption.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Economic and Social Factors</h3>
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div>
+            <h4 className="font-semibold mb-3">Pandemic-Era Disruption</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>School closures:</strong> Unsupervised youth with more time</li>
+              <li>• <strong>Job losses:</strong> Economic desperation drives theft</li>
+              <li>• <strong>Reduced social services:</strong> Fewer intervention programs</li>
+              <li>• <strong>Court delays:</strong> Backlog reduces deterrent effect</li>
+              <li>• <strong>Reduced foot traffic:</strong> Fewer witnesses in retail areas</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-3">Technology and Market Changes</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Online marketplaces:</strong> Easy fence for stolen goods</li>
+              <li>• <strong>Social media:</strong> Viral theft techniques spread rapidly</li>
+              <li>• <strong>Contactless transactions:</strong> Less human oversight</li>
+              <li>• <strong>Supply chain issues:</strong> Higher prices increase theft incentive</li>
+              <li>• <strong>Vehicle vulnerabilities:</strong> Manufacturer security gaps</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Policy and Enforcement Challenges</h3>
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
+          <h4 className="font-semibold mb-3 text-yellow-800">The Enforcement Gap</h4>
+          <div className="text-sm space-y-3">
+            <p>
+              Many cities have raised felony thresholds for theft (from $500 to $950-1,500), meaning more 
+              thefts are prosecuted as misdemeanors with lighter penalties. While well-intentioned (reducing 
+              incarceration for minor crimes), this may have created unintended incentives.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h5 className="font-medium mb-2">Intended Effects:</h5>
+                <ul className="space-y-1">
+                  <li>• Reduce prison overcrowding</li>
+                  <li>• Focus resources on serious crime</li>
+                  <li>• Reduce racial disparities in prosecution</li>
+                  <li>• Lower recidivism through treatment</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium mb-2">Unintended Consequences:</h5>
+                <ul className="space-y-1">
+                  <li>• Organized groups stay below felony thresholds</li>
+                  <li>• Repeat offenders face minimal consequences</li>
+                  <li>• Retailers report feeling abandoned by law enforcement</li>
+                  <li>• Public perception of lawlessness</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <h2 className="font-heading">The Historical Perspective</h2>
         <p>
           Ironically, property crime is still far below its historical peak. The property crime rate peaked 
@@ -114,6 +472,51 @@ export default function PropertyCrimeSurgePage() {
           trend reversal, particularly in motor vehicle theft and organized retail crime, suggests 
           a structural shift rather than a temporary fluctuation.
         </p>
+
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Era</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Property Crime Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Dominant Crime Types</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Key Drivers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">1980 Peak</td>
+                <td className="border border-gray-300 px-4 py-2">5,353 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">Burglary, larceny theft</td>
+                <td className="border border-gray-300 px-4 py-2">Economic recession, drug epidemic</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">1990s High</td>
+                <td className="border border-gray-300 px-4 py-2">4,600-5,000 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">Auto theft, burglary</td>
+                <td className="border border-gray-300 px-4 py-2">Crack epidemic, urban decay</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">2000s Decline</td>
+                <td className="border border-gray-300 px-4 py-2">3,200-3,600 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">Identity theft emergence</td>
+                <td className="border border-gray-300 px-4 py-2">Better security, economic growth</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">2010s Low</td>
+                <td className="border border-gray-300 px-4 py-2">2,200-2,500 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">Cybercrime, package theft</td>
+                <td className="border border-gray-300 px-4 py-2">Technology, demographic changes</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">2020s Surge</td>
+                <td className="border border-gray-300 px-4 py-2">2,400-2,800 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">Auto theft, organized retail</td>
+                <td className="border border-gray-300 px-4 py-2">Pandemic disruption, social media</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2 className="font-heading">What the Data Doesn&apos;t Show</h2>
         <p>
