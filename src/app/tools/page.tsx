@@ -18,7 +18,12 @@ const tools = [
   { href: '/most-dangerous-cities', title: 'Most Dangerous Cities', desc: 'Complete list of the most dangerous cities', icon: '⚠️' },
   { href: '/crime-clock', title: 'Crime Clock', desc: 'See crime happen in real-time as you watch', icon: '⏱️' },
   { href: '/city-trajectories', title: 'City Trajectories', desc: 'Which cities are getting safer or more dangerous?', icon: '📉' },
-  { href: '/population-paradox', title: 'Population Paradox', desc: 'Big cities aren\'t the most dangerous — here\'s proof', icon: '🔬' },
+  { href: '/population-crime-paradox', title: 'Population Paradox', desc: 'Big cities aren\'t the most dangerous — here\'s proof', icon: '🔬' },
+  { href: '/crime-dna', title: 'Crime DNA', desc: 'Every city has a unique crime fingerprint — see the composition', icon: '🧬' },
+  { href: '/violence-concentration', title: 'Violence Concentration', desc: '10 cities = 21% of all murders. See where violence concentrates.', icon: '📍' },
+  { href: '/crime-stories', title: 'Crime Stories', desc: 'Data-driven narratives of turnarounds, crises, and surprises', icon: '📖' },
+  { href: '/arrest-efficiency', title: 'Arrest Efficiency', desc: 'How effective is policing? Arrests vs crimes by type', icon: '🔒' },
+  { href: '/cargo-theft', title: 'Cargo Theft', desc: '272K FBI cargo theft incidents — data nobody else has', icon: '📦' },
 ];
 
 export default function ToolsPage() {

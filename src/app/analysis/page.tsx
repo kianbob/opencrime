@@ -24,9 +24,13 @@ const articles = [
 ];
 
 const specialPages = [
-  { href: '/population-paradox', title: 'The Population-Crime Paradox', desc: 'Mid-size cities are MORE dangerous than mega-cities. The data will surprise you.', tag: 'UNIQUE' },
+  { href: '/population-crime-paradox', title: 'The Population-Crime Paradox', desc: 'Mid-size cities are MORE dangerous than mega-cities. The data will surprise you.', tag: 'UNIQUE' },
   { href: '/crime-clock', title: 'The Crime Clock', desc: 'See crime happen in real time. A violent crime every 26 seconds, a murder every 31 minutes.', tag: 'INTERACTIVE' },
   { href: '/city-trajectories', title: 'City Crime Trajectories', desc: 'Every city classified: improving, worsening, volatile, stable, or dangerous. Which way is yours heading?', tag: 'UNIQUE' },
+  { href: '/crime-dna', title: 'Crime Composition DNA', desc: 'Every city has a unique crime fingerprint. See visual breakdowns of murder, assault, robbery, and rape proportions.', tag: 'UNIQUE' },
+  { href: '/violence-concentration', title: 'Violence Concentration', desc: 'Just 10 cities produce 21% of all murders. See where violence really concentrates in America.', tag: 'DATA' },
+  { href: '/crime-stories', title: 'Crime Stories', desc: 'Data-driven narratives: turnarounds, crises, surprises, and the wildest swings in American crime.', tag: 'UNIQUE' },
+  { href: '/arrest-efficiency', title: 'Arrest Efficiency', desc: 'How effective is policing? For every 3 murders, 1 goes without an arrest.', tag: 'DATA' },
   { href: '/weapon-shift', title: 'The Weapon Shift', desc: 'How Americans are killed is changing. 5 years of murder weapon data visualized.', tag: 'DATA' },
   { href: '/who-are-victims', title: 'Who Are the Victims?', desc: 'The human face behind crime statistics. Demographics, relationships, and circumstances of murder victims.', tag: 'DATA' },
 ];

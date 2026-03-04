@@ -39,6 +39,10 @@ export default function Footer() {
             <li><Link href="/analysis" className="hover:text-white">Analysis Articles</Link></li>
             <li><Link href="/analysis/crime-decline" className="hover:text-white">The Great Crime Decline</Link></li>
             <li><Link href="/analysis/gun-violence" className="hover:text-white">Gun Violence</Link></li>
+            <li><Link href="/crime-clock" className="hover:text-white">Crime Clock</Link></li>
+            <li><Link href="/crime-dna" className="hover:text-white">Crime DNA</Link></li>
+            <li><Link href="/violence-concentration" className="hover:text-white">Violence Concentration</Link></li>
+            <li><Link href="/city-trajectories" className="hover:text-white">City Trajectories</Link></li>
           </ul>
         </div>
         <div>
@@ -67,7 +71,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-gray-800 py-6 text-center text-xs text-gray-500">
         <p>Data from FBI Crime Data Explorer &amp; Uniform Crime Reporting (UCR) Program. Not legal advice.</p>
-        <p className="mt-1">A <a href="https://thedataproject.ai" className="hover:underline hover:text-gray-300">TheDataProject.ai</a> platform · 9,800+ pages of free crime data · © {new Date().getFullYear()}</p>
+        <p className="mt-1">A <a href="https://thedataproject.ai" className="hover:underline hover:text-gray-300">TheDataProject.ai</a> platform · 9,900+ pages of free crime data · © {new Date().getFullYear()}</p>
       </div>
     </footer>
   )
