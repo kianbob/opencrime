@@ -23,6 +23,11 @@ const articles = [
   { slug: 'organized-retail-theft', title: 'Organized Retail Theft: Is Shoplifting Really Out of Control?', desc: 'Viral videos say yes. The NRF retracted its $100B figure. What the FBI data and retail industry data actually show.', tag: 'ANALYSIS' },
   { slug: 'fentanyl-crisis', title: 'The Fentanyl Crisis: How Synthetic Opioids Are Reshaping Crime', desc: '70,000+ deaths per year. How fentanyl changed drug markets, fueled property crime, and overwhelmed law enforcement.', tag: 'DEEP DIVE' },
   { slug: 'juvenile-crime', title: 'Juvenile Crime: The Data Behind the Headlines', desc: 'Youth arrests are down 70%+ since 2006. Why the perception gap between data and media narratives is so wide.', tag: 'ANALYSIS' },
+  { slug: 'crime-by-race', title: 'Crime by Race — The Complete FBI Data Breakdown', desc: 'Black Americans are 13.7% of population but 30.5% of arrests and 51.6% of murder victims. Full data breakdown with context.', tag: 'DEEP DIVE' },
+  { slug: 'who-commits-crime', title: 'Who Commits Crime in America — Demographics Deep Dive', desc: 'Males are 72.5% of arrests, young adults 18-24 peak crime years. The complete demographic profile of US crime patterns.', tag: 'ANALYSIS' },
+  { slug: 'crime-and-poverty', title: 'Crime and Poverty — What the Data Actually Shows', desc: 'State murder rates vary 25x. How economic conditions, inequality, and concentrated poverty drive crime patterns.', tag: 'DEEP DIVE' },
+  { slug: 'murder-map', title: 'America\'s Murder Map — Where Homicides Actually Happen', desc: 'Top 10 cities account for 21% of all murders. Geographic concentration, weapon patterns, and victim-offender relationships.', tag: 'ANALYSIS' },
+  { slug: 'opioid-crime-connection', title: 'The Opioid-Crime Connection — How Drug Policy Shapes Crime Data', desc: '822K drug arrests annually despite similar usage rates. How the opioid epidemic drives property crime and mass incarceration.', tag: 'DEEP DIVE' },
 ];
 
 const specialPages = [

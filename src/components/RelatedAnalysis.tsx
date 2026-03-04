@@ -15,6 +15,11 @@ const ALL_ARTICLES = [
   { slug: 'organized-retail-theft', title: 'Organized Retail Theft', tag: 'property' },
   { slug: 'fentanyl-crisis', title: 'The Fentanyl Crisis', tag: 'drugs' },
   { slug: 'juvenile-crime', title: 'Juvenile Crime: The Data Behind Headlines', tag: 'demographics' },
+  { slug: 'crime-by-race', title: 'Crime by Race — The Complete FBI Data Breakdown', tag: 'demographics' },
+  { slug: 'who-commits-crime', title: 'Who Commits Crime in America — Demographics Deep Dive', tag: 'demographics' },
+  { slug: 'crime-and-poverty', title: 'Crime and Poverty — What the Data Actually Shows', tag: 'economics' },
+  { slug: 'murder-map', title: 'America\'s Murder Map — Where Homicides Actually Happen', tag: 'geography' },
+  { slug: 'opioid-crime-connection', title: 'The Opioid-Crime Connection — How Drug Policy Shapes Crime Data', tag: 'drugs' },
 ];
 
 export default function RelatedAnalysis({ currentSlug, tags }: { currentSlug: string; tags?: string[] }) {
