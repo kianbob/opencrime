@@ -10,6 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages = [
     '', '/dashboard', '/states', '/cities', '/rankings', '/crimes', '/search', '/about',
+    '/safest-cities', '/most-dangerous-cities', '/crime-rate', '/murder-rate',
+    '/tools', '/tools/compare', '/tools/safety-score',
+    '/methodology', '/faq',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));
 
   const states = loadData<StateData[]>('state-trends.json');

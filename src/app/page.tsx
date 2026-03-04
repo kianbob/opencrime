@@ -204,6 +204,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'WebSite', name: 'OpenCrime',
+        url: 'https://www.opencrime.us',
+        potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: 'https://www.opencrime.us/search?q={search_term_string}' }, 'query-input': 'required name=search_term_string' }
+      })}} />
+
       {/* About */}
       <section className="max-w-4xl mx-auto px-4 py-12 text-center">
         <h2 className="font-heading text-3xl font-bold mb-4">About OpenCrime</h2>

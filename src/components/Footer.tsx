@@ -16,9 +16,15 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">About</h3>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Resources</h3>
           <ul className="space-y-2">
-            <li><Link href="/about" className="hover:text-white">About OpenCrime</Link></li>
+            <li><Link href="/crime-rate" className="hover:text-white">US Crime Rate</Link></li>
+            <li><Link href="/murder-rate" className="hover:text-white">Murder Rate</Link></li>
+            <li><Link href="/safest-cities" className="hover:text-white">Safest Cities</Link></li>
+            <li><Link href="/most-dangerous-cities" className="hover:text-white">Most Dangerous Cities</Link></li>
+            <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
+            <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
+            <li><Link href="/about" className="hover:text-white">About</Link></li>
           </ul>
         </div>
         <div>

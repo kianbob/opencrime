@@ -8,11 +8,19 @@ const NAV_LINKS = [
   { href: '/cities', label: 'Cities' },
   { href: '/rankings', label: 'Rankings' },
   { href: '/crimes', label: 'Crime Types' },
+];
+
+const TOOLS = [
+  { href: '/tools/compare', label: 'Compare Cities' },
+  { href: '/tools/safety-score', label: 'Safety Score' },
   { href: '/search', label: 'Search' },
+  { href: '/safest-cities', label: 'Safest Cities' },
+  { href: '/most-dangerous-cities', label: 'Most Dangerous' },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
 
   return (
     <nav className="bg-[#1e3a5f] text-white sticky top-0 z-50 shadow-lg">
@@ -29,9 +37,20 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/about" className="px-3 py-2 rounded-lg text-sm text-blue-200 hover:text-white hover:bg-white/10 transition">
-              About
-            </Link>
+            <div className="relative" onMouseEnter={() => setToolsOpen(true)} onMouseLeave={() => setToolsOpen(false)}>
+              <Link href="/tools" className="px-3 py-2 rounded-lg text-sm font-medium text-blue-100 hover:text-white hover:bg-white/10 transition">
+                Tools ▾
+              </Link>
+              {toolsOpen && (
+                <div className="absolute top-full left-0 bg-white text-gray-800 rounded-lg shadow-xl py-2 min-w-48 z-50">
+                  {TOOLS.map(t => (
+                    <Link key={t.href} href={t.href} className="block px-4 py-2 text-sm hover:bg-gray-50 transition">
+                      {t.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile toggle */}
@@ -54,6 +73,14 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <div className="border-t border-white/20 mt-2 pt-2">
+              <span className="px-3 text-xs text-blue-300 uppercase tracking-wider">Tools</span>
+              {TOOLS.map(t => (
+                <Link key={t.href} href={t.href} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-white/10">
+                  {t.label}
+                </Link>
+              ))}
+            </div>
             <Link href="/about" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-white/10">
               About
             </Link>

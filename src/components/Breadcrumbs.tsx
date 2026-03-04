@@ -1,21 +1,30 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-type BreadcrumbItem = { label: string; href?: string }
+type Crumb = { label: string; href?: string };
 
-export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export default function Breadcrumbs({ items }: { items: Crumb[] }) {
   return (
     <nav className="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
-      <Link href="/" className="hover:text-primary">Home</Link>
       {items.map((item, i) => (
         <span key={i}>
-          <span className="mx-1">›</span>
+          {i > 0 && ' / '}
           {item.href ? (
-            <Link href={item.href} className="hover:text-primary">{item.label}</Link>
+            <Link href={item.href} className="hover:underline">{item.label}</Link>
           ) : (
-            <span className="text-gray-700">{item.label}</span>
+            <span className="text-gray-800">{item.label}</span>
           )}
         </span>
       ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: items.filter(i => i.href).map((item, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: item.label,
+          item: `https://www.opencrime.us${item.href}`,
+        })),
+      })}} />
     </nav>
-  )
+  );
 }
