@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import { loadData, fmtNum, fmtRate, fmtPct, stateAbbr } from '@/lib/utils';
-import type { CityIndex } from '@/lib/utils';
+import { loadData, fmtNum } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import Link from 'next/link';
@@ -16,48 +15,36 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.opencrime.us/arrest-efficiency' },
 };
 
+type NatEstimate = { offense: string; total: number };
+type StateArrest = { state: string; totalArrests: number; violent: number; property: number; murder: number; rape: number; robbery: number; aggAssault: number; burglary: number; larceny: number; mvTheft: number; drug: number; dui: number };
+
 export default function ArrestEfficiencyPage() {
   const arrestData = loadData<{
-    national: {
-      totalArrests: number;
-      totalAdult: number;
-      totalJuvenile: number;
-      byOffense: { offense: string; total: number; adult: number; juvenile: number }[];
-    };
-    byState: { state: string; totalArrests: number; drugArrests: number; duiArrests: number; violentArrests: number }[];
+    nationalEstimates: NatEstimate[];
+    byState: StateArrest[];
+    juvenile?: { group: string; handledInDepartment?: number; referredToJuvenileCourt?: number }[];
   }>('arrest-data.json');
 
-  const homicideData = loadData<{
-    weaponBreakdown: { weapon: string; count: number }[];
-    victimAge: { group: string; count: number }[];
-    victimSex: { sex: string; count: number }[];
-    circumstance: { circumstance: string; count: number }[];
-    relationship: { relationship: string; count: number }[];
-  }>('homicide-data.json');
+  const nat = arrestData?.nationalEstimates ?? [];
+  const byState = arrestData?.byState ?? [];
 
-  // Key stats from arrest data
-  const nat = arrestData.national;
-  const violentOffenses = nat.byOffense.filter(o => 
-    ['Murder and nonnegligent manslaughter', 'Aggravated assault', 'Robbery', 'Rape'].includes(o.offense)
-  );
-  const violentArrests = violentOffenses.reduce((s, o) => s + o.total, 0);
-  const propertyOffenses = nat.byOffense.filter(o =>
-    ['Burglary', 'Larceny-theft', 'Motor vehicle theft', 'Arson'].includes(o.offense)
-  );
-  const propertyArrests = propertyOffenses.reduce((s, o) => s + o.total, 0);
+  const find = (name: string) => nat.find(n => n.offense === name)?.total ?? 0;
 
-  const drugArrests = nat.byOffense.find(o => o.offense.includes('Drug'))?.total ?? 0;
-  const duiArrests = nat.byOffense.find(o => o.offense.includes('Driving under'))?.total ?? 0;
+  const totalArrests = find('Total');
+  const violentArrests = find('Violent crime');
+  const propertyArrests = find('Property crime');
+  const drugArrests = find('Drug abuse violations');
+  const duiArrests = find('Driving under the influence');
+  const murderArrests = find('Murder and nonnegligent manslaughter');
+  const assaultArrests = find('Aggravated assault');
+  const robberyArrests = find('Robbery');
 
-  // State comparison
-  const statesByViolent = [...arrestData.byState]
-    .filter(s => s.violentArrests > 0)
-    .sort((a, b) => b.violentArrests - a.violentArrests)
-    .slice(0, 20);
+  const totalMurders = 16935; // From 2024 FBI stats
+  const clearanceEst = totalMurders > 0 ? Math.round(murderArrests / totalMurders * 100) : 0;
 
-  // Clearance-like analysis
-  const murderArrests = nat.byOffense.find(o => o.offense.includes('Murder'))?.total ?? 0;
-  const totalMurders = 16935; // From stats
+  const statesByViolent = [...byState].sort((a, b) => b.violent - a.violent).slice(0, 20);
+
+  const topOffenses = [...nat].filter(n => n.offense !== 'Total' && n.total > 0).sort((a, b) => b.total - a.total).slice(0, 20);
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
@@ -71,7 +58,7 @@ export default function ArrestEfficiencyPage() {
       {/* Key stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
-          <p className="text-3xl font-bold text-primary">{fmtNum(nat.totalArrests)}</p>
+          <p className="text-3xl font-bold text-primary">{fmtNum(totalArrests)}</p>
           <p className="text-sm text-gray-600">Total Arrests (2024)</p>
         </div>
         <div className="bg-red-50 border border-red-200 rounded-xl p-5 text-center">
@@ -83,33 +70,29 @@ export default function ArrestEfficiencyPage() {
           <p className="text-sm text-gray-600">Property Crime Arrests</p>
         </div>
         <div className="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
-          <p className="text-3xl font-bold text-green-700">{Math.round(murderArrests / totalMurders * 100)}%</p>
+          <p className="text-3xl font-bold text-green-700">{clearanceEst}%</p>
           <p className="text-sm text-gray-600">Murder &quot;Clearance&quot; Rate</p>
         </div>
       </div>
 
-      {/* Arrest by offense type */}
+      {/* Top offenses table */}
       <section className="mb-10">
-        <h2 className="font-display text-2xl font-bold text-primary mb-4">Arrests by Offense Type</h2>
+        <h2 className="font-display text-2xl font-bold text-primary mb-4">Arrests by Offense Type (Top 20)</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50">
               <tr>
                 <th className="text-left p-3 font-semibold">Offense</th>
                 <th className="text-right p-3 font-semibold">Total Arrests</th>
-                <th className="text-right p-3 font-semibold">Adult</th>
-                <th className="text-right p-3 font-semibold">Juvenile</th>
-                <th className="text-right p-3 font-semibold">% Juvenile</th>
+                <th className="text-right p-3 font-semibold">% of All</th>
               </tr>
             </thead>
             <tbody>
-              {nat.byOffense.filter(o => o.total > 1000).sort((a, b) => b.total - a.total).slice(0, 20).map(o => (
+              {topOffenses.map(o => (
                 <tr key={o.offense} className="border-b border-gray-100">
                   <td className="p-3 font-medium">{o.offense}</td>
                   <td className="p-3 text-right font-mono">{fmtNum(o.total)}</td>
-                  <td className="p-3 text-right font-mono">{fmtNum(o.adult)}</td>
-                  <td className="p-3 text-right font-mono">{fmtNum(o.juvenile)}</td>
-                  <td className="p-3 text-right font-mono">{o.total > 0 ? (o.juvenile / o.total * 100).toFixed(1) + '%' : '—'}</td>
+                  <td className="p-3 text-right font-mono text-gray-500">{totalArrests > 0 ? (o.total / totalArrests * 100).toFixed(1) + '%' : '—'}</td>
                 </tr>
               ))}
             </tbody>
@@ -122,13 +105,13 @@ export default function ArrestEfficiencyPage() {
         <h2 className="font-display text-2xl font-bold text-red-800 mb-3">The Murder Clearance Gap</h2>
         <p className="text-gray-700 mb-4">
           In 2024, there were {fmtNum(totalMurders)} murders but only {fmtNum(murderArrests)} murder arrests — 
-          a rough clearance rate of {Math.round(murderArrests / totalMurders * 100)}%. This means approximately 
+          a rough clearance rate of {clearanceEst}%. This means approximately 
           {fmtNum(totalMurders - murderArrests)} murders went without an arrest.
         </p>
         <p className="text-gray-600 text-sm">
           Note: Arrest counts don&apos;t perfectly equal clearance rates (one arrest can clear multiple cases, or 
-          cases can be cleared by exceptional means). But the gap illustrates a fundamental challenge: for every 
-          3 murders in America, roughly 1 goes without anyone being arrested.
+          cases can be cleared by exceptional means). But the gap illustrates a fundamental challenge: for roughly 
+          every 3 murders in America, about 1 goes without anyone being arrested.
         </p>
       </section>
 
@@ -139,22 +122,22 @@ export default function ArrestEfficiencyPage() {
           <div className="bg-white border rounded-xl p-5">
             <p className="text-3xl font-bold text-purple-700">{fmtNum(drugArrests)}</p>
             <p className="font-semibold">Drug Arrests</p>
-            <p className="text-xs text-gray-500">{(drugArrests / nat.totalArrests * 100).toFixed(1)}% of all arrests</p>
+            <p className="text-xs text-gray-500">{totalArrests > 0 ? (drugArrests / totalArrests * 100).toFixed(1) : 0}% of all arrests</p>
           </div>
           <div className="bg-white border rounded-xl p-5">
             <p className="text-3xl font-bold text-amber-700">{fmtNum(duiArrests)}</p>
             <p className="font-semibold">DUI Arrests</p>
-            <p className="text-xs text-gray-500">{(duiArrests / nat.totalArrests * 100).toFixed(1)}% of all arrests</p>
+            <p className="text-xs text-gray-500">{totalArrests > 0 ? (duiArrests / totalArrests * 100).toFixed(1) : 0}% of all arrests</p>
           </div>
           <div className="bg-white border rounded-xl p-5">
             <p className="text-3xl font-bold text-red-700">{fmtNum(violentArrests)}</p>
             <p className="font-semibold">Violent Crime Arrests</p>
-            <p className="text-xs text-gray-500">{(violentArrests / nat.totalArrests * 100).toFixed(1)}% of all arrests</p>
+            <p className="text-xs text-gray-500">{totalArrests > 0 ? (violentArrests / totalArrests * 100).toFixed(1) : 0}% of all arrests</p>
           </div>
         </div>
         <p className="text-sm text-gray-600 mt-4">
           Drug and DUI arrests together often exceed violent crime arrests — raising questions about policing 
-          priorities and resource allocation. Are we arresting our way to safety, or just keeping officers busy?
+          priorities and resource allocation.
         </p>
       </section>
 
@@ -166,9 +149,9 @@ export default function ArrestEfficiencyPage() {
             <thead className="bg-gray-50">
               <tr>
                 <th className="text-left p-2 font-semibold">State</th>
-                <th className="text-right p-2 font-semibold">Violent Arrests</th>
-                <th className="text-right p-2 font-semibold">Drug Arrests</th>
-                <th className="text-right p-2 font-semibold">DUI Arrests</th>
+                <th className="text-right p-2 font-semibold">Violent</th>
+                <th className="text-right p-2 font-semibold">Drug</th>
+                <th className="text-right p-2 font-semibold">DUI</th>
                 <th className="text-right p-2 font-semibold">Total</th>
               </tr>
             </thead>
@@ -176,9 +159,9 @@ export default function ArrestEfficiencyPage() {
               {statesByViolent.map(s => (
                 <tr key={s.state} className="border-b border-gray-100">
                   <td className="p-2 font-medium">{s.state}</td>
-                  <td className="p-2 text-right font-mono text-red-600">{fmtNum(s.violentArrests)}</td>
-                  <td className="p-2 text-right font-mono">{fmtNum(s.drugArrests)}</td>
-                  <td className="p-2 text-right font-mono">{fmtNum(s.duiArrests)}</td>
+                  <td className="p-2 text-right font-mono text-red-600">{fmtNum(s.violent)}</td>
+                  <td className="p-2 text-right font-mono">{fmtNum(s.drug)}</td>
+                  <td className="p-2 text-right font-mono">{fmtNum(s.dui)}</td>
                   <td className="p-2 text-right font-mono">{fmtNum(s.totalArrests)}</td>
                 </tr>
               ))}
@@ -195,9 +178,9 @@ export default function ArrestEfficiencyPage() {
           drug crime — or it might have a department that doesn&apos;t prioritize drug enforcement.
         </p>
         <p>
-          Juvenile arrests deserve special attention. High juvenile arrest rates for certain offenses (larceny, 
-          aggravated assault) often indicate underlying community issues — school quality, economic opportunity, 
-          family stability — rather than simply &quot;youth crime.&quot;
+          The gap between crimes reported and arrests made is particularly stark for property crime. 
+          With a property crime occurring every 5 seconds but limited detective resources, most theft, 
+          burglary, and auto theft goes unsolved.
         </p>
       </section>
 
