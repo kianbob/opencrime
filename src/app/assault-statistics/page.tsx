@@ -5,6 +5,9 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
+
 export const metadata: Metadata = {
   title: 'Aggravated Assault Statistics 2024 — US Assault Rates & Trends',
   description: 'US aggravated assault statistics: rates, trends, weapon data. FBI 2024 data shows assault is the most common violent crime.',

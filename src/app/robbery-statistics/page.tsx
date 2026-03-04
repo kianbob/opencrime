@@ -5,6 +5,9 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
+
 export const metadata: Metadata = {
   title: 'Robbery Statistics 2024 — US Robbery Rates, Trends & Data',
   description: 'US robbery statistics: rates, trends, and data from FBI 2024 reports. National robbery figures, historical context, and analysis.',
@@ -18,6 +21,9 @@ export default function RobberyPage() {
   const robberyRate = n.robbery / n.population * 100000;
   const peak = national.reduce((max, y) => (y.robbery / y.population * 100000) > (max.robbery / max.population * 100000) ? y : max, national[0]);
   const peakRate = peak.robbery / peak.population * 100000;
+  const arrestData = loadData<{ byRace: RaceRow[]; byEthnicity: EthRow[] }>('arrest-data.json');
+  const robRace = arrestData.byRace.find(r => r.offense === 'Robbery');
+  const robEth = arrestData.byEthnicity.find(e => e.offense === 'Robbery');
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -74,6 +80,62 @@ export default function RobberyPage() {
           <li><strong>Demographic shifts.</strong> The aging of the population means fewer people in the prime robbery-committing age range.</li>
         </ul>
       </div>
+
+      {/* Robbery Arrest Demographics */}
+      {robRace && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">Robbery Arrests by Race &amp; Ethnicity</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-3 py-2">Race</th>
+                  <th className="text-right px-3 py-2">Arrests</th>
+                  <th className="text-right px-3 py-2">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'White', value: robRace.white },
+                  { label: 'Black or African American', value: robRace.black },
+                  { label: 'American Indian/Alaska Native', value: robRace.nativeAmerican },
+                  { label: 'Asian', value: robRace.asian },
+                  { label: 'Native Hawaiian/Pacific Islander', value: robRace.pacificIslander },
+                ].map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="px-3 py-2">{row.label}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(row.value)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{(row.value / robRace.total * 100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+                <tr className="border-t font-semibold bg-gray-50">
+                  <td className="px-3 py-2">Total</td>
+                  <td className="px-3 py-2 text-right font-mono">{fmtNum(robRace.total)}</td>
+                  <td className="px-3 py-2 text-right font-mono">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {robEth && (
+            <div className="mt-4 flex gap-4">
+              <div className="bg-red-50 rounded-lg p-3 flex-1 text-center">
+                <div className="text-xl font-bold text-red-700">{robEth.hispanicPct}%</div>
+                <div className="text-xs text-gray-600">Hispanic/Latino</div>
+              </div>
+              <div className="bg-red-50 rounded-lg p-3 flex-1 text-center">
+                <div className="text-xl font-bold text-red-700">{robEth.notHispanicPct}%</div>
+                <div className="text-xs text-gray-600">Not Hispanic/Latino</div>
+              </div>
+            </div>
+          )}
+          <p className="text-sm text-gray-500 mt-4">
+            Arrest data reflects policing patterns, not the true distribution of criminal behavior.
+            See <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">full demographics</Link> |{' '}
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">racial disparities</Link> |{' '}
+            <Link href="/analysis/who-commits-crime" className="text-[#1e3a5f] hover:underline">who commits crime</Link>
+          </p>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-4 mt-8">
         <Link href="/crime-rate" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">All Crime Data</Link>

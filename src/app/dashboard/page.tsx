@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import DashboardCharts from './DashboardCharts';
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
+
 export const metadata: Metadata = {
   title: 'Crime Dashboard — National Crime Trends 1979–2024',
   description: 'Interactive dashboard showing 45 years of US crime data. Violent crime, property crime, murder rates with charts and trends from FBI statistics.',
@@ -21,6 +24,9 @@ export default function DashboardPage() {
   const national = loadData<NationalTrend[]>('national-trends.json');
   const stats = loadData<Stats>('stats.json');
   const n = stats.national2024;
+  const arrestData = loadData<{ byRace: RaceRow[]; byEthnicity: EthRow[] }>('arrest-data.json');
+  const raceTotal = arrestData.byRace.find(r => r.offense === 'TOTAL');
+  const ethTotal = arrestData.byEthnicity.find(e => e.offense === 'TOTAL');
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -81,6 +87,62 @@ export default function DashboardPage() {
       </div>
 
       <DashboardCharts data={national} />
+
+      {/* Arrest Demographics by Race */}
+      {raceTotal && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">National Arrest Demographics by Race</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-4 py-2">Race</th>
+                  <th className="text-right px-4 py-2">Arrests</th>
+                  <th className="text-right px-4 py-2">% of Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'White', value: raceTotal.white },
+                  { label: 'Black or African American', value: raceTotal.black },
+                  { label: 'American Indian/Alaska Native', value: raceTotal.nativeAmerican },
+                  { label: 'Asian', value: raceTotal.asian },
+                  { label: 'Native Hawaiian/Pacific Islander', value: raceTotal.pacificIslander },
+                ].map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="px-4 py-2">{row.label}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmtNum(row.value)}</td>
+                    <td className="px-4 py-2 text-right font-mono">{(row.value / raceTotal.total * 100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+                <tr className="border-t font-semibold bg-gray-50">
+                  <td className="px-4 py-2">Total</td>
+                  <td className="px-4 py-2 text-right font-mono">{fmtNum(raceTotal.total)}</td>
+                  <td className="px-4 py-2 text-right font-mono">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {ethTotal && (
+            <div className="mt-4 grid md:grid-cols-2 gap-4">
+              <div className="bg-blue-50 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-[#1e3a5f]">{ethTotal.hispanicPct}%</div>
+                <div className="text-sm text-gray-600">Hispanic or Latino</div>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-[#1e3a5f]">{ethTotal.notHispanicPct}%</div>
+                <div className="text-sm text-gray-600">Not Hispanic or Latino</div>
+              </div>
+            </div>
+          )}
+          <p className="text-sm text-gray-500 mt-4">
+            Arrest data reflects law enforcement activity and policing patterns, not necessarily the distribution
+            of criminal behavior. Factors including poverty, policing intensity, and systemic inequities affect arrest rates.
+            See <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">full demographic breakdown</Link> and
+            our <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">analysis of racial disparities</Link>.
+          </p>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-4 mt-8">
         <Link href="/states" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">Browse States</Link>

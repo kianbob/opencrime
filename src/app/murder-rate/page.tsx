@@ -5,6 +5,26 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import MurderCharts from './MurderCharts';
 
+type VictimRace = { race: string; total: number; male: number; female: number };
+type OffenderRace = { race: string; total: number; pct: number };
+type VictimEth = { ethnicity: string; total: number; male: number; female: number };
+type OffenderEth = { ethnicity: string; total: number; pct: number };
+type VictimOffenderRace = {
+  whiteVictim: { total: number; byWhite: number; byBlack: number; byOther: number; unknown: number };
+  blackVictim: { total: number; byWhite: number; byBlack: number; byOther: number; unknown: number };
+  otherVictim: { total: number; byWhite: number; byBlack: number; byOther: number; unknown: number };
+  unknownVictim: { total: number; byWhite: number; byBlack: number; byOther: number; unknown: number };
+};
+type HomicideData = {
+  victimRace: VictimRace[];
+  offenderRace: OffenderRace[];
+  victimEthnicity: VictimEth[];
+  offenderEthnicity: OffenderEth[];
+  victimOffenderRace: VictimOffenderRace;
+  totalVictims: number;
+  totalOffenders: number;
+};
+
 export const metadata: Metadata = {
   title: 'US Murder Rate 2024 — Statistics, Trends & City Rankings',
   description: 'The US murder rate in 2024: 4.98 per 100K, down 15.7% from 2023. City-by-city murder rankings, 45-year trends, and state comparisons from FBI data.',
@@ -19,6 +39,8 @@ export default function MurderRatePage() {
   const large = cities.filter(c => c.population >= 100000);
   const deadliest = [...large].sort((a, b) => b.murderRate - a.murderRate).slice(0, 25);
   const safest = [...large].filter(c => c.murderRate === 0);
+  const hom = loadData<HomicideData>('homicide-data.json');
+  const vor = hom.victimOffenderRace;
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -61,6 +83,155 @@ export default function MurderRatePage() {
       </div>
 
       <MurderCharts data={national} />
+
+      {/* Victim & Offender Demographics */}
+      <div className="bg-white rounded-xl shadow-sm border p-6 mb-8 mt-8">
+        <h2 className="font-heading text-2xl font-bold mb-4 text-red-800">Murder Demographics by Race &amp; Ethnicity</h2>
+        <p className="text-gray-600 mb-4">
+          The FBI&apos;s Supplementary Homicide Report provides demographic data on both victims and known offenders.
+          Offender data includes a large &quot;Unknown&quot; category because many homicides remain unsolved.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {/* Victim Race */}
+          <div>
+            <h3 className="font-semibold text-red-700 mb-2">Victims by Race</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-red-50">
+                  <tr>
+                    <th className="text-left px-3 py-2">Race</th>
+                    <th className="text-right px-3 py-2">Total</th>
+                    <th className="text-right px-3 py-2">%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {hom.victimRace.map(r => (
+                    <tr key={r.race} className="border-t">
+                      <td className="px-3 py-2">{r.race}</td>
+                      <td className="px-3 py-2 text-right font-mono">{fmtNum(r.total)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{(r.total / hom.victimRace.reduce((s, v) => s + v.total, 0) * 100).toFixed(1)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Offender Race */}
+          <div>
+            <h3 className="font-semibold text-red-700 mb-2">Known Offenders by Race</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-red-50">
+                  <tr>
+                    <th className="text-left px-3 py-2">Race</th>
+                    <th className="text-right px-3 py-2">Total</th>
+                    <th className="text-right px-3 py-2">%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {hom.offenderRace.map(r => (
+                    <tr key={r.race} className="border-t">
+                      <td className="px-3 py-2">{r.race}</td>
+                      <td className="px-3 py-2 text-right font-mono">{fmtNum(r.total)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{r.pct.toFixed(1)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Ethnicity */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <h3 className="font-semibold mb-2">Victim Ethnicity</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50">
+                  <tr><th className="text-left px-3 py-2">Ethnicity</th><th className="text-right px-3 py-2">Total</th></tr>
+                </thead>
+                <tbody>
+                  {hom.victimEthnicity.map(e => (
+                    <tr key={e.ethnicity} className="border-t">
+                      <td className="px-3 py-2">{e.ethnicity}</td>
+                      <td className="px-3 py-2 text-right font-mono">{fmtNum(e.total)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Offender Ethnicity</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50">
+                  <tr><th className="text-left px-3 py-2">Ethnicity</th><th className="text-right px-3 py-2">Total</th><th className="text-right px-3 py-2">%</th></tr>
+                </thead>
+                <tbody>
+                  {hom.offenderEthnicity.map(e => (
+                    <tr key={e.ethnicity} className="border-t">
+                      <td className="px-3 py-2">{e.ethnicity}</td>
+                      <td className="px-3 py-2 text-right font-mono">{fmtNum(e.total)}</td>
+                      <td className="px-3 py-2 text-right font-mono">{e.pct.toFixed(1)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Victim-Offender Cross-Tab */}
+        <h3 className="font-semibold text-red-700 mb-2">Victim–Offender Relationship by Race</h3>
+        <p className="text-sm text-gray-600 mb-3">
+          Most homicides are intraracial — victims and offenders are typically the same race. This table
+          shows single-victim/single-offender incidents where both races are known.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-red-50">
+              <tr>
+                <th className="text-left px-3 py-2">Victim Race</th>
+                <th className="text-right px-3 py-2">By White Offender</th>
+                <th className="text-right px-3 py-2">By Black Offender</th>
+                <th className="text-right px-3 py-2">By Other</th>
+                <th className="text-right px-3 py-2">Unknown</th>
+                <th className="text-right px-3 py-2">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { label: 'White Victim', d: vor.whiteVictim },
+                { label: 'Black Victim', d: vor.blackVictim },
+                { label: 'Other Race Victim', d: vor.otherVictim },
+                { label: 'Unknown Race Victim', d: vor.unknownVictim },
+              ].map(row => (
+                <tr key={row.label} className="border-t">
+                  <td className="px-3 py-2 font-medium">{row.label}</td>
+                  <td className="px-3 py-2 text-right font-mono">{fmtNum(row.d.byWhite)}</td>
+                  <td className="px-3 py-2 text-right font-mono">{fmtNum(row.d.byBlack)}</td>
+                  <td className="px-3 py-2 text-right font-mono">{fmtNum(row.d.byOther)}</td>
+                  <td className="px-3 py-2 text-right font-mono">{fmtNum(row.d.unknown)}</td>
+                  <td className="px-3 py-2 text-right font-mono font-semibold">{fmtNum(row.d.total)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4 text-sm text-amber-800">
+          <strong>Context:</strong> Homicide data reflects reported incidents. Offender demographics include a large
+          &quot;Unknown&quot; category from unsolved cases. Demographic patterns reflect structural factors including
+          poverty, segregation, and policing patterns — not inherent characteristics. See our{' '}
+          <Link href="/analysis/racial-disparities" className="underline">full analysis</Link>,{' '}
+          <Link href="/analysis/crime-by-race" className="underline">crime by race</Link>, and{' '}
+          <Link href="/analysis/who-commits-crime" className="underline">who commits crime</Link> articles.
+        </div>
+      </div>
 
       <h2 className="font-heading text-2xl font-bold mb-4 mt-8 text-red-800">Cities with Highest Murder Rates (100K+ Pop)</h2>
       <div className="bg-white rounded-xl shadow-sm border overflow-x-auto mb-8">

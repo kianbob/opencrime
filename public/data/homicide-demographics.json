@@ -1,0 +1,166 @@
+{
+  "victimRace": [
+    {
+      "race": "White",
+      "total": 6753,
+      "male": 4786,
+      "female": 1953
+    },
+    {
+      "race": "Black",
+      "total": 8158,
+      "male": 6794,
+      "female": 1355
+    },
+    {
+      "race": "Other",
+      "total": 464,
+      "male": 322,
+      "female": 142
+    },
+    {
+      "race": "Unknown",
+      "total": 420,
+      "male": 242,
+      "female": 88
+    }
+  ],
+  "victimEthnicity": [
+    {
+      "ethnicity": "Hispanic or Latino",
+      "total": 2372,
+      "male": 1903,
+      "female": 467
+    },
+    {
+      "ethnicity": "Not Hispanic or Latino",
+      "total": 9314,
+      "male": 7121,
+      "female": 2173
+    },
+    {
+      "ethnicity": "Unknown",
+      "total": 1364,
+      "male": 1026,
+      "female": 304
+    }
+  ],
+  "totalVictims": {
+    "total": 15795,
+    "male": 12144,
+    "female": 3538,
+    "unknown": 113
+  },
+  "offenderRace": [
+    {
+      "race": "White",
+      "total": 6048,
+      "pct": 31.2
+    },
+    {
+      "race": "Black",
+      "total": 8357,
+      "pct": 43.1
+    },
+    {
+      "race": "Other",
+      "total": 404,
+      "pct": 2.1
+    },
+    {
+      "race": "Unknown",
+      "total": 4570,
+      "pct": 23.6
+    }
+  ],
+  "offenderEthnicity": [
+    {
+      "ethnicity": "Hispanic or Latino",
+      "total": 2249,
+      "pct": 14.1
+    },
+    {
+      "ethnicity": "Not Hispanic or Latino",
+      "total": 7998,
+      "pct": 50
+    },
+    {
+      "ethnicity": "Unknown",
+      "total": 5746,
+      "pct": 35.9
+    }
+  ],
+  "totalOffenders": {
+    "total": 19379,
+    "male": 13469,
+    "female": 1902,
+    "unknown": 4008
+  },
+  "offenderAge": [
+    {
+      "range": "Under 18",
+      "total": 1551,
+      "pct": 8
+    },
+    {
+      "range": "18-24",
+      "total": 4263,
+      "pct": 22
+    },
+    {
+      "range": "25-29",
+      "total": 2321,
+      "pct": 12
+    },
+    {
+      "range": "30-34",
+      "total": 1988,
+      "pct": 10.3
+    },
+    {
+      "range": "35-39",
+      "total": 1467,
+      "pct": 7.6
+    },
+    {
+      "range": "40+",
+      "total": 3374,
+      "pct": 17.4
+    },
+    {
+      "range": "Unknown",
+      "total": 4632,
+      "pct": 23.9
+    }
+  ],
+  "victimOffenderRace": {
+    "whiteVictim": {
+      "total": 3840,
+      "byWhite": 2968,
+      "byBlack": 684,
+      "byOther": 75,
+      "unknown": 113
+    },
+    "blackVictim": {
+      "total": 3683,
+      "byWhite": 334,
+      "byBlack": 3137,
+      "byOther": 14,
+      "unknown": 198
+    },
+    "otherVictim": {
+      "total": 262,
+      "byWhite": 72,
+      "byBlack": 50,
+      "byOther": 131,
+      "unknown": 9
+    },
+    "unknownVictim": {
+      "total": 194,
+      "byWhite": 71,
+      "byBlack": 56,
+      "byOther": 11,
+      "unknown": 56
+    }
+  }
+}
