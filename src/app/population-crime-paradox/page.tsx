@@ -197,6 +197,17 @@ export default function ParadoxPage() {
         <a href="/rankings" className="text-primary hover:underline">→ City Rankings</a>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Race &amp; the paradox:</strong> Small high-crime cities often have higher concentrations of poverty
+          and racial segregation. The demographic patterns of violence — where young Black men are disproportionately
+          affected — hold across city sizes.{' '}
+          <a href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</a> |{' '}
+          <a href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</a> |{' '}
+          <a href="/analysis/rural-vs-urban" className="text-primary hover:underline">Rural vs urban crime</a>
+        </p>
+      </div>
+
       <ShareButtons title="The Population-Crime Paradox — Small Cities With Big Crime" />
     </main>
   );

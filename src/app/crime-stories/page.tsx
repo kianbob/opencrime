@@ -148,6 +148,15 @@ export default function CrimeStoriesPage() {
         <Link href="/population-crime-paradox" className="text-primary hover:underline">→ Population-Crime Paradox</Link>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Demographic angle:</strong> Each city&apos;s crime story has a demographic dimension — who is most
+          affected varies by location. Nationally, Black Americans bear a disproportionate burden of violence.{' '}
+          <a href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</a> |{' '}
+          <a href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</a>
+        </p>
+      </div>
+
       <ShareButtons title="Crime Stories — Data-Driven City Profiles" />
     </main>
   );

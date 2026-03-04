@@ -3,6 +3,8 @@ import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
+
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
@@ -140,6 +142,21 @@ export default function SafestCitiesPage() {
         <p>The national average violent crime rate in 2024 was 359.1 per 100,000. Cities below 200 are generally considered very safe, while cities below 100 are exceptionally safe.</p>
         <h3>Are suburban cities safer than urban cities?</h3>
         <p>Generally yes. Many of the safest cities on this list are suburban communities near major metro areas. However, some mid-size cities and even some larger urban areas also rank among the safest.</p>
+      </div>
+
+      {/* Demographic Context */}
+      <div className="bg-gray-50 rounded-xl p-6 mb-8">
+        <h3 className="font-heading text-lg font-bold mb-2">Demographic Context</h3>
+        <p className="text-sm text-gray-600 mb-3">
+          Safety varies significantly across demographic groups. While these cities have the lowest overall
+          crime rates, national data shows that victimization is not equally distributed — Black Americans
+          face homicide rates 6-8x higher than white Americans nationally.
+        </p>
+        <div className="flex flex-wrap gap-3 text-sm">
+          <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">Arrest Demographics →</Link>
+          <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">Racial Disparities →</Link>
+          <Link href="/analysis/crime-by-race" className="text-[#1e3a5f] hover:underline">Crime by Race →</Link>
+        </div>
       </div>
 
       <ShareButtons title="Safest Cities in America 2024" />

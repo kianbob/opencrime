@@ -191,6 +191,17 @@ export default function ArrestEfficiencyPage() {
         <Link href="/analysis/gun-violence" className="text-primary hover:underline">→ Gun Violence Analysis</Link>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Racial disparities in clearance:</strong> Homicide clearance rates are lower in predominantly
+          Black neighborhoods, meaning murders in those communities are less likely to be solved. This creates
+          cycles of distrust and retaliation.{' '}
+          <Link href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</Link> |{' '}
+          <Link href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</Link> |{' '}
+          <Link href="/analysis/crime-by-race" className="text-primary hover:underline">Crime by race</Link>
+        </p>
+      </div>
+
       <ShareButtons title="Arrest Efficiency — How Effective Is Policing in America?" />
     </main>
   );

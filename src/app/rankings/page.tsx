@@ -3,6 +3,8 @@ import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+
 export const metadata: Metadata = {
   title: 'Most Dangerous & Safest Cities in America — 2024 Rankings',
   description: 'Complete rankings of the most dangerous and safest cities in America by violent crime rate. Based on FBI 2024 data for 9,700+ cities.',
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function RankingsPage() {
   const allCities = loadData<CityIndex[]>('city-index.json');
+  const vcRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'Violent crime');
   const large = allCities.filter(c => c.population >= 100000);
   const dangerous = [...large].sort((a, b) => b.violentRate - a.violentRate);
   const safest = [...large].sort((a, b) => a.violentRate - b.violentRate);
@@ -61,6 +64,32 @@ export default function RankingsPage() {
       <div className="mb-12">
         {renderTable(deadliest, 'Highest Murder Rate', 'murderRate', 'bg-red-900')}
       </div>
+
+      {/* Demographics */}
+      {vcRace && (
+        <div className="bg-gray-50 rounded-xl p-6 mb-8">
+          <h3 className="font-heading text-lg font-bold mb-3">National Violent Crime Arrest Demographics</h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-center text-sm mb-3">
+            {[
+              { label: 'White', pct: (vcRace.white / vcRace.total * 100).toFixed(1) },
+              { label: 'Black', pct: (vcRace.black / vcRace.total * 100).toFixed(1) },
+              { label: 'Native Am.', pct: (vcRace.nativeAmerican / vcRace.total * 100).toFixed(1) },
+              { label: 'Asian', pct: (vcRace.asian / vcRace.total * 100).toFixed(1) },
+              { label: 'Pacific Isl.', pct: (vcRace.pacificIslander / vcRace.total * 100).toFixed(1) },
+            ].map(r => (
+              <div key={r.label} className="bg-white rounded-lg p-2 border">
+                <div className="font-bold text-red-700">{r.pct}%</div>
+                <div className="text-xs text-gray-500">{r.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-500">
+            Arrest data reflects policing patterns, not the distribution of criminal behavior.{' '}
+            <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">Full demographics</Link> |{' '}
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">Racial disparities</Link>
+          </p>
+        </div>
+      )}
 
       <p className="text-sm text-gray-500">
         Source: FBI Crime Data Explorer. Rankings based on reported offenses per 100,000 residents. 

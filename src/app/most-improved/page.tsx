@@ -114,6 +114,15 @@ export default function MostImprovedPage() {
         <Link href="/dashboard" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">National Trends</Link>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-4 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Demographics:</strong> Crime improvements and deteriorations affect different communities unequally.
+          National data shows significant racial disparities in both victimization and arrest rates.{' '}
+          <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">Arrest demographics</Link> |{' '}
+          <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">Racial disparities</Link>
+        </p>
+      </div>
+
       <div className="mt-8"><ShareButtons title="Most Improved & Most Worsened Cities 2024" /></div>
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2024 vs 2023. Cities with 100K+ population only.</p>

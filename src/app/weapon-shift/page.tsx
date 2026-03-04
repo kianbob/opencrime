@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+
+type VictimRace = { race: string; total: number; male: number; female: number };
 import WeaponCharts from './WeaponCharts';
 
 export const metadata: Metadata = {
@@ -148,6 +150,34 @@ export default function WeaponShiftPage() {
         <Link href="/murder-rate" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Murder Rate</Link>
         <Link href="/analysis/mass-shootings" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Mass Shootings</Link>
       </div>
+
+      {/* Victim Race */}
+      {(data as { victimRace?: VictimRace[] }).victimRace && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-6">
+          <h3 className="font-heading text-lg font-bold mb-3">Murder Victims by Race</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr><th className="text-left px-3 py-2">Race</th><th className="text-right px-3 py-2">Total</th><th className="text-right px-3 py-2">Male</th><th className="text-right px-3 py-2">Female</th></tr>
+              </thead>
+              <tbody>
+                {((data as { victimRace?: VictimRace[] }).victimRace ?? []).map((r: VictimRace) => (
+                  <tr key={r.race} className="border-t">
+                    <td className="px-3 py-2">{r.race}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(r.total)}</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-500">{fmtNum(r.male)}</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-500">{fmtNum(r.female)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-3">
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">Racial disparities analysis</Link> |{' '}
+            <Link href="/analysis/gun-violence" className="text-[#1e3a5f] hover:underline">Gun violence demographics</Link>
+          </p>
+        </div>
+      )}
 
       <div className="mt-8"><ShareButtons title="The Weapon Shift" /></div>
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, Expanded Homicide Data, 2020-2024.</p>

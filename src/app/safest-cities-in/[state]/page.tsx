@@ -213,6 +213,15 @@ export default async function SafestCitiesInStatePage({ params }: { params: Prom
         <Link href="/tools/safety-score" className="text-primary hover:underline">→ Safety Score Calculator</Link>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mb-6">
+        <p className="text-sm text-gray-600">
+          <strong>National demographic context:</strong> Crime and safety vary across racial and ethnic groups.
+          Per-city demographic data is not published by the FBI, but national patterns show significant disparities.{' '}
+          <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">Full demographics</Link> |{' '}
+          <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">Racial disparities</Link>
+        </p>
+      </div>
+
       <ShareButtons title={`Safest Cities in ${st.name} (2024)`} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

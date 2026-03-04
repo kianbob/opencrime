@@ -70,6 +70,16 @@ export default function CrimeClockPage() {
         <a href="/rankings" className="text-primary hover:underline">→ City Rankings</a>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Who is affected?</strong> Crime does not fall equally on all Americans. Black males 15-34 face
+          homicide as their leading cause of death. Young men 18-24 are both the most likely victims and offenders.{' '}
+          <a href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</a> |{' '}
+          <a href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</a> |{' '}
+          <a href="/analysis/who-commits-crime" className="text-primary hover:underline">Who commits crime?</a>
+        </p>
+      </div>
+
       <ShareButtons title="Crime Clock — How Often Crimes Occur in America" />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

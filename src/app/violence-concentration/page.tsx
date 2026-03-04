@@ -131,6 +131,17 @@ export default function ViolenceConcentrationPage() {
         <a href="/crime-clock" className="text-primary hover:underline">→ Crime Clock</a>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Demographic dimension:</strong> Violence concentration intersects heavily with race — Black Americans
+          account for over half of murder victims nationally despite being 13.6% of the population.
+          This reflects concentrated poverty and historical disinvestment, not inherent characteristics.{' '}
+          <a href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</a> |{' '}
+          <a href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</a> |{' '}
+          <a href="/analysis/crime-by-race" className="text-primary hover:underline">Crime by race</a>
+        </p>
+      </div>
+
       <ShareButtons title="Violence Concentration — Where Murder Really Happens in America" />
     </main>
   );

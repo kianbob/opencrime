@@ -3,6 +3,8 @@ import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
+
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
@@ -18,6 +20,7 @@ export default function DangerousCitiesPage() {
   const dangerous = [...large].sort((a, b) => b.violentRate - a.violentRate);
   const deadliest = [...large].sort((a, b) => b.murderRate - a.murderRate);
   const natRate = 359.1;
+  const vcRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'Violent crime');
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -137,6 +140,33 @@ export default function DangerousCitiesPage() {
         <h3>Is crime getting worse in America?</h3>
         <p>No. Violent crime in 2024 dropped 5.4% from 2023 and is down 52.6% from the 1991 peak. The current violent crime rate of 359.1 per 100K is historically low — comparable to the late 1960s.</p>
       </div>
+
+      {/* Violent Crime Demographics */}
+      {vcRace && (
+        <div className="bg-gray-50 rounded-xl p-6 mb-8">
+          <h3 className="font-heading text-lg font-bold mb-3">Who Gets Arrested for Violent Crime?</h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-center text-sm">
+            {[
+              { label: 'White', pct: (vcRace.white / vcRace.total * 100).toFixed(1) },
+              { label: 'Black', pct: (vcRace.black / vcRace.total * 100).toFixed(1) },
+              { label: 'Native Am.', pct: (vcRace.nativeAmerican / vcRace.total * 100).toFixed(1) },
+              { label: 'Asian', pct: (vcRace.asian / vcRace.total * 100).toFixed(1) },
+              { label: 'Pacific Isl.', pct: (vcRace.pacificIslander / vcRace.total * 100).toFixed(1) },
+            ].map(r => (
+              <div key={r.label} className="bg-white rounded-lg p-2 border">
+                <div className="font-bold text-red-700">{r.pct}%</div>
+                <div className="text-xs text-gray-500">{r.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-500 mt-3">
+            Arrest data reflects policing patterns, not the distribution of criminal behavior.{' '}
+            <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">Full demographics</Link> |{' '}
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">Racial disparities</Link> |{' '}
+            <Link href="/analysis/who-commits-crime" className="text-[#1e3a5f] hover:underline">Who commits crime?</Link>
+          </p>
+        </div>
+      )}
 
       <ShareButtons title="Most Dangerous Cities in America 2024" />
 

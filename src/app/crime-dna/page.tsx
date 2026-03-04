@@ -175,6 +175,16 @@ export default function CrimeDNAPage() {
         <a href="/tools/compare" className="text-primary hover:underline">→ Compare Cities</a>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Race &amp; crime DNA:</strong> A city&apos;s crime composition intersects with demographics.
+          Murder-heavy cities see disproportionate impact on young Black men; assault-heavy cities often reflect
+          domestic violence and alcohol-related patterns across all demographics.{' '}
+          <a href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</a> |{' '}
+          <a href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</a>
+        </p>
+      </div>
+
       <ShareButtons title="Crime DNA — Every City Has a Unique Crime Fingerprint" />
     </main>
   );

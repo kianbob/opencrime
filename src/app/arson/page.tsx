@@ -4,6 +4,8 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import Link from 'next/link';
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+
 export const metadata: Metadata = {
   title: 'Arson Statistics — FBI Data on Arson by Property Type | OpenCrime',
   description: 'FBI arson data broken down by property type: residential, commercial, vehicles, and more. Includes clearance rates by category.',
@@ -20,6 +22,7 @@ type ArsonRow = { type: string; count: number; pctCleared: number };
 export default function ArsonPage() {
   const offense = loadData<{ arsonByProperty: ArsonRow[] }>('offense-data.json');
   const arson = (offense?.arsonByProperty ?? []).filter(a => a.count > 0);
+  const arsonRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'Arson');
   const total = arson.reduce((s, a) => s + a.count, 0);
 
   return (
@@ -86,6 +89,31 @@ export default function ArsonPage() {
         <Link href="/property-crime" className="text-primary hover:underline">→ Property Crime Overview</Link>
         <Link href="/arrests" className="text-primary hover:underline">→ Arrest Data</Link>
       </div>
+
+      {/* Arson Arrest Demographics */}
+      {arsonRace && (
+        <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+          <h3 className="font-semibold text-sm mb-2">Arson Arrests by Race</h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-center text-xs">
+            {[
+              { label: 'White', pct: (arsonRace.white / arsonRace.total * 100).toFixed(1) },
+              { label: 'Black', pct: (arsonRace.black / arsonRace.total * 100).toFixed(1) },
+              { label: 'Native Am.', pct: (arsonRace.nativeAmerican / arsonRace.total * 100).toFixed(1) },
+              { label: 'Asian', pct: (arsonRace.asian / arsonRace.total * 100).toFixed(1) },
+              { label: 'Pacific Isl.', pct: (arsonRace.pacificIslander / arsonRace.total * 100).toFixed(1) },
+            ].map(r => (
+              <div key={r.label} className="bg-white rounded p-1.5 border">
+                <div className="font-bold">{r.pct}%</div>
+                <div className="text-gray-500">{r.label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-500 mt-2">
+            <Link href="/arrest-demographics" className="text-primary hover:underline">Full demographics</Link> |{' '}
+            <Link href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</Link>
+          </p>
+        </div>
+      )}
 
       <ShareButtons title="Arson Statistics — FBI Data by Property Type" />
     </main>

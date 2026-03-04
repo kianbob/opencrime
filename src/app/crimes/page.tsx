@@ -57,6 +57,21 @@ export default function CrimesPage() {
 
       <CrimeTypeCharts crimeTypes={crimeTypes} />
 
+      {/* Demographics Overview */}
+      <div className="bg-gray-50 rounded-xl p-6 mt-8 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-2">Arrest Demographics by Race</h3>
+        <p className="text-sm text-gray-600 mb-3">
+          The FBI tracks arrest demographics for every crime category. Significant racial disparities
+          exist across crime types, shaped by policing patterns, poverty, and systemic factors.
+        </p>
+        <div className="flex flex-wrap gap-3 text-sm">
+          <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline font-medium">Full Arrest Demographics →</Link>
+          <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline font-medium">Racial Disparities →</Link>
+          <Link href="/analysis/crime-by-race" className="text-[#1e3a5f] hover:underline font-medium">Crime by Race →</Link>
+          <Link href="/analysis/who-commits-crime" className="text-[#1e3a5f] hover:underline font-medium">Who Commits Crime? →</Link>
+        </div>
+      </div>
+
       <p className="text-sm text-gray-500 mt-8">
         Source: FBI Crime Data Explorer, SRS Estimated Crimes. Rates per 100,000 residents.
         The FBI transitioned from SRS to NIBRS between 2017-2020, causing a gap in national estimates.

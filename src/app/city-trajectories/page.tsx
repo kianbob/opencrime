@@ -140,6 +140,16 @@ export default function CityTrajectoriesPage() {
         <a href="/violence-concentration" className="text-primary hover:underline">→ Violence Concentration</a>
       </div>
 
+      <div className="bg-gray-50 rounded-xl p-4 mt-6 mb-4">
+        <p className="text-sm text-gray-600">
+          <strong>Demographic context:</strong> Crime trajectory improvements benefit all communities, but
+          historically disadvantaged neighborhoods may lag. National data shows significant racial disparities
+          in victimization.{' '}
+          <a href="/arrest-demographics" className="text-primary hover:underline">Arrest demographics</a> |{' '}
+          <a href="/analysis/racial-disparities" className="text-primary hover:underline">Racial disparities</a>
+        </p>
+      </div>
+
       <ShareButtons title="City Crime Trajectories — Is Your City Getting Safer?" />
     </main>
   );
