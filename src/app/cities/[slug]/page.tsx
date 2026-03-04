@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const years = Object.keys(city.years).sort();
   const latest = city.years[years[years.length - 1]];
   return {
-    title: `${city.city}, ${city.state} Crime Rate — Statistics & Safety Data`,
-    description: `Crime rate in ${city.city}, ${city.state}. Violent crime rate: ${latest.violentRate} per 100K. ${latest.murder} murders. Population: ${latest.population.toLocaleString()}.`,
+    title: `${city.city}, ${city.state} Crime Rate & Safety — Is ${city.city} Safe?`,
+    description: `Is ${city.city}, ${city.state} safe? Violent crime rate: ${latest.violentRate.toFixed(1)} per 100K. ${latest.murder} murders in ${years[years.length - 1]}. Safety grade, trends, and detailed statistics.`,
     openGraph: {
       title: `${city.city}, ${city.state} Crime Rate`,
       description: `Violent crime rate: ${latest.violentRate.toFixed(1)}/100K · Murder rate: ${(latest.murder / latest.population * 100000).toFixed(1)}/100K · Pop: ${latest.population.toLocaleString()}`,

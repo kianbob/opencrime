@@ -3,6 +3,7 @@ import { loadData } from '@/lib/utils';
 
 type CityIdx = { slug: string };
 type StateData = { abbr: string };
+type NatTrend = { year: number };
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://www.opencrime.us';
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/state-compare', '/tools/risk-calculator',
     '/violent-crime', '/property-crime', '/robbery-statistics', '/assault-statistics',
     '/analysis/mass-shootings', '/analysis/car-theft-crisis', '/analysis/defund-police', '/analysis/organized-retail-theft',
+    '/analysis/fentanyl-crisis', '/analysis/juvenile-crime',
+    '/years',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
     '/analysis/police-funding', '/analysis/drug-crime',
@@ -37,5 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
   }));
 
-  return [...staticPages, ...statePages, ...cityPages];
+  const national = loadData<NatTrend[]>('national-trends.json');
+  const yearPages = national.map(n => ({
+    url: `${base}/years/${n.year}`,
+    lastModified: now,
+    changeFrequency: 'yearly' as const,
+  }));
+
+  return [...staticPages, ...statePages, ...cityPages, ...yearPages];
 }

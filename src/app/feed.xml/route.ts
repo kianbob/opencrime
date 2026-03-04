@@ -11,6 +11,8 @@ const articles = [
   { slug: 'car-theft-crisis', title: 'The Car Theft Crisis: Why Vehicle Theft Is Surging', date: '2026-03-04' },
   { slug: 'defund-police', title: 'Did "Defund the Police" Cause a Crime Surge?', date: '2026-03-04' },
   { slug: 'organized-retail-theft', title: 'Organized Retail Theft: Is Shoplifting Really Out of Control?', date: '2026-03-04' },
+  { slug: 'fentanyl-crisis', title: 'The Fentanyl Crisis: How Synthetic Opioids Are Reshaping Crime', date: '2026-03-04' },
+  { slug: 'juvenile-crime', title: 'Juvenile Crime: The Data Behind the Headlines', date: '2026-03-04' },
 ];
 
 export async function GET() {

@@ -20,6 +20,7 @@ const TOOLS = [
   { href: '/tools/risk-calculator', label: 'Risk Calculator' },
   { href: '/search', label: 'Search' },
   { href: '/most-improved', label: 'Most Improved' },
+  { href: '/years', label: 'By Year' },
   { href: '/safest-cities', label: 'Safest Cities' },
   { href: '/most-dangerous-cities', label: 'Most Dangerous' },
 ];

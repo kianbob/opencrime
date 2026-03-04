@@ -19,6 +19,8 @@ const articles = [
   { slug: 'car-theft-crisis', title: 'The Car Theft Crisis: Why Vehicle Theft Is Surging', desc: 'Motor vehicle theft surged 25% since 2019. A design flaw, TikTok, and organized crime explain why.', tag: 'ANALYSIS' },
   { slug: 'defund-police', title: 'Did "Defund the Police" Cause a Crime Surge?', desc: 'What actually happened to police budgets, staffing, and crime rates after 2020. The data is more nuanced than either side admits.', tag: 'DEEP DIVE' },
   { slug: 'organized-retail-theft', title: 'Organized Retail Theft: Is Shoplifting Really Out of Control?', desc: 'Viral videos say yes. The NRF retracted its $100B figure. What the FBI data and retail industry data actually show.', tag: 'ANALYSIS' },
+  { slug: 'fentanyl-crisis', title: 'The Fentanyl Crisis: How Synthetic Opioids Are Reshaping Crime', desc: '70,000+ deaths per year. How fentanyl changed drug markets, fueled property crime, and overwhelmed law enforcement.', tag: 'DEEP DIVE' },
+  { slug: 'juvenile-crime', title: 'Juvenile Crime: The Data Behind the Headlines', desc: 'Youth arrests are down 70%+ since 2006. Why the perception gap between data and media narratives is so wide.', tag: 'ANALYSIS' },
 ];
 
 const tagColors: Record<string, string> = {
