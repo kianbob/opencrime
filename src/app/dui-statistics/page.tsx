@@ -10,11 +10,16 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.opencrime.us/dui-statistics' },
 };
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
+
 type ArrestData = {
   nationalEstimates: { offense: string; total: number }[];
   byState: { state: string; totalArrests: number; dui: number; drugAbuse: number }[];
   bySex: { offense: string; total: number; male: number; female: number; malePct: number; femalePct: number }[];
   tenYearTrends: { offense: string; year1: number; year2: number; pctChange: number | null }[];
+  byRace: RaceRow[];
+  byEthnicity: EthRow[];
 };
 
 export default function DUIPage() {
@@ -23,6 +28,8 @@ export default function DUIPage() {
   const duiStates = data.byState.filter(s => s.dui > 0).sort((a, b) => b.dui - a.dui);
   const duiSex = data.bySex.find(s => /Driving under/i.test(s.offense));
   const duiTrend = data.tenYearTrends.find(t => /Driving under/i.test(t.offense));
+  const duiRace = data.byRace.find(r => /Driving under/i.test(r.offense));
+  const duiEth = data.byEthnicity.find(e => /Driving under/i.test(e.offense));
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -71,6 +78,61 @@ export default function DUIPage() {
           remains one of the leading causes of preventable death in America.
         </p>
       </div>
+
+      {/* DUI Arrest Demographics */}
+      {duiRace && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">DUI Arrests by Race &amp; Ethnicity</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-amber-50">
+                <tr>
+                  <th className="text-left px-3 py-2">Race</th>
+                  <th className="text-right px-3 py-2">Arrests</th>
+                  <th className="text-right px-3 py-2">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'White', value: duiRace.white },
+                  { label: 'Black or African American', value: duiRace.black },
+                  { label: 'American Indian/Alaska Native', value: duiRace.nativeAmerican },
+                  { label: 'Asian', value: duiRace.asian },
+                  { label: 'Native Hawaiian/Pacific Islander', value: duiRace.pacificIslander },
+                ].map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="px-3 py-2">{row.label}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(row.value)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{(row.value / duiRace.total * 100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+                <tr className="border-t font-semibold bg-gray-50">
+                  <td className="px-3 py-2">Total</td>
+                  <td className="px-3 py-2 text-right font-mono">{fmtNum(duiRace.total)}</td>
+                  <td className="px-3 py-2 text-right font-mono">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {duiEth && (
+            <div className="mt-4 flex gap-4">
+              <div className="bg-amber-50 rounded-lg p-3 flex-1 text-center">
+                <div className="text-xl font-bold text-amber-700">{duiEth.hispanicPct}%</div>
+                <div className="text-xs text-gray-600">Hispanic/Latino</div>
+              </div>
+              <div className="bg-amber-50 rounded-lg p-3 flex-1 text-center">
+                <div className="text-xl font-bold text-amber-700">{duiEth.notHispanicPct}%</div>
+                <div className="text-xs text-gray-600">Not Hispanic/Latino</div>
+              </div>
+            </div>
+          )}
+          <p className="text-sm text-gray-500 mt-4">
+            DUI arrest demographics differ from other crime categories, with White drivers representing the
+            majority of arrests. Enforcement patterns, traffic stop practices, and geographic coverage all
+            influence these numbers. See <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">full demographics</Link>.
+          </p>
+        </div>
+      )}
 
       <h2 className="font-heading text-2xl font-bold mb-4">DUI Arrests by State</h2>
       <div className="bg-white rounded-xl shadow-sm border overflow-x-auto mb-8">

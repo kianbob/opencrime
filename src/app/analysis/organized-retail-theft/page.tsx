@@ -1,9 +1,13 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
 import AIOverview from '@/components/AIOverview';
+import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
 
 export const metadata: Metadata = {
   title: 'Organized Retail Theft — The Truth Behind the $100 Billion Crisis',
@@ -13,6 +17,10 @@ export const metadata: Metadata = {
 };
 
 export default function RetailTheftPage() {
+  const arrestData = loadData<{ byRace: RaceRow[]; byEthnicity: EthRow[] }>('arrest-data.json');
+  const larceny = arrestData.byRace.find(r => r.offense === 'Larceny-theft');
+  const larcenyEth = arrestData.byEthnicity.find(r => r.offense === 'Larceny-theft');
+  const property = arrestData.byRace.find(r => r.offense === 'Property crime');
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -958,7 +966,74 @@ export default function RetailTheftPage() {
         <h2 className="font-heading text-2xl font-bold mt-10 mb-6">Related Pages</h2>
         
         <div className="grid md:grid-cols-3 gap-4 mb-8">
-          <Link href="/property-crime" className="block bg-[#1e3a5f] text-white rounded-lg p-4 hover:bg-[#2a4d7a] transition">
+          <h2 className="font-heading">Larceny-Theft Arrest Demographics</h2>
+        <p>
+          FBI arrest data for larceny-theft — the offense category that encompasses shoplifting — provides
+          context for understanding who is actually arrested for these crimes.
+        </p>
+
+        {larceny && (
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full border-collapse border border-gray-300 text-sm">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border border-gray-300 px-4 py-2 text-left">Race</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">Larceny Arrests</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">% of Larceny</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">% of All Property Crime</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'White', lv: larceny.white, pv: property?.white ?? 0 },
+                  { label: 'Black or African American', lv: larceny.black, pv: property?.black ?? 0 },
+                  { label: 'American Indian/Alaska Native', lv: larceny.nativeAmerican, pv: property?.nativeAmerican ?? 0 },
+                  { label: 'Asian', lv: larceny.asian, pv: property?.asian ?? 0 },
+                  { label: 'Native Hawaiian/Pacific Islander', lv: larceny.pacificIslander, pv: property?.pacificIslander ?? 0 },
+                ].map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">{row.label}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(row.lv)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{(row.lv / larceny.total * 100).toFixed(1)}%</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{property ? (row.pv / property.total * 100).toFixed(1) + '%' : '—'}</td>
+                  </tr>
+                ))}
+                <tr className="border-t font-semibold bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2">Total</td>
+                  <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(larceny.total)}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-right font-mono">100%</td>
+                  <td className="border border-gray-300 px-4 py-2 text-right font-mono">100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {larcenyEth && (
+          <div className="grid md:grid-cols-2 gap-4 my-6">
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-orange-700">{larcenyEth.hispanicPct}%</div>
+              <div className="text-sm text-gray-600">Hispanic/Latino Share of Larceny Arrests</div>
+              <div className="text-xs text-gray-500">{fmtNum(larcenyEth.hispanic)} of {fmtNum(larcenyEth.totalEthnicity)} with known ethnicity</div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-[#1e3a5f]">{larcenyEth.notHispanicPct}%</div>
+              <div className="text-sm text-gray-600">Not Hispanic/Latino</div>
+              <div className="text-xs text-gray-500">{fmtNum(larcenyEth.notHispanic)} of {fmtNum(larcenyEth.totalEthnicity)} with known ethnicity</div>
+            </div>
+          </div>
+        )}
+
+        <p>
+          White individuals account for {larceny ? (larceny.white / larceny.total * 100).toFixed(1) : '—'}% of larceny-theft
+          arrests, while Black individuals account for {larceny ? (larceny.black / larceny.total * 100).toFixed(1) : '—'}%.
+          These figures challenge simplistic narratives about who commits retail theft. The disparity in Black arrest
+          rates (relative to ~13.6% population share) likely reflects both actual differences in economic desperation
+          and the well-documented pattern of greater surveillance and policing in minority communities and
+          stores in lower-income neighborhoods.
+        </p>
+
+        <Link href="/property-crime" className="block bg-[#1e3a5f] text-white rounded-lg p-4 hover:bg-[#2a4d7a] transition">
             <h4 className="font-semibold mb-2">Property Crime Data</h4>
             <p className="text-sm opacity-90">National larceny-theft statistics and trends</p>
           </Link>

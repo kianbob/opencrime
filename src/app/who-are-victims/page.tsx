@@ -17,6 +17,9 @@ type HomicideData = {
   victimRace: { race: string; count: number }[];
   relationship: { relationship: string; count: number }[];
   circumstanceBreakdown: { circumstance: string; count: number }[];
+  weaponTrends: { year: number; total: number; firearms: number; handguns: number; rifles: number; shotguns: number; knives: number; blunt: number; hands: number; narcotics: number }[];
+  justifiableHomicides: { lawEnforcement: { year: number; total: number; firearms: number }[]; privateCitizen: { year: number; total: number; firearms: number }[] };
+  circumstanceTrends: { year: number; total: number; felonyType: number; otherThanFelony: number; robbery: number; narcoticDrugLaws: number; domesticViolence: number }[];
 };
 
 export default function VictimsPage() {
@@ -125,6 +128,41 @@ export default function VictimsPage() {
           <li><strong>Women face a specific pattern.</strong> While women are fewer victims overall, they are far more likely to be killed by intimate partners (husbands, boyfriends, ex-partners).</li>
         </ul>
       </div>
+
+      {data.circumstanceTrends && data.circumstanceTrends.length > 0 && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">Homicide Circumstances Over Time</h2>
+          <p className="text-sm text-gray-600 mb-4">How the reasons behind homicides have shifted in recent years.</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-3 py-2">Year</th>
+                  <th className="text-right px-3 py-2">Total</th>
+                  <th className="text-right px-3 py-2">Felony-Type</th>
+                  <th className="text-right px-3 py-2">Other Than Felony</th>
+                  <th className="text-right px-3 py-2">Robbery</th>
+                  <th className="text-right px-3 py-2">Narcotic Laws</th>
+                  <th className="text-right px-3 py-2">Domestic Violence</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.circumstanceTrends.map(ct => (
+                  <tr key={ct.year} className="border-t hover:bg-gray-50">
+                    <td className="px-3 py-2 font-medium">{ct.year}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(ct.total)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(ct.felonyType)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(ct.otherThanFelony)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(ct.robbery)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(ct.narcoticDrugLaws)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(ct.domesticViolence)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-4">
         <Link href="/murder-rate" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">Murder Rate</Link>

@@ -23,6 +23,9 @@ type HomicideData = {
   victimOffenderRace: VictimOffenderRace;
   totalVictims: number;
   totalOffenders: number;
+  weaponTrends: { year: number; total: number; firearms: number; handguns: number; rifles: number; shotguns: number; knives: number; blunt: number; hands: number; narcotics: number }[];
+  justifiableHomicides: { lawEnforcement: { year: number; total: number; firearms: number }[]; privateCitizen: { year: number; total: number; firearms: number }[] };
+  circumstanceTrends: { year: number; total: number; felonyType: number; otherThanFelony: number; robbery: number; narcoticDrugLaws: number; domesticViolence: number }[];
 };
 
 export const metadata: Metadata = {

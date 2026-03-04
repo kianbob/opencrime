@@ -14,11 +14,15 @@ export const metadata: Metadata = {
 };
 
 type JuvRow = { group: string; handledInDepartment: number; referredToJuvenileCourt: number; referredToWelfare: number; referredToCriminalCourt: number; referredToOther: number };
-type ArrestData = { juvenile: JuvRow[] };
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type ArrestData = { juvenile: JuvRow[]; byRace: RaceRow[] };
 
 export default function JuvenileCrimePage() {
   const arrest = loadData<ArrestData>('arrest-data.json');
   const total = arrest.juvenile?.find(j => j.group === 'TOTAL AGENCIES:');
+  const curfew = arrest.byRace?.find(r => r.offense === 'Curfew and loitering law violations');
+  const disorderly = arrest.byRace?.find(r => r.offense === 'Disorderly conduct');
+  const vandalism = arrest.byRace?.find(r => r.offense === 'Vandalism');
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -593,6 +597,56 @@ export default function JuvenileCrimePage() {
           <li><strong>Technology-enabled crime:</strong> Cyberbullying, online exploitation, and social media-driven group violence present new challenges</li>
           <li><strong>Economic inequality:</strong> While overall youth poverty has declined, concentrated poverty in some communities continues to drive higher crime rates</li>
         </ul>
+
+        <h2 className="font-heading">Racial Breakdown of Youth-Related Arrests</h2>
+        <p>
+          FBI arrest data for offenses commonly associated with juveniles reveals racial disparities in
+          enforcement. These categories — curfew violations, disorderly conduct, and vandalism — are
+          often the entry points to the juvenile justice system.
+        </p>
+
+        {(curfew || disorderly || vandalism) && (
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full border-collapse border border-gray-300 text-sm">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border border-gray-300 px-4 py-2 text-left">Offense</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">Total</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">White</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">Black</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">Native Am.</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">Asian</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'Curfew/Loitering', data: curfew },
+                  { label: 'Disorderly Conduct', data: disorderly },
+                  { label: 'Vandalism', data: vandalism },
+                ].filter(r => r.data).map(r => (
+                  <tr key={r.label} className="border-t">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">{r.label}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(r.data!.total)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(r.data!.white)} ({(r.data!.white / r.data!.total * 100).toFixed(0)}%)</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(r.data!.black)} ({(r.data!.black / r.data!.total * 100).toFixed(0)}%)</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(r.data!.nativeAmerican)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(r.data!.asian)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        <p>
+          Black youth are significantly overrepresented in juvenile-associated arrest categories relative
+          to their share of the youth population (~15%). For curfew and loitering violations — one of the
+          most discretionary offense categories — Black youth account for
+          {curfew ? ` ${(curfew.black / curfew.total * 100).toFixed(0)}%` : ''} of arrests.
+          Research suggests this disparity reflects policing patterns in minority neighborhoods rather than
+          actual differences in behavior. The over-policing of Black youth is a well-documented driver
+          of disparate juvenile justice involvement.
+        </p>
 
         <h2 className="font-heading">The Research Consensus</h2>
         <p>

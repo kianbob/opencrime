@@ -1,9 +1,13 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
 import AIOverview from '@/components/AIOverview';
+import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
 
 export const metadata: Metadata = {
   title: 'The Fentanyl Crisis — How Synthetic Opioids Are Reshaping Crime',
@@ -13,6 +17,10 @@ export const metadata: Metadata = {
 };
 
 export default function FentanylCrisisPage() {
+  const arrestData = loadData<{ byRace: RaceRow[]; byEthnicity: EthRow[] }>('arrest-data.json');
+  const drugRace = arrestData.byRace.find(r => r.offense === 'Drug abuse violations');
+  const drugEth = arrestData.byEthnicity.find(r => r.offense === 'Drug abuse violations');
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -726,6 +734,72 @@ export default function FentanylCrisisPage() {
 
         <h2 className="font-heading text-2xl font-bold mt-10 mb-6">Related Pages</h2>
         
+        <h2 className="font-heading">Racial Disparities in Drug Enforcement</h2>
+        <p>
+          The fentanyl crisis intersects with longstanding racial disparities in drug enforcement.
+          While fentanyl deaths affect all demographics, drug arrest patterns reveal significant inequities.
+        </p>
+
+        {drugRace && (
+          <div className="overflow-x-auto my-6">
+            <table className="min-w-full border-collapse border border-gray-300 text-sm">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border border-gray-300 px-4 py-2 text-left">Race</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">Drug Arrests</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">% of Drug Arrests</th>
+                  <th className="border border-gray-300 px-4 py-2 text-right">US Population %</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'White', value: drugRace.white, pop: '61.6%' },
+                  { label: 'Black or African American', value: drugRace.black, pop: '13.6%' },
+                  { label: 'American Indian/Alaska Native', value: drugRace.nativeAmerican, pop: '1.3%' },
+                  { label: 'Asian', value: drugRace.asian, pop: '6.3%' },
+                  { label: 'Native Hawaiian/Pacific Islander', value: drugRace.pacificIslander, pop: '0.3%' },
+                ].map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">{row.label}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(row.value)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{(row.value / drugRace.total * 100).toFixed(1)}%</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{row.pop}</td>
+                  </tr>
+                ))}
+                <tr className="border-t font-semibold bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2">Total</td>
+                  <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(drugRace.total)}</td>
+                  <td className="border border-gray-300 px-4 py-2 text-right font-mono">100%</td>
+                  <td className="border border-gray-300 px-4 py-2 text-right font-mono">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {drugEth && (
+          <div className="grid md:grid-cols-2 gap-4 my-6">
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-orange-700">{fmtNum(drugEth.hispanic)}</div>
+              <div className="text-sm text-gray-600">Hispanic/Latino Drug Arrests</div>
+              <div className="text-xs text-gray-500">{drugEth.hispanicPct}% of drug arrests with known ethnicity</div>
+            </div>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-[#1e3a5f]">{fmtNum(drugEth.notHispanic)}</div>
+              <div className="text-sm text-gray-600">Not Hispanic/Latino</div>
+              <div className="text-xs text-gray-500">{drugEth.notHispanicPct}% of drug arrests with known ethnicity</div>
+            </div>
+          </div>
+        )}
+
+        <p>
+          Black Americans account for {drugRace ? (drugRace.black / drugRace.total * 100).toFixed(1) : '—'}% of drug arrests
+          despite being approximately 13.6% of the population. Research from SAMHSA consistently shows
+          similar drug use rates across racial groups, suggesting the disparity reflects enforcement patterns
+          rather than differences in drug use. In the fentanyl era, this raises questions about whether
+          enforcement resources are being deployed effectively or simply perpetuating existing inequities.
+        </p>
+
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <Link href="/analysis/drug-crime" className="block bg-[#1e3a5f] text-white rounded-lg p-4 hover:bg-[#2a4d7a] transition">
             <h4 className="font-semibold mb-2">Drug-Crime Connection</h4>

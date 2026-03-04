@@ -1,9 +1,12 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
+
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
 export const metadata: Metadata = {
   title: 'Did "Defund the Police" Cause a Crime Surge? What the Data Shows',
@@ -13,6 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function DefundPolicePage() {
+  const arrestData = loadData<{ byRace: RaceRow[] }>('arrest-data.json');
+  const raceTotal = arrestData.byRace.find(r => r.offense === 'TOTAL');
+  const drugRace = arrestData.byRace.find(r => /Drug abuse/i.test(r.offense));
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -602,8 +609,56 @@ export default function DefundPolicePage() {
         </p>
       </div>
 
+      {/* Racial Disparities in Policing */}
+      {raceTotal && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">Racial Disparities in Arrests: The Core of the Debate</h2>
+          <p className="text-gray-600 mb-4 text-sm">
+            The &quot;defund&quot; movement was fundamentally driven by racial disparities in policing. National
+            arrest data illustrates the scale of these disparities:
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-3 py-2">Race</th>
+                  <th className="text-right px-3 py-2">All Arrests</th>
+                  <th className="text-right px-3 py-2">% of Total</th>
+                  <th className="text-right px-3 py-2">Drug Arrests</th>
+                  <th className="text-right px-3 py-2">Drug %</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'White', k: 'white' as const },
+                  { label: 'Black', k: 'black' as const },
+                  { label: 'Native American', k: 'nativeAmerican' as const },
+                  { label: 'Asian', k: 'asian' as const },
+                  { label: 'Pacific Islander', k: 'pacificIslander' as const },
+                ].map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="px-3 py-2">{row.label}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(raceTotal[row.k])}</td>
+                    <td className="px-3 py-2 text-right font-mono">{(raceTotal[row.k] / raceTotal.total * 100).toFixed(1)}%</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-500">{fmtNum(drugRace?.[row.k] ?? 0)}</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-500">{drugRace ? (drugRace[row.k] / drugRace.total * 100).toFixed(1) + '%' : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-500 mt-4">
+            Black Americans represent ~13.6% of the US population but {raceTotal ? (raceTotal.black / raceTotal.total * 100).toFixed(1) : '30'}% of
+            all arrests. Drug arrests show particularly stark disparities despite similar usage rates across races.
+            See <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">full arrest demographics</Link> |{' '}
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">racial disparities analysis</Link>
+          </p>
+        </div>
+      )}
+
       <div className="flex flex-wrap gap-4 mt-8">
         <Link href="/analysis/police-funding" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">Police Funding Analysis</Link>
+        <Link href="/analysis/racial-disparities" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Racial Disparities</Link>
         <Link href="/analysis/crime-decline" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Crime Decline</Link>
         <Link href="/violent-crime" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Violent Crime</Link>
       </div>

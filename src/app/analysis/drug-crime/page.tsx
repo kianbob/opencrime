@@ -1,6 +1,7 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
+import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -11,7 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.opencrime.us/analysis/drug-crime' },
 };
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
+
 export default function DrugCrimePage() {
+  const arrestData = loadData<{ byRace: RaceRow[]; byEthnicity: EthRow[] }>('arrest-data.json');
+  const drugRace = arrestData.byRace.find(r => r.offense === 'Drug abuse violations');
+  const drugEth = arrestData.byEthnicity.find(r => r.offense === 'Drug abuse violations');
+  const totalRace = arrestData.byRace.find(r => r.offense === 'TOTAL');
+  const totalEth = arrestData.byEthnicity.find(r => r.offense === 'TOTAL');
   const aiInsights = [
     "The crack epidemic (1985-1993) coincided with a doubling of murder rates in many cities",
     "Drug-related violence accounts for roughly 15% of all homicides, but up to 50% in some cities",
@@ -242,6 +251,173 @@ export default function DrugCrimePage() {
                 <li>• Record overdose deaths</li>
                 <li>• Mass incarceration without crime reduction</li>
                 <li>• Successful targeting of major cartels</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="font-heading">Racial Disparities in Drug Enforcement</h2>
+        <p>
+          Drug arrest data reveals stark racial disparities in enforcement. Despite roughly equal rates of drug
+          use across racial groups (according to SAMHSA surveys), arrest rates differ dramatically — reflecting
+          differences in policing patterns, enforcement priorities, and systemic inequities.
+        </p>
+
+        {drugRace && (
+          <>
+            <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Drug Arrests by Race (FBI {new Date().getFullYear()} Data)</h3>
+            <div className="overflow-x-auto mb-6">
+              <table className="min-w-full border-collapse border border-gray-300 text-sm">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Race</th>
+                    <th className="border border-gray-300 px-4 py-2 text-right">Drug Arrests</th>
+                    <th className="border border-gray-300 px-4 py-2 text-right">% of Drug Arrests</th>
+                    <th className="border border-gray-300 px-4 py-2 text-right">% of All Arrests</th>
+                    <th className="border border-gray-300 px-4 py-2 text-right">Disparity Index</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { label: 'White', value: drugRace.white, allArrest: totalRace?.white ?? 0 },
+                    { label: 'Black or African American', value: drugRace.black, allArrest: totalRace?.black ?? 0 },
+                    { label: 'American Indian/Alaska Native', value: drugRace.nativeAmerican, allArrest: totalRace?.nativeAmerican ?? 0 },
+                    { label: 'Asian', value: drugRace.asian, allArrest: totalRace?.asian ?? 0 },
+                    { label: 'Native Hawaiian/Pacific Islander', value: drugRace.pacificIslander, allArrest: totalRace?.pacificIslander ?? 0 },
+                  ].map(row => {
+                    const drugPct = (row.value / drugRace.total * 100).toFixed(1);
+                    const allPct = totalRace ? (row.allArrest / totalRace.total * 100).toFixed(1) : '—';
+                    const disparity = totalRace && row.allArrest > 0 ? ((row.value / drugRace.total) / (row.allArrest / totalRace.total)).toFixed(2) : '—';
+                    return (
+                      <tr key={row.label} className="border-t">
+                        <td className="border border-gray-300 px-4 py-2 font-medium">{row.label}</td>
+                        <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(row.value)}</td>
+                        <td className="border border-gray-300 px-4 py-2 text-right font-mono">{drugPct}%</td>
+                        <td className="border border-gray-300 px-4 py-2 text-right font-mono">{allPct}%</td>
+                        <td className="border border-gray-300 px-4 py-2 text-right font-mono">{disparity}×</td>
+                      </tr>
+                    );
+                  })}
+                  <tr className="border-t font-semibold bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-2">Total</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(drugRace.total)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">100%</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">100%</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">1.00×</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-600 mb-6">
+              <strong>Disparity Index</strong> compares each group&apos;s share of drug arrests to their share of all arrests.
+              A value above 1.0 means overrepresentation in drug enforcement; below 1.0 means underrepresentation.
+              Black Americans account for {(drugRace.black / drugRace.total * 100).toFixed(1)}% of drug arrests
+              despite constituting roughly 13% of the US population.
+            </p>
+          </>
+        )}
+
+        {drugEth && (
+          <>
+            <h3 className="font-heading text-xl font-semibold mt-8 mb-4">The Hispanic/Latino Dimension</h3>
+            <p>
+              Ethnicity data adds another layer to the disparity picture. Hispanic or Latino individuals
+              represent a significant share of drug enforcement activity:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 my-6">
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-5 text-center">
+                <div className="text-2xl font-bold text-orange-700">{fmtNum(drugEth.hispanic)}</div>
+                <div className="text-sm text-gray-600">Hispanic/Latino Drug Arrests</div>
+              </div>
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-5 text-center">
+                <div className="text-2xl font-bold text-orange-700">{drugEth.hispanicPct}%</div>
+                <div className="text-sm text-gray-600">Share of Drug Arrests</div>
+              </div>
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-5 text-center">
+                <div className="text-2xl font-bold text-orange-700">{totalEth ? totalEth.hispanicPct : '—'}%</div>
+                <div className="text-sm text-gray-600">Share of All Arrests</div>
+              </div>
+            </div>
+            <p>
+              Hispanic/Latino individuals account for {drugEth.hispanicPct}% of drug arrests
+              {totalEth ? ` compared to ${totalEth.hispanicPct}% of all arrests` : ''}.
+              Given that Hispanic/Latino Americans are approximately 19% of the US population,
+              this suggests {drugEth.hispanicPct > 19 ? 'slight overrepresentation' : 'rough proportionality'} in drug enforcement.
+              However, federal drug enforcement — which disproportionately targets border and immigration-related
+              cases — adds significantly to these numbers in ways not captured by FBI arrest data alone.
+            </p>
+
+            <div className="overflow-x-auto my-6">
+              <table className="min-w-full border-collapse border border-gray-300 text-sm">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2 text-left">Ethnicity</th>
+                    <th className="border border-gray-300 px-4 py-2 text-right">Drug Arrests</th>
+                    <th className="border border-gray-300 px-4 py-2 text-right">% of Drug Arrests</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Hispanic or Latino</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(drugEth.hispanic)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{drugEth.hispanicPct}%</td>
+                  </tr>
+                  <tr className="border-t">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Not Hispanic or Latino</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(drugEth.notHispanic)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{drugEth.notHispanicPct}%</td>
+                  </tr>
+                  <tr className="border-t font-semibold bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-2">Total (Ethnicity Known)</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">{fmtNum(drugEth.totalEthnicity)}</td>
+                    <td className="border border-gray-300 px-4 py-2 text-right font-mono">100%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Why the Disparity Exists</h3>
+        <p>
+          Research consistently shows that drug use rates are roughly similar across racial groups.
+          The National Survey on Drug Use and Health (NSDUH) finds that White, Black, and Hispanic
+          Americans use illegal drugs at comparable rates. So why the arrest disparity?
+        </p>
+        <ul>
+          <li><strong>Open-air markets vs. private use.</strong> Drug enforcement disproportionately targets
+          street-level markets in disadvantaged (often minority) neighborhoods, while suburban drug use
+          happens behind closed doors.</li>
+          <li><strong>Policing intensity.</strong> Areas with higher police presence generate more drug arrests
+          regardless of actual drug use rates. Over-policed communities produce more arrests.</li>
+          <li><strong>Marijuana enforcement.</strong> Despite legalization trends, marijuana still drives the
+          plurality of drug arrests, and enforcement has historically targeted Black and Brown communities
+          at rates 3-4× higher than White communities.</li>
+          <li><strong>Federal sentencing.</strong> Federal drug mandatory minimums have disproportionately impacted
+          minority communities, particularly the now-reformed crack/powder cocaine disparity.</li>
+          <li><strong>Traffic stops and pretextual policing.</strong> Drug arrests often begin with traffic stops,
+          and studies show racial minorities are stopped, searched, and arrested at higher rates.</li>
+        </ul>
+
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <h4 className="font-semibold mb-3 text-[#1e3a5f]">The Numbers in Context</h4>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="font-semibold mb-2">Drug Arrest Facts</p>
+              <ul className="space-y-1 text-gray-700">
+                <li>• {fmtNum(drugRace?.total ?? 0)} total drug arrests recorded</li>
+                <li>• Drug arrests are {drugRace && totalRace ? (drugRace.total / totalRace.total * 100).toFixed(1) : '—'}% of all arrests</li>
+                <li>• White individuals: {drugRace ? (drugRace.white / drugRace.total * 100).toFixed(1) : '—'}% of drug arrests</li>
+                <li>• Black individuals: {drugRace ? (drugRace.black / drugRace.total * 100).toFixed(1) : '—'}% of drug arrests</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold mb-2">Population Context (US Census)</p>
+              <ul className="space-y-1 text-gray-700">
+                <li>• White: ~61% of US population</li>
+                <li>• Black: ~13% of US population</li>
+                <li>• Hispanic/Latino: ~19% of US population</li>
+                <li>• Asian: ~6% of US population</li>
               </ul>
             </div>
           </div>

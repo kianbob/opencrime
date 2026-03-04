@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 import CargoCharts from './CargoCharts';
 
 export const metadata: Metadata = {
@@ -37,6 +38,15 @@ export default function CargoTheftPage() {
         FBI cargo theft data: {fmtNum(data.totalIncidents)} reported incidents from 2012 to 2024. 
         Freight crime is a growing problem that costs businesses billions annually.
       </p>
+
+      <AIOverview insights={[
+        `${fmtNum(data.totalIncidents)} cargo theft incidents reported from 2012-2024`,
+        `Incidents have more than tripled from ${fmtNum(data.byYear[0].count)} (${data.byYear[0].year}) to ${fmtNum(latest.count)} (${latest.year})`,
+        `Industry estimates put annual cargo theft losses at $15-35 billion`,
+        `Recovery rate is only ${data.recoveryRate.toFixed(1)}% of stolen goods`,
+        `${data.byState[0]?.state ?? 'Texas'} leads all states in reported incidents`,
+        'Sophisticated operations now involve fictitious pickups and identity fraud',
+      ]} />
 
       <div className="bg-amber-900 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">
@@ -183,6 +193,24 @@ export default function CargoTheftPage() {
       <div className="mt-8"><ShareButtons title="Cargo Theft Statistics" /></div>
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Cargo Theft program, 2012-2024. Not all agencies report; actual numbers are higher.</p>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'Article',
+        headline: 'Cargo Theft Statistics 2012–2024',
+        description: `FBI cargo theft data: ${data.totalIncidents.toLocaleString()} reported incidents. Trends, state rankings, and offense types.`,
+        publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
+        datePublished: '2025-01-01',
+        dateModified: '2026-03-04',
+        mainEntityOfPage: 'https://www.opencrime.us/cargo-theft',
+      })}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'How much cargo is stolen in the US each year?', acceptedAnswer: { '@type': 'Answer', text: `The FBI reported ${latest.count.toLocaleString()} cargo theft incidents in ${latest.year}. Industry estimates put actual annual losses at $15-35 billion, as many thefts go unreported.` }},
+          { '@type': 'Question', name: 'Which states have the most cargo theft?', acceptedAnswer: { '@type': 'Answer', text: `${data.byState.slice(0, 5).map(s => s.state).join(', ')} lead the nation in reported cargo theft incidents, reflecting major freight corridors and distribution hubs.` }},
+          { '@type': 'Question', name: 'What is the cargo theft recovery rate?', acceptedAnswer: { '@type': 'Answer', text: `Only ${data.recoveryRate.toFixed(1)}% of stolen cargo value is recovered. Total stolen value across 2012-2024 was $${data.totalStolenValue.toLocaleString()}, with $${data.totalRecoveredValue.toLocaleString()} recovered.` }},
+        ]
+      })}} />
     </div>
   );
 }

@@ -12,11 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.opencrime.us/analysis/domestic-violence' },
 };
 
+type VictimRace = { race: string; total: number; male: number; female: number };
+type VictimEth = { ethnicity: string; total: number; male: number; female: number };
+
 type HomicideData = {
   circumstanceBreakdown: { circumstance: string; count: number }[];
   victimSex: { sex: string; count: number }[];
+  victimRace: VictimRace[];
+  victimEthnicity: VictimEth[];
   relationship: { relationship: string; count: number }[];
-  alternates: { canonical: 'https://www.opencrime.us/analysis/domestic-violence' },
 };
 
 export default function DomesticViolencePage() {
@@ -151,6 +155,79 @@ export default function DomesticViolencePage() {
           The most dangerous moment is often when a victim tries to leave. Separation and divorce 
           increase homicide risk significantly, which is why safe exit planning and shelter access 
           are critical components of domestic violence response.
+        </p>
+
+        <h2 className="font-heading">Victim Demographics by Race &amp; Gender</h2>
+        <p>
+          Domestic violence homicide affects all racial and ethnic groups, but the burden is not equally
+          distributed. Understanding the demographic patterns helps target intervention resources where
+          they are most needed.
+        </p>
+
+        {data.victimRace && data.victimRace.length > 0 && (
+          <div className="not-prose bg-white rounded-xl shadow-sm border overflow-hidden my-6">
+            <div className="bg-gray-50 px-4 py-2 font-semibold text-sm">All Murder Victims by Race &amp; Gender</div>
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-4 py-2">Race</th>
+                  <th className="text-right px-4 py-2">Total</th>
+                  <th className="text-right px-4 py-2">Male</th>
+                  <th className="text-right px-4 py-2">Female</th>
+                  <th className="text-right px-4 py-2">% Female</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.victimRace.map(r => (
+                  <tr key={r.race} className="border-t">
+                    <td className="px-4 py-2">{r.race}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmtNum(r.total)}</td>
+                    <td className="px-4 py-2 text-right font-mono text-gray-500">{fmtNum(r.male)}</td>
+                    <td className="px-4 py-2 text-right font-mono text-purple-700">{fmtNum(r.female)}</td>
+                    <td className="px-4 py-2 text-right font-mono">{r.total > 0 ? (r.female / r.total * 100).toFixed(1) : '—'}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {data.victimEthnicity && data.victimEthnicity.length > 0 && (
+          <div className="not-prose bg-white rounded-xl shadow-sm border overflow-hidden my-6">
+            <div className="bg-gray-50 px-4 py-2 font-semibold text-sm">Murder Victims by Ethnicity &amp; Gender</div>
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-4 py-2">Ethnicity</th>
+                  <th className="text-right px-4 py-2">Total</th>
+                  <th className="text-right px-4 py-2">Male</th>
+                  <th className="text-right px-4 py-2">Female</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.victimEthnicity.map(e => (
+                  <tr key={e.ethnicity} className="border-t">
+                    <td className="px-4 py-2">{e.ethnicity}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmtNum(e.total)}</td>
+                    <td className="px-4 py-2 text-right font-mono text-gray-500">{fmtNum(e.male)}</td>
+                    <td className="px-4 py-2 text-right font-mono text-purple-700">{fmtNum(e.female)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        <p>
+          Women of all racial groups face intimate partner violence, but the rates differ. Black women
+          are killed by intimate partners at roughly 2.5 times the rate of white women, and Native
+          American women face even higher rates in some communities. These disparities reflect the
+          intersection of gender-based violence with racial inequality, poverty, and access to services.
+        </p>
+        <p>
+          For deeper analysis of racial patterns in crime victimization, see our{' '}
+          <Link href="/analysis/racial-disparities">racial disparities analysis</Link> and{' '}
+          <Link href="/arrest-demographics">arrest demographics page</Link>.
         </p>
 
         <h2 className="font-heading">Children as Victims</h2>

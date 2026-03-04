@@ -3,6 +3,8 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { NationalTrend } from '@/lib/utils';
+
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -16,6 +18,10 @@ export const metadata: Metadata = {
 export default function PropertyCrimeSurgePage() {
   const national = loadData<NationalTrend[]>('national-trends.json');
   const n = national[national.length - 1];
+  const arrestData = loadData<{ byRace: RaceRow[] }>('arrest-data.json');
+  const pcRace = arrestData.byRace.find(r => r.offense === 'Property crime');
+  const mvtRace = arrestData.byRace.find(r => /Motor vehicle/i.test(r.offense));
+  const larcRace = arrestData.byRace.find(r => /Larceny/i.test(r.offense));
 
   const aiInsights = [
     "Motor vehicle theft has increased 25% since 2019 while murder rates declined 15.7%",
@@ -540,8 +546,51 @@ export default function PropertyCrimeSurgePage() {
         </p>
       </div>
 
+      {/* Property Crime Arrest Demographics */}
+      {pcRace && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">Property Crime Arrests by Race</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-3 py-2">Race</th>
+                  <th className="text-right px-3 py-2">Property Crime</th>
+                  <th className="text-right px-3 py-2">%</th>
+                  <th className="text-right px-3 py-2">Larceny</th>
+                  <th className="text-right px-3 py-2">MVT</th>
+                </tr>
+              </thead>
+              <tbody>
+                {([
+                  { label: 'White', k: 'white' as const },
+                  { label: 'Black', k: 'black' as const },
+                  { label: 'Native American', k: 'nativeAmerican' as const },
+                  { label: 'Asian', k: 'asian' as const },
+                  { label: 'Pacific Islander', k: 'pacificIslander' as const },
+                ]).map(row => (
+                  <tr key={row.label} className="border-t">
+                    <td className="px-3 py-2">{row.label}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(pcRace[row.k])}</td>
+                    <td className="px-3 py-2 text-right font-mono">{(pcRace[row.k] / pcRace.total * 100).toFixed(1)}%</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-500">{fmtNum(larcRace?.[row.k] ?? 0)}</td>
+                    <td className="px-3 py-2 text-right font-mono text-gray-500">{fmtNum(mvtRace?.[row.k] ?? 0)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-500 mt-3">
+            Arrest demographics reflect policing patterns, not the full picture of offending.
+            See <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline">full demographics</Link> |{' '}
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">racial disparities</Link>
+          </p>
+        </div>
+      )}
+
       <div className="flex flex-wrap gap-4 mt-8">
         <Link href="/crime-rate" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">All Crime Data</Link>
+        <Link href="/arrest-demographics" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Arrest Demographics</Link>
         <Link href="/crimes" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Crime Types</Link>
       </div>
 

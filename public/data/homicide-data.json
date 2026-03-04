@@ -562,5 +562,170 @@
       "byOther": 11,
       "unknown": 56
     }
-  }
+  },
+  "weaponTrends": [
+    {
+      "year": 2020,
+      "total": 18934,
+      "firearms": 14483,
+      "handguns": 8649,
+      "rifles": 490,
+      "shotguns": 215,
+      "knives": 1806,
+      "blunt": 426,
+      "hands": 726,
+      "narcotics": 171
+    },
+    {
+      "year": 2021,
+      "total": 16779,
+      "firearms": 13077,
+      "handguns": 6771,
+      "rifles": 464,
+      "shotguns": 173,
+      "knives": 1223,
+      "blunt": 290,
+      "hands": 586,
+      "narcotics": 178
+    },
+    {
+      "year": 2022,
+      "total": 20306,
+      "firearms": 15505,
+      "handguns": 8343,
+      "rifles": 570,
+      "shotguns": 198,
+      "knives": 1720,
+      "blunt": 404,
+      "hands": 752,
+      "narcotics": 225
+    },
+    {
+      "year": 2023,
+      "total": 18624,
+      "firearms": 14069,
+      "handguns": 7451,
+      "rifles": 533,
+      "shotguns": 170,
+      "knives": 1638,
+      "blunt": 340,
+      "hands": 744,
+      "narcotics": 299
+    },
+    {
+      "year": 2024,
+      "total": 15795,
+      "firearms": 11717,
+      "handguns": 6246,
+      "rifles": 401,
+      "shotguns": 149,
+      "knives": 1566,
+      "blunt": 283,
+      "hands": 633,
+      "narcotics": 226
+    }
+  ],
+  "justifiableHomicides": {
+    "lawEnforcement": [
+      {
+        "year": 2020,
+        "total": 341,
+        "firearms": 334
+      },
+      {
+        "year": 2021,
+        "total": 223,
+        "firearms": 217
+      },
+      {
+        "year": 2022,
+        "total": 365,
+        "firearms": 352
+      },
+      {
+        "year": 2023,
+        "total": 359,
+        "firearms": 349
+      },
+      {
+        "year": 2024,
+        "total": 356,
+        "firearms": 344
+      }
+    ],
+    "privateCitizen": [
+      {
+        "year": 2020,
+        "total": 460,
+        "firearms": 393
+      },
+      {
+        "year": 2021,
+        "total": 421,
+        "firearms": 376
+      },
+      {
+        "year": 2022,
+        "total": 534,
+        "firearms": 474
+      },
+      {
+        "year": 2023,
+        "total": 525,
+        "firearms": 478
+      },
+      {
+        "year": 2024,
+        "total": 432,
+        "firearms": 382
+      }
+    ]
+  },
+  "circumstanceTrends": [
+    {
+      "year": 2020,
+      "total": 18934,
+      "felonyType": 2187,
+      "otherThanFelony": 8336,
+      "robbery": 567,
+      "narcoticDrugLaws": 682,
+      "domesticViolence": 112
+    },
+    {
+      "year": 2021,
+      "total": 16779,
+      "felonyType": 1314,
+      "otherThanFelony": 7119,
+      "robbery": 265,
+      "narcoticDrugLaws": 474,
+      "domesticViolence": 4
+    },
+    {
+      "year": 2022,
+      "total": 20306,
+      "felonyType": 1676,
+      "otherThanFelony": 8916,
+      "robbery": 410,
+      "narcoticDrugLaws": 509,
+      "domesticViolence": 30
+    },
+    {
+      "year": 2023,
+      "total": 18624,
+      "felonyType": 1467,
+      "otherThanFelony": 8482,
+      "robbery": 346,
+      "narcoticDrugLaws": 513,
+      "domesticViolence": 10
+    },
+    {
+      "year": 2024,
+      "total": 15795,
+      "felonyType": 1184,
+      "otherThanFelony": 7581,
+      "robbery": 264,
+      "narcoticDrugLaws": 416,
+      "domesticViolence": 12
+    }
+  ]
 }

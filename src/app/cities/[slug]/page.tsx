@@ -264,6 +264,22 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
         </div>
       )}
 
+      {/* National Arrest Demographics Context */}
+      <div className="bg-gray-50 rounded-xl p-6 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-2">National Arrest Demographics</h3>
+        <p className="text-sm text-gray-600 mb-3">
+          The FBI does not publish per-city arrest demographic breakdowns. At the national level,
+          arrest data shows significant racial disparities influenced by policing patterns, poverty
+          concentration, and systemic factors.
+        </p>
+        <div className="grid md:grid-cols-2 gap-3 text-sm">
+          <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline font-medium">Full Arrest Demographics by Race →</Link>
+          <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline font-medium">Racial Disparities Analysis →</Link>
+          <Link href="/analysis/crime-by-race" className="text-[#1e3a5f] hover:underline font-medium">Crime Statistics by Race →</Link>
+          <Link href="/analysis/who-commits-crime" className="text-[#1e3a5f] hover:underline font-medium">Who Commits Crime? →</Link>
+        </div>
+      </div>
+
       <div className="bg-gray-50 rounded-xl p-6 mb-6">
         <h3 className="font-heading text-lg font-bold mb-3">Related Analysis</h3>
         <div className="grid md:grid-cols-2 gap-3 text-sm">

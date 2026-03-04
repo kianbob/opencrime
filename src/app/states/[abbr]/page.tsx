@@ -213,12 +213,28 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
         <Link href="/hate-crimes" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Hate Crimes</Link>
       </div>
 
+      {/* National Demographics Context */}
+      <div className="bg-gray-50 rounded-xl p-6 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-2">Arrest Demographics (National)</h3>
+        <p className="text-sm text-gray-600 mb-3">
+          The FBI publishes state-level total arrest counts but does not break down arrest demographics
+          by race at the state level in the same detail as national data. For national arrest demographic
+          patterns, see our dedicated pages:
+        </p>
+        <div className="grid md:grid-cols-2 gap-3 text-sm">
+          <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline font-medium">National Arrest Demographics →</Link>
+          <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline font-medium">Racial Disparities Analysis →</Link>
+          <Link href="/analysis/crime-by-race" className="text-[#1e3a5f] hover:underline font-medium">Crime by Race →</Link>
+          <Link href="/analysis/who-commits-crime" className="text-[#1e3a5f] hover:underline font-medium">Who Commits Crime? →</Link>
+        </div>
+      </div>
+
       <div className="bg-gray-50 rounded-xl p-6 mb-6">
         <h3 className="font-heading text-lg font-bold mb-3">Related Analysis</h3>
         <div className="grid md:grid-cols-2 gap-3 text-sm">
           <Link href="/analysis/crime-decline" className="text-[#1e3a5f] hover:underline">The Great Crime Decline →</Link>
           <Link href="/analysis/rural-vs-urban" className="text-[#1e3a5f] hover:underline">Rural vs Urban Crime →</Link>
-          <Link href="/analysis/defund-police" className="text-[#1e3a5f] hover:underline">Police Funding & Crime →</Link>
+          <Link href="/analysis/defund-police" className="text-[#1e3a5f] hover:underline">Police Funding &amp; Crime →</Link>
           <Link href="/tools/state-compare" className="text-[#1e3a5f] hover:underline">Compare States Tool →</Link>
         </div>
       </div>

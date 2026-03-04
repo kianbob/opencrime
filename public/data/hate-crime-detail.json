@@ -1,0 +1,375 @@
+{
+  "year": 2024,
+  "totals": {
+    "incidents": 11679,
+    "offenses": 13683,
+    "victims": 14243,
+    "knownOffenders": 10096
+  },
+  "biasMotivation": [
+    {
+      "motivation": "Total",
+      "incidents": 11679,
+      "offenses": 13683,
+      "victims": 14243,
+      "knownOffenders": 10096
+    },
+    {
+      "motivation": "Single-Bias Incidents",
+      "incidents": 11323,
+      "offenses": 13234,
+      "victims": 13768,
+      "knownOffenders": 9795
+    },
+    {
+      "motivation": "Race/Ethnicity/Ancestry:",
+      "incidents": 5866,
+      "offenses": 7043,
+      "victims": 7323,
+      "knownOffenders": 5467
+    },
+    {
+      "motivation": "Anti-White",
+      "incidents": 815,
+      "offenses": 977,
+      "victims": 1017,
+      "knownOffenders": 806
+    },
+    {
+      "motivation": "Anti-Black or African American",
+      "incidents": 3004,
+      "offenses": 3552,
+      "victims": 3672,
+      "knownOffenders": 2684
+    },
+    {
+      "motivation": "Anti-American Indian or Alaska Native",
+      "incidents": 116,
+      "offenses": 131,
+      "victims": 137,
+      "knownOffenders": 108
+    },
+    {
+      "motivation": "Anti-Asian",
+      "incidents": 379,
+      "offenses": 451,
+      "victims": 486,
+      "knownOffenders": 377
+    },
+    {
+      "motivation": "Anti-Native Hawaiian or Other Pacific Islander",
+      "incidents": 29,
+      "offenses": 29,
+      "victims": 29,
+      "knownOffenders": 27
+    },
+    {
+      "motivation": "Anti-Multiple Races, Group",
+      "incidents": 162,
+      "offenses": 191,
+      "victims": 207,
+      "knownOffenders": 108
+    },
+    {
+      "motivation": "Anti-Arab",
+      "incidents": 137,
+      "offenses": 159,
+      "victims": 168,
+      "knownOffenders": 125
+    },
+    {
+      "motivation": "Anti-Hispanic or Latino",
+      "incidents": 797,
+      "offenses": 1050,
+      "victims": 1091,
+      "knownOffenders": 851
+    },
+    {
+      "motivation": "Anti-Other Race/Ethnicity/Ancestry",
+      "incidents": 427,
+      "offenses": 503,
+      "victims": 516,
+      "knownOffenders": 381
+    },
+    {
+      "motivation": "Religion:",
+      "incidents": 2783,
+      "offenses": 3096,
+      "victims": 3235,
+      "knownOffenders": 1711
+    },
+    {
+      "motivation": "Anti-Jewish",
+      "incidents": 1938,
+      "offenses": 2137,
+      "victims": 2237,
+      "knownOffenders": 1043
+    },
+    {
+      "motivation": "Anti-Catholic",
+      "incidents": 55,
+      "offenses": 60,
+      "victims": 60,
+      "knownOffenders": 42
+    },
+    {
+      "motivation": "Anti-Protestant",
+      "incidents": 46,
+      "offenses": 51,
+      "victims": 52,
+      "knownOffenders": 36
+    },
+    {
+      "motivation": "Anti-Islamic (Muslim)",
+      "incidents": 228,
+      "offenses": 288,
+      "victims": 301,
+      "knownOffenders": 187
+    },
+    {
+      "motivation": "Anti-Other Religion",
+      "incidents": 104,
+      "offenses": 114,
+      "victims": 122,
+      "knownOffenders": 76
+    },
+    {
+      "motivation": "Anti-Multiple Religions, Group",
+      "incidents": 55,
+      "offenses": 59,
+      "victims": 60,
+      "knownOffenders": 37
+    },
+    {
+      "motivation": "Anti-Church of Jesus Christ3",
+      "incidents": 22,
+      "offenses": 26,
+      "victims": 26,
+      "knownOffenders": 13
+    },
+    {
+      "motivation": "Anti-Jehovah's Witness",
+      "incidents": 12,
+      "offenses": 12,
+      "victims": 13,
+      "knownOffenders": 12
+    },
+    {
+      "motivation": "Anti-Eastern Orthodox (Russian, Greek, Other)",
+      "incidents": 46,
+      "offenses": 48,
+      "victims": 57,
+      "knownOffenders": 35
+    },
+    {
+      "motivation": "Anti-Other Christian",
+      "incidents": 71,
+      "offenses": 82,
+      "victims": 84,
+      "knownOffenders": 56
+    },
+    {
+      "motivation": "Anti-Buddhist",
+      "incidents": 26,
+      "offenses": 29,
+      "victims": 30,
+      "knownOffenders": 26
+    },
+    {
+      "motivation": "Anti-Hindu",
+      "incidents": 25,
+      "offenses": 26,
+      "victims": 27,
+      "knownOffenders": 16
+    },
+    {
+      "motivation": "Anti-Sikh",
+      "incidents": 142,
+      "offenses": 151,
+      "victims": 153,
+      "knownOffenders": 117
+    },
+    {
+      "motivation": "Anti-Atheism/Agnosticism/etc.",
+      "incidents": 13,
+      "offenses": 13,
+      "victims": 13,
+      "knownOffenders": 15
+    },
+    {
+      "motivation": "Sexual Orientation:",
+      "incidents": 1950,
+      "offenses": 2278,
+      "victims": 2373,
+      "knownOffenders": 1933
+    },
+    {
+      "motivation": "Anti-Gay (Male)",
+      "incidents": 1010,
+      "offenses": 1181,
+      "victims": 1217,
+      "knownOffenders": 1145
+    },
+    {
+      "motivation": "Anti-Lesbian",
+      "incidents": 152,
+      "offenses": 185,
+      "victims": 195,
+      "knownOffenders": 137
+    },
+    {
+      "motivation": "Anti-Lesbian, Gay, Bisexual, or Transgender (Mixed Group)",
+      "incidents": 728,
+      "offenses": 844,
+      "victims": 890,
+      "knownOffenders": 590
+    },
+    {
+      "motivation": "Anti-Heterosexual",
+      "incidents": 23,
+      "offenses": 23,
+      "victims": 25,
+      "knownOffenders": 15
+    },
+    {
+      "motivation": "Anti-Bisexual",
+      "incidents": 37,
+      "offenses": 45,
+      "victims": 46,
+      "knownOffenders": 46
+    },
+    {
+      "motivation": "Disability:",
+      "incidents": 163,
+      "offenses": 171,
+      "victims": 182,
+      "knownOffenders": 176
+    },
+    {
+      "motivation": "Anti-Physical",
+      "incidents": 67,
+      "offenses": 72,
+      "victims": 80,
+      "knownOffenders": 67
+    },
+    {
+      "motivation": "Anti-Mental",
+      "incidents": 96,
+      "offenses": 99,
+      "victims": 102,
+      "knownOffenders": 109
+    },
+    {
+      "motivation": "Gender:",
+      "incidents": 98,
+      "offenses": 119,
+      "victims": 119,
+      "knownOffenders": 93
+    },
+    {
+      "motivation": "Anti-Male",
+      "incidents": 20,
+      "offenses": 24,
+      "victims": 24,
+      "knownOffenders": 18
+    },
+    {
+      "motivation": "Anti-Female",
+      "incidents": 78,
+      "offenses": 95,
+      "victims": 95,
+      "knownOffenders": 75
+    },
+    {
+      "motivation": "Gender Identity:",
+      "incidents": 463,
+      "offenses": 527,
+      "victims": 536,
+      "knownOffenders": 415
+    },
+    {
+      "motivation": "Anti-Transgender",
+      "incidents": 335,
+      "offenses": 382,
+      "victims": 388,
+      "knownOffenders": 314
+    },
+    {
+      "motivation": "Anti-Gender Non-Conforming",
+      "incidents": 128,
+      "offenses": 145,
+      "victims": 148,
+      "knownOffenders": 101
+    },
+    {
+      "motivation": "Multiple-Bias Incidents4",
+      "incidents": 356,
+      "offenses": 449,
+      "victims": 475,
+      "knownOffenders": 301
+    }
+  ],
+  "offenderDemographics": {
+    "totalOffenders": 10096,
+    "race": [
+      {
+        "race": "White",
+        "count": 5281,
+        "pct": 52.3
+      },
+      {
+        "race": "Black",
+        "count": 2103,
+        "pct": 20.8
+      },
+      {
+        "race": "American Indian/Alaska Native",
+        "count": 73,
+        "pct": 0.7
+      },
+      {
+        "race": "Asian",
+        "count": 174,
+        "pct": 1.7
+      },
+      {
+        "race": "Pacific Islander",
+        "count": 33,
+        "pct": 0.3
+      },
+      {
+        "race": "Multiple Races (Group)",
+        "count": 635,
+        "pct": 6.3
+      },
+      {
+        "race": "Unknown",
+        "count": 1797,
+        "pct": 17.8
+      }
+    ],
+    "ethnicity": [
+      {
+        "ethnicity": "Hispanic or Latino",
+        "count": 788
+      },
+      {
+        "ethnicity": "Not Hispanic or Latino",
+        "count": 3800
+      },
+      {
+        "ethnicity": "Multiple Ethnicities (Group)",
+        "count": 788
+      },
+      {
+        "ethnicity": "Unknown",
+        "count": 2473
+      }
+    ],
+    "age": {
+      "total": 8385,
+      "adults": 6601,
+      "juveniles": 1784
+    }
+  }
+}

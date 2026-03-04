@@ -12,9 +12,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.opencrime.us/weapon-shift' },
 };
 
+type WeaponTrend = { year: number; total: number; firearms: number; handguns: number; rifles: number; shotguns: number; knives: number; blunt: number; hands: number; narcotics: number };
+
 type HomicideData = {
   weaponBreakdown: { weapon: string; count: number }[];
   yearlyWeapons: { year: number; firearm: number; knife: number; hands: number; other: number }[];
+  weaponTrends: WeaponTrend[];
+  justifiableHomicides: { lawEnforcement: { year: number; total: number; firearms: number }[]; privateCitizen: { year: number; total: number; firearms: number }[] };
+  circumstanceTrends: { year: number; total: number; felonyType: number; otherThanFelony: number; robbery: number; narcoticDrugLaws: number; domesticViolence: number }[];
 };
 
 export default function WeaponShiftPage() {
@@ -101,6 +106,42 @@ export default function WeaponShiftPage() {
           with murder — and indeed, &quot;drug-induced homicide&quot; prosecutions have increased dramatically.
         </p>
       </div>
+
+      {data.weaponTrends && data.weaponTrends.length > 0 && (
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="font-heading text-xl font-bold mb-4">Detailed Weapon Breakdown by Year</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-3 py-2">Year</th>
+                  <th className="text-right px-3 py-2">Handguns</th>
+                  <th className="text-right px-3 py-2">Rifles</th>
+                  <th className="text-right px-3 py-2">Shotguns</th>
+                  <th className="text-right px-3 py-2">Knives</th>
+                  <th className="text-right px-3 py-2">Blunt Objects</th>
+                  <th className="text-right px-3 py-2">Hands/Feet</th>
+                  <th className="text-right px-3 py-2">Narcotics</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.weaponTrends.map(wt => (
+                  <tr key={wt.year} className="border-t hover:bg-gray-50">
+                    <td className="px-3 py-2 font-medium">{wt.year}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.handguns)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.rifles)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.shotguns)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.knives)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.blunt)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.hands)}</td>
+                    <td className="px-3 py-2 text-right font-mono">{fmtNum(wt.narcotics)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-4">
         <Link href="/analysis/gun-violence" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">Gun Violence Data</Link>

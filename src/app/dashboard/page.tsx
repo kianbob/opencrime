@@ -153,6 +153,16 @@ export default function DashboardPage() {
       <p className="text-sm text-gray-500 mt-8">
         Source: FBI Crime Data Explorer, SRS Estimated Crimes. National data gap 2017–2020 due to FBI transition from SRS to NIBRS reporting system.
       </p>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'Article',
+        headline: 'National Crime Dashboard — US Crime Trends 1979–2024',
+        description: `Interactive dashboard showing 45 years of US crime data. ${fmtNum(n.violentCrime)} violent crimes and ${fmtNum(n.homicide)} homicides in 2024.`,
+        publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
+        datePublished: '2025-01-01',
+        dateModified: '2026-03-04',
+        mainEntityOfPage: 'https://www.opencrime.us/dashboard',
+      })}} />
     </div>
   );
 }

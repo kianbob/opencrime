@@ -2,6 +2,8 @@ import { loadData, fmtNum, fmtRate, fmtPct } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
+
 export const metadata: Metadata = {
   title: 'OpenCrime — US Crime Data Explorer | FBI Statistics for Every City & State',
   description: 'Explore FBI crime statistics for 9,700+ cities and all 50 states. Crime rates, trends since 1979, rankings, and analysis. Free and open data.',
@@ -23,6 +25,7 @@ type Stats = {
 };
 
 export default function HomePage() {
+  const arrestRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'TOTAL');
   const stats = loadData<Stats>('stats.json');
   const n = stats.national2024;
 
@@ -301,6 +304,39 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Arrest Demographics Summary */}
+      {arrestRace && (
+        <section className="max-w-6xl mx-auto px-4 py-12">
+          <h2 className="font-heading text-3xl font-bold text-center mb-4">Arrest Demographics by Race</h2>
+          <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+            National arrest data from {fmtNum(arrestRace.total)} total arrests. These figures reflect policing patterns
+            and systemic factors, not just the distribution of criminal behavior.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {[
+              { label: 'White', value: arrestRace.white, pct: (arrestRace.white / arrestRace.total * 100).toFixed(1) },
+              { label: 'Black', value: arrestRace.black, pct: (arrestRace.black / arrestRace.total * 100).toFixed(1) },
+              { label: 'Native American', value: arrestRace.nativeAmerican, pct: (arrestRace.nativeAmerican / arrestRace.total * 100).toFixed(1) },
+              { label: 'Asian', value: arrestRace.asian, pct: (arrestRace.asian / arrestRace.total * 100).toFixed(1) },
+              { label: 'Pacific Islander', value: arrestRace.pacificIslander, pct: (arrestRace.pacificIslander / arrestRace.total * 100).toFixed(1) },
+            ].map(r => (
+              <div key={r.label} className="bg-white rounded-xl shadow-sm border p-4 text-center">
+                <div className="text-2xl font-bold text-[#1e3a5f]">{r.pct}%</div>
+                <div className="text-sm text-gray-600">{r.label}</div>
+                <div className="text-xs text-gray-400">{fmtNum(r.value)}</div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-4">
+            <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline font-medium text-sm">Full Arrest Demographics →</Link>
+            <span className="mx-2 text-gray-300">|</span>
+            <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline font-medium text-sm">Racial Disparities Analysis →</Link>
+            <span className="mx-2 text-gray-300">|</span>
+            <Link href="/analysis/crime-by-race" className="text-[#1e3a5f] hover:underline font-medium text-sm">Crime by Race →</Link>
+          </div>
+        </section>
+      )}
 
       {/* About */}
       <section className="max-w-4xl mx-auto px-4 py-12 text-center">
