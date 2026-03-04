@@ -210,6 +210,48 @@ export default function HomePage() {
         potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: 'https://www.opencrime.us/search?q={search_term_string}' }, 'query-input': 'required name=search_term_string' }
       })}} />
 
+      {/* Featured Analysis */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="font-heading text-3xl font-bold text-center mb-8">Featured Analysis</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { href: '/analysis/crime-decline', title: 'The Great Crime Decline', desc: 'Why America is safer than you think — 45 years of data', tag: 'DEEP DIVE' },
+            { href: '/analysis/gun-violence', title: 'Gun Violence by the Numbers', desc: 'Firearms in 77% of murders — what FBI data actually shows', tag: 'ANALYSIS' },
+            { href: '/analysis/rural-vs-urban', title: 'Rural vs Urban Crime', desc: 'Small cities can be more dangerous than big metros', tag: 'DEEP DIVE' },
+          ].map(a => (
+            <Link key={a.href} href={a.href} className="bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition group">
+              <span className={`text-xs font-bold px-2 py-1 rounded ${a.tag === 'DEEP DIVE' ? 'bg-[#1e3a5f] text-white' : 'bg-red-100 text-red-700'}`}>{a.tag}</span>
+              <h3 className="font-heading text-lg font-bold mt-3 group-hover:text-[#1e3a5f] transition">{a.title}</h3>
+              <p className="text-sm text-gray-500 mt-2">{a.desc}</p>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-6">
+          <Link href="/analysis" className="text-[#1e3a5f] hover:underline font-medium">All Analysis Articles →</Link>
+        </div>
+      </section>
+
+      {/* Tools */}
+      <section className="bg-blue-50 py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-heading text-3xl font-bold text-center mb-8">Interactive Tools</h2>
+          <div className="grid md:grid-cols-4 gap-4">
+            {[
+              { href: '/tools/compare', icon: '⚖️', title: 'Compare Cities', desc: 'Side-by-side crime comparison' },
+              { href: '/tools/safety-score', icon: '🛡️', title: 'Safety Score', desc: 'A-F grade for any city' },
+              { href: '/search', icon: '🔍', title: 'City Search', desc: 'Search 9,700+ cities' },
+              { href: '/hate-crimes', icon: '📊', title: 'Hate Crimes', desc: 'Bias incidents by state' },
+            ].map(t => (
+              <Link key={t.href} href={t.href} className="bg-white rounded-xl p-4 text-center hover:shadow-md transition group">
+                <div className="text-3xl mb-2">{t.icon}</div>
+                <div className="font-semibold group-hover:text-[#1e3a5f]">{t.title}</div>
+                <div className="text-xs text-gray-500">{t.desc}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About */}
       <section className="max-w-4xl mx-auto px-4 py-12 text-center">
         <h2 className="font-heading text-3xl font-bold mb-4">About OpenCrime</h2>

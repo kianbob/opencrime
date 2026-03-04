@@ -8,6 +8,8 @@ const NAV_LINKS = [
   { href: '/cities', label: 'Cities' },
   { href: '/rankings', label: 'Rankings' },
   { href: '/crimes', label: 'Crime Types' },
+  { href: '/hate-crimes', label: 'Hate Crimes' },
+  { href: '/analysis', label: 'Analysis' },
 ];
 
 const TOOLS = [

@@ -12,7 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '', '/dashboard', '/states', '/cities', '/rankings', '/crimes', '/search', '/about',
     '/safest-cities', '/most-dangerous-cities', '/crime-rate', '/murder-rate',
     '/tools', '/tools/compare', '/tools/safety-score',
-    '/methodology', '/faq',
+    '/methodology', '/faq', '/hate-crimes',
+    '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
+    '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
+    '/analysis/police-funding', '/analysis/drug-crime',
+    '/analysis/domestic-violence', '/analysis/racial-disparities',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));
 
   const states = loadData<StateData[]>('state-trends.json');

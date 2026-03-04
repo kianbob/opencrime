@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400 mt-16">
-      <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-5 gap-8 text-sm">
         <div>
           <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Explore</h3>
           <ul className="space-y-2">
@@ -25,6 +25,17 @@ export default function Footer() {
             <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Tools & Analysis</h3>
+          <ul className="space-y-2">
+            <li><Link href="/tools/compare" className="hover:text-white">Compare Cities</Link></li>
+            <li><Link href="/tools/safety-score" className="hover:text-white">Safety Score</Link></li>
+            <li><Link href="/hate-crimes" className="hover:text-white">Hate Crimes</Link></li>
+            <li><Link href="/analysis" className="hover:text-white">Analysis Articles</Link></li>
+            <li><Link href="/analysis/crime-decline" className="hover:text-white">The Great Crime Decline</Link></li>
+            <li><Link href="/analysis/gun-violence" className="hover:text-white">Gun Violence</Link></li>
           </ul>
         </div>
         <div>
