@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/safest-cities', '/most-dangerous-cities', '/crime-rate', '/murder-rate',
     '/tools', '/tools/compare', '/tools/safety-score',
     '/methodology', '/faq', '/hate-crimes', '/arrests', '/dui-statistics', '/drug-arrests',
+    '/downloads', '/privacy',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
     '/analysis/police-funding', '/analysis/drug-crime',

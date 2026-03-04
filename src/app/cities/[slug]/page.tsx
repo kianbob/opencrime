@@ -3,6 +3,7 @@ import type { CityDetail, NationalTrend } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CityCharts from './CityCharts';
+import ShareButtons from '@/components/ShareButtons';
 import fs from 'fs';
 import path from 'path';
 
@@ -171,6 +172,37 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
 
       {/* Charts */}
       {years.length > 1 && <CityCharts yearData={yearData.reverse()} cityName={city.city} />}
+
+      {/* Safety Grade */}
+      {(() => {
+        const vr = latest.violentRate;
+        const grade = vr < 100 ? 'A+' : vr < 200 ? 'A' : vr < 300 ? 'B' : vr < 400 ? 'C' : vr < 600 ? 'D' : vr < 1000 ? 'F' : 'F-';
+        const color = vr < 300 ? 'text-green-600 bg-green-50' : vr < 400 ? 'text-yellow-600 bg-yellow-50' : vr < 600 ? 'text-orange-600 bg-orange-50' : 'text-red-600 bg-red-50';
+        return (
+          <div className={`rounded-xl p-6 mb-8 text-center ${color.split(' ')[1]}`}>
+            <div className={`text-5xl font-bold ${color.split(' ')[0]}`}>{grade}</div>
+            <div className="text-lg font-semibold mt-1">Safety Grade for {city.city}</div>
+            <p className="text-sm text-gray-500 mt-2">Based on violent crime rate of {fmtRate(vr)} per 100K (national avg: {fmtRate(natLatest?.violentRate ?? 359.1)})</p>
+          </div>
+        );
+      })()}
+
+      {/* Quick Links */}
+      <div className="flex flex-wrap gap-3 mb-8">
+        <Link href={`/tools/compare`} className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#2a4d7a] transition">Compare {city.city} →</Link>
+        <Link href={`/states/${abbr.toLowerCase()}`} className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">{city.state} Overview →</Link>
+        <Link href="/rankings" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">City Rankings →</Link>
+        <Link href="/tools/safety-score" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Safety Score Tool →</Link>
+      </div>
+
+      <ShareButtons title={`${city.city}, ${city.state} Crime Rate`} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'Article',
+        headline: `${city.city}, ${city.state} Crime Rate ${latestYear}`,
+        description: `Crime statistics for ${city.city}, ${city.state}. Violent crime rate: ${latest.violentRate.toFixed(1)} per 100K.`,
+        publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
+      })}} />
 
       <p className="text-sm text-gray-500 mt-8">
         Source: FBI Crime Data Explorer, Table 8 — Offenses Known to Law Enforcement by State by City. 

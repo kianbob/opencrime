@@ -1,0 +1,35 @@
+const articles = [
+  { slug: 'crime-decline', title: 'The Great Crime Decline: Why America Is Safer Than You Think', date: '2026-03-04' },
+  { slug: 'gun-violence', title: 'Gun Violence by the Numbers: What FBI Data Actually Shows', date: '2026-03-04' },
+  { slug: 'property-crime-surge', title: 'The Property Crime Paradox: Theft Rising While Violence Falls', date: '2026-03-04' },
+  { slug: 'rural-vs-urban', title: 'Rural vs Urban Crime: Shattering the Myths', date: '2026-03-04' },
+  { slug: 'police-funding', title: 'Police Funding and Crime Rates: What the Data Shows', date: '2026-03-04' },
+  { slug: 'drug-crime', title: 'The Drug-Crime Connection: From Crack to Fentanyl', date: '2026-03-04' },
+  { slug: 'domestic-violence', title: 'Domestic Violence in America: The Hidden Epidemic', date: '2026-03-04' },
+  { slug: 'racial-disparities', title: 'Crime Victimization: Who Bears the Burden?', date: '2026-03-04' },
+];
+
+export async function GET() {
+  const base = 'https://www.opencrime.us';
+  const items = articles.map(a => `
+    <item>
+      <title>${a.title}</title>
+      <link>${base}/analysis/${a.slug}</link>
+      <guid>${base}/analysis/${a.slug}</guid>
+      <pubDate>${new Date(a.date).toUTCString()}</pubDate>
+    </item>`).join('');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenCrime — Crime Data Analysis</title>
+    <link>${base}</link>
+    <description>In-depth analysis of US crime data from FBI statistics</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${base}/feed.xml" rel="self" type="application/rss+xml" />${items}
+  </channel>
+</rss>`;
+
+  return new Response(xml, { headers: { 'Content-Type': 'application/xml' } });
+}

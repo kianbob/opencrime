@@ -2,6 +2,7 @@ import { loadData, fmtNum, fmtRate, fmtPct, slugify } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import StateCharts from './StateCharts';
+import ShareButtons from '@/components/ShareButtons';
 
 type StateData = {
   abbr: string; name: string;
@@ -180,8 +181,25 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
         </div>
       )}
 
+      {/* Explore More */}
+      <div className="flex flex-wrap gap-3 mt-8 mb-4">
+        <Link href="/states" className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#2a4d7a] transition">All States</Link>
+        <Link href="/tools/compare" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Compare Cities</Link>
+        <Link href="/arrests" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Arrest Data</Link>
+        <Link href="/hate-crimes" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Hate Crimes</Link>
+      </div>
+
+      <ShareButtons title={`${state.name} Crime Statistics`} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'Article',
+        headline: `${state.name} Crime Statistics ${latest.year}`,
+        description: `Crime data for ${state.name}. Violent crime rate: ${latest.violentRate.toFixed(1)} per 100K.`,
+        publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
+      })}} />
+
       <p className="text-sm text-gray-500 mt-8">
-        Source: FBI Crime Data Explorer. Rates per 100,000 residents. City data from Table 8 (Offenses Known to Law Enforcement by State by City).
+        Source: FBI Crime Data Explorer. Rates per 100,000 residents. City data from Table 8.
       </p>
     </div>
   );

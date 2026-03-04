@@ -17,6 +17,20 @@ export default function AboutPage() {
           Crime Data Explorer and present it in a clean, searchable format that anyone can understand.
         </p>
 
+        <div className="not-prose grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+          {[
+            { n: '9,800+', label: 'Pages' },
+            { n: '12,826', label: 'City Profiles' },
+            { n: '45', label: 'Years of Data' },
+            { n: '8', label: 'Analysis Articles' },
+          ].map(s => (
+            <div key={s.label} className="bg-[#1e3a5f] text-white rounded-xl p-4 text-center">
+              <div className="text-2xl font-bold">{s.n}</div>
+              <div className="text-blue-200 text-sm">{s.label}</div>
+            </div>
+          ))}
+        </div>
+
         <h2 className="font-heading">Our Data</h2>
         <p>All data comes from the FBI&apos;s Uniform Crime Reporting (UCR) program:</p>
         <ul>
@@ -46,6 +60,16 @@ export default function AboutPage() {
           a network of free data platforms making public records accessible. Our sister sites cover 
           healthcare, government spending, immigration, prescriber data, lobbying, farm subsidies, and more.
         </p>
+
+        <h2 className="font-heading">Explore</h2>
+        <ul>
+          <li><Link href="/dashboard">Interactive Dashboard</Link> — 45 years of charts</li>
+          <li><Link href="/analysis">Analysis Articles</Link> — In-depth data journalism</li>
+          <li><Link href="/tools">Interactive Tools</Link> — Compare cities, safety scores</li>
+          <li><Link href="/downloads">Download Data</Link> — Free JSON data files</li>
+          <li><Link href="/methodology">Methodology</Link> — How we process data</li>
+          <li><Link href="/faq">FAQ</Link> — Common questions answered</li>
+        </ul>
 
         <h2 className="font-heading">Contact</h2>
         <p>

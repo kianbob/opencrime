@@ -24,6 +24,8 @@ export default function Footer() {
             <li><Link href="/most-dangerous-cities" className="hover:text-white">Most Dangerous Cities</Link></li>
             <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
+            <li><Link href="/downloads" className="hover:text-white">Download Data</Link></li>
+            <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
           </ul>
         </div>
