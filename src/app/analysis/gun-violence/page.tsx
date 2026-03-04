@@ -9,7 +9,7 @@ import GunCharts from './GunCharts';
 
 export const metadata: Metadata = {
   title: 'Gun Violence by the Numbers: What FBI Data Actually Shows',
-  description: 'Firearms are used in 77% of US murders. Analysis of FBI expanded homicide data: weapon types, trends, circumstances, and geographic patterns.',
+  description: 'Firearms are used in 77% of US murders. Comprehensive analysis of FBI expanded homicide data: weapon types, trends, circumstances, geographic patterns, demographics, and policy implications.',
   alternates: { canonical: 'https://www.opencrime.us/analysis/gun-violence' },
 };
 
@@ -30,6 +30,40 @@ export default function GunViolencePage() {
   const firearmPct = (firearmTotal / totalMurders * 100).toFixed(1);
   const knives = data.weaponBreakdown.find(w => w.weapon.toLowerCase().includes('kniv') || w.weapon.toLowerCase().includes('cutting'));
   const hands = data.weaponBreakdown.find(w => w.weapon.toLowerCase().includes('hands') || w.weapon.toLowerCase().includes('personal'));
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What percentage of US murders involve firearms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Firearms are used in ${firearmPct}% of all US murders, making them the most common murder weapon by far. This represents ${fmtNum(firearmTotal)} firearm homicides out of ${fmtNum(totalMurders)} total murders in the most recent data.`
+      }
+    }, {
+      "@type": "Question", 
+      "name": "What types of guns are used most in murders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Handguns are used in the vast majority of firearm murders, accounting for over 80% of gun homicides. Rifles, including assault weapons, account for only about 3-5% of gun murders annually."
+      }
+    }, {
+      "@type": "Question",
+      "name": "How does US gun violence compare internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US firearm homicide rate is approximately 25 times higher than other high-income countries. The US has both the highest gun ownership rate (400+ million civilian firearms) and highest gun homicide rate among developed nations."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Who is most likely to be a victim of gun violence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Young men aged 18-34 are disproportionately affected by gun violence, particularly young Black males in urban areas. Males account for about 78% of all murder victims, with homicide being a leading cause of death for young men."
+      }
+    }]
+  };
 
   const aiInsights = [
     `Firearms are used in ${firearmPct}% of all US murders, far higher than any other weapon type`,
