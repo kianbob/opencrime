@@ -27,7 +27,7 @@ export default function CrimeStoriesPage() {
 
   // Crisis cities: worsening with high rates
   const crisis = cities
-    .filter(c => c.trajectory === 'worsening' && c.population >= 50000 && c.violentRate > 500)
+    .filter(c => c.trajectory === 'worsening' && c.population >= 25000)
     .sort((a, b) => b.violentRate - a.violentRate)
     .slice(0, 10);
 
