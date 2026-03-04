@@ -1,6 +1,7 @@
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { NationalTrend, StateSummary } from '@/lib/utils';
 import type { Metadata } from 'next';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function CrimeRatePage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'US Crime Rate 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">US Crime Rate 2024</h1>
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-8 mb-8">

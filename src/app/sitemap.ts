@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/methodology', '/faq', '/hate-crimes', '/arrests', '/dui-statistics', '/drug-arrests',
     '/downloads', '/privacy', '/most-improved', '/cargo-theft',
     '/tools/state-compare', '/tools/risk-calculator',
+    '/violent-crime', '/property-crime', '/robbery-statistics', '/assault-statistics',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
     '/analysis/police-funding', '/analysis/drug-crime',

@@ -2,6 +2,7 @@ import { loadData, fmtNum, fmtRate, fmtPct } from '@/lib/utils';
 import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function MostImprovedPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Most Improved Cities 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Most Improved & Most Worsened Cities 2024</h1>
       <p className="text-lg text-gray-600 mb-8">
         Year-over-year change in violent crime rate for cities with 100,000+ population.

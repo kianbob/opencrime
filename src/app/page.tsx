@@ -238,9 +238,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-4">
             {[
               { href: '/tools/compare', icon: '⚖️', title: 'Compare Cities', desc: 'Side-by-side crime comparison' },
+              { href: '/tools/state-compare', icon: '🗺️', title: 'Compare States', desc: '40+ year trend comparison' },
+              { href: '/tools/risk-calculator', icon: '🎲', title: 'Risk Calculator', desc: 'Your odds of being a victim' },
               { href: '/tools/safety-score', icon: '🛡️', title: 'Safety Score', desc: 'A-F grade for any city' },
-              { href: '/search', icon: '🔍', title: 'City Search', desc: 'Search 9,700+ cities' },
-              { href: '/hate-crimes', icon: '📊', title: 'Hate Crimes', desc: 'Bias incidents by state' },
             ].map(t => (
               <Link key={t.href} href={t.href} className="bg-white rounded-xl p-4 text-center hover:shadow-md transition group">
                 <div className="text-3xl mb-2">{t.icon}</div>
@@ -249,6 +249,27 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Crime Types */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="font-heading text-3xl font-bold text-center mb-8">Browse by Crime Type</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { href: '/violent-crime', label: 'Violent Crime', color: 'bg-red-600' },
+            { href: '/murder-rate', label: 'Murder', color: 'bg-red-800' },
+            { href: '/assault-statistics', label: 'Assault', color: 'bg-red-700' },
+            { href: '/robbery-statistics', label: 'Robbery', color: 'bg-red-500' },
+            { href: '/property-crime', label: 'Property Crime', color: 'bg-blue-700' },
+            { href: '/cargo-theft', label: 'Cargo Theft', color: 'bg-amber-800' },
+            { href: '/hate-crimes', label: 'Hate Crimes', color: 'bg-purple-700' },
+            { href: '/arrests', label: 'Arrests', color: 'bg-gray-700' },
+          ].map(c => (
+            <Link key={c.href} href={c.href} className={`${c.color} text-white rounded-xl p-4 text-center hover:opacity-90 transition font-semibold`}>
+              {c.label}
+            </Link>
+          ))}
         </div>
       </section>
 

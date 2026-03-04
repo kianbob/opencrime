@@ -1,6 +1,7 @@
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import CargoCharts from './CargoCharts';
 
@@ -24,6 +25,7 @@ export default function CargoTheftPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Cargo Theft Statistics 2012–2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Cargo Theft Statistics</h1>
       <p className="text-lg text-gray-600 mb-8">
         FBI cargo theft data: {fmtNum(data.totalIncidents)} reported incidents from 2012 to 2024. 
