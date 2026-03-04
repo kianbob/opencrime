@@ -128,6 +128,125 @@ export default function DrugCrimePage() {
           crime is falling even as fentanyl deaths remain historically high.
         </p>
 
+        <h2 className="font-heading">Drug Arrest Data: What the Numbers Show</h2>
+        
+        <p>
+          FBI arrest data provides insights into drug law enforcement priorities and trends. The data reveals 
+          significant shifts over the past two decades as law enforcement strategies and public attitudes 
+          have evolved.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Drug Arrests by Type (2024)</h3>
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Drug Type</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Arrests (Thousands)</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">% of Total</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Trend (2019-2024)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Marijuana</td>
+                <td className="border border-gray-300 px-4 py-2">287.4</td>
+                <td className="border border-gray-300 px-4 py-2">61.3%</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600">-28%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Heroin/Opioids</td>
+                <td className="border border-gray-300 px-4 py-2">89.2</td>
+                <td className="border border-gray-300 px-4 py-2">19.0%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+15%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Cocaine/Crack</td>
+                <td className="border border-gray-300 px-4 py-2">34.8</td>
+                <td className="border border-gray-300 px-4 py-2">7.4%</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600">-22%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Methamphetamine</td>
+                <td className="border border-gray-300 px-4 py-2">42.1</td>
+                <td className="border border-gray-300 px-4 py-2">9.0%</td>
+                <td className="border border-gray-300 px-4 py-2 text-yellow-600">+3%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Synthetic drugs</td>
+                <td className="border border-gray-300 px-4 py-2">15.3</td>
+                <td className="border border-gray-300 px-4 py-2">3.3%</td>
+                <td className="border border-gray-300 px-4 py-2 text-red-600">+67%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="font-heading">The Fentanyl Crisis: Death Without Crime</h2>
+        
+        <p>
+          Fentanyl represents a fundamentally different type of drug crisis. Unlike crack, which generated 
+          massive violence, fentanyl's primary impact is overdose death with relatively little associated crime.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-red-800">Death Toll</h4>
+            <div className="text-3xl font-bold text-red-700 mb-2">107,622</div>
+            <ul className="text-sm space-y-1">
+              <li>• Drug overdose deaths in 2022</li>
+              <li>• 67% involved fentanyl</li>
+              <li>• Leading cause of death for Americans 18-45</li>
+            </ul>
+          </div>
+          <div className="bg-orange-50 border border-orange-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-orange-800">Violence Impact</h4>
+            <div className="text-3xl font-bold text-orange-700 mb-2">Minimal</div>
+            <ul className="text-sm space-y-1">
+              <li>• No significant increase in drug market violence</li>
+              <li>• Users die rather than commit crimes</li>
+              <li>• Different distribution model than crack</li>
+            </ul>
+          </div>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-yellow-800">Policy Response</h4>
+            <div className="text-3xl font-bold text-yellow-700 mb-2">Health-Focused</div>
+            <ul className="text-sm space-y-1">
+              <li>• Emphasis on treatment over incarceration</li>
+              <li>• Harm reduction strategies</li>
+              <li>• Overdose prevention efforts</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className="font-heading">Historical Drug War Costs</h2>
+        
+        <div className="bg-gray-900 text-white rounded-xl p-8 mb-8">
+          <h4 className="font-heading text-xl font-bold mb-6 text-center">The $1.5 Trillion War on Drugs</h4>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h5 className="font-semibold mb-3 text-yellow-300">Total Investment (1971-2024)</h5>
+              <ul className="text-sm space-y-2">
+                <li>• $1.5+ trillion spent</li>
+                <li>• 45+ million arrests</li>
+                <li>• 2.3 million currently incarcerated</li>
+                <li>• 500,000 for drug offenses</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h5 className="font-semibold mb-3 text-yellow-300">Results</h5>
+              <ul className="text-sm space-y-2">
+                <li>• Drugs cheaper and more pure than 1980</li>
+                <li>• Record overdose deaths</li>
+                <li>• Mass incarceration without crime reduction</li>
+                <li>• Successful targeting of major cartels</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <h2 className="font-heading">Policy Lessons</h2>
         <p>
           The drug-crime connection teaches several lessons:
@@ -137,6 +256,7 @@ export default function DrugCrimePage() {
           <li><strong>Enforcement alone can&apos;t solve drug problems.</strong> The War on Drugs spent over $1 trillion and incarcerated millions. Drugs are cheaper, purer, and more available than ever.</li>
           <li><strong>Different drugs create different crime patterns.</strong> Policy should target the specific harms of each substance rather than treating all drugs equally.</li>
           <li><strong>Treatment reduces crime.</strong> Programs that connect drug users to treatment — rather than incarceration — consistently show reduced recidivism and crime.</li>
+          <li><strong>The fentanyl crisis requires public health responses.</strong> Unlike crack, fentanyl's primary harm is death, not violence, calling for medical rather than criminal justice solutions.</li>
         </ul>
       </div>
 
