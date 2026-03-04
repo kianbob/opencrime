@@ -7,31 +7,28 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Explore</h3>
           <ul className="space-y-2">
+            <li><Link href="/dashboard" className="hover:text-white">Dashboard</Link></li>
             <li><Link href="/states" className="hover:text-white">States</Link></li>
+            <li><Link href="/cities" className="hover:text-white">Cities</Link></li>
             <li><Link href="/crimes" className="hover:text-white">Crime Types</Link></li>
             <li><Link href="/rankings" className="hover:text-white">Rankings</Link></li>
-            <li><Link href="/dashboard" className="hover:text-white">Dashboard</Link></li>
             <li><Link href="/search" className="hover:text-white">Search</Link></li>
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Analysis</h3>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">About</h3>
           <ul className="space-y-2">
-            <li><Link href="/analysis" className="hover:text-white">All Analysis</Link></li>
-            <li><Link href="/about" className="hover:text-white">About</Link></li>
-            <li><Link href="/methodology" className="hover:text-white">Methodology</Link></li>
-            <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
-            <li><Link href="/downloads" className="hover:text-white">Downloads</Link></li>
+            <li><Link href="/about" className="hover:text-white">About OpenCrime</Link></li>
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Popular</h3>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Popular States</h3>
           <ul className="space-y-2">
-            <li><Link href="/rankings/safest-cities" className="hover:text-white">Safest Cities</Link></li>
-            <li><Link href="/rankings/most-dangerous" className="hover:text-white">Most Dangerous Cities</Link></li>
-            <li><Link href="/crimes/murder" className="hover:text-white">Murder Statistics</Link></li>
-            <li><Link href="/crimes/robbery" className="hover:text-white">Robbery Statistics</Link></li>
-            <li><Link href="/rankings/safest-states" className="hover:text-white">Safest States</Link></li>
+            <li><Link href="/states/ca" className="hover:text-white">California</Link></li>
+            <li><Link href="/states/tx" className="hover:text-white">Texas</Link></li>
+            <li><Link href="/states/fl" className="hover:text-white">Florida</Link></li>
+            <li><Link href="/states/ny" className="hover:text-white">New York</Link></li>
+            <li><Link href="/states/il" className="hover:text-white">Illinois</Link></li>
           </ul>
         </div>
         <div>
@@ -49,8 +46,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-800 py-6 text-center text-xs text-gray-500">
-        <p>Data from FBI Uniform Crime Reporting (UCR) Program. Not legal advice.</p>
-        <p className="mt-1">A <a href="https://thedataproject.ai" className="text-primary hover:underline">TheDataProject.ai</a> platform · © {new Date().getFullYear()}</p>
+        <p>Data from FBI Crime Data Explorer &amp; Uniform Crime Reporting (UCR) Program. Not legal advice.</p>
+        <p className="mt-1">A <a href="https://thedataproject.ai" className="hover:underline hover:text-gray-300">TheDataProject.ai</a> platform · 9,800+ pages of free crime data · © {new Date().getFullYear()}</p>
       </div>
     </footer>
   )

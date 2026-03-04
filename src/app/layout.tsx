@@ -9,8 +9,13 @@ const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap
 
 export const metadata: Metadata = {
   title: { default: 'OpenCrime — US Crime Data Explorer', template: '%s | OpenCrime' },
-  description: 'Explore FBI crime statistics for every state and 18,000+ agencies. Violent crime, property crime, trends, rankings, and analysis — free and open.',
+  description: 'Explore FBI crime statistics for 9,700+ cities and all 50 states. Crime rates, trends since 1979, rankings, and analysis — free and open.',
   metadataBase: new URL('https://www.opencrime.us'),
+  openGraph: {
+    siteName: 'OpenCrime',
+    type: 'website',
+    locale: 'en_US',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
