@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'FAQ — Frequently Asked Questions About Crime Data',
   description: 'Common questions about crime statistics, FBI data, crime rates, and how to interpret crime data. From OpenCrime, the free US crime data explorer.',
+  openGraph: { url: 'https://www.opencrime.us/faq' },
+  alternates: { canonical: 'https://www.opencrime.us/faq' },
 };
 
 const faqs = [

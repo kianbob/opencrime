@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Violent Crime Statistics 2024 — US Rates, Trends & City Rankings',
   description: 'US violent crime statistics 2024: murder, assault, robbery, rape rates. 45 years of FBI data. City rankings, state comparisons, historical trends.',
+  openGraph: { url: 'https://www.opencrime.us/violent-crime' },
+  alternates: { canonical: 'https://www.opencrime.us/violent-crime' },
 };
 
 export default function ViolentCrimePage() {

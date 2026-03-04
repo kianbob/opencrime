@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Organized Retail Theft — Is Shoplifting Really Surging?',
   description: 'Examining the organized retail theft narrative. What FBI data says vs what retailers claim. Shrinkage data, flash mob robberies, and prosecutorial gaps.',
   openGraph: { title: 'Organized Retail Theft', description: 'Is shoplifting really surging? What the data actually shows vs the narrative.' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis/organized-retail-theft' },
 };
 
 export default function RetailTheftPage() {
@@ -98,7 +100,9 @@ export default function RetailTheftPage() {
         <Link href="/analysis/property-crime-surge" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Property Crime Analysis</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Organized Retail Theft" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="organized-retail-theft" />
+
+      <ShareButtons title="Organized Retail Theft" /></div>
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer (larceny-theft), NRF National Retail Security Survey, various retailer earnings calls.</p>
     </div>

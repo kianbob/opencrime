@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { NationalTrend } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -8,6 +9,7 @@ import DeclineCharts from './DeclineCharts';
 export const metadata: Metadata = {
   title: 'The Great Crime Decline: Why America Is Safer Than You Think',
   description: 'Violent crime has fallen 52.6% since 1991. An in-depth analysis of 45 years of FBI crime data showing how and why America became dramatically safer.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/crime-decline' },
 };
 
 export default function CrimeDeclinePage() {
@@ -136,7 +138,9 @@ export default function CrimeDeclinePage() {
       </div>
 
       <div className="mt-8">
-        <ShareButtons title="The Great Crime Decline: Why America Is Safer Than You Think" />
+        <RelatedAnalysis currentSlug="crime-decline" />
+
+      <ShareButtons title="The Great Crime Decline: Why America Is Safer Than You Think" />
       </div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

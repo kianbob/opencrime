@@ -5,6 +5,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'OpenCrime — US Crime Data Explorer | FBI Statistics for Every City & State',
   description: 'Explore FBI crime statistics for 9,700+ cities and all 50 states. Crime rates, trends since 1979, rankings, and analysis. Free and open data.',
+  openGraph: { url: 'https://www.opencrime.us/' },
+  alternates: { canonical: 'https://www.opencrime.us/' },
 };
 
 type Stats = {

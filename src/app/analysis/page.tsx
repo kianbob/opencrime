@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Crime Analysis — In-Depth Articles on US Crime Data',
   description: 'Data-driven analysis of US crime trends. The great crime decline, gun violence, property crime, rural vs urban crime, and more. All backed by FBI statistics.',
+  openGraph: { url: 'https://www.opencrime.us/analysis' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis' },
 };
 
 const articles = [

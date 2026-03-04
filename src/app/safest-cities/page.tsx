@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Safest Cities in America 2024 — Complete Rankings by Crime Rate',
   description: 'The safest cities in America ranked by violent crime rate. Based on FBI 2024 data for 332 cities with 100,000+ population. Updated with the latest FBI statistics.',
+  openGraph: { url: 'https://www.opencrime.us/safest-cities' },
+  alternates: { canonical: 'https://www.opencrime.us/safest-cities' },
 };
 
 export default function SafestCitiesPage() {

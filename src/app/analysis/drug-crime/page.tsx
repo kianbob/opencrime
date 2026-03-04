@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -5,6 +6,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'The Drug-Crime Connection: From Crack to Fentanyl',
   description: 'How drug epidemics have shaped American crime waves. From the 1980s crack crisis to today\'s fentanyl surge — the data on drugs, violence, and arrests.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/drug-crime' },
 };
 
 export default function DrugCrimePage() {
@@ -132,7 +134,9 @@ export default function DrugCrimePage() {
         <Link href="/murder-rate" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Murder Rate</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="The Drug-Crime Connection" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="drug-crime" />
+
+      <ShareButtons title="The Drug-Crime Connection" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',

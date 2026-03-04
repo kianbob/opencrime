@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -6,12 +7,14 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Crime Victimization: Who Bears the Burden?',
   description: 'Homicide is the leading cause of death for Black males 15-34. FBI data reveals the stark geographic and demographic concentration of violent crime in America.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/racial-disparities' },
 };
 
 type HomicideData = {
   victimRace: { race: string; count: number }[];
   victimAge: { range: string; count: number }[];
   victimSex: { sex: string; count: number }[];
+  alternates: { canonical: 'https://www.opencrime.us/analysis/racial-disparities' },
 };
 
 export default function RacialDisparitiesPage() {
@@ -185,7 +188,9 @@ export default function RacialDisparitiesPage() {
         <Link href="/analysis/domestic-violence" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Domestic Violence</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Crime Victimization: Who Bears the Burden?" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="racial-disparities" />
+
+      <ShareButtons title="Crime Victimization: Who Bears the Burden?" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',

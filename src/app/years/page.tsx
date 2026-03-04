@@ -7,6 +7,8 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'Crime Statistics by Year — 1979 to 2024',
   description: 'Browse US crime statistics by year from 1979 to 2024. See how violent crime, murder, property crime, and individual offenses changed over 45 years.',
+  openGraph: { url: 'https://www.opencrime.us/years' },
+  alternates: { canonical: 'https://www.opencrime.us/years' },
 };
 
 export default function YearsPage() {

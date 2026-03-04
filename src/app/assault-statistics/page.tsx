@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Aggravated Assault Statistics 2024 — US Assault Rates & Trends',
   description: 'US aggravated assault statistics: rates, trends, weapon data. FBI 2024 data shows assault is the most common violent crime.',
+  openGraph: { url: 'https://www.opencrime.us/assault-statistics' },
+  alternates: { canonical: 'https://www.opencrime.us/assault-statistics' },
 };
 
 export default function AssaultPage() {

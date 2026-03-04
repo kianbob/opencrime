@@ -7,6 +7,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'US Crime Rate 2024 — National Statistics, Trends & Data',
   description: 'The US crime rate in 2024: 359.1 violent crimes per 100K people, down 5.4% from 2023. 45 years of FBI crime statistics, state comparisons, and historical trends.',
+  openGraph: { url: 'https://www.opencrime.us/crime-rate' },
+  alternates: { canonical: 'https://www.opencrime.us/crime-rate' },
 };
 
 export default function CrimeRatePage() {

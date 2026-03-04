@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: 'The Fentanyl Crisis — How Synthetic Opioids Are Reshaping Crime',
   description: 'Fentanyl now kills 70,000+ Americans per year. How synthetic opioids have reshaped drug markets, violent crime patterns, and law enforcement priorities.',
   openGraph: { title: 'The Fentanyl Crisis', description: 'How synthetic opioids are reshaping crime in America. 70,000+ deaths per year.' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis/fentanyl-crisis' },
 };
 
 export default function FentanylCrisisPage() {
@@ -124,7 +126,9 @@ export default function FentanylCrisisPage() {
         <Link href="/property-crime" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Property Crime</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="The Fentanyl Crisis" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="fentanyl-crisis" />
+
+      <ShareButtons title="The Fentanyl Crisis" /></div>
       <p className="text-sm text-gray-500 mt-8">Sources: FBI Crime Data Explorer, CDC WONDER, DEA Intelligence Reports.</p>
     </div>
   );

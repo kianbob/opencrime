@@ -4,6 +4,8 @@ import SearchClient from './SearchClient';
 export const metadata: Metadata = {
   title: 'Search Cities — Find Crime Data for Any US City',
   description: 'Search crime statistics for any US city. Find violent crime rates, murder rates, property crime data for 9,700+ cities.',
+  openGraph: { url: 'https://www.opencrime.us/search' },
+  alternates: { canonical: 'https://www.opencrime.us/search' },
 };
 
 export default function SearchPage() {

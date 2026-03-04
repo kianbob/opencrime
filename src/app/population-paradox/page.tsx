@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'The Population-Crime Paradox — Big Cities Aren\'t the Most Dangerous',
   description: 'Mid-size cities (250-500K) have HIGHER violent crime rates than cities over 1 million. The data challenges everything you think about city size and safety.',
   openGraph: { title: 'The Population-Crime Paradox', description: 'Mid-size cities are more dangerous than mega-cities. The data will surprise you.' },
+  alternates: { canonical: 'https://www.opencrime.us/population-paradox' },
 };
 
 type Analytics = {

@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'OpenCrime privacy policy. We collect minimal analytics data and never sell personal information.',
+  openGraph: { url: 'https://www.opencrime.us/privacy' },
+  alternates: { canonical: 'https://www.opencrime.us/privacy' },
 };
 
 export default function PrivacyPage() {

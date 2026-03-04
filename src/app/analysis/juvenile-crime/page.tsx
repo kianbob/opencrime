@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Juvenile Crime Statistics — Youth Arrests, Trends & Data',
   description: 'Juvenile crime data: youth arrests down 70%+ since 2006. FBI arrest data by age, offense type, and disposition. Is the juvenile crime narrative overblown?',
   openGraph: { title: 'Juvenile Crime Statistics', description: 'Youth arrests are down 70%+ since 2006. What the data actually shows.' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis/juvenile-crime' },
 };
 
 type JuvRow = { group: string; handledInDepartment: number; referredToJuvenileCourt: number; referredToWelfare: number; referredToCriminalCourt: number; referredToOther: number };
@@ -117,7 +119,9 @@ export default function JuvenileCrimePage() {
         <Link href="/analysis/car-theft-crisis" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Car Theft Crisis</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Juvenile Crime Statistics" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="juvenile-crime" />
+
+      <ShareButtons title="Juvenile Crime Statistics" /></div>
       <p className="text-sm text-gray-500 mt-8">Sources: FBI Crime Data Explorer (Persons Arrested), OJJDP Statistical Briefing Book.</p>
     </div>
   );

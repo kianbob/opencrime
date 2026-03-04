@@ -6,6 +6,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Crime by City — 9,700+ US Cities',
   description: 'Browse crime statistics for 9,700+ US cities. Search, sort, and compare violent crime, murder, and property crime rates.',
+  openGraph: { url: 'https://www.opencrime.us/cities' },
+  alternates: { canonical: 'https://www.opencrime.us/cities' },
 };
 
 export default function CitiesPage() {

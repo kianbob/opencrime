@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About OpenCrime',
   description: 'About OpenCrime — a free, open platform for exploring FBI crime statistics. No paywalls, no ads, just data.',
+  openGraph: { url: 'https://www.opencrime.us/about' },
+  alternates: { canonical: 'https://www.opencrime.us/about' },
 };
 
 export default function AboutPage() {

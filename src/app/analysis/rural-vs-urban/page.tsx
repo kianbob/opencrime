@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { CityIndex, StateSummary } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -7,6 +8,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Rural vs Urban Crime: Shattering the Myths',
   description: 'Crime isn\'t just a big-city problem. Data analysis shows small cities often have higher per-capita violent crime than major metros. FBI data for 9,700+ cities.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/rural-vs-urban' },
 };
 
 export default function RuralVsUrbanPage() {
@@ -159,7 +161,9 @@ export default function RuralVsUrbanPage() {
         <Link href="/rankings" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">City Rankings</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Rural vs Urban Crime: Shattering the Myths" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="rural-vs-urban" />
+
+      <ShareButtons title="Rural vs Urban Crime: Shattering the Myths" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',

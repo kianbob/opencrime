@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -6,12 +7,14 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Domestic Violence in America: The Hidden Epidemic',
   description: 'Over 40% of female murder victims are killed by intimate partners. FBI expanded homicide data reveals the scale of domestic violence in America.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/domestic-violence' },
 };
 
 type HomicideData = {
   circumstanceBreakdown: { circumstance: string; count: number }[];
   victimSex: { sex: string; count: number }[];
   relationship: { relationship: string; count: number }[];
+  alternates: { canonical: 'https://www.opencrime.us/analysis/domestic-violence' },
 };
 
 export default function DomesticViolencePage() {
@@ -193,7 +196,9 @@ export default function DomesticViolencePage() {
         <Link href="/murder-rate" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Murder Rate</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Domestic Violence in America" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="domestic-violence" />
+
+      <ShareButtons title="Domestic Violence in America" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',

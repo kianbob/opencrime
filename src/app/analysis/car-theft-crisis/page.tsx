@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: 'The Car Theft Crisis — Why Vehicle Theft Is Surging',
   description: 'Motor vehicle theft surged 25%+ since 2019. The Kia/Hyundai vulnerability, organized theft rings, and why your car is less safe than you think.',
   openGraph: { title: 'The Car Theft Crisis', description: 'Vehicle theft surged 25% since 2019. A design flaw, TikTok, and organized crime.' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis/car-theft-crisis' },
 };
 
 export default function CarTheftPage() {
@@ -98,7 +100,9 @@ export default function CarTheftPage() {
         <Link href="/cargo-theft" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Cargo Theft</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="The Car Theft Crisis" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="car-theft-crisis" />
+
+      <ShareButtons title="The Car Theft Crisis" /></div>
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, NICB Hot Wheels Report, Insurance Institute data.</p>
     </div>

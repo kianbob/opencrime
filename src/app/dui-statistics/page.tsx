@@ -6,6 +6,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'DUI Statistics 2024 — Drunk Driving Arrests by State',
   description: 'DUI arrest statistics for every US state. Total DUI arrests, state-by-state rankings, and trends. FBI data from persons arrested reports.',
+  openGraph: { url: 'https://www.opencrime.us/dui-statistics' },
+  alternates: { canonical: 'https://www.opencrime.us/dui-statistics' },
 };
 
 type ArrestData = {

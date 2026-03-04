@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Most Dangerous Cities in America 2024 — Crime Rate Rankings',
   description: 'The most dangerous cities in America ranked by violent crime rate. Complete rankings based on FBI 2024 data for 332 cities with 100,000+ population.',
+  openGraph: { url: 'https://www.opencrime.us/most-dangerous-cities' },
+  alternates: { canonical: 'https://www.opencrime.us/most-dangerous-cities' },
 };
 
 export default function DangerousCitiesPage() {

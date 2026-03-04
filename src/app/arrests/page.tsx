@@ -7,6 +7,8 @@ import ArrestCharts from './ArrestCharts';
 export const metadata: Metadata = {
   title: 'US Arrest Statistics 2024 — 7.5 Million Arrests by Offense, State, Demographics',
   description: 'FBI arrest data: 7.5 million arrests in 2024. Breakdown by offense type, state, age, sex, and race. DUI arrests, drug arrests, juvenile data. Complete FBI statistics.',
+  openGraph: { url: 'https://www.opencrime.us/arrests' },
+  alternates: { canonical: 'https://www.opencrime.us/arrests' },
 };
 
 type ArrestData = {

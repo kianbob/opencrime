@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Robbery Statistics 2024 — US Robbery Rates, Trends & Data',
   description: 'US robbery statistics: rates, trends, and data from FBI 2024 reports. National robbery figures, historical context, and analysis.',
+  openGraph: { url: 'https://www.opencrime.us/robbery-statistics' },
+  alternates: { canonical: 'https://www.opencrime.us/robbery-statistics' },
 };
 
 export default function RobberyPage() {

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import StateCharts from './StateCharts';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type StateData = {
   abbr: string; name: string;
@@ -35,7 +36,9 @@ export async function generateMetadata({ params }: { params: Promise<{ abbr: str
     openGraph: {
       title: `${state.name} Crime Statistics`,
       description: `Violent: ${latest.violentRate.toFixed(1)}/100K · Murder: ${latest.homicideRate.toFixed(1)}/100K · ${state.years.length} years of data`,
+      url: `https://www.opencrime.us/states/${abbr}`,
     },
+    alternates: { canonical: `https://www.opencrime.us/states/${abbr}` },
   };
 }
 
@@ -55,6 +58,20 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
   const dangerousCities = [...stateCities].sort((a, b) => b.violentRate - a.violentRate).slice(0, 10);
   const safestCities = [...stateCities].sort((a, b) => a.violentRate - b.violentRate).slice(0, 10);
 
+  // AI Overview insights
+  const allStates = loadData<{ abbr: string; name: string; violentRate: number }[]>('state-summary.json');
+  const stateRank = [...allStates].sort((a, b) => b.violentRate - a.violentRate).findIndex(s => s.abbr === state.abbr) + 1;
+  const insights: string[] = [];
+  insights.push(`${state.name} ranks #${stateRank} out of ${allStates.length} states for violent crime rate (${latest.violentRate.toFixed(1)} per 100K).`);
+  if (violentChange != null) insights.push(`Violent crime ${violentChange < 0 ? 'decreased' : 'increased'} ${Math.abs(violentChange)}% from ${prev!.year} to ${latest.year}.`);
+  if (stateCities.length > 0) insights.push(`${stateCities.length} cities report crime data. Safest: ${safestCities[0]?.city} (${safestCities[0]?.violentRate.toFixed(1)}/100K). Most dangerous: ${dangerousCities[0]?.city} (${dangerousCities[0]?.violentRate.toFixed(1)}/100K).`);
+  if (latest.homicide > 0) insights.push(`${fmtNum(latest.homicide)} murders in ${latest.year} — a rate of ${latest.homicideRate.toFixed(1)} per 100K residents.`);
+  if (state.years.length > 10) {
+    const oldest = state.years[0];
+    const longChange = ((latest.violentRate - oldest.violentRate) / oldest.violentRate * 100).toFixed(0);
+    insights.push(`Since ${oldest.year}, ${state.name}'s violent crime rate has changed by ${+longChange > 0 ? '+' : ''}${longChange}%.`);
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <nav className="text-sm text-gray-500 mb-4">
@@ -62,7 +79,9 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
       </nav>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">{state.name} Crime Statistics</h1>
-      <p className="text-gray-600 mb-8">{state.years.length} years of data ({state.years[0].year}–{latest.year})</p>
+      <p className="text-gray-600 mb-6">{state.years.length} years of data ({state.years[0].year}–{latest.year})</p>
+
+      <AIOverview insights={insights} />
 
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -188,7 +207,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
       {/* Explore More */}
       <div className="flex flex-wrap gap-3 mt-8 mb-4">
         <Link href="/states" className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#2a4d7a] transition">All States</Link>
-        <Link href={`/safest-cities-in/${slugify(state.name)}`} className="border border-green-600 text-green-700 px-4 py-2 rounded-lg text-sm hover:bg-green-50 transition">Safest Cities in {state.name}</Link>
+        <Link href={`/safest-cities-in/${state.abbr.toLowerCase()}`} className="border border-green-600 text-green-700 px-4 py-2 rounded-lg text-sm hover:bg-green-50 transition">Safest Cities in {state.name}</Link>
         <Link href="/tools/compare" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Compare Cities</Link>
         <Link href="/arrests" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Arrest Data</Link>
         <Link href="/hate-crimes" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Hate Crimes</Link>

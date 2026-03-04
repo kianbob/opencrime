@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Property Crime Statistics 2024 — Burglary, Theft, Auto Theft Rates',
   description: 'US property crime statistics: burglary, larceny-theft, motor vehicle theft rates. State rankings, city data, 45-year trends. FBI 2024 data.',
+  openGraph: { url: 'https://www.opencrime.us/property-crime' },
+  alternates: { canonical: 'https://www.opencrime.us/property-crime' },
 };
 
 export default function PropertyCrimePage() {

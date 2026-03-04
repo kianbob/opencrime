@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'The Weapon Shift — How Americans Are Killed Is Changing',
   description: 'FBI data shows firearms account for a growing share of murders while knives and personal weapons decline. 5 years of weapon trend data visualized.',
   openGraph: { title: 'The Weapon Shift', description: 'How murder weapons have changed: firearms rising, everything else falling.' },
+  alternates: { canonical: 'https://www.opencrime.us/weapon-shift' },
 };
 
 type HomicideData = {

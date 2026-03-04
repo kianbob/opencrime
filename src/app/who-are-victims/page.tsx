@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Who Are the Victims? — The Human Face of Crime Statistics',
   description: 'Behind every crime statistic is a real person. FBI homicide data reveals who is most victimized: by age, sex, race, and relationship to their killer.',
   openGraph: { title: 'Who Are the Victims?', description: 'The human face behind FBI crime statistics. Victim demographics that will surprise you.' },
+  alternates: { canonical: 'https://www.opencrime.us/who-are-victims' },
 };
 
 type HomicideData = {

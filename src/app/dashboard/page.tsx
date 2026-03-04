@@ -7,6 +7,8 @@ import DashboardCharts from './DashboardCharts';
 export const metadata: Metadata = {
   title: 'Crime Dashboard — National Crime Trends 1979–2024',
   description: 'Interactive dashboard showing 45 years of US crime data. Violent crime, property crime, murder rates with charts and trends from FBI statistics.',
+  openGraph: { url: 'https://www.opencrime.us/dashboard' },
+  alternates: { canonical: 'https://www.opencrime.us/dashboard' },
 };
 
 type Stats = {

@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Did "Defund the Police" Cause a Crime Surge? What the Data Shows',
   description: 'Examining the claim that defunding police caused crime increases. FBI data on police staffing, budgets, and crime rates 2019-2024.',
   openGraph: { title: 'Did Defund the Police Cause Crime Surges?', description: 'What actually happened to police budgets and crime rates after 2020.' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis/defund-police' },
 };
 
 export default function DefundPolicePage() {
@@ -105,7 +107,9 @@ export default function DefundPolicePage() {
         <Link href="/violent-crime" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Violent Crime</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title='Did "Defund the Police" Cause a Crime Surge?' /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="defund-police" />
+
+      <ShareButtons title='Did "Defund the Police" Cause a Crime Surge?' /></div>
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, Police Executive Research Forum, major city budget documents.</p>
     </div>

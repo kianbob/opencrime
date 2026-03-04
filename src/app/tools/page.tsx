@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Crime Data Tools — Compare Cities, Safety Scores & More',
   description: 'Interactive crime data tools. Compare city crime rates, calculate safety scores, explore rankings and trends.',
+  openGraph: { url: 'https://www.opencrime.us/tools' },
+  alternates: { canonical: 'https://www.opencrime.us/tools' },
 };
 
 const tools = [

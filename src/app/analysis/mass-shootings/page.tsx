@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Mass Shootings vs Total Gun Violence — What the Data Shows',
   description: 'Mass shootings dominate headlines but account for less than 1% of gun deaths. FBI data reveals the real scale and patterns of gun violence in America.',
   openGraph: { title: 'Mass Shootings vs Total Gun Violence', description: 'Mass shootings get the headlines, but 98% of gun murders happen one at a time.' },
+  alternates: { canonical: 'https://www.opencrime.us/analysis/mass-shootings' },
 };
 
 export default function MassShootingsPage() {
@@ -99,7 +101,9 @@ export default function MassShootingsPage() {
         <Link href="/violent-crime" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Violent Crime</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Mass Shootings vs Total Gun Violence" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="mass-shootings" />
+
+      <ShareButtons title="Mass Shootings vs Total Gun Violence" /></div>
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, Expanded Homicide Data, 2024. Gun Suicide data: CDC WONDER database.</p>
     </div>

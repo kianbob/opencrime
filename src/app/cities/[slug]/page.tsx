@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import CityCharts from './CityCharts';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 import fs from 'fs';
 import path from 'path';
 
@@ -33,7 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${city.city}, ${city.state} Crime Rate`,
       description: `Violent crime rate: ${latest.violentRate.toFixed(1)}/100K · Murder rate: ${(latest.murder / latest.population * 100000).toFixed(1)}/100K · Pop: ${latest.population.toLocaleString()}`,
+      url: `https://www.opencrime.us/cities/${slug}`,
     },
+    alternates: { canonical: `https://www.opencrime.us/cities/${slug}` },
   };
 }
 
@@ -56,6 +59,16 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
   const cityIdx = allCities.find(c => c.slug === slug);
   const similarCities = cityIdx?.similarCities || [];
 
+  // AI Overview insights
+  const cityInsights: string[] = [];
+  const vr = latest.violentRate;
+  const grade = vr < 100 ? 'A+' : vr < 200 ? 'A' : vr < 300 ? 'B' : vr < 400 ? 'C' : vr < 600 ? 'D' : vr < 1000 ? 'F' : 'F-';
+  cityInsights.push(`${city.city} has a safety grade of ${grade} with a violent crime rate of ${vr.toFixed(1)} per 100,000 residents (national avg: ${natLatest?.violentRate.toFixed(1) ?? 'N/A'}).`);
+  if (violentChange != null) cityInsights.push(`Violent crime ${violentChange < 0 ? 'dropped' : 'rose'} ${Math.abs(violentChange)}% from the previous year.`);
+  if (latest.murder > 0) cityInsights.push(`${latest.murder} murders recorded in ${latestYear} — a rate of ${(latest.murder / latest.population * 100000).toFixed(1)} per 100K.`);
+  if (cityIdx?.trajectory && cityIdx.trajectory !== 'unknown') cityInsights.push(`Crime trajectory: ${cityIdx.trajectory.replace(/-/g, ' ')} — based on ${years.length} years of data.`);
+  if (cityIdx?.safetyPercentile != null) cityInsights.push(`Safer than ${100 - cityIdx.safetyPercentile}% of all cities in the OpenCrime database.`);
+
   const yearData = years.map(y => ({ year: +y, ...city.years[y] }));
 
   return (
@@ -71,9 +84,11 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
         {city.city}, {city.state} Crime Rate
       </h1>
-      <p className="text-gray-600 mb-8">
+      <p className="text-gray-600 mb-6">
         {years.length} years of data ({years[0]}–{latestYear}) · Population: {fmtNum(latest.population)}
       </p>
+
+      <AIOverview insights={cityInsights} />
 
       {/* Key Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">

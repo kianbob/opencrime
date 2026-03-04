@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -5,6 +6,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Police Funding and Crime Rates: What the Data Shows',
   description: 'Do cities that spend more on policing have less crime? Analysis of police funding vs crime rates across major US cities, with nuanced data-driven conclusions.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/police-funding' },
 };
 
 export default function PoliceFundingPage() {
@@ -115,7 +117,9 @@ export default function PoliceFundingPage() {
         <Link href="/dashboard" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Dashboard</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Police Funding and Crime Rates" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="police-funding" />
+
+      <ShareButtons title="Police Funding and Crime Rates" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',

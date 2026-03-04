@@ -6,6 +6,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Hate Crime Statistics 2024 — FBI Data by State, Bias Type & Trends',
   description: 'FBI hate crime statistics: incidents by state, bias motivation (race, religion, sexual orientation), and trends. Data from the Hate Crime Statistics program.',
+  openGraph: { url: 'https://www.opencrime.us/hate-crimes' },
+  alternates: { canonical: 'https://www.opencrime.us/hate-crimes' },
 };
 
 type HCState = {

@@ -8,6 +8,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Most Improved Cities 2024 — Biggest Crime Rate Drops',
   description: 'Which US cities saw the biggest crime rate improvements? Rankings of cities with the largest violent crime decreases, based on FBI 2024 data.',
+  openGraph: { url: 'https://www.opencrime.us/most-improved' },
+  alternates: { canonical: 'https://www.opencrime.us/most-improved' },
 };
 
 export default function MostImprovedPage() {

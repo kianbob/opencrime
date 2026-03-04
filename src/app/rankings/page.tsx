@@ -6,6 +6,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Most Dangerous & Safest Cities in America — 2024 Rankings',
   description: 'Complete rankings of the most dangerous and safest cities in America by violent crime rate. Based on FBI 2024 data for 9,700+ cities.',
+  openGraph: { url: 'https://www.opencrime.us/rankings' },
+  alternates: { canonical: 'https://www.opencrime.us/rankings' },
 };
 
 export default function RankingsPage() {

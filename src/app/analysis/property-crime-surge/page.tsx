@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { NationalTrend } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -7,6 +8,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'The Property Crime Paradox: Theft Rising While Violence Falls',
   description: 'Motor vehicle theft up 25% since 2019 while murder drops 15.7%. Analysis of diverging crime trends: why property crime is surging as violent crime falls.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/property-crime-surge' },
 };
 
 export default function PropertyCrimeSurgePage() {
@@ -129,7 +131,9 @@ export default function PropertyCrimeSurgePage() {
         <Link href="/crimes" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Crime Types</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="The Property Crime Paradox" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="property-crime-surge" />
+
+      <ShareButtons title="The Property Crime Paradox" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',

@@ -25,6 +25,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <body className="bg-gray-50 text-gray-900 antialiased min-h-screen flex flex-col">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'OpenCrime',
+          url: 'https://www.opencrime.us',
+          description: 'Free FBI crime statistics for 9,700+ US cities. Crime rates, trends, rankings, and analysis.',
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://www.opencrime.us/search?q={search_term_string}',
+            'query-input': 'required name=search_term_string',
+          },
+        })}} />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

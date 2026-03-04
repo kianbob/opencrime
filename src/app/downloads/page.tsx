@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Download Crime Data — Free FBI Crime Statistics',
   description: 'Download FBI crime data files. City-level crime rates, state trends, national statistics, arrest data, hate crime data, and homicide details.',
+  openGraph: { url: 'https://www.opencrime.us/downloads' },
+  alternates: { canonical: 'https://www.opencrime.us/downloads' },
 };
 
 const datasets = [

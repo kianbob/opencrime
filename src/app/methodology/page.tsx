@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Methodology — How We Process FBI Crime Data',
   description: 'How OpenCrime processes and presents FBI crime data. Data sources, calculation methods, known limitations, and how to interpret crime statistics.',
+  openGraph: { url: 'https://www.opencrime.us/methodology' },
+  alternates: { canonical: 'https://www.opencrime.us/methodology' },
 };
 
 export default function MethodologyPage() {

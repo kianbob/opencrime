@@ -8,6 +8,8 @@ import CargoCharts from './CargoCharts';
 export const metadata: Metadata = {
   title: 'Cargo Theft Statistics 2012–2024 — 272K Incidents by State & Year',
   description: 'FBI cargo theft data: 272,000+ incidents from 2012-2024. Trends, state rankings, offense types. The hidden cost of freight crime in America.',
+  openGraph: { url: 'https://www.opencrime.us/cargo-theft' },
+  alternates: { canonical: 'https://www.opencrime.us/cargo-theft' },
 };
 
 type CargoData = {

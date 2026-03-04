@@ -8,6 +8,8 @@ import MurderCharts from './MurderCharts';
 export const metadata: Metadata = {
   title: 'US Murder Rate 2024 — Statistics, Trends & City Rankings',
   description: 'The US murder rate in 2024: 4.98 per 100K, down 15.7% from 2023. City-by-city murder rankings, 45-year trends, and state comparisons from FBI data.',
+  openGraph: { url: 'https://www.opencrime.us/murder-rate' },
+  alternates: { canonical: 'https://www.opencrime.us/murder-rate' },
 };
 
 export default function MurderRatePage() {

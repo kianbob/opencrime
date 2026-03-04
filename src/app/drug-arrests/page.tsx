@@ -6,6 +6,8 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Drug Arrest Statistics 2024 — Arrests by State & Trends',
   description: 'US drug arrest statistics: 822K+ drug abuse violation arrests in 2024. State-by-state breakdown, 10-year trends, demographics. FBI data.',
+  openGraph: { url: 'https://www.opencrime.us/drug-arrests' },
+  alternates: { canonical: 'https://www.opencrime.us/drug-arrests' },
 };
 
 type ArrestData = {

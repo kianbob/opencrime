@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import GunCharts from './GunCharts';
 export const metadata: Metadata = {
   title: 'Gun Violence by the Numbers: What FBI Data Actually Shows',
   description: 'Firearms are used in 77% of US murders. Analysis of FBI expanded homicide data: weapon types, trends, circumstances, and geographic patterns.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/gun-violence' },
 };
 
 type HomicideData = {
@@ -15,6 +17,7 @@ type HomicideData = {
   victimAge: { range: string; count: number }[];
   victimSex: { sex: string; count: number }[];
   yearlyWeapons: { year: number; firearm: number; knife: number; other: number; hands: number }[];
+  alternates: { canonical: 'https://www.opencrime.us/analysis/gun-violence' },
 };
 
 export default function GunViolencePage() {
@@ -168,7 +171,9 @@ export default function GunViolencePage() {
         <Link href="/most-dangerous-cities" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Most Dangerous Cities</Link>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Gun Violence by the Numbers" /></div>
+      <div className="mt-8"><RelatedAnalysis currentSlug="gun-violence" />
+
+      <ShareButtons title="Gun Violence by the Numbers" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',
