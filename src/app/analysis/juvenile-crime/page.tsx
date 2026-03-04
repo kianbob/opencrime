@@ -10,14 +10,12 @@ export const metadata: Metadata = {
   openGraph: { title: 'Juvenile Crime Statistics', description: 'Youth arrests are down 70%+ since 2006. What the data actually shows.' },
 };
 
-type ArrestData = {
-  juvenileDisposition: { disposition: string; count: number }[];
-  byAge: { age: string; count: number }[];
-  byOffense: { offense: string; total: number }[];
-};
+type JuvRow = { group: string; handledInDepartment: number; referredToJuvenileCourt: number; referredToWelfare: number; referredToCriminalCourt: number; referredToOther: number };
+type ArrestData = { juvenile: JuvRow[] };
 
 export default function JuvenileCrimePage() {
   const arrest = loadData<ArrestData>('arrest-data.json');
+  const total = arrest.juvenile?.find(j => j.group === 'TOTAL AGENCIES:');
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -57,16 +55,18 @@ export default function JuvenileCrimePage() {
           <li><strong>Motor vehicle theft:</strong> The Kia Boys phenomenon pushed juvenile involvement up significantly in 2022-2023</li>
         </ul>
 
-        {arrest.juvenileDisposition.length > 0 && (
+        {total && (
           <>
             <h2 className="font-heading">What Happens to Arrested Juveniles</h2>
             <p>When juveniles are arrested, they are disposed of (processed) in several ways:</p>
             <table>
               <thead><tr><th>Disposition</th><th>Count</th></tr></thead>
               <tbody>
-                {arrest.juvenileDisposition.map(d => (
-                  <tr key={d.disposition}><td>{d.disposition}</td><td>{fmtNum(d.count)}</td></tr>
-                ))}
+                <tr><td>Handled within department</td><td>{fmtNum(total.handledInDepartment)}</td></tr>
+                <tr><td>Referred to juvenile court</td><td>{fmtNum(total.referredToJuvenileCourt)}</td></tr>
+                <tr><td>Referred to welfare agency</td><td>{fmtNum(total.referredToWelfare)}</td></tr>
+                <tr><td>Referred to criminal court</td><td>{fmtNum(total.referredToCriminalCourt)}</td></tr>
+                <tr><td>Referred to other</td><td>{fmtNum(total.referredToOther)}</td></tr>
               </tbody>
             </table>
           </>
