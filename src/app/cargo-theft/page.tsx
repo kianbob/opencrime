@@ -14,8 +14,12 @@ export const metadata: Metadata = {
 
 type CargoData = {
   totalIncidents: number;
+  totalStolenValue: number;
+  totalRecoveredValue: number;
+  recoveryRate: number;
   byYear: { year: number; count: number }[];
   byState: { state: string; count: number }[];
+  byLocation: { location: string; count: number }[];
   byOffense: { offense: string; count: number }[];
 };
 
@@ -54,6 +58,24 @@ export default function CargoTheftPage() {
           </div>
         </div>
       </div>
+
+      {/* Financial Impact */}
+      {data.totalStolenValue > 0 && (
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <div className="bg-red-50 border border-red-200 rounded-xl p-5 text-center">
+            <p className="text-2xl font-bold text-red-700">${fmtNum(data.totalStolenValue)}</p>
+            <p className="text-sm text-gray-600">Total Stolen Value</p>
+          </div>
+          <div className="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
+            <p className="text-2xl font-bold text-green-700">${fmtNum(data.totalRecoveredValue)}</p>
+            <p className="text-sm text-gray-600">Total Recovered Value</p>
+          </div>
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
+            <p className="text-2xl font-bold text-primary">{data.recoveryRate.toFixed(1)}%</p>
+            <p className="text-sm text-gray-600">Recovery Rate</p>
+          </div>
+        </div>
+      )}
 
       <div className="prose prose-lg max-w-none mb-8">
         <h2 className="font-heading">The Growing Cargo Theft Problem</h2>
@@ -119,6 +141,32 @@ export default function CargoTheftPage() {
                     <td className="px-4 py-2">{o.offense}</td>
                     <td className="px-4 py-2 text-right font-mono">{fmtNum(o.count)}</td>
                     <td className="px-4 py-2 text-right font-mono text-gray-500">{(o.count / data.totalIncidents * 100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {data.byLocation.length > 0 && (
+        <>
+          <h2 className="font-heading text-2xl font-bold mb-4">Where Cargo Gets Stolen</h2>
+          <div className="bg-white rounded-xl shadow-sm border overflow-hidden mb-8">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-4 py-2">Location Type</th>
+                  <th className="text-right px-4 py-2">Incidents</th>
+                  <th className="text-right px-4 py-2">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.byLocation.filter(l => l.count > 0).sort((a, b) => b.count - a.count).map(l => (
+                  <tr key={l.location} className="border-t">
+                    <td className="px-4 py-2">{l.location}</td>
+                    <td className="px-4 py-2 text-right font-mono">{fmtNum(l.count)}</td>
+                    <td className="px-4 py-2 text-right font-mono text-gray-500">{(l.count / data.totalIncidents * 100).toFixed(1)}%</td>
                   </tr>
                 ))}
               </tbody>

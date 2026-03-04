@@ -68,6 +68,10 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
   if (latest.murder > 0) cityInsights.push(`${latest.murder} murders recorded in ${latestYear} — a rate of ${(latest.murder / latest.population * 100000).toFixed(1)} per 100K.`);
   if (cityIdx?.trajectory && cityIdx.trajectory !== 'unknown') cityInsights.push(`Crime trajectory: ${cityIdx.trajectory.replace(/-/g, ' ')} — based on ${years.length} years of data.`);
   if (cityIdx?.safetyPercentile != null) cityInsights.push(`Safer than ${100 - cityIdx.safetyPercentile}% of all cities in the OpenCrime database.`);
+  if (cityIdx?.violentToPropertyRatio != null && cityIdx.violentToPropertyRatio > 0) {
+    const ratio = cityIdx.violentToPropertyRatio;
+    cityInsights.push(`Violent-to-property crime ratio: ${ratio.toFixed(2)} (${ratio > 0.3 ? 'above' : ratio < 0.15 ? 'below' : 'near'} national average).`);
+  }
 
   const yearData = years.map(y => ({ year: +y, ...city.years[y] }));
 
