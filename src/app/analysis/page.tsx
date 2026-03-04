@@ -23,9 +23,20 @@ const articles = [
   { slug: 'juvenile-crime', title: 'Juvenile Crime: The Data Behind the Headlines', desc: 'Youth arrests are down 70%+ since 2006. Why the perception gap between data and media narratives is so wide.', tag: 'ANALYSIS' },
 ];
 
+const specialPages = [
+  { href: '/population-paradox', title: 'The Population-Crime Paradox', desc: 'Mid-size cities are MORE dangerous than mega-cities. The data will surprise you.', tag: 'UNIQUE' },
+  { href: '/crime-clock', title: 'The Crime Clock', desc: 'See crime happen in real time. A violent crime every 26 seconds, a murder every 31 minutes.', tag: 'INTERACTIVE' },
+  { href: '/city-trajectories', title: 'City Crime Trajectories', desc: 'Every city classified: improving, worsening, volatile, stable, or dangerous. Which way is yours heading?', tag: 'UNIQUE' },
+  { href: '/weapon-shift', title: 'The Weapon Shift', desc: 'How Americans are killed is changing. 5 years of murder weapon data visualized.', tag: 'DATA' },
+  { href: '/who-are-victims', title: 'Who Are the Victims?', desc: 'The human face behind crime statistics. Demographics, relationships, and circumstances of murder victims.', tag: 'DATA' },
+];
+
 const tagColors: Record<string, string> = {
   'DEEP DIVE': 'bg-[#1e3a5f] text-white',
   'ANALYSIS': 'bg-red-100 text-red-700',
+  'UNIQUE': 'bg-purple-100 text-purple-700',
+  'INTERACTIVE': 'bg-emerald-100 text-emerald-700',
+  'DATA': 'bg-amber-100 text-amber-700',
 };
 
 export default function AnalysisPage() {
@@ -37,6 +48,21 @@ export default function AnalysisPage() {
       <div className="space-y-4">
         {articles.map(a => (
           <Link key={a.slug} href={`/analysis/${a.slug}`} className="block bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition group">
+            <div className="flex items-start gap-3">
+              <span className={`text-xs font-bold px-2 py-1 rounded ${tagColors[a.tag] || 'bg-gray-100'}`}>{a.tag}</span>
+              <div>
+                <h2 className="font-heading text-lg font-bold group-hover:text-[#1e3a5f] transition">{a.title}</h2>
+                <p className="text-sm text-gray-500 mt-1">{a.desc}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      <h2 className="font-heading text-2xl font-bold mt-12 mb-6">Unique Data Explorations</h2>
+      <div className="space-y-4">
+        {specialPages.map(a => (
+          <Link key={a.href} href={a.href} className="block bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition group">
             <div className="flex items-start gap-3">
               <span className={`text-xs font-bold px-2 py-1 rounded ${tagColors[a.tag] || 'bg-gray-100'}`}>{a.tag}</span>
               <div>

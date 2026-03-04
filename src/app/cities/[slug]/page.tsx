@@ -1,5 +1,5 @@
 import { loadData, fmtNum, fmtRate, fmtPct, stateAbbr } from '@/lib/utils';
-import type { CityDetail, NationalTrend } from '@/lib/utils';
+import type { CityDetail, NationalTrend, CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CityCharts from './CityCharts';
@@ -52,6 +52,9 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
   const national = loadData<NationalTrend[]>('national-trends.json');
   const natLatest = national.find(n => n.year === +latestYear);
   const abbr = stateAbbr(city.state);
+  const allCities = loadData<CityIndex[]>('city-index.json');
+  const cityIdx = allCities.find(c => c.slug === slug);
+  const similarCities = cityIdx?.similarCities || [];
 
   const yearData = years.map(y => ({ year: +y, ...city.years[y] }));
 
@@ -229,6 +232,18 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
         <Link href="/rankings" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">City Rankings →</Link>
         <Link href="/tools/safety-score" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Safety Score Tool →</Link>
       </div>
+
+      {similarCities.length > 0 && (
+        <div className="bg-blue-50 rounded-xl p-6 mb-6">
+          <h3 className="font-heading text-lg font-bold mb-3">Similar Cities</h3>
+          <p className="text-sm text-gray-600 mb-3">Cities with similar population and crime profile (in different states):</p>
+          <div className="grid md:grid-cols-2 gap-2 text-sm">
+            {similarCities.map(sc => (
+              <Link key={sc.slug} href={`/cities/${sc.slug}`} className="text-[#1e3a5f] hover:underline">{sc.city}, {sc.state} →</Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="bg-gray-50 rounded-xl p-6 mb-6">
         <h3 className="font-heading text-lg font-bold mb-3">Related Analysis</h3>

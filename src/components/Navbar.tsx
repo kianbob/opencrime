@@ -25,6 +25,9 @@ const TOOLS = [
   { href: '/city-trajectories', label: 'Trajectories' },
   { href: '/safest-cities', label: 'Safest Cities' },
   { href: '/most-dangerous-cities', label: 'Most Dangerous' },
+  { href: '/crime-dna', label: 'Crime DNA' },
+  { href: '/violence-concentration', label: 'Violence Map' },
+  { href: '/population-crime-paradox', label: 'Crime Paradox' },
 ];
 
 export default function Navbar() {

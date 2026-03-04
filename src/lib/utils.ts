@@ -63,6 +63,18 @@ export type CityIndex = {
   trajectory: string;
   violentToPropertyRatio: number | null;
   composition?: { murderPct: number; rapePct: number; robberyPct: number; assaultPct: number };
+  similarCities?: { slug: string; city: string; state: string }[];
+};
+
+export type Analytics = {
+  crimeClock: Record<string, number>;
+  concentration: {
+    top10: { murders: number; murderPct: number; popPct: number; cities: { city: string; state: string; murders: number }[] };
+    top50: { murders: number; murderPct: number; popPct: number };
+    totalCityMurders: number;
+  };
+  popCrimeBins: { label: string; count: number; avgViolentRate: number; avgMurderRate: number; avgPropertyRate: number; medianViolentRate?: number }[];
+  trajectoryCount: Record<string, number>;
 };
 
 export type NationalTrend = {

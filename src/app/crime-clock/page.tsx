@@ -1,119 +1,86 @@
-import { loadData, fmtNum } from '@/lib/utils';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
+import { loadData } from '@/lib/utils';
+import type { Analytics } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import CrimeClockClient from './CrimeClockClient';
 
 export const metadata: Metadata = {
-  title: 'Crime Clock — How Often Does Crime Happen in America?',
-  description: 'A violent crime occurs every 26 seconds. A murder every 31 minutes. See the real-time frequency of crime in the United States, based on FBI 2024 data.',
-  openGraph: { title: 'Crime Clock', description: 'A violent crime every 26 seconds. A murder every 31 minutes. See crime frequency in real time.' },
-};
-
-type Analytics = {
-  crimeClock: Record<string, number>;
-  concentration: { top10: { murders: number; murderPct: number; popPct: number; cities: { city: string; state: string; murders: number }[] }; top50: { murders: number; murderPct: number }; totalCityMurders: number };
+  title: 'Crime Clock — How Often Crimes Occur in America | OpenCrime',
+  description: 'A real-time visualization of how frequently crimes occur across the United States. One violent crime every 26 seconds, one murder every 31 minutes.',
+  openGraph: {
+    title: 'Crime Clock — How Often Crimes Occur in America',
+    description: 'A real-time visualization showing one violent crime every 26 seconds in America.',
+    url: 'https://www.opencrime.us/crime-clock',
+  },
+  alternates: { canonical: 'https://www.opencrime.us/crime-clock' },
 };
 
 export default function CrimeClockPage() {
   const analytics = loadData<Analytics>('analytics.json');
-  const cc = analytics.crimeClock;
-
-  const formatTime = (seconds: number) => {
-    if (seconds < 60) return `${seconds} seconds`;
-    if (seconds < 3600) return `${Math.round(seconds / 60)} minutes`;
-    return `${(seconds / 3600).toFixed(1)} hours`;
-  };
+  const { crimeClock } = analytics;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <main className="max-w-5xl mx-auto px-4 py-10">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Crime Clock' }]} />
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">The Crime Clock</h1>
+      <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Crime Clock</h1>
       <p className="text-lg text-gray-600 mb-8">
-        How often does crime actually happen in America? Based on FBI 2024 data, 
-        here&apos;s the real frequency of crime — one number at a time.
+        How often do crimes happen in the United States? Based on 2024 FBI data, this clock shows the
+        frequency of reported crimes across the country. These numbers represent real crimes reported to
+        law enforcement — the actual rate is higher due to unreported crimes.
       </p>
 
-      <CrimeClockClient crimeClock={cc} />
+      <CrimeClockClient crimeClock={crimeClock} />
 
-      <div className="grid md:grid-cols-2 gap-4 mt-8 mb-8">
-        <div className="bg-red-900 text-white rounded-xl p-6">
-          <h3 className="font-heading text-lg font-bold mb-4 text-red-200">Violent Crime</h3>
-          <div className="space-y-3">
-            {[
-              { label: 'Violent crime', seconds: cc.violentCrime, color: 'text-red-300' },
-              { label: 'Aggravated assault', seconds: cc.assault, color: 'text-red-300' },
-              { label: 'Robbery', seconds: cc.robbery, color: 'text-red-300' },
-              { label: 'Rape', seconds: cc.rape, color: 'text-red-300' },
-              { label: 'Murder', seconds: cc.murder, color: 'text-red-300' },
-            ].map(c => (
-              <div key={c.label} className="flex justify-between items-center border-b border-red-800 pb-2">
-                <span>{c.label}</span>
-                <span className={`font-mono font-bold ${c.color}`}>every {formatTime(c.seconds)}</span>
-              </div>
-            ))}
-          </div>
+      <section className="mt-12 prose prose-gray max-w-none">
+        <h2 className="font-display text-2xl font-bold text-primary">Understanding the Crime Clock</h2>
+        <p>
+          The FBI Crime Clock has been a staple of crime reporting since the 1950s. It translates raw annual
+          crime statistics into frequencies that are easier to understand — instead of saying &quot;1.22 million
+          violent crimes per year,&quot; it shows that a violent crime occurs approximately every {crimeClock.violentCrime} seconds.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg my-6 not-prose">
+          <p className="text-amber-800 text-sm">
+            <strong>Important:</strong> The Crime Clock should not be taken to imply regularity in the occurrence of crimes.
+            It simply represents the annual ratio between crime totals and the number of seconds in a year. Crime does not
+            occur at fixed intervals — it is influenced by time of day, geography, weather, and many other factors.
+          </p>
         </div>
-        <div className="bg-[#1e3a5f] text-white rounded-xl p-6">
-          <h3 className="font-heading text-lg font-bold mb-4 text-blue-200">Property Crime</h3>
-          <div className="space-y-3">
-            {[
-              { label: 'Property crime', seconds: cc.propertyCrime },
-              { label: 'Larceny-theft', seconds: cc.larceny },
-              { label: 'Motor vehicle theft', seconds: cc.motorVehicleTheft },
-              { label: 'Burglary', seconds: cc.burglary },
-            ].map(c => (
-              <div key={c.label} className="flex justify-between items-center border-b border-blue-800 pb-2">
-                <span>{c.label}</span>
-                <span className="font-mono font-bold text-blue-200">every {formatTime(c.seconds)}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+
+        <h2 className="font-display text-2xl font-bold text-primary">What the Data Shows</h2>
+        <ul>
+          <li><strong>Property crime dominates:</strong> A property crime occurs every {crimeClock.propertyCrime} seconds — roughly 5× more frequent than violent crime.</li>
+          <li><strong>Assault is the most common violent crime:</strong> One every {crimeClock.assault} seconds, making up over 60% of all violent crime.</li>
+          <li><strong>Motor vehicle theft surged:</strong> One every {crimeClock.motorVehicleTheft} seconds — the fastest-growing crime category in recent years.</li>
+          <li><strong>Murder remains relatively rare:</strong> While every murder is a tragedy, it occurs once every {Math.round(crimeClock.murder / 60)} minutes — a rate that has dropped 15.7% from 2023 to 2024.</li>
+        </ul>
+
+        <h2 className="font-display text-2xl font-bold text-primary">Historical Context</h2>
+        <p>
+          The 2024 crime clock shows a significantly safer America compared to the early 1990s. At the peak in 1991,
+          a violent crime occurred every 17 seconds. Today that figure is {crimeClock.violentCrime} seconds — a testament to
+          decades of declining crime rates, though the story varies significantly by city and crime type.
+        </p>
+      </section>
+
+      <div className="mt-8 flex flex-wrap gap-4">
+        <a href="/dashboard" className="text-primary hover:underline">→ Crime Dashboard</a>
+        <a href="/crimes" className="text-primary hover:underline">→ Crime Types</a>
+        <a href="/rankings" className="text-primary hover:underline">→ City Rankings</a>
       </div>
 
-      <div className="prose prose-lg max-w-none mb-8">
-        <h2 className="font-heading">Putting It in Perspective</h2>
-        <p>
-          While you&apos;ve been reading this page (roughly 2 minutes), approximately {Math.round(120 / cc.violentCrime)} violent 
-          crimes and {Math.round(120 / cc.propertyCrime)} property crimes were reported somewhere in America. 
-          In the time it takes to watch a movie (~2 hours), roughly {Math.round(7200 / cc.murder)} people will be murdered.
-        </p>
-        <p>
-          But context matters enormously. These crimes are not randomly distributed — they are 
-          hyper-concentrated in specific neighborhoods, among specific demographics, at specific 
-          times. Your personal risk depends far more on where you live and your circumstances 
-          than on national averages.
-        </p>
+      <ShareButtons title="Crime Clock — How Often Crimes Occur in America" />
 
-        <h2 className="font-heading">The Concentration of Violence</h2>
-        <p>
-          Just <strong>10 cities</strong> account for <strong>{analytics.concentration.top10.murderPct}% of all reported murders</strong> while 
-          containing only {analytics.concentration.top10.popPct}% of the population. The top 50 cities 
-          account for {analytics.concentration.top50.murderPct}%.
-        </p>
-        <p>
-          Within those cities, violence is even more concentrated. Research consistently shows that 
-          1-2% of street blocks generate 25-50% of all violent crime. This means that for most 
-          Americans in most neighborhoods, the crime clock ticks much, much more slowly than 
-          the national average suggests.
-        </p>
-      </div>
-
-      <h3 className="font-heading text-xl font-bold mb-4">Cities With the Most Murders (2024)</h3>
-      <div className="bg-white rounded-xl shadow-sm border overflow-hidden mb-8">
-        <table className="w-full text-sm">
-          <thead className="bg-red-50"><tr><th className="text-left px-4 py-2">#</th><th className="text-left px-4 py-2">City</th><th className="text-right px-4 py-2">Murders</th></tr></thead>
-          <tbody>
-            {analytics.concentration.top10.cities.map((c, i) => (
-              <tr key={i} className="border-t"><td className="px-4 py-2 text-gray-400">{i+1}</td><td className="px-4 py-2 font-medium">{c.city}, {c.state}</td><td className="px-4 py-2 text-right font-mono text-red-600 font-bold">{fmtNum(c.murders)}</td></tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="mt-8"><ShareButtons title="Crime Clock — How Often Does Crime Happen?" /></div>
-      <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2024 national estimates. Crime clock calculated by dividing seconds in a year by total offenses.</p>
-    </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'How often does a violent crime occur in the US?', acceptedAnswer: { '@type': 'Answer', text: `Based on 2024 FBI data, a violent crime occurs approximately every ${crimeClock.violentCrime} seconds in the United States.` } },
+          { '@type': 'Question', name: 'How often does a murder happen in America?', acceptedAnswer: { '@type': 'Answer', text: `A murder occurs approximately every ${Math.round(crimeClock.murder / 60)} minutes based on 2024 FBI data, or about ${Math.round(365.25 * 24 * 3600 / crimeClock.murder).toLocaleString()} per year.` } },
+          { '@type': 'Question', name: 'What is the most common crime in America?', acceptedAnswer: { '@type': 'Answer', text: `Larceny-theft is the most common crime, occurring every ${crimeClock.larceny} seconds. Among violent crimes, aggravated assault is most common at one every ${crimeClock.assault} seconds.` } },
+        ]
+      })}} />
+    </main>
   );
 }

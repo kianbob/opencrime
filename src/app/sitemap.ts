@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
-import { loadData } from '@/lib/utils';
+import { loadData, slugify } from '@/lib/utils';
 
 type CityIdx = { slug: string };
-type StateData = { abbr: string };
+type StateData = { abbr: string; name: string };
 type NatTrend = { year: number };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,7 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/violent-crime', '/property-crime', '/robbery-statistics', '/assault-statistics',
     '/analysis/mass-shootings', '/analysis/car-theft-crisis', '/analysis/defund-police', '/analysis/organized-retail-theft',
     '/analysis/fentanyl-crisis', '/analysis/juvenile-crime',
-    '/crime-clock', '/population-paradox', '/city-trajectories',
+    '/crime-clock', '/population-crime-paradox', '/city-trajectories',
+    '/violence-concentration', '/crime-dna',
     '/years',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
@@ -48,5 +49,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'yearly' as const,
   }));
 
-  return [...staticPages, ...statePages, ...cityPages, ...yearPages];
+  const safestInState = states.map(s => ({
+    url: `${base}/safest-cities-in/${s.abbr.toLowerCase()}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+  }));
+
+  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState];
 }

@@ -252,6 +252,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Unique Insights */}
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-heading text-3xl font-bold text-center mb-8">Unique Data Insights</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { href: '/crime-clock', icon: '⏱️', title: 'Crime Clock', desc: 'Watch crimes accumulate in real-time. One violent crime every 26 seconds.' },
+              { href: '/crime-dna', icon: '🧬', title: 'Crime DNA', desc: 'Every city has a unique crime fingerprint. See visual composition breakdowns.' },
+              { href: '/violence-concentration', icon: '📍', title: 'Violence Concentration', desc: 'Just 10 cities produce 21% of all murders. See where violence really happens.' },
+              { href: '/population-crime-paradox', icon: '🔄', title: 'Crime Paradox', desc: 'Small towns with big crime and big cities that are surprisingly safe.' },
+              { href: '/city-trajectories', icon: '📈', title: 'City Trajectories', desc: 'Is your city improving, worsening, or volatile? We classified all 9,700+.' },
+              { href: '/most-improved', icon: '🏆', title: 'Most Improved', desc: 'Cities making the biggest strides in reducing crime.' },
+            ].map(t => (
+              <Link key={t.href} href={t.href} className="bg-white rounded-xl p-6 hover:shadow-lg transition group border border-gray-200">
+                <div className="text-3xl mb-3">{t.icon}</div>
+                <div className="font-bold text-lg group-hover:text-[#1e3a5f] mb-1">{t.title}</div>
+                <div className="text-sm text-gray-600">{t.desc}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Crime Types */}
       <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="font-heading text-3xl font-bold text-center mb-8">Browse by Crime Type</h2>

@@ -188,6 +188,7 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
       {/* Explore More */}
       <div className="flex flex-wrap gap-3 mt-8 mb-4">
         <Link href="/states" className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#2a4d7a] transition">All States</Link>
+        <Link href={`/safest-cities-in/${slugify(state.name)}`} className="border border-green-600 text-green-700 px-4 py-2 rounded-lg text-sm hover:bg-green-50 transition">Safest Cities in {state.name}</Link>
         <Link href="/tools/compare" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Compare Cities</Link>
         <Link href="/arrests" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Arrest Data</Link>
         <Link href="/hate-crimes" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Hate Crimes</Link>
