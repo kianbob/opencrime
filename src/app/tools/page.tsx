@@ -16,6 +16,9 @@ const tools = [
   { href: '/most-improved', title: 'Most Improved Cities', desc: 'Biggest crime rate drops and increases year-over-year', icon: '📈' },
   { href: '/safest-cities', title: 'Safest Cities', desc: 'Complete list of the safest cities in America', icon: '✅' },
   { href: '/most-dangerous-cities', title: 'Most Dangerous Cities', desc: 'Complete list of the most dangerous cities', icon: '⚠️' },
+  { href: '/crime-clock', title: 'Crime Clock', desc: 'See crime happen in real-time as you watch', icon: '⏱️' },
+  { href: '/city-trajectories', title: 'City Trajectories', desc: 'Which cities are getting safer or more dangerous?', icon: '📉' },
+  { href: '/population-paradox', title: 'Population Paradox', desc: 'Big cities aren\'t the most dangerous — here\'s proof', icon: '🔬' },
 ];
 
 export default function ToolsPage() {

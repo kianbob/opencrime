@@ -59,6 +59,10 @@ export type CityIndex = {
   propertyCrime: number; propertyRate: number;
   year: number; yearsAvailable: number[];
   violentChange: number | null;
+  safetyPercentile: number;
+  trajectory: string;
+  violentToPropertyRatio: number | null;
+  composition?: { murderPct: number; rapePct: number; robberyPct: number; assaultPct: number };
 };
 
 export type NationalTrend = {

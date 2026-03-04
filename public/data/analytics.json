@@ -1,0 +1,152 @@
+{
+  "crimeClock": {
+    "violentCrime": 26,
+    "murder": 1863,
+    "assault": 36,
+    "robbery": 153,
+    "rape": 247,
+    "propertyCrime": 5,
+    "burglary": 40,
+    "larceny": 7,
+    "motorVehicleTheft": 36
+  },
+  "concentration": {
+    "top10": {
+      "murders": 2798,
+      "murderPct": 21.4,
+      "popPct": 11,
+      "cities": [
+        {
+          "city": "Chicago",
+          "state": "Illinois",
+          "murders": 461
+        },
+        {
+          "city": "New York",
+          "state": "New York",
+          "murders": 325
+        },
+        {
+          "city": "Los Angeles",
+          "state": "California",
+          "murders": 324
+        },
+        {
+          "city": "Houston",
+          "state": "Texas",
+          "murders": 320
+        },
+        {
+          "city": "Los Angeles2",
+          "state": "California",
+          "murders": 264
+        },
+        {
+          "city": "Philadelphia",
+          "state": "Pennsylvania",
+          "murders": 262
+        },
+        {
+          "city": "Memphis",
+          "state": "Tennessee",
+          "murders": 249
+        },
+        {
+          "city": "Detroit",
+          "state": "Michigan",
+          "murders": 203
+        },
+        {
+          "city": "Baltimore",
+          "state": "Maryland",
+          "murders": 197
+        },
+        {
+          "city": "New Orleans",
+          "state": "Louisiana",
+          "murders": 193
+        }
+      ]
+    },
+    "top50": {
+      "murders": 6297,
+      "murderPct": 48.2,
+      "popPct": 22.1
+    },
+    "totalCityMurders": 13069
+  },
+  "popCrimeBins": [
+    {
+      "label": "Under 10K",
+      "count": 4716,
+      "avgViolentRate": 291.5,
+      "avgMurderRate": 4.17,
+      "avgPropertyRate": 1972.8,
+      "medianViolentRate": 168.5
+    },
+    {
+      "label": "10-25K",
+      "count": 1870,
+      "avgViolentRate": 235.2,
+      "avgMurderRate": 3.14,
+      "avgPropertyRate": 1520.3,
+      "medianViolentRate": 154.8
+    },
+    {
+      "label": "25-50K",
+      "count": 960,
+      "avgViolentRate": 257.7,
+      "avgMurderRate": 3.25,
+      "avgPropertyRate": 1642.4,
+      "medianViolentRate": 174.9
+    },
+    {
+      "label": "50-100K",
+      "count": 507,
+      "avgViolentRate": 324.9,
+      "avgMurderRate": 3.7,
+      "avgPropertyRate": 1866.9,
+      "medianViolentRate": 266.1
+    },
+    {
+      "label": "100-250K",
+      "count": 239,
+      "avgViolentRate": 443.7,
+      "avgMurderRate": 5.52,
+      "avgPropertyRate": 2226.1,
+      "medianViolentRate": 353.2
+    },
+    {
+      "label": "250-500K",
+      "count": 54,
+      "avgViolentRate": 622.6,
+      "avgMurderRate": 9.72,
+      "avgPropertyRate": 2722.5,
+      "medianViolentRate": 554.6
+    },
+    {
+      "label": "500K-1M",
+      "count": 27,
+      "avgViolentRate": 880.5,
+      "avgMurderRate": 14.36,
+      "avgPropertyRate": 3526.7,
+      "medianViolentRate": 720.1
+    },
+    {
+      "label": "Over 1M",
+      "count": 12,
+      "avgViolentRate": 703.6,
+      "avgMurderRate": 9.8,
+      "avgPropertyRate": 3109.3,
+      "medianViolentRate": 728.5
+    }
+  ],
+  "trajectoryCount": {
+    "improving": 158,
+    "worsening": 302,
+    "volatile": 3065,
+    "stable-safe": 3303,
+    "stable-dangerous": 392,
+    "unknown": 2519
+  }
+}

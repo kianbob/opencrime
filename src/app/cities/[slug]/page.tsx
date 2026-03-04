@@ -191,6 +191,37 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
         );
       })()}
 
+      {/* Trajectory & Percentile — from enhanced city index */}
+      {(() => {
+        const allCities = loadData<{ slug: string; safetyPercentile: number; trajectory: string }[]>('city-index.json');
+        const meta = allCities.find(c => c.slug === slug);
+        if (!meta || meta.trajectory === 'unknown') return null;
+        const trajLabels: Record<string, { label: string; color: string }> = {
+          'improving': { label: '📈 Improving', color: 'text-green-600' },
+          'worsening': { label: '📉 Worsening', color: 'text-red-600' },
+          'volatile': { label: '↕️ Volatile', color: 'text-amber-600' },
+          'stable-safe': { label: '✅ Stable Safe', color: 'text-green-700' },
+          'stable-dangerous': { label: '⚠️ Stable Dangerous', color: 'text-red-700' },
+        };
+        const t = trajLabels[meta.trajectory] || { label: meta.trajectory, color: 'text-gray-600' };
+        return (
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            <div className="bg-white rounded-xl shadow-sm border p-4 text-center">
+              <div className="text-sm text-gray-500">Crime Trajectory</div>
+              <div className={`text-xl font-bold ${t.color}`}>{t.label}</div>
+              <Link href="/city-trajectories" className="text-xs text-[#1e3a5f] hover:underline">How is this calculated? →</Link>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm border p-4 text-center">
+              <div className="text-sm text-gray-500">Safety Percentile</div>
+              <div className="text-xl font-bold">Safer than {meta.safetyPercentile}% of cities</div>
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="bg-green-500 h-2 rounded-full" style={{ width: `${meta.safetyPercentile}%` }} />
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Quick Links */}
       <div className="flex flex-wrap gap-3 mb-8">
         <Link href={`/tools/compare`} className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#2a4d7a] transition">Compare {city.city} →</Link>
