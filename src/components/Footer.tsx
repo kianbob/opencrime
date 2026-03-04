@@ -32,6 +32,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li><Link href="/tools/compare" className="hover:text-white">Compare Cities</Link></li>
             <li><Link href="/tools/safety-score" className="hover:text-white">Safety Score</Link></li>
+            <li><Link href="/arrests" className="hover:text-white">Arrest Data</Link></li>
             <li><Link href="/hate-crimes" className="hover:text-white">Hate Crimes</Link></li>
             <li><Link href="/analysis" className="hover:text-white">Analysis Articles</Link></li>
             <li><Link href="/analysis/crime-decline" className="hover:text-white">The Great Crime Decline</Link></li>

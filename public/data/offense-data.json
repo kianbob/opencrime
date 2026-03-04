@@ -1,0 +1,103 @@
+{
+  "robberyLocation": [
+    {
+      "location": "Percent Distribution within Region, 2024",
+      "total": 0
+    },
+    {
+      "location": "Region",
+      "total": 0
+    },
+    {
+      "location": "Northeast",
+      "total": 100
+    },
+    {
+      "location": "Midwest",
+      "total": 100
+    },
+    {
+      "location": "South",
+      "total": 100
+    },
+    {
+      "location": "West",
+      "total": 100
+    }
+  ],
+  "robberyWeapons": [],
+  "assaultWeapons": [],
+  "arsonByProperty": [
+    {
+      "type": "[16,098 agencies; 2024 estimated population 319,655,544]",
+      "count": 0,
+      "pctCleared": 0
+    },
+    {
+      "type": "Property classification",
+      "count": 0,
+      "pctCleared": 0
+    },
+    {
+      "type": "Single occupancy residential",
+      "count": 4083,
+      "pctCleared": 1.5
+    },
+    {
+      "type": "Other residential",
+      "count": 2290,
+      "pctCleared": 0.7
+    },
+    {
+      "type": "Storage",
+      "count": 621,
+      "pctCleared": 3.2
+    },
+    {
+      "type": "Industrial/manufacturing",
+      "count": 109,
+      "pctCleared": 3.7
+    },
+    {
+      "type": "Other commercial",
+      "count": 1630,
+      "pctCleared": 3.3
+    },
+    {
+      "type": "Community/public",
+      "count": 822,
+      "pctCleared": 3.4
+    },
+    {
+      "type": "Other structure",
+      "count": 1976,
+      "pctCleared": 1.5
+    },
+    {
+      "type": "Motor vehicles",
+      "count": 6135,
+      "pctCleared": 0
+    },
+    {
+      "type": "Other mobile",
+      "count": 589,
+      "pctCleared": 0
+    },
+    {
+      "type": "Other",
+      "count": 15034,
+      "pctCleared": 0
+    },
+    {
+      "type": "2 Due to technical system changes and data quality issues, some average damage values may be inflated.",
+      "count": 0,
+      "pctCleared": 0
+    },
+    {
+      "type": "3 Includes arsons cleared by arrest or exceptional means.",
+      "count": 0,
+      "pctCleared": 0
+    }
+  ],
+  "larcenyDist": []
+}
