@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Did "Defund the Police" Cause a Crime Surge? What the Data Shows',
@@ -12,10 +13,81 @@ export const metadata: Metadata = {
 };
 
 export default function DefundPolicePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Did defunding police cause the 2020 crime surge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The data suggests the 2020 crime spike was primarily driven by COVID-era disruptions rather than police budget changes, which were mostly small and quickly reversed. Cities that didn't cut budgets saw similar crime increases."
+      }
+    }, {
+      "@type": "Question", 
+      "name": "How many cities actually defunded their police?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Very few cities meaningfully cut police budgets. Most notable cuts were in Austin, Minneapolis, Los Angeles, and Portland, but most were reversed by 2022. By 2023, most major cities were spending more on police than before 2020."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What caused the staffing crisis in police departments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Police recruitment dropped 50-70% in many cities due to declining morale, early retirements, and officers transferring to suburban departments. This staffing crisis was arguably more impactful than budget changes."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Has violent crime returned to pre-2020 levels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, by 2023-2024 violent crime dropped back to near pre-2020 levels. Homicides fell roughly 12-15% in 2023 and continued declining in 2024, despite police staffing remaining well below pre-2020 levels."
+      }
+    }]
+  };
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article", 
+    "headline": "Did \"Defund the Police\" Cause a Crime Surge? What the Data Shows",
+    "author": { "@type": "Organization", "name": "OpenCrime" },
+    "publisher": { "@type": "Organization", "name": "OpenCrime" },
+    "datePublished": "2026-03-04",
+    "dateModified": "2026-03-04",
+    "mainEntityOfPage": "https://www.opencrime.us/analysis/defund-police",
+    "image": "https://www.opencrime.us/og-image.png"
+  };
+
+  const aiInsights = [
+    "Most cities did not meaningfully cut police budgets despite 'defund' rhetoric - cuts were small and quickly reversed",
+    "The 2020 murder spike began during COVID lockdowns and affected cities regardless of their police budget decisions", 
+    "Police staffing collapsed nationwide due to recruitment crisis and early retirements, more than budget cuts",
+    "Cities without any 'defund' movement saw similar crime increases, suggesting other causes were primary",
+    "By 2023 most major cities spend more on police than before 2020, yet crime has largely returned to pre-pandemic levels"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Analysis', href: '/analysis' }, { label: 'Defund the Police' }]} />
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-6">Did &quot;Defund the Police&quot; Cause a Crime Surge? What the Data Shows</h1>
+      <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">ANALYSIS</span>
+      
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Did &quot;Defund the Police&quot; Cause a Crime Surge? What the Data Shows</h1>
+      <p className="text-lg text-gray-600 mb-8">
+        After the 2020 protests, "defund the police" became the most polarizing phrase in 
+        criminal justice. We examine what actually happened to police budgets and crime rates.
+      </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-gray-100 border rounded-xl p-4 mb-8 text-sm text-gray-600">
         <strong>Approach:</strong> This article examines what actually happened to police budgets and crime rates, not what should have happened. We present data from both sides.

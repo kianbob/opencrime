@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Juvenile Crime Statistics — Youth Arrests, Trends & Data',
@@ -19,10 +20,80 @@ export default function JuvenileCrimePage() {
   const arrest = loadData<ArrestData>('arrest-data.json');
   const total = arrest.juvenile?.find(j => j.group === 'TOTAL AGENCIES:');
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Are juvenile crime rates increasing or decreasing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Juvenile arrests have fallen dramatically over the past two decades. FBI data shows juvenile arrests for violent crime have fallen by 50-70% since the mid-1990s peak, and property crime arrests have fallen even further."
+      }
+    }, {
+      "@type": "Question", 
+      "name": "What happens when juveniles are arrested?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most juvenile arrests result in handling within police departments or referral to juvenile court. Only a small fraction are referred to criminal court for trial as adults."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Why does juvenile crime seem to be increasing if arrests are down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Social media amplification, availability bias, and political incentives create a perception gap. Single violent incidents get millions of views while statistical reports showing declining crime get little attention."
+      }
+    }, {
+      "@type": "Question",
+      "name": "What are the most effective approaches to juvenile crime prevention?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research shows early intervention programs, diversion from criminal justice, family-based interventions, and maintaining school engagement are most effective. Trying juveniles as adults and 'scared straight' programs are counterproductive."
+      }
+    }]
+  };
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article", 
+    "headline": "Juvenile Crime: The Data Behind the Headlines",
+    "author": { "@type": "Organization", "name": "OpenCrime" },
+    "publisher": { "@type": "Organization", "name": "OpenCrime" },
+    "datePublished": "2026-03-04",
+    "dateModified": "2026-03-04",
+    "mainEntityOfPage": "https://www.opencrime.us/analysis/juvenile-crime",
+    "image": "https://www.opencrime.us/og-image.png"
+  };
+
+  const aiInsights = [
+    "Juvenile arrests have fallen 50-70% since the mid-1990s peak, contrary to media narratives of surging youth crime",
+    "Youth crime has declined faster than adult crime over the past two decades across nearly every offense category",
+    "Social media amplification creates a perception gap - viral videos reach more people than statistical reports",
+    "Most arrested juveniles are handled within police departments or juvenile court, not criminal court",
+    "Research shows diversion programs and early intervention are more effective than trying juveniles as adults"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Analysis', href: '/analysis' }, { label: 'Juvenile Crime' }]} />
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-6">Juvenile Crime: The Data Behind the Headlines</h1>
+      <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">ANALYSIS</span>
+      
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Juvenile Crime: The Data Behind the Headlines</h1>
+      <p className="text-lg text-gray-600 mb-8">
+        Media coverage suggests juvenile crime is exploding, but FBI arrest data tells a very different story. Youth arrests have fallen dramatically over the past two decades.
+      </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="prose prose-lg max-w-none">
         <p className="text-xl text-gray-600">

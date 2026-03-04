@@ -4,6 +4,7 @@ import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Crime Victimization: Who Bears the Burden?',
@@ -22,6 +23,14 @@ export default function RacialDisparitiesPage() {
   const data = loadData<HomicideData>('homicide-data.json');
   const totalVictims = data.victimSex.reduce((s, v) => s + v.count, 0);
 
+  const aiInsights = [
+    "Roughly 1-2% of street segments in a city account for 25-50% of its crime, showing extreme geographic concentration",
+    "Black Americans face 6-8x higher homicide victimization rates than whites, with homicide being the leading cause of death for Black males 15-34",
+    "Young men aged 18-24 are both the most likely perpetrators and victims of violent crime across all demographics",
+    "The racial disparity in homicide victimization has been narrowing since the 1990s as Black homicide rates fell more steeply",
+    "Violence concentration maps precisely onto historical disinvestment, segregation, and lack of economic opportunity"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Crime Victimization'}]} />
@@ -32,6 +41,8 @@ export default function RacialDisparitiesPage() {
         Crime in America is not distributed equally. It concentrates in specific neighborhoods, among 
         specific demographics, with devastating consequences for the communities that bear the heaviest burden.
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-gray-900 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-3 gap-4 text-center">

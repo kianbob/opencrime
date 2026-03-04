@@ -5,6 +5,7 @@ import type { CityIndex, StateSummary } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Rural vs Urban Crime: Shattering the Myths',
@@ -33,6 +34,14 @@ export default function RuralVsUrbanPage() {
   const largeCityAvg = avg(large);
   const dangerousSmall = small.filter(c => c.violentRate > largeCityAvg).sort((a, b) => b.violentRate - a.violentRate);
 
+  const aiInsights = [
+    "Many small and mid-size cities have higher per-capita violent crime rates than major metros like NYC and LA",
+    "Cities with 25K-100K population often face concentrated poverty and resource constraints that drive higher crime rates",
+    "Scale effects mean a few active offenders can dramatically impact a small city's crime rate",
+    "The highest per-capita crime rates often belong to mid-size cities like Memphis, St. Louis, and Birmingham",
+    "True rural areas have lower crime than cities, but some face domestic violence and drug-related issues with limited law enforcement"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Rural vs Urban Crime'}]} />
@@ -43,6 +52,8 @@ export default function RuralVsUrbanPage() {
         The popular image of crime as a big-city problem is misleading. Smaller cities often have 
         higher per-capita violence than major metros. Here&apos;s what the data actually shows.
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-white rounded-xl shadow-sm border overflow-hidden mb-8">
         <table className="w-full text-sm">
