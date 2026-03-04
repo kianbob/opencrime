@@ -216,9 +216,9 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
             </div>
             <div className="bg-white rounded-xl shadow-sm border p-4 text-center">
               <div className="text-sm text-gray-500">Safety Percentile</div>
-              <div className="text-xl font-bold">Safer than {meta.safetyPercentile}% of cities</div>
+              <div className="text-xl font-bold">Safer than {100 - meta.safetyPercentile}% of cities</div>
               <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                <div className="bg-green-500 h-2 rounded-full" style={{ width: `${meta.safetyPercentile}%` }} />
+                <div className="bg-green-500 h-2 rounded-full" style={{ width: `${100 - meta.safetyPercentile}%` }} />
               </div>
             </div>
           </div>

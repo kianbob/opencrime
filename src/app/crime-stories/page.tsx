@@ -33,7 +33,7 @@ export default function CrimeStoriesPage() {
 
   // Surprisingly safe big cities
   const surpriseSafe = cities
-    .filter(c => c.population >= 200000 && c.violentRate < 250 && c.safetyPercentile >= 70)
+    .filter(c => c.population >= 200000 && c.violentRate < 250 && c.safetyPercentile <= 30)
     .sort((a, b) => a.violentRate - b.violentRate)
     .slice(0, 10);
 

@@ -28,23 +28,24 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   };
 }
 
+// safetyPercentile: 0 = safest, 100 = most dangerous. Invert for grades.
 function gradeColor(pct: number): string {
-  if (pct >= 80) return 'bg-green-100 text-green-700';
-  if (pct >= 60) return 'bg-lime-100 text-lime-700';
-  if (pct >= 40) return 'bg-yellow-100 text-yellow-700';
-  if (pct >= 20) return 'bg-orange-100 text-orange-700';
+  if (pct <= 20) return 'bg-green-100 text-green-700';
+  if (pct <= 40) return 'bg-lime-100 text-lime-700';
+  if (pct <= 60) return 'bg-yellow-100 text-yellow-700';
+  if (pct <= 80) return 'bg-orange-100 text-orange-700';
   return 'bg-red-100 text-red-700';
 }
 
 function grade(pct: number): string {
-  if (pct >= 90) return 'A+';
-  if (pct >= 80) return 'A';
-  if (pct >= 70) return 'B+';
-  if (pct >= 60) return 'B';
-  if (pct >= 50) return 'C+';
-  if (pct >= 40) return 'C';
-  if (pct >= 30) return 'D+';
-  if (pct >= 20) return 'D';
+  if (pct <= 10) return 'A+';
+  if (pct <= 20) return 'A';
+  if (pct <= 30) return 'B+';
+  if (pct <= 40) return 'B';
+  if (pct <= 50) return 'C+';
+  if (pct <= 60) return 'C';
+  if (pct <= 70) return 'D+';
+  if (pct <= 80) return 'D';
   return 'F';
 }
 
