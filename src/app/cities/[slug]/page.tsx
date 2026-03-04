@@ -30,6 +30,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${city.city}, ${city.state} Crime Rate — Statistics & Safety Data`,
     description: `Crime rate in ${city.city}, ${city.state}. Violent crime rate: ${latest.violentRate} per 100K. ${latest.murder} murders. Population: ${latest.population.toLocaleString()}.`,
+    openGraph: {
+      title: `${city.city}, ${city.state} Crime Rate`,
+      description: `Violent crime rate: ${latest.violentRate.toFixed(1)}/100K · Murder rate: ${(latest.murder / latest.population * 100000).toFixed(1)}/100K · Pop: ${latest.population.toLocaleString()}`,
+    },
   };
 }
 
@@ -193,6 +197,16 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
         <Link href={`/states/${abbr.toLowerCase()}`} className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">{city.state} Overview →</Link>
         <Link href="/rankings" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">City Rankings →</Link>
         <Link href="/tools/safety-score" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Safety Score Tool →</Link>
+      </div>
+
+      <div className="bg-gray-50 rounded-xl p-6 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-3">Related Analysis</h3>
+        <div className="grid md:grid-cols-2 gap-3 text-sm">
+          <Link href="/analysis/crime-decline" className="text-[#1e3a5f] hover:underline">The Great Crime Decline →</Link>
+          <Link href="/analysis/gun-violence" className="text-[#1e3a5f] hover:underline">Gun Violence Data →</Link>
+          <Link href="/violent-crime" className="text-[#1e3a5f] hover:underline">Violent Crime Overview →</Link>
+          <Link href="/property-crime" className="text-[#1e3a5f] hover:underline">Property Crime →</Link>
+        </div>
       </div>
 
       <ShareButtons title={`${city.city}, ${city.state} Crime Rate`} />

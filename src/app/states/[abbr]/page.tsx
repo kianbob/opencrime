@@ -32,6 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ abbr: str
   return {
     title: `${state.name} Crime Statistics — Rates, Trends & Data`,
     description: `Crime statistics for ${state.name}. Violent crime rate: ${latest.violentRate} per 100K. Murder rate: ${latest.homicideRate}. ${state.years.length} years of trend data.`,
+    openGraph: {
+      title: `${state.name} Crime Statistics`,
+      description: `Violent: ${latest.violentRate.toFixed(1)}/100K · Murder: ${latest.homicideRate.toFixed(1)}/100K · ${state.years.length} years of data`,
+    },
   };
 }
 
@@ -187,6 +191,16 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
         <Link href="/tools/compare" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Compare Cities</Link>
         <Link href="/arrests" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Arrest Data</Link>
         <Link href="/hate-crimes" className="border border-gray-300 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Hate Crimes</Link>
+      </div>
+
+      <div className="bg-gray-50 rounded-xl p-6 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-3">Related Analysis</h3>
+        <div className="grid md:grid-cols-2 gap-3 text-sm">
+          <Link href="/analysis/crime-decline" className="text-[#1e3a5f] hover:underline">The Great Crime Decline →</Link>
+          <Link href="/analysis/rural-vs-urban" className="text-[#1e3a5f] hover:underline">Rural vs Urban Crime →</Link>
+          <Link href="/analysis/defund-police" className="text-[#1e3a5f] hover:underline">Police Funding & Crime →</Link>
+          <Link href="/tools/state-compare" className="text-[#1e3a5f] hover:underline">Compare States Tool →</Link>
+        </div>
       </div>
 
       <ShareButtons title={`${state.name} Crime Statistics`} />
