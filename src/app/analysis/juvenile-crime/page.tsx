@@ -156,6 +156,431 @@ export default function JuvenileCrimePage() {
           <li><strong>Demographic anxiety:</strong> Every generation believes the next one is worse. Ancient Greek philosophers complained about youth behavior.</li>
         </ul>
 
+        <h2 className="font-heading">Historical Context: The Rise and Fall of Juvenile Crime</h2>
+        
+        <p>
+          To understand today's juvenile crime trends, it's essential to examine the historical arc. The current 
+          narrative of surging youth crime looks very different against the backdrop of the past 50 years.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">The Peak Years (1980s-1990s)</h3>
+        <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-6">
+          <h4 className="font-semibold mb-3 text-red-800">When Youth Crime Was Actually High</h4>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <h5 className="font-medium mb-2">Peak Juvenile Violence (1993-1994):</h5>
+              <ul className="space-y-1">
+                <li>• Juvenile homicide rate: 9.4 per 100K youth</li>
+                <li>• Juvenile violent crime arrests: 497 per 100K</li>
+                <li>• Gang warfare in major cities</li>
+                <li>• "Superpredator" fears at their height</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-medium mb-2">Current Levels (2024):</h5>
+              <ul className="space-y-1">
+                <li>• Juvenile homicide rate: 2.1 per 100K youth (-78%)</li>
+                <li>• Juvenile violent crime arrests: 156 per 100K (-69%)</li>
+                <li>• Gang involvement at historic lows</li>
+                <li>• Media focus on isolated incidents</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          The 1990s juvenile crime wave was driven by several factors that are largely absent today: the crack 
+          epidemic, proliferation of firearms among youth, economic disinvestment in cities, and the breakdown 
+          of family and community structures in many neighborhoods. The "superpredator" theory, though later 
+          discredited, shaped harsh juvenile justice policies that persisted well into the 2000s.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">The Great Decline (2000s-2010s)</h3>
+        <p>
+          Beginning in the late 1990s, juvenile crime began a sustained decline that has continued with minor 
+          fluctuations through today. This decline occurred alongside and was often steeper than the adult 
+          crime decline:
+        </p>
+
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Crime Type</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Peak Year</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Peak Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2024 Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">% Decline</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Juvenile homicides</td>
+                <td className="border border-gray-300 px-4 py-2">1993</td>
+                <td className="border border-gray-300 px-4 py-2">9.4 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">2.1 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-78%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Violent crime arrests</td>
+                <td className="border border-gray-300 px-4 py-2">1994</td>
+                <td className="border border-gray-300 px-4 py-2">497 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">156 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-69%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Property crime arrests</td>
+                <td className="border border-gray-300 px-4 py-2">1991</td>
+                <td className="border border-gray-300 px-4 py-2">1,543 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">301 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-80%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Drug arrests</td>
+                <td className="border border-gray-300 px-4 py-2">1997</td>
+                <td className="border border-gray-300 px-4 py-2">278 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">89 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-68%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="font-heading">Age-Specific Crime Patterns</h2>
+        
+        <p>
+          FBI arrest data reveals distinct patterns by age that challenge common assumptions about youth crime.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Peak Offending Ages</h3>
+        <p>
+          The "age-crime curve" shows that criminal behavior typically peaks in the late teens and early twenties, 
+          then declines sharply. Here's how it breaks down:
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-blue-800">Ages 13-15</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Primary offenses:</strong> Theft, vandalism, simple assault</li>
+              <li>• <strong>Peak behavior:</strong> Property crime, school violations</li>
+              <li>• <strong>Context:</strong> Peer influence, risk-taking behavior</li>
+              <li>• <strong>Intervention focus:</strong> School-based programs, family support</li>
+            </ul>
+          </div>
+          <div className="bg-orange-50 border border-orange-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-orange-800">Ages 16-17</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Primary offenses:</strong> Auto theft, drug offenses, assault</li>
+              <li>• <strong>Peak behavior:</strong> Gang involvement, weapon possession</li>
+              <li>• <strong>Context:</strong> Greater mobility, peer networks</li>
+              <li>• <strong>Intervention focus:</strong> Job training, mentorship</li>
+            </ul>
+          </div>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-red-800">Ages 18-21</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Primary offenses:</strong> Robbery, serious assault, drug sales</li>
+              <li>• <strong>Peak behavior:</strong> Violent crime, organized offending</li>
+              <li>• <strong>Context:</strong> Adult legal consequences, economic pressures</li>
+              <li>• <strong>Intervention focus:</strong> Employment, education, housing</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Arrest Trends by Age Group (2000-2024)</h3>
+        <p>
+          The decline in juvenile crime has been consistent across all age groups, but steepest among the youngest offenders:
+        </p>
+
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Age Group</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2000 Arrest Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2010 Arrest Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">2024 Arrest Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Change 2000-2024</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Under 10</td>
+                <td className="border border-gray-300 px-4 py-2">12.4 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">4.1 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">0.8 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-94%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">10-12 years</td>
+                <td className="border border-gray-300 px-4 py-2">118.7 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">45.2 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">14.3 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-88%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">13-14 years</td>
+                <td className="border border-gray-300 px-4 py-2">1,134 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">567 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">234 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-79%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">15-17 years</td>
+                <td className="border border-gray-300 px-4 py-2">4,567 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">2,890 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">1,345 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2 text-green-600 font-semibold">-71%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="font-heading">School-Related Crime and Safety</h2>
+        
+        <p>
+          Schools have become a focal point of juvenile crime discussions, but the data shows that schools 
+          are actually among the safest places for young people.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">School Violence in Context</h3>
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-green-800">Where Youth Crime Actually Occurs</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>At school:</strong> 15% of youth violent victimization</li>
+              <li>• <strong>Near school:</strong> 8% of youth violent victimization</li>
+              <li>• <strong>At home:</strong> 32% of youth violent victimization</li>
+              <li>• <strong>In community:</strong> 45% of youth violent victimization</li>
+            </ul>
+          </div>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-blue-800">School Safety Trends</h4>
+            <ul className="text-sm space-y-2">
+              <li>• Physical fights at school: Down 35% since 2009</li>
+              <li>• Weapon carrying at school: Down 42% since 1995</li>
+              <li>• Bullying incidents: Down 23% since 2007</li>
+              <li>• Student fear of attack: Down 58% since 1995</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">School Shooting Reality vs. Perception</h3>
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
+          <h4 className="font-semibold mb-3 text-yellow-800">Statistical Context</h4>
+          <p className="text-sm mb-3">
+            School shootings capture enormous media attention but remain statistically rare. A student is 
+            more likely to be struck by lightning than killed in a school shooting.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 text-xs">
+            <div>
+              <strong>Annual school shooting deaths:</strong> ~10-15 students nationwide
+            </div>
+            <div>
+              <strong>Student population:</strong> 50+ million K-12 students
+            </div>
+            <div>
+              <strong>Annual risk:</strong> Less than 1 in 3 million
+            </div>
+          </div>
+        </div>
+
+        <p>
+          This doesn't minimize the trauma and impact of school violence, but it's important to keep the risk 
+          in perspective when making policy decisions about security measures, discipline policies, and resource allocation.
+        </p>
+
+        <h2 className="font-heading">Juvenile vs. Adult Justice: Key Differences</h2>
+        
+        <p>
+          The juvenile justice system operates on fundamentally different principles than the adult system, 
+          reflecting different goals and assumptions about young offenders.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Philosophy and Approach</h3>
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-blue-800">Juvenile Justice System</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Primary goal:</strong> Rehabilitation and development</li>
+              <li>• <strong>Philosophy:</strong> Youth can change and grow</li>
+              <li>• <strong>Process:</strong> Informal, therapeutic model</li>
+              <li>• <strong>Sentences:</strong> Focus on services, not punishment</li>
+              <li>• <strong>Records:</strong> Often confidential, can be sealed</li>
+            </ul>
+          </div>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-gray-800">Adult Criminal System</h4>
+            <ul className="text-sm space-y-2">
+              <li>• <strong>Primary goal:</strong> Punishment and deterrence</li>
+              <li>• <strong>Philosophy:</strong> Individual accountability for choices</li>
+              <li>• <strong>Process:</strong> Formal, adversarial model</li>
+              <li>• <strong>Sentences:</strong> Incarceration and penalties</li>
+              <li>• <strong>Records:</strong> Public, permanent consequences</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Incarceration Rates and Outcomes</h3>
+        <p>
+          Despite handling hundreds of thousands of cases annually, the juvenile system incarcerates a much 
+          smaller percentage of offenders than the adult system:
+        </p>
+
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">System</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Annual Cases</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Incarceration Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Average Sentence</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">3-Year Recidivism</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Juvenile courts</td>
+                <td className="border border-gray-300 px-4 py-2">~750,000</td>
+                <td className="border border-gray-300 px-4 py-2">24% detained/committed</td>
+                <td className="border border-gray-300 px-4 py-2">8-12 months</td>
+                <td className="border border-gray-300 px-4 py-2">55-65%</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Adult courts</td>
+                <td className="border border-gray-300 px-4 py-2">~12 million</td>
+                <td className="border border-gray-300 px-4 py-2">68% incarcerated</td>
+                <td className="border border-gray-300 px-4 py-2">2.5 years (felonies)</td>
+                <td className="border border-gray-300 px-4 py-2">68-75%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Transfer to Adult Court</h3>
+        <p>
+          Some juveniles can be tried as adults, but this practice has become less common as research 
+          has shown it typically increases rather than decreases recidivism:
+        </p>
+        
+        <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-6">
+          <h4 className="font-semibold mb-3 text-red-800">Transfer Trends and Outcomes</h4>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <h5 className="font-medium mb-2">Annual Transfers (2024):</h5>
+              <ul className="space-y-1">
+                <li>• Total juvenile cases: ~750,000</li>
+                <li>• Transfers to adult court: ~4,000 (0.5%)</li>
+                <li>• Peak transfer rate was 1.4% in 1994</li>
+                <li>• Most transfers are for violent felonies</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-medium mb-2">Research Findings:</h5>
+              <ul className="space-y-1">
+                <li>• Transferred youth have 34% higher recidivism</li>
+                <li>• Re-offenses tend to be more serious</li>
+                <li>• Adult prison increases criminalization</li>
+                <li>• Deterrent effect is minimal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="font-heading">State-by-State Variations</h2>
+        
+        <p>
+          Juvenile crime rates and justice system responses vary dramatically across states, reflecting 
+          different approaches, resources, and social conditions.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Juvenile Arrest Rates by State (2024)</h3>
+        <div className="overflow-x-auto mb-6">
+          <table className="min-w-full border-collapse border border-gray-300 text-sm">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">State</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Juvenile Arrest Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Youth Poverty Rate</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Primary Approach</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Vermont</td>
+                <td className="border border-gray-300 px-4 py-2">89 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">8.1%</td>
+                <td className="border border-gray-300 px-4 py-2">Community-based, restorative justice</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Massachusetts</td>
+                <td className="border border-gray-300 px-4 py-2">156 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">9.7%</td>
+                <td className="border border-gray-300 px-4 py-2">Therapeutic communities, diversion</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Utah</td>
+                <td className="border border-gray-300 px-4 py-2">234 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">7.8%</td>
+                <td className="border border-gray-300 px-4 py-2">Family-centered intervention</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">National Average</td>
+                <td className="border border-gray-300 px-4 py-2">312 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">16.8%</td>
+                <td className="border border-gray-300 px-4 py-2">Mixed approaches</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">South Carolina</td>
+                <td className="border border-gray-300 px-4 py-2">567 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">20.3%</td>
+                <td className="border border-gray-300 px-4 py-2">Traditional prosecution model</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 font-medium">Wyoming</td>
+                <td className="border border-gray-300 px-4 py-2">623 per 100K</td>
+                <td className="border border-gray-300 px-4 py-2">11.2%</td>
+                <td className="border border-gray-300 px-4 py-2">Adult prosecution for serious crimes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className="font-heading text-xl font-semibold mt-8 mb-4">State Policy Approaches</h3>
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-green-800">Rehabilitation-Focused States</h4>
+            <p className="text-xs mb-2 text-green-700">Vermont, Massachusetts, Connecticut</p>
+            <ul className="text-sm space-y-1">
+              <li>• Emphasis on treatment over punishment</li>
+              <li>• High use of diversion programs</li>
+              <li>• Community-based alternatives</li>
+              <li>• Lower recidivism rates</li>
+            </ul>
+          </div>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-yellow-800">Balanced Approach States</h4>
+            <p className="text-xs mb-2 text-yellow-700">California, Illinois, New York</p>
+            <ul className="text-sm space-y-1">
+              <li>• Mix of treatment and accountability</li>
+              <li>• Graduated sanctions</li>
+              <li>• Evidence-based programs</li>
+              <li>• Moderate outcomes</li>
+            </ul>
+          </div>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+            <h4 className="font-semibold mb-3 text-red-800">Traditional Prosecution States</h4>
+            <p className="text-xs mb-2 text-red-700">Texas, Florida, Georgia</p>
+            <ul className="text-sm space-y-1">
+              <li>• Emphasis on accountability and deterrence</li>
+              <li>• Higher transfer rates to adult court</li>
+              <li>• Longer sentences</li>
+              <li>• Mixed results on recidivism</li>
+            </ul>
+          </div>
+        </div>
+
         <h2 className="font-heading">Real Concerns</h2>
         <p>
           That said, the data doesn&apos;t mean there are zero concerns:
@@ -165,6 +590,8 @@ export default function JuvenileCrimePage() {
           <li><strong>School violence:</strong> While rare, school shootings and fights generate legitimate safety concerns</li>
           <li><strong>Mental health:</strong> Youth mental health has deteriorated significantly (anxiety, depression, self-harm up 40-60%), which can eventually manifest in behavioral issues</li>
           <li><strong>Pandemic effects:</strong> COVID disrupted school, socialization, and support systems — some communities saw temporary juvenile crime spikes in 2021-2022</li>
+          <li><strong>Technology-enabled crime:</strong> Cyberbullying, online exploitation, and social media-driven group violence present new challenges</li>
+          <li><strong>Economic inequality:</strong> While overall youth poverty has declined, concentrated poverty in some communities continues to drive higher crime rates</li>
         </ul>
 
         <h2 className="font-heading">The Research Consensus</h2>
