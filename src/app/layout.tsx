@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -37,6 +38,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             'query-input': 'required name=search_term_string',
           },
         })}} />
+        
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-K37SSPQD54" 
+          strategy="afterInteractive" 
+        />
+        <Script 
+          id="gtag" 
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-K37SSPQD54');
+          `}
+        </Script>
+        
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

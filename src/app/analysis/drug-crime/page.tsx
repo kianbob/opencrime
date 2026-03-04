@@ -1,4 +1,6 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -10,11 +12,18 @@ export const metadata: Metadata = {
 };
 
 export default function DrugCrimePage() {
+  const aiInsights = [
+    "The crack epidemic (1985-1993) coincided with a doubling of murder rates in many cities",
+    "Drug-related violence accounts for roughly 15% of all homicides, but up to 50% in some cities",
+    "Fentanyl is 50-100x more potent than morphine, revolutionizing drug trafficking economics",
+    "110,000+ Americans die from overdoses annually - more than car accidents and gun violence combined",
+    "Drug markets create violence through territorial disputes, enforcement, and debt collection",
+    "Synthetic drugs like fentanyl require fewer smuggling routes, changing crime geography"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">Drug-Crime Connection</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'The Drug-Crime Connection'}]} />
       <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">The Drug-Crime Connection: From Crack to Fentanyl</h1>
@@ -22,6 +31,8 @@ export default function DrugCrimePage() {
         Every major American crime wave has a drug story behind it. Understanding the drug-crime connection 
         is essential to understanding why crime rises, falls, and concentrates where it does.
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-3 gap-4 text-center">

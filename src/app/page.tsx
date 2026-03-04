@@ -101,7 +101,8 @@ export default function HomePage() {
               Most Dangerous Cities <span className="text-sm font-normal text-gray-500">(100K+ pop)</span>
             </h3>
             <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-              <table className="w-full text-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="text-left px-4 py-2">#</th>
@@ -126,6 +127,7 @@ export default function HomePage() {
                   ))}
                 </tbody>
               </table>
+              </div>
               <Link href="/rankings" className="block text-center text-sm text-[#1e3a5f] py-3 border-t hover:bg-gray-50">
                 View Full Rankings →
               </Link>
@@ -137,7 +139,8 @@ export default function HomePage() {
               Safest Cities <span className="text-sm font-normal text-gray-500">(100K+ pop)</span>
             </h3>
             <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-              <table className="w-full text-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="text-left px-4 py-2">#</th>
@@ -162,6 +165,7 @@ export default function HomePage() {
                   ))}
                 </tbody>
               </table>
+              </div>
               <Link href="/rankings?sort=safest" className="block text-center text-sm text-[#1e3a5f] py-3 border-t hover:bg-gray-50">
                 View Full Rankings →
               </Link>

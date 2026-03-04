@@ -1,12 +1,13 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import AIOverview from '@/components/AIOverview';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Mass Shootings vs Total Gun Violence — What the Data Shows',
-  description: 'Mass shootings dominate headlines but account for less than 1% of gun deaths. FBI data reveals the real scale and patterns of gun violence in America.',
+  title: 'Mass Shootings vs Total Gun Violence — The Data Behind the Headlines',
+  description: 'Mass shootings dominate headlines but represent <1% of gun deaths. Comprehensive analysis of FBI data reveals the true scale, patterns, and geographic concentration of gun violence in America.',
   openGraph: { title: 'Mass Shootings vs Total Gun Violence', description: 'Mass shootings get the headlines, but 98% of gun murders happen one at a time.' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/mass-shootings' },
 };

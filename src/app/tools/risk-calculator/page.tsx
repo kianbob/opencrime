@@ -4,6 +4,7 @@ import RiskCalcClient from './RiskCalcClient';
 export const metadata: Metadata = {
   title: 'Crime Risk Calculator — What Are Your Odds?',
   description: 'Calculate your statistical risk of being a crime victim in any US city. Based on FBI crime rates, see yearly and lifetime odds for violent and property crime.',
+  alternates: { canonical: 'https://www.opencrime.us/tools/risk-calculator' },
 };
 
 export default function RiskCalculatorPage() {

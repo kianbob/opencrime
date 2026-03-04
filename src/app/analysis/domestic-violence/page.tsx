@@ -1,4 +1,6 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -32,11 +34,18 @@ export default function DomesticViolencePage() {
   ) ?? [];
   const familyTotal = family.reduce((s, r) => s + r.count, 0);
 
+  const aiInsights = [
+    `Over 40% of female murder victims are killed by intimate partners, compared to just 5% of male victims`,
+    `Intimate partner violence accounts for ${Math.round(intimateTotal / totalVictims * 100)}% of all relationship-known homicides`,
+    `Women are 5x more likely to be killed by someone they know than by a stranger`,
+    `Family violence (including intimate partners) represents ${Math.round((intimateTotal + familyTotal) / totalVictims * 100)}% of homicides with known relationships`,
+    `Domestic violence homicides often follow escalating patterns of abuse that could be prevented with intervention`,
+    `The true scale is likely higher - many domestic violence deaths may be classified as "unknown relationship"`
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">Domestic Violence</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Domestic Violence in America'}]} />
       <span className="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">ANALYSIS</span>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Domestic Violence in America: The Hidden Epidemic</h1>
@@ -45,6 +54,8 @@ export default function DomesticViolencePage() {
         tells a different story. Most murder victims knew their killer. And for women, the most dangerous 
         person in their life is often the one they live with.
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-purple-900 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

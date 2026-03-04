@@ -27,6 +27,63 @@ export default async function YearDetailPage({ params }: { params: Promise<{ yea
   const yearNum = parseInt(yearStr);
   const national = loadData<NationalTrend[]>('national-trends.json');
   const n = national.find(y => y.year === yearNum);
+  
+  // Handle missing years due to SRS → NIBRS transition
+  const missingYears = [2017, 2018, 2019, 2020];
+  if (!n && missingYears.includes(yearNum)) {
+    const availableYears = national.map(y => y.year).sort((a, b) => b - a);
+    
+    return (
+      <div className="max-w-5xl mx-auto px-4 py-8">
+        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Years', href: '/years' }, { label: String(yearNum) }]} />
+
+        <div className="text-center mb-8">
+          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">{yearNum} Crime Statistics</h1>
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 max-w-3xl mx-auto">
+            <div className="text-amber-800">
+              <div className="text-5xl mb-4">📊</div>
+              <h2 className="text-xl font-semibold mb-3">No Data Available for {yearNum}</h2>
+              <p className="text-left mb-4">
+                Crime data for {yearNum} is not available due to the FBI's transition from the Summary Reporting System (SRS) 
+                to the National Incident-Based Reporting System (NIBRS). This transition period resulted in incomplete 
+                national statistics for 2017-2020.
+              </p>
+              <p className="text-left mb-4">
+                The NIBRS system provides more detailed and comprehensive crime data, but required time for law enforcement 
+                agencies nationwide to adopt the new reporting standards.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h3 className="font-heading text-xl font-semibold mb-4">Browse Available Years</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            {availableYears.slice(0, 18).map(year => (
+              <Link key={year} href={`/years/${year}`} 
+                    className="text-center py-2 px-3 bg-[#1e3a5f] text-white rounded hover:bg-[#2a4d7a] transition text-sm">
+                {year}
+              </Link>
+            ))}
+          </div>
+          {availableYears.length > 18 && (
+            <div className="mt-4 text-center">
+              <Link href="/years" className="text-[#1e3a5f] hover:underline">View all {availableYears.length} years →</Link>
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          <Link href="/years" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">All Years</Link>
+          <Link href="/dashboard" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Dashboard</Link>
+          <Link href="/states" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">By State</Link>
+        </div>
+
+        <div className="mt-8"><ShareButtons title={`${yearNum} Crime Statistics`} /></div>
+      </div>
+    );
+  }
+  
   if (!n) return notFound();
 
   const idx = national.findIndex(y => y.year === yearNum);

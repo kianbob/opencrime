@@ -4,6 +4,7 @@ import StateCompareClient from './StateCompareClient';
 export const metadata: Metadata = {
   title: 'Compare State Crime Rates — Side-by-Side State Comparison',
   description: 'Compare crime rates between any two US states. Side-by-side violent crime, murder, property crime comparison with 40+ years of FBI data.',
+  alternates: { canonical: 'https://www.opencrime.us/tools/state-compare' },
 };
 
 export default function StateComparePage() {

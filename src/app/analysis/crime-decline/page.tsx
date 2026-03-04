@@ -1,4 +1,6 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { NationalTrend } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -18,11 +20,18 @@ export default function CrimeDeclinePage() {
   const peak = national.find(y => y.year === 1991)!;
   const n1979 = national[0];
 
+  const aiInsights = [
+    "Violent crime has fallen 52.6% since 1991, from 758.2 to 359.9 per 100,000 people",
+    "Murder rates dropped 55% from the 1991 peak, despite population growing by 85 million",
+    "Property crime declined even more dramatically - down 68% since 1980",
+    "The US is safer now than at any point since the early 1960s",
+    "Crime decline occurred across all demographics, regions, and city sizes",
+    "The drop represents roughly 2.8 million fewer violent crimes per year compared to 1991 rates"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">The Great Crime Decline</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'The Great Crime Decline'}]} />
 
       <div className="mb-6">
         <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
@@ -33,6 +42,8 @@ export default function CrimeDeclinePage() {
         Despite what you see on the news, violent crime in America has fallen by more than half since its peak. 
         This is one of the most important — and most ignored — public safety stories of our time.
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

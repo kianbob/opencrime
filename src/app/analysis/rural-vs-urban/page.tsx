@@ -1,4 +1,5 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { CityIndex, StateSummary } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -34,9 +35,7 @@ export default function RuralVsUrbanPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">Rural vs Urban</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Rural vs Urban Crime'}]} />
       <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Rural vs Urban Crime: Shattering the Myths</h1>

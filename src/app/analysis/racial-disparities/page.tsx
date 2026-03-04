@@ -1,4 +1,5 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -23,9 +24,7 @@ export default function RacialDisparitiesPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">Crime Victimization</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Crime Victimization'}]} />
       <span className="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">ANALYSIS</span>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Crime Victimization: Who Bears the Burden?</h1>

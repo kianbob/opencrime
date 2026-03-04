@@ -1,4 +1,5 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -12,9 +13,7 @@ export const metadata: Metadata = {
 export default function PoliceFundingPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">Police Funding</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Police Funding and Crime Rates'}]} />
       <span className="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">ANALYSIS</span>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Police Funding and Crime Rates: What the Data Shows</h1>

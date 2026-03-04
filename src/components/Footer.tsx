@@ -33,6 +33,8 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Tools & Analysis</h3>
           <ul className="space-y-2">
             <li><Link href="/tools/compare" className="hover:text-white">Compare Cities</Link></li>
+            <li><Link href="/tools/state-compare" className="hover:text-white">Compare States</Link></li>
+            <li><Link href="/tools/risk-calculator" className="hover:text-white">Risk Calculator</Link></li>
             <li><Link href="/tools/safety-score" className="hover:text-white">Safety Score</Link></li>
             <li><Link href="/arrests" className="hover:text-white">Arrest Data</Link></li>
             <li><Link href="/hate-crimes" className="hover:text-white">Hate Crimes</Link></li>
@@ -58,6 +60,8 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Sister Sites</h3>
           <ul className="space-y-2">
+            <li><a href="https://www.openfeds.org" className="hover:text-white">OpenFeds</a></li>
+            <li><a href="https://www.openspending.us" className="hover:text-white">OpenSpending</a></li>
             <li><a href="https://www.openmedicaid.org" className="hover:text-white">OpenMedicaid</a></li>
             <li><a href="https://www.openmedicare.us" className="hover:text-white">OpenMedicare</a></li>
             <li><a href="https://www.openprescriber.org" className="hover:text-white">OpenPrescriber</a></li>

@@ -1,4 +1,6 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -29,11 +31,18 @@ export default function GunViolencePage() {
   const knives = data.weaponBreakdown.find(w => w.weapon.toLowerCase().includes('kniv') || w.weapon.toLowerCase().includes('cutting'));
   const hands = data.weaponBreakdown.find(w => w.weapon.toLowerCase().includes('hands') || w.weapon.toLowerCase().includes('personal'));
 
+  const aiInsights = [
+    `Firearms are used in ${firearmPct}% of all US murders, far higher than any other weapon type`,
+    `${fmtNum(firearmTotal)} Americans were murdered with firearms in the most recent data year`,
+    `Gun homicides outnumber knife homicides by more than 4-to-1 in the United States`,
+    `Handguns account for the majority of firearm homicides, with rifles representing a small fraction`,
+    `The US firearm homicide rate is 25x higher than other high-income countries`,
+    `Gun violence disproportionately affects young Black males aged 15-34 in urban areas`
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="text-sm text-gray-500 mb-4">
-        <Link href="/analysis" className="hover:underline">Analysis</Link> / <span className="text-gray-800">Gun Violence</span>
-      </nav>
+      <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Gun Violence by the Numbers'}]} />
       <span className="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">ANALYSIS</span>
 
       <h1 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">Gun Violence by the Numbers: What FBI Data Actually Shows</h1>
@@ -41,6 +50,8 @@ export default function GunViolencePage() {
         Firearms dominate American homicide in a way unique among developed nations. Here&apos;s what 
         the FBI&apos;s expanded homicide data reveals about weapon types, circumstances, and victims.
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="bg-red-900 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">
