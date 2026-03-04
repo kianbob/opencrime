@@ -1,5 +1,6 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { NationalTrend } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -15,6 +16,15 @@ export const metadata: Metadata = {
 export default function PropertyCrimeSurgePage() {
   const national = loadData<NationalTrend[]>('national-trends.json');
   const n = national[national.length - 1];
+
+  const aiInsights = [
+    "Motor vehicle theft has increased 25% since 2019 while murder rates declined 15.7%",
+    "Property crime and violent crime now move independently - breaking historic patterns",
+    "Car theft rates in some cities are now higher than in the 1980s crack epidemic peak",
+    "The average stolen vehicle is worth $21,000, making auto theft highly profitable",
+    "Smash-and-grab retail thefts rose 60% in major cities during 2021-2022",
+    "Unlike violent crime, property crime recovery has stalled and reversed direction"
+  ];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -45,6 +55,8 @@ export default function PropertyCrimeSurgePage() {
           Something strange is happening in American crime: violent crime is plummeting while certain 
           property crimes are surging. The trends that used to move together have diverged.
         </p>
+
+        <AIOverview insights={aiInsights} />
 
         <h2 className="font-heading">The Divergence</h2>
         <p>

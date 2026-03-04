@@ -1,5 +1,6 @@
 import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
@@ -11,6 +12,15 @@ export const metadata: Metadata = {
 };
 
 export default function PoliceFundingPage() {
+  const aiInsights = [
+    "US cities spend an average of $315 per resident on policing annually",
+    "Cities with higher police spending don't always have lower crime rates - correlation is weak",
+    "New York spends $2,000+ per resident on police but has below-average crime rates",
+    "Some high-crime cities underfund police while others overfund with poor results",
+    "Community policing and officer training may matter more than raw spending levels",
+    "The most effective crime reduction comes from targeted, data-driven approaches"
+  ];
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{label:'Analysis',href:'/analysis'},{label:'Police Funding and Crime Rates'}]} />
@@ -21,6 +31,8 @@ export default function PoliceFundingPage() {
         &quot;Defund the police&quot; vs. &quot;back the blue&quot; dominated the debate. But what does the data 
         actually say about the relationship between police spending and crime?
       </p>
+
+      <AIOverview insights={aiInsights} />
 
       <div className="prose prose-lg max-w-none">
         <h2 className="font-heading">The Trillion-Dollar Question</h2>
