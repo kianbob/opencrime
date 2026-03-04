@@ -15,8 +15,11 @@ const NAV_LINKS = [
 
 const TOOLS = [
   { href: '/tools/compare', label: 'Compare Cities' },
+  { href: '/tools/state-compare', label: 'Compare States' },
   { href: '/tools/safety-score', label: 'Safety Score' },
+  { href: '/tools/risk-calculator', label: 'Risk Calculator' },
   { href: '/search', label: 'Search' },
+  { href: '/most-improved', label: 'Most Improved' },
   { href: '/safest-cities', label: 'Safest Cities' },
   { href: '/most-dangerous-cities', label: 'Most Dangerous' },
 ];

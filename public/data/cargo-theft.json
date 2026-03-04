@@ -1,0 +1,726 @@
+{
+  "totalIncidents": 272167,
+  "totalStolenValue": 83738256,
+  "totalRecoveredValue": 923371590,
+  "recoveryRate": 1102.7,
+  "byYear": [
+    {
+      "year": 2012,
+      "count": 11947
+    },
+    {
+      "year": 2013,
+      "count": 2456
+    },
+    {
+      "year": 2014,
+      "count": 7148
+    },
+    {
+      "year": 2015,
+      "count": 5913
+    },
+    {
+      "year": 2016,
+      "count": 10304
+    },
+    {
+      "year": 2017,
+      "count": 11087
+    },
+    {
+      "year": 2018,
+      "count": 9038
+    },
+    {
+      "year": 2019,
+      "count": 30925
+    },
+    {
+      "year": 2020,
+      "count": 34036
+    },
+    {
+      "year": 2021,
+      "count": 41799
+    },
+    {
+      "year": 2022,
+      "count": 29362
+    },
+    {
+      "year": 2023,
+      "count": 36910
+    },
+    {
+      "year": 2024,
+      "count": 41242
+    }
+  ],
+  "byState": [
+    {
+      "state": "North Carolina",
+      "count": 38434
+    },
+    {
+      "state": "Ohio",
+      "count": 23545
+    },
+    {
+      "state": "Georgia",
+      "count": 19279
+    },
+    {
+      "state": "Texas",
+      "count": 17526
+    },
+    {
+      "state": "Massachusetts",
+      "count": 15150
+    },
+    {
+      "state": "Maryland",
+      "count": 14874
+    },
+    {
+      "state": "Tennessee",
+      "count": 13717
+    },
+    {
+      "state": "Florida",
+      "count": 11521
+    },
+    {
+      "state": "South Carolina",
+      "count": 11061
+    },
+    {
+      "state": "Nevada",
+      "count": 9191
+    },
+    {
+      "state": "Virginia",
+      "count": 8586
+    },
+    {
+      "state": "California",
+      "count": 8162
+    },
+    {
+      "state": "Michigan",
+      "count": 8032
+    },
+    {
+      "state": "New Mexico",
+      "count": 7641
+    },
+    {
+      "state": "Missouri",
+      "count": 7042
+    },
+    {
+      "state": "Pennsylvania",
+      "count": 6829
+    },
+    {
+      "state": "Washington",
+      "count": 5651
+    },
+    {
+      "state": "Illinois",
+      "count": 5073
+    },
+    {
+      "state": "Alabama",
+      "count": 4879
+    },
+    {
+      "state": "West Virginia",
+      "count": 4380
+    },
+    {
+      "state": "Federal",
+      "count": 3726
+    },
+    {
+      "state": "Colorado",
+      "count": 3689
+    },
+    {
+      "state": "Indiana",
+      "count": 3001
+    },
+    {
+      "state": "Oregon",
+      "count": 2499
+    },
+    {
+      "state": "Mississippi",
+      "count": 2189
+    },
+    {
+      "state": "Arizona",
+      "count": 1953
+    },
+    {
+      "state": "Arkansas",
+      "count": 1703
+    },
+    {
+      "state": "Kentucky",
+      "count": 1472
+    },
+    {
+      "state": "New Jersey",
+      "count": 1236
+    },
+    {
+      "state": "Wisconsin",
+      "count": 1084
+    },
+    {
+      "state": "OH",
+      "count": 1041
+    },
+    {
+      "state": "Delaware",
+      "count": 906
+    },
+    {
+      "state": "Connecticut",
+      "count": 865
+    },
+    {
+      "state": "Iowa",
+      "count": 789
+    },
+    {
+      "state": "Nebraska",
+      "count": 759
+    },
+    {
+      "state": "New York",
+      "count": 590
+    },
+    {
+      "state": "Idaho",
+      "count": 513
+    },
+    {
+      "state": "PA",
+      "count": 409
+    },
+    {
+      "state": "Utah",
+      "count": 399
+    },
+    {
+      "state": "Rhode Island",
+      "count": 376
+    },
+    {
+      "state": "Montana",
+      "count": 328
+    },
+    {
+      "state": "North Dakota",
+      "count": 295
+    },
+    {
+      "state": "New Hampshire",
+      "count": 253
+    },
+    {
+      "state": "NJ",
+      "count": 237
+    },
+    {
+      "state": "Minnesota",
+      "count": 229
+    },
+    {
+      "state": "South Dakota",
+      "count": 228
+    },
+    {
+      "state": "Guam",
+      "count": 179
+    },
+    {
+      "state": "Maine",
+      "count": 175
+    },
+    {
+      "state": "District of Columbia",
+      "count": 173
+    },
+    {
+      "state": "Vermont",
+      "count": 99
+    },
+    {
+      "state": "Alaska",
+      "count": 81
+    },
+    {
+      "state": "Oklahoma",
+      "count": 64
+    },
+    {
+      "state": "Wyoming",
+      "count": 34
+    },
+    {
+      "state": "MA",
+      "count": 10
+    },
+    {
+      "state": "TX",
+      "count": 5
+    },
+    {
+      "state": "Hawaii",
+      "count": 2
+    },
+    {
+      "state": "WV",
+      "count": 2
+    },
+    {
+      "state": "MI",
+      "count": 1
+    }
+  ],
+  "byLocation": [
+    {
+      "location": "Individual",
+      "count": 133199
+    },
+    {
+      "location": "Business",
+      "count": 43294
+    },
+    {
+      "location": "I",
+      "count": 17856
+    },
+    {
+      "location": "20",
+      "count": 17711
+    },
+    {
+      "location": "18",
+      "count": 7478
+    },
+    {
+      "location": "Society/Public",
+      "count": 5781
+    },
+    {
+      "location": "B",
+      "count": 4545
+    },
+    {
+      "location": "13",
+      "count": 4392
+    },
+    {
+      "location": "M",
+      "count": 2880
+    },
+    {
+      "location": "Government/Public Building",
+      "count": 2841
+    },
+    {
+      "location": "25",
+      "count": 2373
+    },
+    {
+      "location": "05",
+      "count": 2280
+    },
+    {
+      "location": "U",
+      "count": 2217
+    },
+    {
+      "location": "Government",
+      "count": 1866
+    },
+    {
+      "location": "07",
+      "count": 1284
+    },
+    {
+      "location": "23",
+      "count": 1205
+    },
+    {
+      "location": "24",
+      "count": 997
+    },
+    {
+      "location": "50",
+      "count": 915
+    },
+    {
+      "location": "52",
+      "count": 849
+    },
+    {
+      "location": "08",
+      "count": 831
+    }
+  ],
+  "byOffense": [
+    {
+      "offense": "999\"",
+      "count": 174971
+    },
+    {
+      "offense": "23F",
+      "count": 10717
+    },
+    {
+      "offense": "23H",
+      "count": 10668
+    },
+    {
+      "offense": "000 or over\"",
+      "count": 10525
+    },
+    {
+      "offense": "220",
+      "count": 7285
+    },
+    {
+      "offense": "000 thru 999",
+      "count": 7260
+    },
+    {
+      "offense": "240",
+      "count": 5869
+    },
+    {
+      "offense": "000 thru 49",
+      "count": 4220
+    },
+    {
+      "offense": "\"Cities from 500",
+      "count": 4201
+    },
+    {
+      "offense": "000 thru 249",
+      "count": 3789
+    },
+    {
+      "offense": "290",
+      "count": 3379
+    },
+    {
+      "offense": "All Other Larceny",
+      "count": 3308
+    },
+    {
+      "offense": "000 thru 24",
+      "count": 2874
+    },
+    {
+      "offense": "000 thru 99",
+      "count": 2528
+    },
+    {
+      "offense": "23D",
+      "count": 2522
+    },
+    {
+      "offense": "\"Cities 1",
+      "count": 2227
+    },
+    {
+      "offense": "120",
+      "count": 1812
+    },
+    {
+      "offense": "26A",
+      "count": 1519
+    },
+    {
+      "offense": "000",
+      "count": 1317
+    },
+    {
+      "offense": "1A",
+      "count": 1244
+    },
+    {
+      "offense": "26B",
+      "count": 1058
+    },
+    {
+      "offense": "500 thru 9",
+      "count": 769
+    },
+    {
+      "offense": "35A",
+      "count": 643
+    },
+    {
+      "offense": "\"Cities from 100",
+      "count": 630
+    },
+    {
+      "offense": "26F",
+      "count": 495
+    },
+    {
+      "offense": "\"Cities from 25",
+      "count": 456
+    },
+    {
+      "offense": "\"Cities from 10",
+      "count": 440
+    },
+    {
+      "offense": "\"Cities from 50",
+      "count": 417
+    },
+    {
+      "offense": "13B",
+      "count": 400
+    },
+    {
+      "offense": "280",
+      "count": 364
+    },
+    {
+      "offense": "Credit Card/Automated Teller Machine Fraud",
+      "count": 347
+    },
+    {
+      "offense": "520",
+      "count": 337
+    },
+    {
+      "offense": "000 thru 499",
+      "count": 326
+    },
+    {
+      "offense": "270",
+      "count": 319
+    },
+    {
+      "offense": "35B",
+      "count": 292
+    },
+    {
+      "offense": "26C",
+      "count": 271
+    },
+    {
+      "offense": "500\"",
+      "count": 223
+    },
+    {
+      "offense": "250",
+      "count": 218
+    },
+    {
+      "offense": "23G",
+      "count": 198
+    },
+    {
+      "offense": " Virgin Islands",
+      "count": 179
+    },
+    {
+      "offense": "13A",
+      "count": 175
+    },
+    {
+      "offense": "1C",
+      "count": 163
+    },
+    {
+      "offense": "26E",
+      "count": 139
+    },
+    {
+      "offense": "1B",
+      "count": 138
+    },
+    {
+      "offense": "\"Cities from 250",
+      "count": 131
+    },
+    {
+      "offense": "100",
+      "count": 102
+    },
+    {
+      "offense": "2",
+      "count": 97
+    },
+    {
+      "offense": "23C",
+      "count": 67
+    },
+    {
+      "offense": "210",
+      "count": 62
+    },
+    {
+      "offense": "Embezzlement",
+      "count": 53
+    },
+    {
+      "offense": "Destruction/Damage/Vandalism of Property",
+      "count": 35
+    },
+    {
+      "offense": "26G",
+      "count": 33
+    },
+    {
+      "offense": "13C",
+      "count": 33
+    },
+    {
+      "offense": "23A",
+      "count": 32
+    },
+    {
+      "offense": "False Pretenses/Swindle/Confidence Game",
+      "count": 27
+    },
+    {
+      "offense": "\"Cities from 2",
+      "count": 23
+    },
+    {
+      "offense": "Stolen Property Offenses",
+      "count": 20
+    },
+    {
+      "offense": "Motor Vehicle Theft",
+      "count": 19
+    },
+    {
+      "offense": "Theft From Motor Vehicle",
+      "count": 18
+    },
+    {
+      "offense": "09A",
+      "count": 17
+    },
+    {
+      "offense": "64B",
+      "count": 16
+    },
+    {
+      "offense": "Burglary/Breaking & Entering",
+      "count": 15
+    },
+    {
+      "offense": "\"Cities under 2",
+      "count": 14
+    },
+    {
+      "offense": "200",
+      "count": 12
+    },
+    {
+      "offense": "720",
+      "count": 12
+    },
+    {
+      "offense": "Drug/Narcotic Violations",
+      "count": 12
+    },
+    {
+      "offense": "26D",
+      "count": 9
+    },
+    {
+      "offense": "11A",
+      "count": 9
+    },
+    {
+      "offense": "Theft From Building",
+      "count": 8
+    },
+    {
+      "offense": "Weapon Law Violations",
+      "count": 8
+    },
+    {
+      "offense": "Intimidation",
+      "count": 8
+    },
+    {
+      "offense": "3",
+      "count": 6
+    },
+    {
+      "offense": "11B",
+      "count": 5
+    },
+    {
+      "offense": "23B",
+      "count": 4
+    },
+    {
+      "offense": "Robbery",
+      "count": 4
+    },
+    {
+      "offense": "23E",
+      "count": 3
+    },
+    {
+      "offense": "Wire Fraud",
+      "count": 3
+    },
+    {
+      "offense": "Identity Theft",
+      "count": 3
+    },
+    {
+      "offense": "5",
+      "count": 2
+    },
+    {
+      "offense": "370",
+      "count": 2
+    },
+    {
+      "offense": "510",
+      "count": 2
+    },
+    {
+      "offense": "000\"",
+      "count": 2
+    },
+    {
+      "offense": "11D",
+      "count": 2
+    },
+    {
+      "offense": "Counterfeiting/Forgery",
+      "count": 2
+    },
+    {
+      "offense": "Hacking/Computer Invasion",
+      "count": 1
+    },
+    {
+      "offense": "09B",
+      "count": 1
+    },
+    {
+      "offense": "11C",
+      "count": 1
+    }
+  ]
+}

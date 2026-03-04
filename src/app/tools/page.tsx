@@ -8,9 +8,12 @@ export const metadata: Metadata = {
 
 const tools = [
   { href: '/tools/compare', title: 'Compare Cities', desc: 'Side-by-side crime rate comparison between any two cities', icon: '⚖️' },
+  { href: '/tools/state-compare', title: 'Compare States', desc: 'Side-by-side state crime comparison with trend charts', icon: '🗺️' },
   { href: '/tools/safety-score', title: 'Safety Score', desc: 'Get a safety grade (A-F) for any city based on FBI data', icon: '🛡️' },
+  { href: '/tools/risk-calculator', title: 'Crime Risk Calculator', desc: 'Calculate your statistical odds of being a crime victim', icon: '🎲' },
   { href: '/search', title: 'City Search', desc: 'Search crime data for any of 9,700+ US cities', icon: '🔍' },
   { href: '/rankings', title: 'City Rankings', desc: 'Most dangerous and safest cities ranked by crime rate', icon: '📊' },
+  { href: '/most-improved', title: 'Most Improved Cities', desc: 'Biggest crime rate drops and increases year-over-year', icon: '📈' },
   { href: '/safest-cities', title: 'Safest Cities', desc: 'Complete list of the safest cities in America', icon: '✅' },
   { href: '/most-dangerous-cities', title: 'Most Dangerous Cities', desc: 'Complete list of the most dangerous cities', icon: '⚠️' },
 ];
