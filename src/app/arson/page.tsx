@@ -76,12 +76,46 @@ export default function ArsonPage() {
         </div>
       </section>
 
+      {/* Motor Vehicle 0% Clearance Callout */}
+      {arson.find(a => a.type.includes('Motor') && a.pctCleared === 0) && (
+        <div className="bg-red-100 border-l-4 border-red-600 rounded-xl p-5 mb-8">
+          <h3 className="font-display text-lg font-bold text-red-800 mb-2">🚗 Motor Vehicle Arsons: 0% Clearance Rate</h3>
+          <p className="text-sm text-red-900">
+            Of the {fmtNum(arson.find(a => a.type.includes('Motor'))?.count ?? 0)} motor vehicle arsons reported in 2024,
+            <strong> not a single one</strong> was cleared by arrest or exceptional means. Vehicle fires destroy forensic
+            evidence rapidly, and many are linked to insurance fraud or are used to conceal other crimes —
+            making them among the hardest arsons to solve.
+          </p>
+        </div>
+      )}
+
+      {/* Clearance Rate Comparison */}
+      <section className="mb-10">
+        <h2 className="font-display text-2xl font-bold text-primary mb-4">Clearance Rates by Property Type</h2>
+        <p className="text-gray-600 mb-4 text-sm">
+          Arson clearance rates are extremely low across all property types. Industrial/manufacturing arsons
+          have the highest clearance rate at just {arson.find(a => a.type.includes('Industrial'))?.pctCleared.toFixed(1)}%.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {arson.filter(a => a.count > 0).map(a => (
+            <div key={a.type} className={`rounded-lg p-3 text-center border ${a.pctCleared === 0 ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>
+              <div className={`text-xl font-bold ${a.pctCleared === 0 ? 'text-red-600' : 'text-primary'}`}>
+                {a.pctCleared > 0 ? `${a.pctCleared.toFixed(1)}%` : '0%'}
+              </div>
+              <div className="text-xs text-gray-600 mt-1">{a.type}</div>
+              <div className="text-xs text-gray-400">{fmtNum(a.count)} cases</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="prose prose-gray max-w-none">
         <h2 className="font-display text-2xl font-bold text-primary">Key Takeaways</h2>
         <ul>
           <li><strong>Residential fires dominate:</strong> Single-occupancy and multi-occupancy residential arsons together make up the largest category.</li>
-          <li><strong>Low clearance rates:</strong> Arson is notoriously difficult to investigate because fire destroys evidence. Clearance rates are among the lowest of all crime types.</li>
-          <li><strong>Motor vehicle arson:</strong> Often linked to insurance fraud or gang activity, vehicle fires are a significant portion of total arsons.</li>
+          <li><strong>Abysmal clearance rates:</strong> No property type has a clearance rate above 4%. Fire destroys evidence, making arson one of the hardest crimes to prove.</li>
+          <li><strong>Motor vehicles &amp; &ldquo;Other&rdquo; — 0% solved:</strong> {fmtNum((arson.find(a => a.type === 'Motor vehicles')?.count ?? 0) + (arson.find(a => a.type === 'Other mobile')?.count ?? 0) + (arson.find(a => a.type === 'Other')?.count ?? 0))} arsons across motor vehicles, other mobile property, and &ldquo;other&rdquo; categories had a 0% clearance rate.</li>
+          <li><strong>Industrial/manufacturing:</strong> Highest clearance rate at {arson.find(a => a.type.includes('Industrial'))?.pctCleared.toFixed(1)}%, likely due to better surveillance and insurance investigation.</li>
         </ul>
       </section>
 

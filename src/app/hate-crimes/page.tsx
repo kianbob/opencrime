@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
 import LastUpdated from '@/components/LastUpdated';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Hate Crime Statistics 2024 — FBI Data by State, Bias Type & Trends',
@@ -116,12 +118,22 @@ export default function HateCrimesPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: `Hate Crime Statistics ${detail.year}` }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Hate Crime Statistics {detail.year}</h1>
       <p className="text-lg text-gray-600 mb-8">
         FBI Hate Crime Statistics program data — {fmtNum(totalIncidents)} incidents, {fmtNum(totalOffenses)} offenses,
         and {fmtNum(totalVictims)} victims reported in {detail.year}. Hate crimes are criminal offenses motivated by
         bias against race, religion, sexual orientation, disability, gender, or gender identity.
       </p>
+
+      <AIOverview insights={[
+        `${fmtNum(totalIncidents)} hate crime incidents reported in ${detail.year} with ${fmtNum(totalVictims)} victims`,
+        `Race/ethnicity bias accounts for ${raceCategory ? (raceCategory.incidents / totalIncidents * 100).toFixed(1) : 0}% of all incidents`,
+        `Anti-Black hate crimes (${fmtNum(detail.biasMotivation.find(b => b.motivation === 'Anti-Black or African American')?.incidents ?? 0)}) are the single largest category`,
+        `Anti-Jewish incidents (${fmtNum(detail.biasMotivation.find(b => b.motivation === 'Anti-Jewish')?.incidents ?? 0)}) dominate religious bias at ${religionCategory ? ((detail.biasMotivation.find(b => b.motivation === 'Anti-Jewish')?.incidents ?? 0) / religionCategory.incidents * 100).toFixed(1) : 0}%`,
+        `${states[0]?.state ?? 'California'} reported the most incidents (${fmtNum(states[0]?.totalIncidents ?? 0)})`,
+        `${fmtNum(demo.age.juveniles)} juvenile offenders identified — ${(demo.age.juveniles / demo.age.total * 100).toFixed(1)}% of known offenders`,
+      ]} />
 
       {/* Hero Stats */}
       <div className="bg-gray-900 text-white rounded-xl p-6 mb-8">
