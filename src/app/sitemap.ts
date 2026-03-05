@@ -36,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/recidivism-crisis',
     '/analysis/women-and-crime',
     '/analysis/clearance-rates',
+    '/tools/timeline',
+    '/tools/city-report',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));
 
   const states = loadData<StateData[]>('state-trends.json');

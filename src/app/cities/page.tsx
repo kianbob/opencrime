@@ -2,6 +2,7 @@ import { loadData, fmtNum, fmtRate, fmtPct } from '@/lib/utils';
 import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime by City — 9,700+ US Cities',
@@ -66,6 +67,7 @@ export default function CitiesPage() {
       <p className="text-sm text-gray-500 mt-6">
         Source: FBI Crime Data Explorer, Table 8. Rates per 100,000 residents.
       </p>
+      <LastUpdated />
     </div>
   );
 }

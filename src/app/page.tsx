@@ -1,6 +1,9 @@
 import { loadData, fmtNum, fmtRate, fmtPct } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import HomepageCharts from './HomepageCharts';
+import LastUpdated from '@/components/LastUpdated';
+import type { NationalTrend } from '@/lib/utils';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
@@ -28,6 +31,18 @@ export default function HomePage() {
   const arrestRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'TOTAL');
   const stats = loadData<Stats>('stats.json');
   const n = stats.national2024;
+  const nationalTrends = loadData<NationalTrend[]>('national-trends.json');
+  const trendData = nationalTrends.map(t => ({ year: t.year, violentRate: t.violentRate }));
+  const y2024 = nationalTrends[nationalTrends.length - 1];
+  const breakdownData = [
+    { name: 'Agg. Assault', value: y2024.aggravatedAssault, isViolent: true },
+    { name: 'Robbery', value: y2024.robbery, isViolent: true },
+    { name: 'Rape', value: y2024.rape, isViolent: true },
+    { name: 'Homicide', value: y2024.homicide, isViolent: true },
+    { name: 'Larceny', value: y2024.larceny, isViolent: false },
+    { name: 'MV Theft', value: y2024.motorVehicleTheft, isViolent: false },
+    { name: 'Burglary', value: y2024.burglary, isViolent: false },
+  ];
 
   return (
     <div>
@@ -72,6 +87,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomepageCharts trendData={trendData} breakdownData={breakdownData} />
 
       {/* Key Stats */}
       <section className="max-w-6xl mx-auto px-4 py-12">
@@ -354,6 +371,10 @@ export default function HomePage() {
           Part of <a href="https://thedataproject.ai" className="underline hover:text-gray-600">TheDataProject.ai</a> network
         </p>
       </section>
+
+      <div className="max-w-6xl mx-auto px-4">
+        <LastUpdated />
+      </div>
     </div>
   );
 }

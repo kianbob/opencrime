@@ -2,6 +2,7 @@ import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
+import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Hate Crime Statistics 2024 — FBI Data by State, Bias Type & Trends',
@@ -398,6 +399,7 @@ export default function HateCrimesPage() {
       <p className="text-sm text-gray-500 mt-8">
         Source: FBI Hate Crime Statistics program, {detail.year}. Not all agencies participate; numbers may undercount actual incidents.
       </p>
+      <LastUpdated />
     </div>
   );
 }

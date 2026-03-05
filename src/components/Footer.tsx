@@ -46,6 +46,11 @@ export default function Footer() {
             <li><Link href="/crime-dna" className="hover:text-white">Crime DNA</Link></li>
             <li><Link href="/violence-concentration" className="hover:text-white">Violence Concentration</Link></li>
             <li><Link href="/city-trajectories" className="hover:text-white">City Trajectories</Link></li>
+            <li><Link href="/homicide-demographics" className="hover:text-white">Homicide Demographics</Link></li>
+            <li><Link href="/analysis/clearance-rates" className="hover:text-white">Clearance Rates</Link></li>
+            <li><Link href="/analysis/women-and-crime" className="hover:text-white">Women and Crime</Link></li>
+            <li><Link href="/tools/timeline" className="hover:text-white">Timeline Explorer</Link></li>
+            <li><Link href="/tools/city-report" className="hover:text-white">City Safety Report</Link></li>
           </ul>
         </div>
         <div>

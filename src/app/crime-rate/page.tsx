@@ -3,6 +3,7 @@ import type { NationalTrend, StateSummary } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
+import LastUpdated from '@/components/LastUpdated';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -246,6 +247,7 @@ export default function CrimeRatePage() {
       <p className="text-sm text-gray-500 mt-8">
         Source: FBI Crime Data Explorer, SRS Estimated Crimes. Last updated August 2025.
       </p>
+      <LastUpdated />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import type { NationalTrend } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import DashboardCharts from './DashboardCharts';
+import LastUpdated from '@/components/LastUpdated';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -163,6 +164,7 @@ export default function DashboardPage() {
         dateModified: '2026-03-04',
         mainEntityOfPage: 'https://www.opencrime.us/dashboard',
       })}} />
+      <LastUpdated />
     </div>
   );
 }

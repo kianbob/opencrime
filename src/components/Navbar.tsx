@@ -28,6 +28,8 @@ const TOOLS = [
   { href: '/crime-dna', label: 'Crime DNA' },
   { href: '/violence-concentration', label: 'Violence Map' },
   { href: '/population-crime-paradox', label: 'Crime Paradox' },
+  { href: '/tools/timeline', label: 'Timeline Explorer' },
+  { href: '/tools/city-report', label: 'City Safety Report' },
 ];
 
 export default function Navbar() {

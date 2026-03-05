@@ -2,6 +2,7 @@ import { loadData, fmtNum, fmtRate, fmtPct } from '@/lib/utils';
 import type { StateSummary } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime by State — All 50 States + DC',
@@ -61,6 +62,7 @@ export default function StatesPage() {
         Source: FBI Crime Data Explorer, SRS Estimated Crimes. Rates are per 100,000 residents. 
         Year-over-year change compares violent crime rates.
       </p>
+      <LastUpdated />
     </div>
   );
 }

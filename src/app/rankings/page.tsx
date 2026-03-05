@@ -2,6 +2,7 @@ import { loadData, fmtNum, fmtRate } from '@/lib/utils';
 import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import LastUpdated from '@/components/LastUpdated';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
@@ -97,6 +98,7 @@ export default function RankingsPage() {
         Only cities with 100,000+ population included. Crime rates can be affected by reporting practices, 
         transient populations, and other factors.
       </p>
+      <LastUpdated />
     </div>
   );
 }

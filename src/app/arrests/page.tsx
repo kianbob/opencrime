@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
 import ArrestCharts from './ArrestCharts';
+import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'US Arrest Statistics 2024 — 7.5 Million Arrests by Offense, State, Demographics',
@@ -191,6 +192,7 @@ export default function ArrestsPage() {
       })}} />
 
       <p className="text-sm text-gray-500 mt-8">Source: FBI Persons Arrested tables, 2024. Based on data from ~14,000 reporting agencies.</p>
+      <LastUpdated />
     </div>
   );
 }
