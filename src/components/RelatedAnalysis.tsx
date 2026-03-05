@@ -25,6 +25,8 @@ const ALL_ARTICLES = [
   { slug: 'seasonal-crime', title: 'Seasonal Crime Patterns: When Does Crime Happen?', tag: 'trends' },
   { slug: 'police-staffing-crisis', title: 'The Police Staffing Crisis', tag: 'policy' },
   { slug: 'incarceration-nation', title: 'Incarceration Nation: America\'s Prison Problem', tag: 'policy' },
+  { slug: 'crime-and-politics', title: 'Do Red States or Blue States Have More Crime?', tag: 'politics' },
+  { slug: 'safest-places-to-live', title: 'The Safest Places to Live in America', tag: 'geography' },
 ];
 
 export default function RelatedAnalysis({ currentSlug, tags }: { currentSlug: string; tags?: string[] }) {

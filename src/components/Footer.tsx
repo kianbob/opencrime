@@ -60,6 +60,9 @@ export default function Footer() {
             <li><Link href="/compare-states" className="hover:text-white">Compare States</Link></li>
             <li><Link href="/officer-safety" className="hover:text-white">Officer Safety</Link></li>
             <li><Link href="/numbers" className="hover:text-white">Crime by the Numbers</Link></li>
+            <li><Link href="/tools/time-machine" className="hover:text-white">Crime Time Machine</Link></li>
+            <li><Link href="/state-report-card" className="hover:text-white">State Report Cards</Link></li>
+            <li><Link href="/crime-correlations" className="hover:text-white">Crime Correlations</Link></li>
           </ul>
         </div>
         <div>

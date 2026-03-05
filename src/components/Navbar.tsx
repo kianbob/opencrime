@@ -35,6 +35,8 @@ const TOOLS = [
   { href: '/hidden-crime', label: 'Hidden Crime' },
   { href: '/decades', label: 'Decades' },
   { href: '/city-fingerprint', label: 'City Crime DNA+' },
+  { href: '/tools/time-machine', label: 'Crime Time Machine' },
+  { href: '/state-report-card', label: 'State Report Cards' },
 ];
 
 export default function Navbar() {

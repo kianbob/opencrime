@@ -60,6 +60,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/compare-states/pennsylvania-vs-ohio', '/compare-states/georgia-vs-north-carolina',
     '/compare-states/washington-vs-oregon', '/compare-states/arizona-vs-nevada',
     '/decades/1980s', '/decades/1990s', '/decades/2000s', '/decades/2010s', '/decades/2020s',
+    '/tools/time-machine',
+    '/state-report-card',
+    '/crime-correlations',
+    '/analysis/crime-and-politics',
+    '/analysis/safest-places-to-live',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));
 
   const states = loadData<StateData[]>('state-trends.json');
@@ -89,5 +94,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
   }));
 
-  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState];
+  const reportCards = states.map(s => ({
+    url: `${base}/state-report-card/${s.abbr.toLowerCase()}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+  }));
+
+  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState, ...reportCards];
 }
