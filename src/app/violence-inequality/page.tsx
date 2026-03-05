@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { loadData } from '@/lib/utils';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
@@ -81,6 +82,28 @@ export default function ViolenceInequalityPage() {
               <p className="text-sm text-gray-600 mt-1">{f.a}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-12 pt-8 border-t">
+        <h2 className="font-heading text-2xl font-bold mb-4">Related Analysis</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <Link href="/analysis/crime-and-poverty" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Crime and Poverty</h3>
+            <p className="text-sm text-gray-600">How economic inequality correlates with violent crime across communities.</p>
+          </Link>
+          <Link href="/analysis/rural-vs-urban" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Rural vs Urban Crime</h3>
+            <p className="text-sm text-gray-600">Comparing crime patterns between rural, suburban, and urban areas.</p>
+          </Link>
+          <Link href="/states" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">State Crime Data</h3>
+            <p className="text-sm text-gray-600">Explore crime statistics and trends for all 50 states.</p>
+          </Link>
+          <Link href="/crime-correlations" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Crime Correlations</h3>
+            <p className="text-sm text-gray-600">What factors actually correlate with crime? Data-driven analysis.</p>
+          </Link>
         </div>
       </section>
     </main>

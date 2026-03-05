@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { loadData } from '@/lib/utils';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
@@ -80,6 +81,28 @@ export default function CrimeVelocityPage() {
               <p className="text-sm text-gray-600 mt-1">{f.a}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-12 pt-8 border-t">
+        <h2 className="font-heading text-2xl font-bold mb-4">Related Analysis</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <Link href="/analysis/safest-places-to-live" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Safest Places to Live</h3>
+            <p className="text-sm text-gray-600">Find the safest cities and states in America based on crime data.</p>
+          </Link>
+          <Link href="/rankings" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">City Crime Rankings</h3>
+            <p className="text-sm text-gray-600">See how cities rank by violent and property crime rates.</p>
+          </Link>
+          <Link href="/most-improved" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Most Improved Cities</h3>
+            <p className="text-sm text-gray-600">Cities that have made the biggest improvements in public safety.</p>
+          </Link>
+          <Link href="/city-trajectories" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">City Crime Trajectories</h3>
+            <p className="text-sm text-gray-600">Long-term crime direction for every city — improving, worsening, or stable.</p>
+          </Link>
         </div>
       </section>
     </main>

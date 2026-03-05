@@ -8,6 +8,13 @@ import AIOverview from '@/components/AIOverview';
 import fs from 'fs';
 import path from 'path';
 
+type CrimeDNAProfile = {
+  slug: string; city: string; state: string; population: number;
+  personality: string;
+  profile: Record<string, number>;
+  deviations: Record<string, number>;
+};
+
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
@@ -240,6 +247,29 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
                 <div className="bg-green-500 h-2 rounded-full" style={{ width: `${100 - meta.safetyPercentile}%` }} />
               </div>
             </div>
+          </div>
+        );
+      })()}
+
+      {/* Crime DNA Profile */}
+      {(() => {
+        const dnaProfiles = loadData<CrimeDNAProfile[]>('crime-dna-profiles.json');
+        const dna = dnaProfiles.find(p => p.slug === slug);
+        if (!dna) return null;
+        const personalityDescriptions: Record<string, string> = {
+          'Balanced': 'Crime in this city follows a typical distribution across crime types — no single category dominates.',
+          'Assault Capital': 'This city has a disproportionately high share of aggravated assaults relative to other crime types.',
+          'Robbery Hotspot': 'Robberies make up an unusually large share of total crime in this city.',
+          'Violent Hub': 'Violent crimes (assault, robbery, rape) are significantly overrepresented compared to the national average.',
+          'Theft Magnet': 'Property crimes, especially larceny-theft, dominate this city\'s crime profile.',
+          'Homicide Zone': 'Murder rates are extremely elevated relative to the city\'s overall crime volume.',
+        };
+        const desc = personalityDescriptions[dna.personality] || `This city has a distinctive "${dna.personality}" crime profile.`;
+        return (
+          <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-6 mb-8">
+            <h3 className="font-heading text-lg font-bold mb-1">Crime Personality: <span className="text-indigo-700">{dna.personality}</span></h3>
+            <p className="text-sm text-gray-700 mb-3">{desc}</p>
+            <Link href="/city-fingerprint" className="text-sm text-[#1e3a5f] hover:underline font-medium">Explore all city crime DNA profiles →</Link>
           </div>
         );
       })()}

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { loadData, fmtNum } from '@/lib/utils';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import NumbersClient from './NumbersClient';
@@ -90,6 +91,28 @@ export default function NumbersPage() {
       </section>
 
       <div className="max-w-5xl mx-auto px-4 pb-10">
+        <section className="mt-12 pt-8 border-t">
+          <h2 className="font-heading text-2xl font-bold mb-4">Related Analysis</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link href="/crime-clock" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+              <h3 className="font-semibold">The Crime Clock</h3>
+              <p className="text-sm text-gray-600">Watch crimes tick in real time based on FBI frequency data.</p>
+            </Link>
+            <Link href="/hidden-crime" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+              <h3 className="font-semibold">Hidden Crime</h3>
+              <p className="text-sm text-gray-600">For every reported crime, 1-3 more go unreported. See the true scale.</p>
+            </Link>
+            <Link href="/analysis/cost-of-crime" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+              <h3 className="font-semibold">The Cost of Crime</h3>
+              <p className="text-sm text-gray-600">Crime costs America $2.6 trillion per year. See the full breakdown.</p>
+            </Link>
+            <Link href="/dashboard" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+              <h3 className="font-semibold">Crime Dashboard</h3>
+              <p className="text-sm text-gray-600">Interactive dashboard with national crime trends and statistics.</p>
+            </Link>
+          </div>
+        </section>
+
         <ShareButtons title="Crime by the Numbers — Live Dashboard" />
       </div>
 

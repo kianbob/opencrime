@@ -19,6 +19,16 @@ type StateData = {
 
 type CityIdx = { slug: string; city: string; state: string; population: number; violentRate: number; murderRate: number; propertyRate: number };
 
+type VelocityCity = {
+  slug: string; city: string; state: string; velocityScore: number;
+  violentTrend: number; propertyTrend: number; category: string; years: number;
+};
+
+type HateCrimeState = {
+  state: string; totalIncidents: number; raceEthnicity: number;
+  religion: number; sexualOrientation: number;
+};
+
 export async function generateStaticParams() {
   const states = loadData<StateData[]>('state-trends.json');
   return states.map(s => ({ abbr: s.abbr.toLowerCase() }));
@@ -203,6 +213,81 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
           </div>
         </div>
       )}
+
+      {/* Crime Velocity */}
+      {(() => {
+        const velocityAll = loadData<VelocityCity[]>('crime-velocity.json');
+        const stateVelocity = velocityAll.filter(c => c.state === state.name);
+        if (stateVelocity.length === 0) return null;
+        const improving = stateVelocity.filter(c => c.velocityScore < 0).sort((a, b) => a.velocityScore - b.velocityScore).slice(0, 3);
+        const worsening = stateVelocity.filter(c => c.velocityScore > 0).sort((a, b) => b.velocityScore - a.velocityScore).slice(0, 3);
+        if (improving.length === 0 && worsening.length === 0) return null;
+        return (
+          <section className="mt-8">
+            <h2 className="font-heading text-2xl font-bold mb-4">Crime Velocity — Which Cities Are Changing Fastest</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {improving.length > 0 && (
+                <div>
+                  <h3 className="font-semibold text-green-700 mb-2">Fastest Improving</h3>
+                  <div className="space-y-2">
+                    {improving.map(c => (
+                      <Link key={c.slug} href={`/cities/${c.slug}`} className="block bg-green-50 border border-green-200 rounded-lg p-3 hover:bg-green-100 transition">
+                        <div className="flex justify-between items-center">
+                          <span className="font-medium">{c.city}</span>
+                          <span className="text-green-700 font-mono text-sm">{c.velocityScore.toFixed(1)}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {worsening.length > 0 && (
+                <div>
+                  <h3 className="font-semibold text-red-700 mb-2">Fastest Worsening</h3>
+                  <div className="space-y-2">
+                    {worsening.map(c => (
+                      <Link key={c.slug} href={`/cities/${c.slug}`} className="block bg-red-50 border border-red-200 rounded-lg p-3 hover:bg-red-100 transition">
+                        <div className="flex justify-between items-center">
+                          <span className="font-medium">{c.city}</span>
+                          <span className="text-red-700 font-mono text-sm">+{c.velocityScore.toFixed(1)}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            <p className="text-xs text-gray-500 mt-2">Velocity scores measure the direction and speed of crime changes. Negative = improving, positive = worsening. <Link href="/crime-velocity" className="text-[#1e3a5f] hover:underline">Full methodology →</Link></p>
+          </section>
+        );
+      })()}
+
+      {/* Hate Crime Data */}
+      {(() => {
+        const hateCrimes = loadData<HateCrimeState[]>('hate-crime-by-state.json');
+        const stateHate = hateCrimes.find(h => h.state === state.name);
+        if (!stateHate || stateHate.totalIncidents === 0) return null;
+        const biases: { label: string; count: number }[] = [];
+        if (stateHate.raceEthnicity > 0) biases.push({ label: 'Race/Ethnicity', count: stateHate.raceEthnicity });
+        if (stateHate.religion > 0) biases.push({ label: 'Religion', count: stateHate.religion });
+        if (stateHate.sexualOrientation > 0) biases.push({ label: 'Sexual Orientation', count: stateHate.sexualOrientation });
+        biases.sort((a, b) => b.count - a.count);
+        return (
+          <section className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-6">
+            <h2 className="font-heading text-xl font-bold mb-3">Hate Crimes in {state.name}</h2>
+            <p className="text-2xl font-bold text-orange-700 mb-2">{fmtNum(stateHate.totalIncidents)} incidents reported</p>
+            {biases.length > 0 && (
+              <div className="text-sm text-gray-700 mb-3">
+                <span className="font-semibold">Top bias motivations:</span>{' '}
+                {biases.map((b, i) => (
+                  <span key={b.label}>{i > 0 ? ', ' : ''}{b.label} ({fmtNum(b.count)})</span>
+                ))}
+              </div>
+            )}
+            <Link href="/hate-crimes" className="text-sm text-[#1e3a5f] hover:underline font-medium">Explore full hate crime data →</Link>
+          </section>
+        );
+      })()}
 
       {/* Explore More */}
       <div className="flex flex-wrap gap-3 mt-8 mb-4">

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { loadData, fmtNum } from '@/lib/utils';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import OfficerSafetyCharts from './OfficerSafetyCharts';
@@ -165,6 +166,28 @@ export default function OfficerSafetyPage() {
           { '@type': 'Question', name: 'Is policing the most dangerous job in America?', acceptedAnswer: { '@type': 'Answer', text: 'Policing has a fatality rate of about 14.6 per 100,000 officers, making it dangerous but not the deadliest profession. Logging (82.2), aircraft pilots (58.9), and roofers (47.4) have higher fatality rates. However, policing is unique in that most fatalities come from intentional violence.' } },
         ]
       })}} />
+
+      <section className="mt-12 pt-8 border-t">
+        <h2 className="font-heading text-2xl font-bold mb-4">Related Analysis</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <Link href="/analysis/police-staffing-crisis" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">The Police Staffing Crisis</h3>
+            <p className="text-sm text-gray-600">Departments across America are struggling to recruit and retain officers.</p>
+          </Link>
+          <Link href="/analysis/defund-police" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Defund the Police — What Happened?</h3>
+            <p className="text-sm text-gray-600">Data on police funding changes and their relationship to crime rates.</p>
+          </Link>
+          <Link href="/analysis/police-funding" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Police Funding by City</h3>
+            <p className="text-sm text-gray-600">How much do cities spend on policing, and does more spending mean less crime?</p>
+          </Link>
+          <Link href="/arrests" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Arrest Data</h3>
+            <p className="text-sm text-gray-600">National arrest statistics by crime type from FBI data.</p>
+          </Link>
+        </div>
+      </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',

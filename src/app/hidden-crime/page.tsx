@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { loadData } from '@/lib/utils';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
@@ -94,6 +95,28 @@ export default function HiddenCrimePage() {
               <p className="text-sm text-gray-600 mt-1">{f.a}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-12 pt-8 border-t">
+        <h2 className="font-heading text-2xl font-bold mb-4">Related Analysis</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <Link href="/analysis/crime-myths" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Crime Myths Debunked</h3>
+            <p className="text-sm text-gray-600">Common misconceptions about crime in America — and what the data actually shows.</p>
+          </Link>
+          <Link href="/analysis/clearance-rates" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Crime Clearance Rates</h3>
+            <p className="text-sm text-gray-600">How often do police actually solve crimes? The answer may surprise you.</p>
+          </Link>
+          <Link href="/crime-rate" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">US Crime Rate</h3>
+            <p className="text-sm text-gray-600">National crime rate trends over time — is crime really going up?</p>
+          </Link>
+          <Link href="/analysis/women-and-crime" className="block border rounded-lg p-4 hover:bg-gray-50 transition">
+            <h3 className="font-semibold">Women and Crime</h3>
+            <p className="text-sm text-gray-600">How crime impacts women differently — victimization, reporting, and safety.</p>
+          </Link>
         </div>
       </section>
     </main>
