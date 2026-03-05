@@ -356,7 +356,7 @@
   "topStatesByViolentRate": [
     {
       "abbr": "DC",
-      "name": "District Of Columbia",
+      "name": "District of Columbia",
       "population": 702250,
       "violentCrime": 7061,
       "violentRate": 1005.5,
