@@ -44,10 +44,10 @@
     "homicideRate": 9.8
   },
   "trends": {
-    "violentCrimeChange1yr": -5.4,
-    "violentCrimeChange3yr": -7.2,
+    "violentCrimeChangeyr": -5.4,
+    "violentCrimeChangeyr": -7.2,
     "violentCrimeChangeSincePeak": -52.6,
-    "homicideChange1yr": -15.7
+    "homicideChangeyr": -15.7
   },
   "topCitiesByViolentRate": [
     {
@@ -291,7 +291,7 @@
     },
     {
       "city": "Port St. Lucie",
-      "state": "Florida2",
+      "state": "Florida",
       "slug": "port-st-lucie-florida2",
       "population": 245394,
       "violentRate": 99
