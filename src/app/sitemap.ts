@@ -36,6 +36,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/recidivism-crisis',
     '/analysis/women-and-crime',
     '/analysis/clearance-rates',
+    '/analysis/hate-crimes-america',
+    '/analysis/unsolved-murders',
+    '/analysis/seasonal-crime',
+    '/analysis/police-staffing-crisis',
+    '/analysis/incarceration-nation',
     '/tools/timeline',
     '/tools/city-report',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));

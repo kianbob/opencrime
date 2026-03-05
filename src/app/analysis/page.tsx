@@ -33,6 +33,11 @@ const articles = [
   { slug: 'recidivism-crisis', title: 'The Recidivism Crisis — 83% Rearrested Within 9 Years', desc: 'BJS data shows 44% rearrested within 1 year. The revolving door of criminal justice and what works to break the cycle.', tag: 'DEEP DIVE' },
   { slug: 'women-and-crime', title: 'Women and Crime — The Gender Gap in Victims, Offenders & Incarceration', desc: '3,538 female murder victims, 1,902 female offenders. How crime affects women differently as both victims and perpetrators.', tag: 'ANALYSIS' },
   { slug: 'clearance-rates', title: 'Crime Clearance Rates — How Many Crimes Actually Get Solved?', desc: 'Only ~50% of violent crimes and ~15% of property crimes are cleared. Murder clearance dropped from 90% to 50%.', tag: 'DEEP DIVE' },
+  { slug: 'hate-crimes-america', title: 'Hate Crimes in America: A Deep Dive Into FBI Data (2024)', desc: '11,679 hate crime incidents in 2024. Breakdown by bias motivation — anti-Black, anti-Jewish, anti-LGBTQ+ — state variation, and reporting challenges.', tag: 'DEEP DIVE' },
+  { slug: 'unsolved-murders', title: 'Unsolved Murders: The Epidemic of Cases That Never Close', desc: 'Murder clearance dropped from 90%+ to ~50%. An estimated 250,000+ murders unsolved since 2000. Racial disparities, cold cases, and what went wrong.', tag: 'DEEP DIVE' },
+  { slug: 'seasonal-crime', title: 'Seasonal Crime Patterns: When Does Crime Happen?', desc: 'Violent crime peaks in summer, property crime in fall. Holiday DV spikes, weekend violence patterns, and what temperature does to aggression.', tag: 'ANALYSIS' },
+  { slug: 'police-staffing-crisis', title: 'The Police Staffing Crisis: Why Departments Can\'t Hire', desc: 'Applicants down ~20% since 2020. 47% of agencies saw 25%+ drops. Signing bonuses, lowered requirements, and the impact on public safety.', tag: 'DEEP DIVE' },
+  { slug: 'incarceration-nation', title: 'Incarceration Nation: America\'s Prison Problem by the Numbers', desc: '1.9M incarcerated, $81B annual cost, 5x racial disparity. Why America has 5% of the world\'s people but 20% of its prisoners.', tag: 'DEEP DIVE' },
 ];
 
 const specialPages = [

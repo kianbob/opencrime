@@ -20,6 +20,11 @@ const ALL_ARTICLES = [
   { slug: 'crime-and-poverty', title: 'Crime and Poverty — What the Data Actually Shows', tag: 'economics' },
   { slug: 'murder-map', title: 'America\'s Murder Map — Where Homicides Actually Happen', tag: 'geography' },
   { slug: 'opioid-crime-connection', title: 'The Opioid-Crime Connection — How Drug Policy Shapes Crime Data', tag: 'drugs' },
+  { slug: 'hate-crimes-america', title: 'Hate Crimes in America: A Deep Dive Into FBI Data', tag: 'demographics' },
+  { slug: 'unsolved-murders', title: 'Unsolved Murders: The Epidemic of Cases That Never Close', tag: 'violence' },
+  { slug: 'seasonal-crime', title: 'Seasonal Crime Patterns: When Does Crime Happen?', tag: 'trends' },
+  { slug: 'police-staffing-crisis', title: 'The Police Staffing Crisis', tag: 'policy' },
+  { slug: 'incarceration-nation', title: 'Incarceration Nation: America\'s Prison Problem', tag: 'policy' },
 ];
 
 export default function RelatedAnalysis({ currentSlug, tags }: { currentSlug: string; tags?: string[] }) {
