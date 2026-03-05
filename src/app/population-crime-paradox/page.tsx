@@ -70,6 +70,7 @@ export default function ParadoxPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"WebPage","name":"Population-Crime Paradox — Small Cities With Big Crime Problems | OpenCrime","description":"Some small cities have violent crime rates rivaling major metros, while some large cities are remarkably safe. Explore the surprising disconnect between population and crime.","url":"https://www.opencrime.us/population-crime-paradox","publisher":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"}}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Population-Crime Paradox' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">The Population-Crime Paradox</h1>
       <p className="text-lg text-gray-600 mb-8">

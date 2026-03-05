@@ -53,6 +53,7 @@ export default function CrimeDNAPage() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Crime Composition DNA — Every City Has a Unique Crime Fingerprint | OpenCrime","description":"Every city has a unique mix of violent crime types. See visual ","url":"https://www.opencrime.us/crime-dna","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Crime DNA' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Crime Composition DNA</h1>
       <p className="text-lg text-gray-600 mb-4">

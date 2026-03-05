@@ -23,6 +23,7 @@ const datasets = [
 export default function DownloadsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"WebPage","name":"Download Crime Data — Free FBI Crime Statistics","description":"Download FBI crime data files. City-level crime rates, state trends, national statistics, arrest data, hate crime data, and homicide details.","url":"https://www.opencrime.us/downloads","publisher":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"}}` }} />
       <h1 className="font-heading text-3xl font-bold mb-4">Download Crime Data</h1>
       <p className="text-lg text-gray-600 mb-8">
         All data on OpenCrime is free to download and use. Files are JSON format, processed from 

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"WebPage","name":"Privacy Policy","description":"OpenCrime privacy policy. We collect minimal analytics data and never sell personal information.","url":"https://www.opencrime.us/privacy","publisher":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"}}` }} />
       <h1 className="font-heading text-3xl font-bold mb-6">Privacy Policy</h1>
       <div className="prose prose-lg max-w-none">
         <p><strong>Last updated:</strong> March 4, 2026</p>

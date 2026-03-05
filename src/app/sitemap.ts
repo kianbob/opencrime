@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/crime-clock', '/population-crime-paradox', '/city-trajectories',
     '/violence-concentration', '/crime-dna',
     '/crime-stories', '/arrest-efficiency', '/arrest-demographics', '/arson',
-    '/years',
+    '/years', '/contact', '/who-are-victims', '/weapon-shift',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
     '/analysis/police-funding', '/analysis/drug-crime',

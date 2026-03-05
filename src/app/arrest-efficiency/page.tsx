@@ -48,6 +48,7 @@ export default function ArrestEfficiencyPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Arrest Efficiency — How Effective Is Policing in Your City? | OpenCrime","description":"Compare the ratio of arrests to reported crimes across cities. Some cities arrest at high rates while others solve a fraction of their cases.","url":"https://www.opencrime.us/arrest-efficiency","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Arrest Efficiency' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Arrest Efficiency</h1>
       <p className="text-lg text-gray-600 mb-8">

@@ -51,6 +51,7 @@ export default function RankingsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Most Dangerous & Safest Cities in America — 2024 Rankings","description":"Complete rankings of the most dangerous and safest cities in America by violent crime rate. Based on FBI 2024 data for 9,700+ cities.","url":"https://www.opencrime.us/rankings","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <h1 className="font-heading text-3xl font-bold mb-2">City Crime Rankings</h1>
       <p className="text-gray-600 mb-8">
         {large.length} US cities with 100,000+ population, ranked by crime rate per 100,000 residents

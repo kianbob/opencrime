@@ -20,6 +20,7 @@ export default function MostImprovedPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Most Improved Cities 2024 — Biggest Crime Rate Drops","description":"Which US cities saw the biggest crime rate improvements? Rankings of cities with the largest violent crime decreases, based on FBI 2024 data.","url":"https://www.opencrime.us/most-improved","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Most Improved Cities 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Most Improved & Most Worsened Cities 2024</h1>
       <p className="text-lg text-gray-600 mb-8">

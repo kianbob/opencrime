@@ -45,6 +45,7 @@ export default function ViolenceConcentrationPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Violence Concentration — Where Murder Concentrates in America | OpenCrime","description":"Just 10 cities account for 21% of all murders while holding 11% of the population. Explore how violent crime concentrates in a tiny fraction of American cities.","url":"https://www.opencrime.us/violence-concentration","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Violence Concentration' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Where Violence Concentrates</h1>
       <p className="text-lg text-gray-600 mb-8">

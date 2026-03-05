@@ -37,6 +37,7 @@ export default function VictimsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Who Are the Victims? — The Human Face of Crime Statistics","description":"Behind every crime statistic is a real person. FBI homicide data reveals who is most victimized: by age, sex, race, and relationship to their killer.","url":"https://www.opencrime.us/who-are-victims","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Who Are the Victims?' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Who Are the Victims?</h1>
       <p className="text-xl text-gray-600 mb-8">

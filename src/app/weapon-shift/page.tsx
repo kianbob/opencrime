@@ -34,6 +34,7 @@ export default function WeaponShiftPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"The Weapon Shift — How Americans Are Killed Is Changing","description":"FBI data shows firearms account for a growing share of murders while knives and personal weapons decline. 5 years of weapon trend data visualized.","url":"https://www.opencrime.us/weapon-shift","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Analysis', href: '/analysis' }, { label: 'Weapon Shift' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">The Weapon Shift: How Murder Weapons Are Changing</h1>
 

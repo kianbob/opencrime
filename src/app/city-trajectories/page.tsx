@@ -56,6 +56,7 @@ export default function CityTrajectoriesPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"City Crime Trajectories — Improving, Worsening & Volatile Cities | OpenCrime","description":"Every city has a crime trajectory. Some are steadily improving, others are getting worse, and many swing wildly year to year. See which category your city falls in.","url":"https://www.opencrime.us/city-trajectories","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'City Trajectories' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">City Crime Trajectories</h1>
       <p className="text-lg text-gray-600 mb-8">

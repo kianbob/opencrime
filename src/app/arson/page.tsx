@@ -27,6 +27,7 @@ export default function ArsonPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Arson Statistics — FBI Data on Arson by Property Type | OpenCrime","description":"FBI arson data broken down by property type: residential, commercial, vehicles, and more. Includes clearance rates by category.","url":"https://www.opencrime.us/arson","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Crime Types', href: '/crimes' }, { label: 'Arson' }]} />
       <h1 className="font-display text-4xl font-bold text-primary mb-4">Arson Statistics</h1>
       <p className="text-lg text-gray-600 mb-8">

@@ -17,6 +17,7 @@ export default function YearsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Crime Statistics by Year — 1979 to 2024","description":"Browse US crime statistics by year from 1979 to 2024. See how violent crime, murder, property crime, and individual offenses changed over 45 years.","url":"https://www.opencrime.us/years","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Crime by Year' }]} />
       <h1 className="font-heading text-3xl font-bold mb-2">Crime Statistics by Year</h1>
       <p className="text-gray-600 mb-8">45 years of FBI crime data, from 1979 to 2024. Click any year for details.</p>

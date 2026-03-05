@@ -94,6 +94,7 @@ export default function CrimeStoriesPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Crime Stories — Data-Driven City Profiles That Tell a Story | OpenCrime","description":"Every city has a crime story. From dramatic turnarounds to crisis spirals, explore data-driven narratives for America\\","url":"https://www.opencrime.us/crime-stories","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Crime Stories' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Crime Stories</h1>
       <p className="text-lg text-gray-600 mb-10">

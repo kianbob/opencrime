@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"WebPage","name":"About OpenCrime","description":"About OpenCrime — a free, open platform for exploring FBI crime statistics. No paywalls, no ads, just data.","url":"https://www.opencrime.us/about","publisher":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"}}` }} />
       <h1 className="font-heading text-3xl font-bold mb-6">About OpenCrime</h1>
 
       <div className="prose prose-lg max-w-none">
