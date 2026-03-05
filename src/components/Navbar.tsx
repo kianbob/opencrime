@@ -30,6 +30,11 @@ const TOOLS = [
   { href: '/population-crime-paradox', label: 'Crime Paradox' },
   { href: '/tools/timeline', label: 'Timeline Explorer' },
   { href: '/tools/city-report', label: 'City Safety Report' },
+  { href: '/crime-velocity', label: 'Crime Velocity' },
+  { href: '/violence-inequality', label: 'Violence Inequality' },
+  { href: '/hidden-crime', label: 'Hidden Crime' },
+  { href: '/decades', label: 'Decades' },
+  { href: '/city-fingerprint', label: 'City Crime DNA+' },
 ];
 
 export default function Navbar() {

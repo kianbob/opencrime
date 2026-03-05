@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/fentanyl-crisis', '/analysis/juvenile-crime',
     '/crime-clock', '/population-crime-paradox', '/city-trajectories',
     '/violence-concentration', '/crime-dna',
+    '/crime-velocity', '/violence-inequality', '/hidden-crime', '/decades', '/city-fingerprint',
     '/crime-stories', '/arrest-efficiency', '/arrest-demographics', '/arson',
     '/years', '/contact', '/who-are-victims', '/weapon-shift',
     '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
