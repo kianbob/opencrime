@@ -38,6 +38,9 @@ const articles = [
   { slug: 'seasonal-crime', title: 'Seasonal Crime Patterns: When Does Crime Happen?', desc: 'Violent crime peaks in summer, property crime in fall. Holiday DV spikes, weekend violence patterns, and what temperature does to aggression.', tag: 'ANALYSIS' },
   { slug: 'police-staffing-crisis', title: 'The Police Staffing Crisis: Why Departments Can\'t Hire', desc: 'Applicants down ~20% since 2020. 47% of agencies saw 25%+ drops. Signing bonuses, lowered requirements, and the impact on public safety.', tag: 'DEEP DIVE' },
   { slug: 'incarceration-nation', title: 'Incarceration Nation: America\'s Prison Problem by the Numbers', desc: '1.9M incarcerated, $81B annual cost, 5x racial disparity. Why America has 5% of the world\'s people but 20% of its prisoners.', tag: 'DEEP DIVE' },
+  { slug: 'cost-of-crime', title: 'The Cost of Crime: What Does Crime Actually Cost America?', desc: '$2.6 trillion annually. Murder alone costs $152 billion. Per-crime cost estimates, state-level costs, and the economic case for prevention.', tag: 'DEEP DIVE' },
+  { slug: 'crime-and-guns', title: 'Crime and Guns: What Does the Data Actually Say?', desc: 'Firearms in 77% of homicides. Gun ownership vs crime rates, strict vs permissive states, international comparison — data-driven, not political.', tag: 'DEEP DIVE' },
+  { slug: 'crime-myths', title: '10 Things Everyone Gets Wrong About Crime', desc: 'Crime myths debunked: crime is NOT at an all-time high, immigrants DON\'T cause more crime, and 8 more facts that challenge assumptions.', tag: 'DEEP DIVE' },
 ];
 
 const specialPages = [

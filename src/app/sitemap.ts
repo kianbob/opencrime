@@ -44,6 +44,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/incarceration-nation',
     '/tools/timeline',
     '/tools/city-report',
+    '/analysis/cost-of-crime',
+    '/analysis/crime-and-guns',
+    '/analysis/crime-myths',
+    '/is-it-safe',
+    '/is-it-safe/new-york', '/is-it-safe/los-angeles', '/is-it-safe/chicago',
+    '/is-it-safe/houston', '/is-it-safe/phoenix', '/is-it-safe/philadelphia',
+    '/is-it-safe/san-antonio', '/is-it-safe/san-diego', '/is-it-safe/dallas', '/is-it-safe/austin',
+    '/compare-states',
+    '/compare-states/california-vs-texas', '/compare-states/new-york-vs-florida',
+    '/compare-states/illinois-vs-ohio', '/compare-states/california-vs-florida',
+    '/compare-states/texas-vs-florida', '/compare-states/new-york-vs-california',
+    '/compare-states/pennsylvania-vs-ohio', '/compare-states/georgia-vs-north-carolina',
+    '/compare-states/washington-vs-oregon', '/compare-states/arizona-vs-nevada',
+    '/decades/1980s', '/decades/1990s', '/decades/2000s', '/decades/2010s', '/decades/2020s',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));
 
   const states = loadData<StateData[]>('state-trends.json');
