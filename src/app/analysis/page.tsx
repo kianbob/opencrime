@@ -28,6 +28,11 @@ const articles = [
   { slug: 'crime-and-poverty', title: 'Crime and Poverty — What the Data Actually Shows', desc: 'State murder rates vary 25x. How economic conditions, inequality, and concentrated poverty drive crime patterns.', tag: 'DEEP DIVE' },
   { slug: 'murder-map', title: 'America\'s Murder Map — Where Homicides Actually Happen', desc: 'Top 10 cities account for 21% of all murders. Geographic concentration, weapon patterns, and victim-offender relationships.', tag: 'ANALYSIS' },
   { slug: 'opioid-crime-connection', title: 'The Opioid-Crime Connection — How Drug Policy Shapes Crime Data', desc: '822K drug arrests annually despite similar usage rates. How the opioid epidemic drives property crime and mass incarceration.', tag: 'DEEP DIVE' },
+  { slug: 'homicide-in-america', title: 'Homicide in America — Who Kills Whom and Why', desc: '77% male victims, intraracial violence patterns, age profiles, and the gender gap. Deep analysis using FBI SHR data.', tag: 'DEEP DIVE' },
+  { slug: 'cybercrime-trends', title: 'Cybercrime Trends — The $12.5 Billion Crime Wave Missing from FBI Stats', desc: 'FBI IC3 reported $12.5B in losses in 2023. How cybercrime is underrepresented in traditional crime statistics.', tag: 'ANALYSIS' },
+  { slug: 'recidivism-crisis', title: 'The Recidivism Crisis — 83% Rearrested Within 9 Years', desc: 'BJS data shows 44% rearrested within 1 year. The revolving door of criminal justice and what works to break the cycle.', tag: 'DEEP DIVE' },
+  { slug: 'women-and-crime', title: 'Women and Crime — The Gender Gap in Victims, Offenders & Incarceration', desc: '3,538 female murder victims, 1,902 female offenders. How crime affects women differently as both victims and perpetrators.', tag: 'ANALYSIS' },
+  { slug: 'clearance-rates', title: 'Crime Clearance Rates — How Many Crimes Actually Get Solved?', desc: 'Only ~50% of violent crimes and ~15% of property crimes are cleared. Murder clearance dropped from 90% to 50%.', tag: 'DEEP DIVE' },
 ];
 
 const specialPages = [
@@ -40,6 +45,7 @@ const specialPages = [
   { href: '/arrest-efficiency', title: 'Arrest Efficiency', desc: 'How effective is policing? For every 3 murders, 1 goes without an arrest.', tag: 'DATA' },
   { href: '/weapon-shift', title: 'The Weapon Shift', desc: 'How Americans are killed is changing. 5 years of murder weapon data visualized.', tag: 'DATA' },
   { href: '/who-are-victims', title: 'Who Are the Victims?', desc: 'The human face behind crime statistics. Demographics, relationships, and circumstances of murder victims.', tag: 'DATA' },
+  { href: '/homicide-demographics', title: 'Homicide Demographics', desc: 'Complete FBI data on victim and offender demographics by race, gender, ethnicity, age, and victim-offender cross-tabulation.', tag: 'DATA' },
 ];
 
 const tagColors: Record<string, string> = {

@@ -30,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/analysis/crime-by-race', '/analysis/who-commits-crime',
     '/analysis/crime-and-poverty', '/analysis/murder-map',
     '/analysis/opioid-crime-connection',
+    '/homicide-demographics',
+    '/analysis/homicide-in-america',
+    '/analysis/cybercrime-trends',
+    '/analysis/recidivism-crisis',
+    '/analysis/women-and-crime',
+    '/analysis/clearance-rates',
   ].map(path => ({ url: `${base}${path}`, lastModified: now, changeFrequency: 'monthly' as const }));
 
   const states = loadData<StateData[]>('state-trends.json');

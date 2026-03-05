@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
+type CiusRow = { year: number; violentRate: number; murderRate: number; rapeRate: number; robberyRate: number; assaultRate: number; propertyRate: number };
 
 export const metadata: Metadata = {
   title: 'US Crime Rate 2024 — National Statistics, Trends & Data',
@@ -21,6 +22,7 @@ export default function CrimeRatePage() {
   const prev = national[national.length - 2];
   const peak = national.find(y => y.year === 1991);
   const low = national.reduce((min, y) => y.violentRate > 0 && y.violentRate < (min.violentRate || Infinity) ? y : min, national[0]);
+  const ciusRates = loadData<CiusRow[]>('cius-table1-rates.json');
   const arrestData = loadData<{ byRace: RaceRow[]; byEthnicity: EthRow[] }>('arrest-data.json');
   const raceTotal = arrestData.byRace.find(r => r.offense === 'TOTAL');
   const ethTotal = arrestData.byEthnicity.find(e => e.offense === 'TOTAL');
@@ -96,6 +98,43 @@ export default function CrimeRatePage() {
           There was a notable spike in 2020-2021, widely attributed to pandemic-related disruptions, 
           but rates have since fallen below pre-pandemic levels and continue to decline.
         </p>
+
+        <h2 className="font-heading">Historical Crime Rates 2005–2024 (CIUS Data)</h2>
+        <p>
+          The following table shows crime rates per 100,000 population from the FBI&apos;s Crime in the United States (CIUS) reports,
+          covering 2005 through 2024. This provides a granular view of how each crime type has trended over two decades.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-sm border overflow-x-auto mb-8">
+        <table className="w-full text-sm">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="text-left px-3 py-2">Year</th>
+              <th className="text-right px-3 py-2">Violent</th>
+              <th className="text-right px-3 py-2">Murder</th>
+              <th className="text-right px-3 py-2">Robbery</th>
+              <th className="text-right px-3 py-2">Assault</th>
+              <th className="text-right px-3 py-2">Property</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ciusRates.map(r => (
+              <tr key={r.year} className="border-t">
+                <td className="px-3 py-1.5 font-medium">{r.year}</td>
+                <td className="px-3 py-1.5 text-right font-mono">{fmtRate(r.violentRate)}</td>
+                <td className="px-3 py-1.5 text-right font-mono">{fmtRate(r.murderRate)}</td>
+                <td className="px-3 py-1.5 text-right font-mono">{fmtRate(r.robberyRate)}</td>
+                <td className="px-3 py-1.5 text-right font-mono">{fmtRate(r.assaultRate)}</td>
+                <td className="px-3 py-1.5 text-right font-mono">{fmtRate(r.propertyRate)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="prose prose-lg max-w-none mb-8">
+        <p className="text-sm text-gray-500">Source: FBI Crime in the United States (CIUS) Table 1. Rates per 100,000 population.</p>
 
         <h2 className="font-heading">Who Gets Arrested? Demographics by Race</h2>
         <p>
