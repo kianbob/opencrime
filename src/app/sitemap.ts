@@ -51,6 +51,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/is-it-safe/new-york', '/is-it-safe/los-angeles', '/is-it-safe/chicago',
     '/is-it-safe/houston', '/is-it-safe/phoenix', '/is-it-safe/philadelphia',
     '/is-it-safe/san-antonio', '/is-it-safe/san-diego', '/is-it-safe/dallas', '/is-it-safe/austin',
+    '/officer-safety',
+    '/numbers',
     '/compare-states',
     '/compare-states/california-vs-texas', '/compare-states/new-york-vs-florida',
     '/compare-states/illinois-vs-ohio', '/compare-states/california-vs-florida',

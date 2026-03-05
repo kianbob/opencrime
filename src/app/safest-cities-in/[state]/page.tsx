@@ -193,6 +193,46 @@ export default async function SafestCitiesInStatePage({ params }: { params: Prom
         </section>
       )}
 
+      {/* Crime Composition for State */}
+      <section className="mb-10">
+        <h2 className="font-display text-2xl font-bold text-primary mb-4">Crime Composition in {st.name}</h2>
+        <p className="text-sm text-gray-500 mb-4">How violent crime breaks down across cities reporting data in {st.name}.</p>
+        {(() => {
+          const citiesWithComp = stateCities.filter(c => c.composition && (c.composition.murderPct + c.composition.rapePct + c.composition.robberyPct + c.composition.assaultPct) > 0);
+          const totalV = citiesWithComp.reduce((s, c) => s + c.violentCrime, 0);
+          if (totalV === 0) return <p className="text-gray-500">Insufficient data for composition breakdown.</p>;
+          const mPct = citiesWithComp.reduce((s, c) => s + c.murder, 0) / totalV * 100;
+          const rPct = citiesWithComp.reduce((s, c) => s + (c.violentCrime * (c.composition?.robberyPct || 0) / 100), 0) / totalV * 100;
+          const aPct = citiesWithComp.reduce((s, c) => s + (c.violentCrime * (c.composition?.assaultPct || 0) / 100), 0) / totalV * 100;
+          const rpPct = 100 - mPct - rPct - aPct;
+          const bars = [
+            { label: 'Agg. Assault', pct: aPct, color: 'bg-red-500' },
+            { label: 'Robbery', pct: rPct, color: 'bg-orange-500' },
+            { label: 'Rape', pct: rpPct > 0 ? rpPct : 0, color: 'bg-yellow-500' },
+            { label: 'Murder', pct: mPct, color: 'bg-gray-900' },
+          ];
+          return (
+            <div>
+              <div className="flex h-6 rounded-full overflow-hidden mb-3">
+                {bars.map(b => b.pct > 0.5 && <div key={b.label} className={`${b.color}`} style={{ width: `${b.pct}%` }} />)}
+              </div>
+              <div className="flex flex-wrap gap-4 text-sm">
+                {bars.map(b => (
+                  <div key={b.label} className="flex items-center gap-2">
+                    <span className={`w-3 h-3 rounded-full ${b.color}`} />
+                    <span>{b.label}: {b.pct.toFixed(1)}%</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-400 mt-2">
+                State violent crime rate: {fmtRate(st.violentRate)}/100K vs national average: 359.1/100K
+                ({st.violentRate > 359.1 ? `${((st.violentRate / 359.1 - 1) * 100).toFixed(0)}% above` : `${((1 - st.violentRate / 359.1) * 100).toFixed(0)}% below`} national average)
+              </p>
+            </div>
+          );
+        })()}
+      </section>
+
       <section className="prose prose-gray max-w-none">
         <h2 className="font-display text-2xl font-bold text-primary">About This Data</h2>
         <p>

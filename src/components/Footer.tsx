@@ -58,6 +58,8 @@ export default function Footer() {
             <li><Link href="/city-fingerprint" className="hover:text-white">City Crime DNA+</Link></li>
             <li><Link href="/is-it-safe" className="hover:text-white">Is It Safe?</Link></li>
             <li><Link href="/compare-states" className="hover:text-white">Compare States</Link></li>
+            <li><Link href="/officer-safety" className="hover:text-white">Officer Safety</Link></li>
+            <li><Link href="/numbers" className="hover:text-white">Crime by the Numbers</Link></li>
           </ul>
         </div>
         <div>

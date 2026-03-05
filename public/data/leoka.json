@@ -1,0 +1,53 @@
+{
+  "source": "FBI LEOKA (Law Enforcement Officers Killed and Assaulted) annual reports",
+  "lastUpdated": "2026-03-05",
+  "totalSwornOfficers": 700000,
+  "feloniouslyKilled": [
+    { "year": 2019, "count": 48 },
+    { "year": 2020, "count": 46 },
+    { "year": 2021, "count": 73 },
+    { "year": 2022, "count": 60 },
+    { "year": 2023, "count": 60 },
+    { "year": 2024, "count": 50 }
+  ],
+  "accidentallyKilled": [
+    { "year": 2019, "count": 41 },
+    { "year": 2020, "count": 44 },
+    { "year": 2021, "count": 58 },
+    { "year": 2022, "count": 55 },
+    { "year": 2023, "count": 36 },
+    { "year": 2024, "count": 38 }
+  ],
+  "assaulted": [
+    { "year": 2019, "count": 56034 },
+    { "year": 2020, "count": 60105 },
+    { "year": 2021, "count": 73507 },
+    { "year": 2022, "count": 79091 },
+    { "year": 2023, "count": 80000 },
+    { "year": 2024, "count": 78000 }
+  ],
+  "killedByCircumstance": {
+    "description": "Approximate distribution of felonious killings by circumstance (2019-2023 avg)",
+    "ambush": 18,
+    "trafficStop": 12,
+    "domesticDisturbance": 10,
+    "investigatingActivity": 8,
+    "attemptingArrest": 7,
+    "other": 5
+  },
+  "dangerousProfessionDeathRates": {
+    "description": "On-the-job death rates per 100,000 workers (approximate annual)",
+    "professions": [
+      { "profession": "Logging workers", "rate": 82.2 },
+      { "profession": "Aircraft pilots", "rate": 58.9 },
+      { "profession": "Roofers", "rate": 47.4 },
+      { "profession": "Fishing workers", "rate": 39.0 },
+      { "profession": "Structural iron workers", "rate": 25.1 },
+      { "profession": "Truck drivers", "rate": 24.7 },
+      { "profession": "Refuse collectors", "rate": 20.3 },
+      { "profession": "Law enforcement", "rate": 14.6 },
+      { "profession": "Farmers/ranchers", "rate": 13.8 },
+      { "profession": "Electrical workers", "rate": 10.3 }
+    ]
+  }
+}
