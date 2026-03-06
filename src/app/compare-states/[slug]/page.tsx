@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation';
 type StateTrend = { abbr: string; name: string; years: { year: number; violentRate: number; propertyRate: number; homicideRate: number; population: number; violentCrime: number; propertyCrime: number }[] };
 
 const COMPARISONS: Record<string, { state1: string; state2: string; abbr1: string; abbr2: string }> = {
+  // Original 10 comparisons
   'california-vs-texas': { state1: 'California', state2: 'Texas', abbr1: 'CA', abbr2: 'TX' },
   'new-york-vs-florida': { state1: 'New York', state2: 'Florida', abbr1: 'NY', abbr2: 'FL' },
   'illinois-vs-ohio': { state1: 'Illinois', state2: 'Ohio', abbr1: 'IL', abbr2: 'OH' },
@@ -20,6 +21,27 @@ const COMPARISONS: Record<string, { state1: string; state2: string; abbr1: strin
   'georgia-vs-north-carolina': { state1: 'Georgia', state2: 'North Carolina', abbr1: 'GA', abbr2: 'NC' },
   'washington-vs-oregon': { state1: 'Washington', state2: 'Oregon', abbr1: 'WA', abbr2: 'OR' },
   'arizona-vs-nevada': { state1: 'Arizona', state2: 'Nevada', abbr1: 'AZ', abbr2: 'NV' },
+  // New 20 comparisons
+  'michigan-vs-ohio': { state1: 'Michigan', state2: 'Ohio', abbr1: 'MI', abbr2: 'OH' },
+  'virginia-vs-maryland': { state1: 'Virginia', state2: 'Maryland', abbr1: 'VA', abbr2: 'MD' },
+  'colorado-vs-utah': { state1: 'Colorado', state2: 'Utah', abbr1: 'CO', abbr2: 'UT' },
+  'tennessee-vs-kentucky': { state1: 'Tennessee', state2: 'Kentucky', abbr1: 'TN', abbr2: 'KY' },
+  'missouri-vs-kansas': { state1: 'Missouri', state2: 'Kansas', abbr1: 'MO', abbr2: 'KS' },
+  'massachusetts-vs-connecticut': { state1: 'Massachusetts', state2: 'Connecticut', abbr1: 'MA', abbr2: 'CT' },
+  'minnesota-vs-wisconsin': { state1: 'Minnesota', state2: 'Wisconsin', abbr1: 'MN', abbr2: 'WI' },
+  'indiana-vs-illinois': { state1: 'Indiana', state2: 'Illinois', abbr1: 'IN', abbr2: 'IL' },
+  'alabama-vs-mississippi': { state1: 'Alabama', state2: 'Mississippi', abbr1: 'AL', abbr2: 'MS' },
+  'louisiana-vs-arkansas': { state1: 'Louisiana', state2: 'Arkansas', abbr1: 'LA', abbr2: 'AR' },
+  'new-jersey-vs-new-york': { state1: 'New Jersey', state2: 'New York', abbr1: 'NJ', abbr2: 'NY' },
+  'south-carolina-vs-north-carolina': { state1: 'South Carolina', state2: 'North Carolina', abbr1: 'SC', abbr2: 'NC' },
+  'california-vs-washington': { state1: 'California', state2: 'Washington', abbr1: 'CA', abbr2: 'WA' },
+  'texas-vs-california': { state1: 'Texas', state2: 'California', abbr1: 'TX', abbr2: 'CA' },
+  'florida-vs-georgia': { state1: 'Florida', state2: 'Georgia', abbr1: 'FL', abbr2: 'GA' },
+  'colorado-vs-arizona': { state1: 'Colorado', state2: 'Arizona', abbr1: 'CO', abbr2: 'AZ' },
+  'oregon-vs-washington': { state1: 'Oregon', state2: 'Washington', abbr1: 'OR', abbr2: 'WA' },
+  'maryland-vs-virginia': { state1: 'Maryland', state2: 'Virginia', abbr1: 'MD', abbr2: 'VA' },
+  'illinois-vs-michigan': { state1: 'Illinois', state2: 'Michigan', abbr1: 'IL', abbr2: 'MI' },
+  'ohio-vs-pennsylvania': { state1: 'Ohio', state2: 'Pennsylvania', abbr1: 'OH', abbr2: 'PA' },
 };
 
 export async function generateStaticParams() {
