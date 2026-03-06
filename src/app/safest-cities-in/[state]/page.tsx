@@ -250,6 +250,7 @@ export default async function SafestCitiesInStatePage({ params }: { params: Prom
       </section>
 
       <div className="mt-8 flex flex-wrap gap-4">
+        <Link href={`/most-dangerous-cities-in/${st.abbr.toLowerCase()}`} className="text-red-700 hover:underline font-medium">→ Most Dangerous Cities in {st.name}</Link>
         <Link href={`/states/${st.abbr.toLowerCase()}`} className="text-primary hover:underline">→ {st.name} Crime Overview</Link>
         <Link href="/safest-cities" className="text-primary hover:underline">→ Safest Cities in America</Link>
         <Link href="/rankings" className="text-primary hover:underline">→ National Rankings</Link>

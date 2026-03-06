@@ -94,8 +94,10 @@ export default async function StateReportCardPage({ params }: { params: Promise<
     return c.state.toLowerCase() === stateNameLower;
   });
 
-  const safest = [...stateCities].sort((a, b) => a.violentRate - b.violentRate).slice(0, 5);
-  const dangerous = [...stateCities].sort((a, b) => b.violentRate - a.violentRate).slice(0, 5);
+  const rankable = stateCities.filter(c => c.population >= 10000);
+  const pool = rankable.length >= 5 ? rankable : stateCities.filter(c => c.population >= 1000);
+  const safest = [...pool].sort((a, b) => a.violentRate - b.violentRate).filter(c => c.propertyRate > 0).slice(0, 5);
+  const dangerous = [...pool].sort((a, b) => b.violentRate - a.violentRate).slice(0, 5);
 
   const violent = gradeFromRate(state.violentRate, NAT_VIOLENT);
   const property = gradeFromRate(state.propertyRate, NAT_PROPERTY);

@@ -28,6 +28,7 @@ const TOOLS_CATEGORIES = [
       { href: '/tools/safety-score', label: 'Safety Score' },
       { href: '/tools/risk-calculator', label: 'Risk Calculator' },
       { href: '/tools/time-machine', label: 'Crime Time Machine' },
+      { href: '/tools/crime-cost', label: 'Crime Cost Calculator' },
     ],
   },
   {
