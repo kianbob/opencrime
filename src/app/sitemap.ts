@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { loadData, slugify } from '@/lib/utils';
 
-type CityIdx = { slug: string };
+type CityIdx = { slug: string; population: number; city: string };
 type StateData = { abbr: string; name: string };
 type NatTrend = { year: number };
 
@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
   const staticPages = [
-    '', '/dashboard', '/states', '/cities', '/rankings', '/crimes', '/search', '/about',
+    '', '/dashboard', '/map', '/states', '/cities', '/rankings', '/crimes', '/search', '/about',
     '/safest-cities', '/most-dangerous-cities', '/crime-rate', '/murder-rate',
     '/tools', '/tools/compare', '/tools/safety-score',
     '/methodology', '/faq', '/hate-crimes', '/arrests', '/dui-statistics', '/drug-arrests',
@@ -106,5 +106,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
   }));
 
-  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState, ...dangerousInState, ...reportCards];
+  // Crime rate in pages for top 100 cities by population
+  const top100Cities = cities
+    .filter(c => c.population >= 100000)
+    .sort((a, b) => b.population - a.population)
+    .slice(0, 100);
+
+  // Create simplified slug mapping
+  const crimeRateIn = top100Cities.map(city => {
+    let simpleSlug = city.city.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    
+    // Handle special cases
+    if (city.slug === 'las-vegas-metropolitan-police-department-nevada') {
+      simpleSlug = 'las-vegas';
+    }
+    
+    return {
+      url: `${base}/crime-rate-in/${simpleSlug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+    };
+  });
+
+  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState, ...dangerousInState, ...reportCards, ...crimeRateIn];
 }
