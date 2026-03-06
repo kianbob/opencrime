@@ -33,6 +33,7 @@ const categories: { label: string; articles: Article[] }[] = [
       { slug: 'gun-violence', title: 'Gun Violence by the Numbers: What FBI Data Actually Shows', desc: 'Firearms account for 77% of US murders. A data-driven look at gun violence patterns, weapon types, and geographic concentration.', tag: 'ANALYSIS' },
       { slug: 'homicide-in-america', title: 'Homicide in America — Who Kills Whom and Why', desc: '77% male victims, intraracial violence patterns, age profiles, and the gender gap. Deep analysis using FBI SHR data.', tag: 'DEEP DIVE' },
       { slug: 'mass-shootings', title: 'Mass Shootings vs Total Gun Violence: What the Data Shows', desc: 'Mass shootings dominate headlines but account for less than 2% of gun deaths. The real picture is very different.', tag: 'DEEP DIVE' },
+      { slug: 'school-shootings', title: 'School Shootings in America: The Data Behind the Crisis', desc: '171 incidents in 2023, up 434% since 2013. K-12 school violence data, international comparisons, and what prevention strategies actually work.', tag: 'DEEP DIVE' },
       { slug: 'unsolved-murders', title: 'Unsolved Murders: The Epidemic of Cases That Never Close', desc: 'Murder clearance dropped from 90%+ to ~50%. An estimated 250,000+ murders unsolved since 2000. Racial disparities, cold cases, and what went wrong.', tag: 'DEEP DIVE' },
     ],
   },
@@ -50,6 +51,7 @@ const categories: { label: string; articles: Article[] }[] = [
     articles: [
       { slug: 'clearance-rates', title: 'Crime Clearance Rates — How Many Crimes Actually Get Solved?', desc: 'Only ~50% of violent crimes and ~15% of property crimes are cleared. Murder clearance dropped from 90% to 50%.', tag: 'DEEP DIVE' },
       { slug: 'police-funding', title: 'Police Funding and Crime Rates: What the Data Shows', desc: 'Do cities that spend more on policing have less crime? We analyze the relationship between police budgets and crime rates.', tag: 'ANALYSIS' },
+      { slug: 'police-use-of-force', title: 'Police Use of Force: What the Data Actually Shows', desc: '~1,100 fatal police shootings annually. Black Americans 2.5x more likely per capita. Body cameras, de-escalation training, and international comparisons.', tag: 'DEEP DIVE' },
       { slug: 'police-staffing-crisis', title: 'The Police Staffing Crisis: Why Departments Can\'t Hire', desc: 'Applicants down ~20% since 2020. 47% of agencies saw 25%+ drops. Signing bonuses, lowered requirements, and the impact on public safety.', tag: 'DEEP DIVE' },
       { slug: 'defund-police', title: 'Did "Defund the Police" Cause a Crime Surge?', desc: 'What actually happened to police budgets, staffing, and crime rates after 2020. The data is more nuanced than either side admits.', tag: 'DEEP DIVE' },
       { slug: 'incarceration-nation', title: 'Incarceration Nation: America\'s Prison Problem by the Numbers', desc: '1.9M incarcerated, $81B annual cost, 5x racial disparity. Why America has 5% of the world\'s people but 20% of its prisoners.', tag: 'DEEP DIVE' },
@@ -76,6 +78,7 @@ const categories: { label: string; articles: Article[] }[] = [
     label: 'Special Topics',
     articles: [
       { slug: 'domestic-violence', title: 'Domestic Violence in America: The Hidden Epidemic', desc: 'Over 40% of female murder victims are killed by intimate partners. The data behind America\'s most underreported crime.', tag: 'ANALYSIS' },
+      { slug: 'white-collar-crime', title: 'White Collar Crime: The Trillion-Dollar Problem Nobody Talks About', desc: 'FBI estimates $300-600B in annual fraud losses. Average white collar theft: $100K+. Average bank robbery: $4,820. Why prosecution rates are declining.', tag: 'DEEP DIVE' },
       { slug: 'hate-crimes-america', title: 'Hate Crimes in America: A Deep Dive Into FBI Data (2024)', desc: '11,679 hate crime incidents in 2024. Breakdown by bias motivation — anti-Black, anti-Jewish, anti-LGBTQ+ — state variation, and reporting challenges.', tag: 'DEEP DIVE' },
       { slug: 'juvenile-crime', title: 'Juvenile Crime: The Data Behind the Headlines', desc: 'Youth arrests are down 70%+ since 2006. Why the perception gap between data and media narratives is so wide.', tag: 'ANALYSIS' },
       { slug: 'cybercrime-trends', title: 'Cybercrime Trends — The $12.5 Billion Crime Wave Missing from FBI Stats', desc: 'FBI IC3 reported $12.5B in losses in 2023. How cybercrime is underrepresented in traditional crime statistics.', tag: 'ANALYSIS' },
