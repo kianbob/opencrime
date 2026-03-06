@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Who Are the Victims? — The Human Face of Crime Statistics',
@@ -44,6 +45,13 @@ export default function VictimsPage() {
         Behind every number in a crime report is a real person. FBI expanded homicide data 
         reveals the demographics, relationships, and circumstances of murder victims in America.
       </p>
+
+      <AIOverview insights={[
+        "77% of murder victims are male, but women are disproportionately killed by intimate partners (over 40% of female victims).",
+        "Young adults 18-34 face the highest homicide risk — a rate roughly 3x the national average.",
+        "Black Americans are murdered at 6x the rate of white Americans — the single largest demographic disparity in crime data.",
+        "Most victims knew their killer: stranger homicides are the minority despite dominating public fear."
+      ]} />
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-6 mb-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">

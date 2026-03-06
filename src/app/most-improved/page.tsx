@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Most Improved Cities 2024 — Biggest Crime Rate Drops',
@@ -27,6 +28,13 @@ export default function MostImprovedPage() {
         Year-over-year change in violent crime rate for cities with 100,000+ population.
         Which cities got safer — and which got more dangerous?
       </p>
+
+      <AIOverview insights={[
+        "Some cities have cut violent crime by 30-50% in just 3-5 years — proof that sustained improvement is achievable.",
+        "Cities that improve fastest tend to combine community policing, violence interrupter programs, and economic investment.",
+        "Not all improvement is real — some drops reflect changes in FBI reporting rather than actual crime reduction.",
+        "The most improved list changes significantly year-to-year, showing that crime trends are volatile and reversible.",
+      ]} />
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         {/* Most Improved */}

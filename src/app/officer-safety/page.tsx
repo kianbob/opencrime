@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import OfficerSafetyCharts from './OfficerSafetyCharts';
+import AIOverview from '@/components/AIOverview';
 
 type YearCount = { year: number; count: number };
 type LeokaData = {
@@ -56,6 +57,13 @@ export default function OfficerSafetyPage() {
         <p className="text-xl text-blue-200 mb-6">
           Every year, law enforcement officers put their lives on the line. The numbers tell the story of that sacrifice.
         </p>
+
+      <AIOverview insights={[
+        "50 law enforcement officers were feloniously killed in the line of duty in 2024 — plus dozens more in accidents.",
+        "78,000 officers were assaulted on duty — more than 1 in 10 of all sworn officers nationwide.",
+        "Policing remains one of the most dangerous professions, but the risk varies dramatically by assignment and jurisdiction.",
+        "Ambush attacks have increased in recent years, changing how departments approach officer safety protocols."
+      ]} />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
             <p className="text-3xl md:text-4xl font-bold">{fmtNum(totalOfficers)}</p>

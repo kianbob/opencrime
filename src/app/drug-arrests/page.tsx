@@ -2,6 +2,7 @@ import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Drug Arrest Statistics 2024 — Arrests by State & Trends',
@@ -87,6 +88,13 @@ export default function DrugArrestsPage() {
             use across racial groups, arrest rates differ substantially — a pattern documented by researchers
             and the U.S. Sentencing Commission.
           </p>
+
+      <AIOverview insights={[
+        "Drug abuse violations are the #1 arrest category in America — over 1.15 million arrests annually.",
+        "Marijuana arrests have plummeted in legalization states but remain high in prohibition states — creating a geographic patchwork.",
+        "The opioid crisis shifted drug enforcement focus from marijuana to fentanyl and synthetic opioids.",
+        "Despite similar drug usage rates across races, arrest rates show significant racial disparities."
+      ]} />
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-purple-50">

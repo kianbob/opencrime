@@ -6,6 +6,7 @@ import DashboardCharts from './DashboardCharts';
 import LastUpdated from '@/components/LastUpdated';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -41,6 +42,13 @@ export default function DashboardPage() {
       <p className="text-gray-600 mb-8">
         {national.length} years of FBI crime data ({national[0].year}–{national[national.length - 1].year})
       </p>
+
+      <AIOverview insights={[
+        "Violent crime is down 52.6% from the 1991 peak of 758.2 per 100K — the longest sustained decline in American history.",
+        "The U.S. recorded 16,935 homicides in 2024 at a rate of 5.0 per 100K — below the 45-year average of 7.4.",
+        "Property crime accounts for 83% of all reported crime, yet receives a fraction of media attention compared to violent offenses.",
+        "The 2017–2020 data gap in national estimates reflects the FBI's troubled transition from SRS to NIBRS — the largest disruption in crime data since the UCR began in 1930.",
+      ]} />
 
       {/* Hero Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">

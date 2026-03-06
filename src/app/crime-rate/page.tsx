@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import LastUpdated from '@/components/LastUpdated';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -39,6 +40,13 @@ export default function CrimeRatePage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'US Crime Rate 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">US Crime Rate 2024</h1>
+
+      <AIOverview insights={[
+        "America's violent crime rate of 359.1 per 100K is the lowest since the early 1970s — before the crack epidemic, before mass incarceration.",
+        "The murder rate peaked at 10.2 per 100K in 1980 and again at 9.8 in 1991. Today it's 5.0 — a 51% drop.",
+        "Property crime has fallen even more dramatically — down 60%+ from the 1991 peak — though motor vehicle theft bucked the trend with a post-COVID surge.",
+        "Despite the data, 78% of Americans consistently tell Gallup they believe crime is rising — one of the largest perception gaps in public opinion.",
+      ]} />
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-8 mb-8">
         <div className="grid md:grid-cols-4 gap-6 text-center">

@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import ArrestDemoCharts from './ArrestDemoCharts';
 import Link from 'next/link';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Arrest Demographics — Who Gets Arrested in America? | OpenCrime',
@@ -75,6 +76,13 @@ export default function ArrestDemographicsPage() {
       <p className="text-lg text-gray-600 mb-8">
         FBI arrest data reveals significant demographic patterns. {sexTotal ? `${sexTotal.malePct}% of all arrests are male.` : ''} {raceTotal ? `White individuals account for ${(raceTotal.white / raceTotal.total * 100).toFixed(1)}% of arrests, Black individuals ${(raceTotal.black / raceTotal.total * 100).toFixed(1)}%.` : ''} But these numbers vary dramatically by offense type.
       </p>
+
+      <AIOverview insights={[
+        "White individuals account for 65.5% of all arrests, Black individuals 30.5% — but these figures must be read alongside population share and policing intensity.",
+        "Hispanic ethnicity is tracked separately from race — 22.3% of arrests where ethnicity was recorded were Hispanic or Latino.",
+        "Arrest rates reflect where police are deployed, not just where crime occurs — high-policing neighborhoods generate more arrests regardless of actual crime levels.",
+        "The racial composition of arrests varies dramatically by offense type: drug arrests skew differently than violent crime arrests.",
+      ]} />
 
       <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg mb-8">
         <p className="text-amber-800 text-sm">

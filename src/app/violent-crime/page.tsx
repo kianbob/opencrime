@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -42,6 +43,13 @@ export default function ViolentCrimePage() {
       <p className="text-lg text-gray-600 mb-8">
         Comprehensive overview of violent crime in the United States using the latest FBI data.
       </p>
+
+      <AIOverview insights={[
+        "1.22 million violent crimes were reported in 2024 — but the real number may be nearly double, as roughly 42% of violent crime goes unreported.",
+        "Aggravated assault accounts for 71% of all violent crime — far more than robbery (17%), rape (10%), or murder (1.4%).",
+        "The violent crime rate has fallen in 34 of the last 45 years, with the sharpest drops in the 1990s and 2020s.",
+        "Summer months see 15-20% more violent crime than winter — temperature is one of the strongest predictors of assault.",
+      ]} />
 
       <div className="bg-red-900 text-white rounded-xl p-6 mb-8">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">

@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -30,6 +31,13 @@ export default function AssaultPage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Aggravated Assault Statistics 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Aggravated Assault Statistics 2024</h1>
+
+      <AIOverview insights={[
+        "870,931 aggravated assaults in 2024 — more than murder, rape, and robbery combined.",
+        "Assault is the most common violent crime you're likely to experience, accounting for 71% of all violent offenses.",
+        "Firearms are used in roughly 26% of aggravated assaults — blunt objects, knives, and personal weapons (fists/feet) account for the rest.",
+        "Assault rates vary 10x across states, from under 100 per 100K in Maine to over 500 in Alaska and New Mexico.",
+      ]} />
 
       <div className="bg-red-700 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

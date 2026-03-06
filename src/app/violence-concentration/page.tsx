@@ -4,6 +4,7 @@ import type { Analytics, CityIndex } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import ConcentrationCharts from './ConcentrationCharts';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Violence Concentration — Where Murder Concentrates in America | OpenCrime',
@@ -53,6 +54,13 @@ export default function ViolenceConcentrationPage() {
         within those cities, in a handful of neighborhoods. Understanding this concentration is essential for
         effective policy.
       </p>
+
+      <AIOverview insights={[
+        "Just 10 cities produce 21% of all U.S. murders — violence is extraordinarily concentrated geographically.",
+        "Within those cities, violence is further concentrated: typically 5% of city blocks account for 50% of shootings.",
+        "This concentration means most Americans live in areas with near-zero violent crime, while a small number face war-zone conditions.",
+        "Understanding concentration is key to effective policy: blanket national approaches miss the hyper-local nature of violence."
+      ]} />
 
       {/* Key stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">

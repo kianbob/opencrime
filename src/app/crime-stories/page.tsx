@@ -4,6 +4,7 @@ import type { CityIndex } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import Link from 'next/link';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Crime Stories — Data-Driven City Profiles That Tell a Story | OpenCrime',
@@ -109,6 +110,12 @@ export default function CrimeStoriesPage() {
             <div>
               <h2 className="font-display text-2xl font-bold" style={{ color: section.color }}>{section.title}</h2>
               <p className="text-gray-500 text-sm">{section.subtitle}</p>
+
+      <AIOverview insights={[
+        "Behind every statistic is a story: cities that transformed, crises that erupted, and trends that defied expectations.",
+        "Some of the most dramatic crime stories are turnarounds — cities that cut murder rates 50%+ in a decade.",
+        "The data reveals surprises: tourist cities with hidden violence, college towns with assault problems, and wealthy suburbs with drug crime."
+      ]} />
             </div>
           </div>
 

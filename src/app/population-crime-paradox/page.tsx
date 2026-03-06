@@ -4,6 +4,7 @@ import type { CityIndex, Analytics } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import ParadoxCharts from './ParadoxCharts';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Population-Crime Paradox — Small Cities With Big Crime Problems | OpenCrime',
@@ -85,6 +86,12 @@ export default function ParadoxPage() {
       <section className="mt-10 mb-10">
         <h2 className="font-display text-2xl font-bold text-primary mb-2">Small Cities, Big Crime</h2>
         <p className="text-gray-600 mb-4">Cities under 50,000 population with violent crime rates above 800 per 100K — rivaling or exceeding major metros.</p>
+
+      <AIOverview insights={[
+        "The most dangerous cities in America are NOT the biggest. Mid-size cities (100K-300K) consistently have higher violent crime rates.",
+        "New York City's violent crime rate is lower than dozens of cities a fraction of its size.",
+        "The paradox exists because large cities have more resources for policing, economic opportunity, and dilution of concentrated poverty."
+      ]} />
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50">

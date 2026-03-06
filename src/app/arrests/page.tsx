@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
 import ArrestCharts from './ArrestCharts';
 import LastUpdated from '@/components/LastUpdated';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'US Arrest Statistics 2024 — 7.5 Million Arrests by Offense, State, Demographics',
@@ -36,6 +37,13 @@ export default function ArrestsPage() {
       <p className="text-lg text-gray-600 mb-8">
         FBI estimated arrest data for the United States. Who gets arrested, for what, and where.
       </p>
+
+      <AIOverview insights={[
+        "Police made 6.45 million arrests nationwide — roughly 1 arrest for every 53 Americans.",
+        "Drug abuse violations are the #1 arrest category at 1.15 million — more than all violent crime arrests combined.",
+        "Male arrestees outnumber female 3-to-1 (72.5% vs 27.5%), a ratio that has remained remarkably stable for decades.",
+        "Larceny-theft leads property crime arrests, but only 1 in 6 thefts results in an arrest.",
+      ]} />
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type VictimRace = { race: string; total: number; male: number; female: number };
 import WeaponCharts from './WeaponCharts';
@@ -37,6 +38,13 @@ export default function WeaponShiftPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"The Weapon Shift — How Americans Are Killed Is Changing","description":"FBI data shows firearms account for a growing share of murders while knives and personal weapons decline. 5 years of weapon trend data visualized.","url":"https://www.opencrime.us/weapon-shift","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Analysis', href: '/analysis' }, { label: 'Weapon Shift' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">The Weapon Shift: How Murder Weapons Are Changing</h1>
+
+      <AIOverview insights={[
+        "The way Americans kill each other is changing — firearms now account for 77% of homicides, up from 67% a decade ago.",
+        "Handguns are the dominant murder weapon, used in more killings than all other weapons combined.",
+        "Knife murders have remained remarkably stable for decades, while personal weapons (fists, feet) have slowly declined.",
+        "The shift toward firearms makes homicides more lethal — gunshot wounds are far more likely to be fatal than stab wounds."
+      ]} />
 
       <div className="bg-red-900 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

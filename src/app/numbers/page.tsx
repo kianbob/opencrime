@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import NumbersClient from './NumbersClient';
+import AIOverview from '@/components/AIOverview';
 
 type Analytics = {
   crimeClock: {
@@ -56,6 +57,12 @@ export default function NumbersPage() {
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Every number is a person. Every second, another crime. This page updates in real time based on FBI data.
           </p>
+
+      <AIOverview insights={[
+        "This dashboard distills 45 years and millions of data points into the numbers that matter most.",
+        "Some numbers are improving (violent crime down 52%), others are alarming (250,000+ unsolved murders since 2000).",
+        "The gap between perception and reality is itself a number: 78% of Americans think crime is rising when it's actually falling."
+      ]} />
         </div>
 
         <div className="max-w-5xl mx-auto">

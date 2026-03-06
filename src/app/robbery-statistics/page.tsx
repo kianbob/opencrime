@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -29,6 +30,13 @@ export default function RobberyPage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Robbery Statistics 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Robbery Statistics 2024</h1>
+
+      <AIOverview insights={[
+        "205,952 robberies in 2024 — roughly one every 2.5 minutes.",
+        "Robbery is unique among violent crimes: it's the only one primarily motivated by financial gain rather than interpersonal conflict.",
+        "Strong-arm robbery (no weapon) accounts for over 40% of robberies. Firearms are used in about 36%.",
+        "Robbery rates have fallen 70%+ since the 1991 peak — one of the steepest declines of any crime type.",
+      ]} />
 
       <div className="bg-red-800 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-3 gap-4 text-center">

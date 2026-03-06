@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import MurderCharts from './MurderCharts';
+import AIOverview from '@/components/AIOverview';
 
 type VictimRace = { race: string; total: number; male: number; female: number };
 type OffenderRace = { race: string; total: number; pct: number };
@@ -49,6 +50,13 @@ export default function MurderRatePage() {
     <div className="max-w-5xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'US Murder Rate 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">US Murder Rate 2024</h1>
+
+      <AIOverview insights={[
+        "16,935 people were murdered in 2024 — a rate of 5.0 per 100K, down from the 2020 spike of 6.5.",
+        "Firearms account for 77% of all homicides. Handguns alone are used in more murders than all other weapons combined.",
+        "Homicide is intensely concentrated: just 10 cities account for 21% of all U.S. murders.",
+        "The victim-offender relationship data reveals that most murders are not random — the majority involve people who know each other.",
+      ]} />
 
       <div className="bg-red-900 text-white rounded-xl p-8 mb-8">
         <div className="grid md:grid-cols-4 gap-6 text-center">

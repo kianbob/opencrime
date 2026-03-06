@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Safest Cities in America 2024 — Complete Rankings by Crime Rate',
@@ -27,9 +28,16 @@ export default function SafestCitiesPage() {
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Safest Cities in America 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Safest Cities in America 2024</h1>
       <p className="text-lg text-gray-600 mb-8">
-        Complete rankings based on FBI Uniform Crime Reporting data. We analyzed violent crime rates 
+        Complete rankings based on FBI Uniform Crime Reporting data. We analyzed violent crime rates
         for {large.length} US cities with 100,000+ residents to determine the safest places to live.
       </p>
+
+      <AIOverview insights={[
+        "The safest large cities have violent crime rates under 100 per 100K — less than a third of the national average.",
+        "Texas suburbs dominate the safest list: Sugar Land, Frisco, League City, Allen, and McKinney all appear in the top 20.",
+        "Irvine, CA proves that large cities (316K) can be among the safest — its rate of 84 per 100K rivals small suburbs.",
+        "The gap between safest and most dangerous is staggering: you're 38x more likely to be a violent crime victim in Memphis than in Carmel, IN.",
+      ]} />
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
         <h2 className="font-heading text-xl font-bold mb-3">Key Findings</h2>

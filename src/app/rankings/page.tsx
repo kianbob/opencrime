@@ -5,6 +5,7 @@ import Link from 'next/link';
 import LastUpdated from '@/components/LastUpdated';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
@@ -63,6 +64,13 @@ export default function RankingsPage() {
       <p className="text-gray-600 mb-8">
         {large.length} US cities with 100,000+ population, ranked by crime rate per 100,000 residents
       </p>
+
+      <AIOverview insights={[
+        "Memphis leads with 2,501 violent crimes per 100K — nearly 7x the national average of 359.",
+        "The safest large city, Carmel, IN (66 per 100K), is 38x safer than the most dangerous.",
+        "Population alone doesn't predict danger — mid-size cities (100K-250K) dominate the most-dangerous list.",
+        "Only 20% of cities over 100K have violent crime rates above the national average.",
+      ]} />
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         {renderTable(dangerous, 'Most Dangerous — Violent Crime Rate', 'violentRate', 'bg-red-700')}

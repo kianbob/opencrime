@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -33,6 +34,13 @@ export default function PropertyCrimePage() {
     <div className="max-w-5xl mx-auto px-4 py-8">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Property Crime Statistics 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Property Crime Statistics 2024</h1>
+
+      <AIOverview insights={[
+        "5.99 million property crimes in 2024 — that's one property crime for every 57 Americans.",
+        "Larceny-theft alone accounts for 72% of all property crime — 4.3 million incidents, most of which are never solved.",
+        "Motor vehicle theft surged 25% since 2019, driven by keyless-ignition vulnerabilities and organized theft rings.",
+        "Only about 14% of property crimes lead to an arrest, making it the least-solved major crime category.",
+      ]} />
 
       <div className="bg-[#1e3a5f] text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

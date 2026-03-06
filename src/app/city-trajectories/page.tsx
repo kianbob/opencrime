@@ -4,6 +4,7 @@ import type { CityIndex, Analytics } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import TrajectoryCharts from './TrajectoryCharts';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'City Crime Trajectories — Improving, Worsening & Volatile Cities | OpenCrime',
@@ -63,6 +64,12 @@ export default function CityTrajectoriesPage() {
         We analyzed multi-year crime trends for {fmtNum(cities.length)} cities and classified each one into a trajectory type.
         Is your city getting safer, more dangerous, or bouncing around unpredictably?
       </p>
+
+      <AIOverview insights={[
+        "Of 9,700+ cities analyzed, the vast majority (80%+) are classified as 'stable' — their crime rates aren't changing significantly.",
+        "Only a handful of cities are 'rapidly improving' or 'rapidly worsening' — extreme change is rare.",
+        "Trajectory matters more than snapshot: a city at 400/100K and dropping is safer than one at 300/100K and rising."
+      ]} />
 
       {/* Trajectory distribution */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">

@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Most Dangerous Cities in America 2024 — Crime Rate Rankings',
@@ -27,9 +28,16 @@ export default function DangerousCitiesPage() {
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Most Dangerous Cities in America 2024' }]} />
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Most Dangerous Cities in America 2024</h1>
       <p className="text-lg text-gray-600 mb-8">
-        Complete rankings of US cities by violent crime rate, based on FBI Uniform Crime Reporting data. 
+        Complete rankings of US cities by violent crime rate, based on FBI Uniform Crime Reporting data.
         These {large.length} cities all have populations over 100,000.
       </p>
+
+      <AIOverview insights={[
+        "Memphis tops the list at 2,501 violent crimes per 100K — a rate more typical of a war zone than an American city.",
+        "8 of the 10 most dangerous cities are in the Midwest or South. None are in the West Coast's largest metros.",
+        "St. Louis has the highest murder rate (54.1 per 100K) despite not having the highest overall violent crime rate — a 'murder concentration' outlier.",
+        "Being on this list isn't permanent: cities like New York, which topped it in the 1990s, have transformed their safety profile.",
+      ]} />
 
       <div className="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
         <h2 className="font-heading text-xl font-bold mb-3">Key Statistics</h2>

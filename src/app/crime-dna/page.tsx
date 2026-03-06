@@ -4,6 +4,7 @@ import type { CityIndex } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import CrimeDNAClient from './CrimeDNAClient';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Crime Composition DNA — Every City Has a Unique Crime Fingerprint | OpenCrime',
@@ -63,6 +64,13 @@ export default function CrimeDNAPage() {
       <p className="text-gray-500 mb-8">
         National average: {avg.assaultPct}% assault, {avg.robberyPct}% robbery, {avg.rapePct}% rape, {avg.murderPct}% murder
       </p>
+
+      <AIOverview insights={[
+        "Every city has a unique 'crime DNA' — the proportional mix of assault, robbery, murder, and rape that defines its crime profile.",
+        "Some cities are 'assault-dominant' (70%+ of violent crime is assault), while others are 'robbery-heavy' — revealing different underlying dynamics.",
+        "Cities with similar overall crime rates can have completely different DNA profiles, meaning safety feels different even at the same rate.",
+        "A city's crime DNA often reflects its economic structure: retail-heavy areas see more robbery; high-poverty areas see more assault.",
+      ]} />
 
       <CrimeDNAClient top50={top50} avg={avg} />
 

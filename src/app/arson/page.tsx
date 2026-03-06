@@ -3,6 +3,7 @@ import { loadData, fmtNum } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import Link from 'next/link';
+import AIOverview from '@/components/AIOverview';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
@@ -96,6 +97,12 @@ export default function ArsonPage() {
           Arson clearance rates are extremely low across all property types. Industrial/manufacturing arsons
           have the highest clearance rate at just {arson.find(a => a.type.includes('Industrial'))?.pctCleared.toFixed(1)}%.
         </p>
+
+      <AIOverview insights={[
+        "Arson is one of the most difficult crimes to prove — clearance rates are among the lowest of any offense.",
+        "Residential structures are the most common arson targets, followed by vehicles and commercial buildings.",
+        "Arson is often linked to insurance fraud, domestic violence retaliation, and hate crimes — making motive investigation critical."
+      ]} />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {arson.filter(a => a.count > 0).map(a => (
             <div key={a.type} className={`rounded-lg p-3 text-center border ${a.pctCleared === 0 ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>

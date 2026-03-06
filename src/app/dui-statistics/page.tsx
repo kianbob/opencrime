@@ -2,6 +2,7 @@ import { loadData, fmtNum } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ShareButtons from '@/components/ShareButtons';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'DUI Statistics 2024 — Drunk Driving Arrests by State',
@@ -38,6 +39,12 @@ export default function DUIPage() {
         Drunk driving arrest data from the FBI&apos;s Uniform Crime Reporting program. 
         State-by-state breakdown of DUI arrests across the United States.
       </p>
+
+      <AIOverview insights={[
+        "DUI remains one of the most common arrest categories — hundreds of thousands arrested for impaired driving each year.",
+        "DUI arrests have declined over decades thanks to awareness campaigns, ride-sharing, and stiffer penalties.",
+        "Alcohol-impaired driving kills roughly 13,000 Americans annually — more than all homicides by non-firearm weapons."
+      ]} />
 
       <div className="bg-amber-900 text-white rounded-xl p-6 mb-8">
         <div className="grid md:grid-cols-4 gap-4 text-center">

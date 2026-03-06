@@ -4,6 +4,7 @@ import type { Analytics } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import CrimeClockClient from './CrimeClockClient';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Crime Clock — How Often Crimes Occur in America | OpenCrime',
@@ -29,6 +30,13 @@ export default function CrimeClockPage() {
         frequency of reported crimes across the country. These numbers represent real crimes reported to
         law enforcement — the actual rate is higher due to unreported crimes.
       </p>
+
+      <AIOverview insights={[
+        "A violent crime occurs every 26 seconds in America. A murder happens every 31 minutes.",
+        "By the time you've spent 5 minutes on this page, approximately 12 violent crimes and 49 property crimes have occurred.",
+        "The crime clock is faster during summer months and slower in winter — crime follows seasonal rhythms.",
+        "Despite these numbers, your individual risk is extremely low — the average American has a 0.36% chance of being a violent crime victim in any given year.",
+      ]} />
 
       <CrimeClockClient crimeClock={crimeClock} />
 

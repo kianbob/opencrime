@@ -3,6 +3,7 @@ import { loadData, fmtNum } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import Link from 'next/link';
+import AIOverview from '@/components/AIOverview';
 
 export const metadata: Metadata = {
   title: 'Arrest Efficiency — How Effective Is Policing in Your City? | OpenCrime',
@@ -52,9 +53,16 @@ export default function ArrestEfficiencyPage() {
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Arrest Efficiency' }]} />
       <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">Arrest Efficiency</h1>
       <p className="text-lg text-gray-600 mb-8">
-        How effective is law enforcement at catching criminals? The ratio of arrests to reported crimes 
+        How effective is law enforcement at catching criminals? The ratio of arrests to reported crimes
         reveals how well different types of crimes are being addressed — and where the biggest gaps exist.
       </p>
+
+      <AIOverview insights={[
+        "For every 3 murders committed, police make roughly 1.5 arrests — the best clearance of any crime type.",
+        "Only 1 in 6 larceny-thefts results in an arrest — over 3.6 million thefts go without any arrest each year.",
+        "Motor vehicle theft has one of the lowest arrest-to-crime ratios despite being one of the most reported crimes.",
+        "The gap between crimes committed and arrests made represents millions of unsolved cases annually.",
+      ]} />
 
       {/* Key stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
