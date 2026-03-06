@@ -213,20 +213,6 @@
   ],
   "safestCities": [
     {
-      "city": "Worcester",
-      "state": "Massachusetts",
-      "slug": "worcester-massachusetts",
-      "population": 212425,
-      "violentRate": 16.5
-    },
-    {
-      "city": "Savannah",
-      "state": "Georgia",
-      "slug": "savannah-georgia",
-      "population": 241780,
-      "violentRate": 20.3
-    },
-    {
       "city": "Carmel",
       "state": "Indiana",
       "slug": "carmel-indiana",
@@ -292,7 +278,7 @@
     {
       "city": "Port St. Lucie",
       "state": "Florida",
-      "slug": "port-st-lucie-florida2",
+      "slug": "port-st-lucie-florida",
       "population": 245394,
       "violentRate": 99
     },
@@ -344,6 +330,20 @@
       "slug": "mckinney-texas",
       "population": 219132,
       "violentRate": 117.3
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "Florida",
+      "slug": "pembroke-pines-florida",
+      "population": 175757,
+      "violentRate": 118.9
+    },
+    {
+      "city": "Cape Coral",
+      "state": "Florida",
+      "slug": "cape-coral-florida",
+      "population": 199503,
+      "violentRate": 127.8
     },
     {
       "city": "Simi Valley",
