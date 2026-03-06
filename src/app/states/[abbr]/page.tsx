@@ -65,8 +65,11 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
   // Get cities in this state
   const allCities = loadData<CityIdx[]>('city-index.json');
   const stateCities = allCities.filter(c => c.state === state.name).sort((a, b) => b.population - a.population);
-  const dangerousCities = [...stateCities].sort((a, b) => b.violentRate - a.violentRate).slice(0, 10);
-  const safestCities = [...stateCities].sort((a, b) => a.violentRate - b.violentRate).slice(0, 10);
+  // Use 10K+ pop for rankings to avoid tiny cities with extreme per-capita rates
+  const rankable = stateCities.filter(c => c.population >= 10000);
+  const fallback = rankable.length >= 5 ? rankable : stateCities.filter(c => c.population >= 1000);
+  const dangerousCities = [...fallback].sort((a, b) => b.violentRate - a.violentRate).slice(0, 10);
+  const safestCities = [...fallback].sort((a, b) => a.violentRate - b.violentRate).filter(c => c.propertyRate > 0).slice(0, 10);
 
   // AI Overview insights
   const allStates = loadData<{ abbr: string; name: string; violentRate: number }[]>('state-summary.json');

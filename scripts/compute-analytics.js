@@ -51,6 +51,10 @@ for (const file of cityFiles) {
   const city = JSON.parse(fs.readFileSync(path.join(citiesDir, file), 'utf8'));
   const years = Object.keys(city.years).map(Number).sort();
   if (years.length < 3) continue;
+  // Skip tiny cities — per-capita rates are unreliable below 10K
+  const latestYear = years[years.length - 1];
+  const pop = city.years[latestYear]?.population || 0;
+  if (pop < 10000) continue;
 
   const violentPoints = years.map(y => ({ x: y, y: city.years[y].violentRate || 0 }));
   const propertyPoints = years.map(y => ({ x: y, y: city.years[y].propertyRate || 0 }));
@@ -69,9 +73,11 @@ for (const file of cityFiles) {
   });
 }
 
-// Normalize to -100 to +100
-const scores = velocityResults.map(v => v.rawScore);
-const maxAbs = Math.max(Math.abs(Math.min(...scores)), Math.abs(Math.max(...scores))) || 1;
+// Normalize using 2nd/98th percentile (robust to outliers)
+const scores = velocityResults.map(v => v.rawScore).sort((a, b) => a - b);
+const p2 = scores[Math.floor(scores.length * 0.02)] || -1;
+const p98 = scores[Math.floor(scores.length * 0.98)] || 1;
+const maxAbs = Math.max(Math.abs(p2), Math.abs(p98)) || 1;
 
 for (const v of velocityResults) {
   v.velocityScore = Math.round((v.rawScore / maxAbs) * 100 * 10) / 10;
