@@ -58,8 +58,11 @@ export default async function SafestCitiesInStatePage({ params }: { params: Prom
     .filter(c => stateAbbr(c.state) === st.abbr && c.violentRate >= 0)
     .sort((a, b) => a.violentRate - b.violentRate);
 
-  const safest = stateCities.slice(0, 25);
-  const dangerous = [...stateCities].reverse().slice(0, 15);
+  // Filter for meaningful population for rankings (tiny towns skew per-capita rates)
+  const rankable = stateCities.filter(c => c.population >= 5000);
+  const useRankable = rankable.length >= 10 ? rankable : stateCities.filter(c => c.population >= 1000);
+  const safest = useRankable.filter(c => c.propertyRate > 0).slice(0, 25);
+  const dangerous = [...useRankable].reverse().slice(0, 15);
   const totalCities = stateCities.length;
   const medianRate = stateCities[Math.floor(totalCities / 2)]?.violentRate || 0;
 

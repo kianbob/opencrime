@@ -94,11 +94,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
   }));
 
+  const dangerousInState = states.map(s => ({
+    url: `${base}/most-dangerous-cities-in/${s.abbr.toLowerCase()}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+  }));
+
   const reportCards = states.map(s => ({
     url: `${base}/state-report-card/${s.abbr.toLowerCase()}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
   }));
 
-  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState, ...reportCards];
+  return [...staticPages, ...statePages, ...cityPages, ...yearPages, ...safestInState, ...dangerousInState, ...reportCards];
 }
