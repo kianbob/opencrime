@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: '/crimes', label: 'Crime Types' },
   { href: '/arrests', label: 'Arrests' },
   { href: '/hate-crimes', label: 'Hate Crimes' },
+  { href: '/international-comparison', label: 'International' },
   { href: '/analysis', label: 'Analysis' },
 ];
 

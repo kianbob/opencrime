@@ -15,6 +15,7 @@ export default function Footer() {
             <li><Link href="/crimes" className="hover:text-white">Crime Types</Link></li>
             <li><Link href="/arrests" className="hover:text-white">Arrests</Link></li>
             <li><Link href="/hate-crimes" className="hover:text-white">Hate Crimes</Link></li>
+            <li><Link href="/international-comparison" className="hover:text-white">International Comparison</Link></li>
             <li><Link href="/years" className="hover:text-white">By Year</Link></li>
           </ul>
         </div>
