@@ -16,8 +16,8 @@ export default function CompareClient() {
     fetch('/data/city-index-lite.json').then(r => r.json()).then(d => { setCities(d); setLoading(false); });
   }, []);
 
-  const results1 = useMemo(() => q1.length >= 2 ? cities.filter(c => c.c.toLowerCase().includes(q1.toLowerCase())).slice(0, 8) : [], [q1, cities]);
-  const results2 = useMemo(() => q2.length >= 2 ? cities.filter(c => c.c.toLowerCase().includes(q2.toLowerCase())).slice(0, 8) : [], [q2, cities]);
+  const results1 = useMemo(() => q1.length >= 2 ? cities.filter(c => c.c.toLowerCase().includes(q1.toLowerCase()) || c.st.toLowerCase().includes(q1.toLowerCase())).slice(0, 8) : [], [q1, cities]);
+  const results2 = useMemo(() => q2.length >= 2 ? cities.filter(c => c.c.toLowerCase().includes(q2.toLowerCase()) || c.st.toLowerCase().includes(q2.toLowerCase())).slice(0, 8) : [], [q2, cities]);
 
   const chartData = city1 && city2 ? [
     { name: 'Violent Rate', [city1.c]: city1.vr, [city2.c]: city2.vr },
@@ -37,7 +37,7 @@ export default function CompareClient() {
         className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-[#1e3a5f] focus:outline-none"
       />
       {!selected && results.length > 0 && (
-        <div className="bg-white border rounded-lg shadow-lg mt-1 max-h-48 overflow-y-auto">
+        <div className="bg-white border rounded-lg shadow-lg mt-1 max-h-48 overflow-y-auto z-10 relative">
           {results.map(c => (
             <button key={c.s} onClick={() => { setSelected(c); setQ(''); }}
               className="w-full text-left px-4 py-2 hover:bg-gray-50 text-sm border-b last:border-0">
@@ -62,7 +62,6 @@ export default function CompareClient() {
 
       {city1 && city2 && (
         <div>
-          {/* Stats comparison */}
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             {[
               { label: 'Violent Crime Rate', v1: city1.vr, v2: city2.vr, fmt: (n: number) => n.toFixed(1), better: 'lower' as const },
@@ -74,13 +73,9 @@ export default function CompareClient() {
                 <div key={metric.label} className="bg-white rounded-xl shadow-sm border p-4">
                   <div className="text-sm text-gray-500 mb-2">{metric.label}</div>
                   <div className="flex justify-between items-center">
-                    <div className={`text-xl font-bold ${winner === 1 ? 'text-green-600' : 'text-red-600'}`}>
-                      {metric.fmt(metric.v1)}
-                    </div>
+                    <div className={`text-xl font-bold ${winner === 1 ? 'text-green-600' : 'text-red-600'}`}>{metric.fmt(metric.v1)}</div>
                     <div className="text-gray-400 text-sm">vs</div>
-                    <div className={`text-xl font-bold ${winner === 2 ? 'text-green-600' : 'text-red-600'}`}>
-                      {metric.fmt(metric.v2)}
-                    </div>
+                    <div className={`text-xl font-bold ${winner === 2 ? 'text-green-600' : 'text-red-600'}`}>{metric.fmt(metric.v2)}</div>
                   </div>
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
                     <span>{city1.c}</span>
@@ -91,7 +86,6 @@ export default function CompareClient() {
             })}
           </div>
 
-          {/* Population comparison */}
           <div className="bg-white rounded-xl shadow-sm border p-4 mb-8">
             <div className="flex justify-between items-center">
               <div><span className="font-semibold">{city1.c}</span>: {city1.p.toLocaleString()} residents</div>
@@ -99,7 +93,6 @@ export default function CompareClient() {
             </div>
           </div>
 
-          {/* Chart */}
           <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
             <h2 className="font-heading text-xl font-bold mb-4">Side-by-Side Comparison</h2>
             <ResponsiveContainer width="100%" height={350}>
@@ -115,7 +108,6 @@ export default function CompareClient() {
             </ResponsiveContainer>
           </div>
 
-          {/* Verdict */}
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
             <h3 className="font-heading text-lg font-bold mb-2">Safety Comparison</h3>
             {city1.vr < city2.vr ? (
@@ -129,7 +121,6 @@ export default function CompareClient() {
         </div>
       )}
 
-      {/* Popular comparisons */}
       {!city1 && !city2 && (
         <div className="mt-8">
           <h2 className="font-heading text-xl font-bold mb-4">Popular Comparisons</h2>

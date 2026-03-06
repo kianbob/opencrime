@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function SafestCitiesPage() {
   const allCities = loadData<CityIndex[]>('city-index.json');
-  const large = allCities.filter(c => c.population >= 100000);
+  const large = allCities.filter(c => c.population >= 100000 && c.propertyRate > 0);
   const safest = [...large].sort((a, b) => a.violentRate - b.violentRate);
   const mid = allCities.filter(c => c.population >= 25000 && c.population < 100000);
   const safestMid = [...mid].sort((a, b) => a.violentRate - b.violentRate);

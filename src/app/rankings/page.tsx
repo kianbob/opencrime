@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function RankingsPage() {
   const allCities = loadData<CityIndex[]>('city-index.json');
   const vcRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'Violent crime');
-  const large = allCities.filter(c => c.population >= 100000);
+  const large = allCities.filter(c => c.population >= 100000 && c.propertyRate > 0);
   const dangerous = [...large].sort((a, b) => b.violentRate - a.violentRate);
   const safest = [...large].sort((a, b) => a.violentRate - b.violentRate);
   const deadliest = [...large].sort((a, b) => b.murderRate - a.murderRate);

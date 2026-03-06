@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function DangerousCitiesPage() {
   const allCities = loadData<CityIndex[]>('city-index.json');
-  const large = allCities.filter(c => c.population >= 100000);
+  const large = allCities.filter(c => c.population >= 100000 && c.propertyRate > 0);
   const dangerous = [...large].sort((a, b) => b.violentRate - a.violentRate);
   const deadliest = [...large].sort((a, b) => b.murderRate - a.murderRate);
   const natRate = 359.1;
