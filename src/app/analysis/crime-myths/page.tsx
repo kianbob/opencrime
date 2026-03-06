@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -242,6 +243,8 @@ export default function CrimeMythsPage() {
           { '@type': 'Question', name: 'Does the death penalty deter murder?', acceptedAnswer: { '@type': 'Answer', text: 'No measurable deterrent effect has been found. The National Research Council concluded in 2012 that studies claiming a deterrent effect are "fundamentally flawed." States without the death penalty consistently have lower murder rates.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="crime-myths" />
     </div>
   );
 }

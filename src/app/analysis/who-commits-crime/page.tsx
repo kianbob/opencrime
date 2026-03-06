@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Who Commits Crime in America — Demographics Deep Dive',
   description: 'Complete demographic profile of US crime offenders and victims. Males are 72.5% of arrests, young adults 18-24 peak crime years, racial patterns, and the young male phenomenon in crime.',
+  openGraph: { title: 'Who Commits Crime in America — Demographics Deep Dive', description: 'Males are 72.5% of arrests, 18-24 peak crime years. Complete FBI demographic profile of US offenders.', url: 'https://www.opencrime.us/analysis/who-commits-crime' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/who-commits-crime' },
 };
 

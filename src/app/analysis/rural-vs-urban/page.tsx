@@ -10,6 +10,7 @@ import AIOverview from '@/components/AIOverview';
 export const metadata: Metadata = {
   title: 'Rural vs Urban Crime: Shattering the Myths',
   description: 'Crime isn\'t just a big-city problem. Data analysis shows small cities often have higher per-capita violent crime than major metros. FBI data for 9,700+ cities.',
+  openGraph: { title: 'Rural vs Urban Crime: Shattering the Myths', description: 'Small cities often have higher per-capita violence than major metros. FBI data across 9,700+ cities.', url: 'https://www.opencrime.us/analysis/rural-vs-urban' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/rural-vs-urban' },
 };
 

@@ -10,6 +10,7 @@ import GunCharts from './GunCharts';
 export const metadata: Metadata = {
   title: 'Gun Violence by the Numbers: What FBI Data Actually Shows',
   description: 'Firearms are used in 77% of US murders. Comprehensive analysis of FBI expanded homicide data: weapon types, trends, victim/offender demographics by race, and policy implications.',
+  openGraph: { title: 'Gun Violence by the Numbers', description: 'Firearms in 77% of US murders. FBI data on weapon types, victim demographics, and geographic patterns.', url: 'https://www.opencrime.us/analysis/gun-violence' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/gun-violence' },
 };
 

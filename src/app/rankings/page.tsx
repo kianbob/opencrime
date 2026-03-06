@@ -3,6 +3,8 @@ import type { CityIndex } from '@/lib/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LastUpdated from '@/components/LastUpdated';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import ShareButtons from '@/components/ShareButtons';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
@@ -53,7 +55,11 @@ export default function RankingsPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Most Dangerous & Safest Cities in America — 2024 Rankings","description":"Complete rankings of the most dangerous and safest cities in America by violent crime rate. Based on FBI 2024 data for 9,700+ cities.","url":"https://www.opencrime.us/rankings","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
-      <h1 className="font-heading text-3xl font-bold mb-2">City Crime Rankings</h1>
+      <Breadcrumbs items={[{label:'Rankings'}]} />
+      <div className="flex flex-wrap items-start justify-between gap-4 mb-2">
+        <h1 className="font-heading text-3xl font-bold">City Crime Rankings</h1>
+        <ShareButtons title="Most Dangerous & Safest Cities in America — 2024 Rankings" />
+      </div>
       <p className="text-gray-600 mb-8">
         {large.length} US cities with 100,000+ population, ranked by crime rate per 100,000 residents
       </p>

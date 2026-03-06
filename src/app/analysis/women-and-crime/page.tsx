@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -334,6 +335,8 @@ export default function WomenAndCrimePage() {
           { '@type': 'Question', name: 'What percentage of incarcerated women have abuse histories?', acceptedAnswer: { '@type': 'Answer', text: 'Research consistently finds that 60-80% of incarcerated women report histories of physical or sexual abuse, suggesting that for many women, criminal behavior is a downstream consequence of victimization.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="women-and-crime" />
     </div>
   );
 }

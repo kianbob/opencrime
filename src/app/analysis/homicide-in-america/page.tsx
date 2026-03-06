@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -372,6 +373,8 @@ export default function HomicideInAmericaPage() {
           { '@type': 'Question', name: 'Why are Black Americans disproportionately affected by homicide?', acceptedAnswer: { '@type': 'Answer', text: 'Black Americans are 51.6% of homicide victims despite being ~13.7% of the population. This disparity is driven by concentrated poverty, residential segregation, historical disinvestment, and unequal access to economic opportunity — not race itself.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="homicide-in-america" />
     </div>
   );
 }

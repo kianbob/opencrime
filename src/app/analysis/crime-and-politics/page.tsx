@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { loadData, fmtRate, fmtNum } from '@/lib/utils';
@@ -242,6 +243,8 @@ export default function CrimeAndPoliticsPage() {
           { '@type': 'Question', name: 'What predicts crime rates better than politics?', acceptedAnswer: { '@type': 'Answer', text: 'Poverty rates, urbanization levels, income inequality, and the presence of large cities are all stronger predictors of crime than whether a state votes red or blue.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="crime-and-politics" />
     </div>
   );
 }

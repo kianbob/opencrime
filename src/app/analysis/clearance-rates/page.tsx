@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -366,6 +367,8 @@ export default function ClearanceRatesPage() {
           { '@type': 'Question', name: 'Which cities have the worst murder clearance rates?', acceptedAnswer: { '@type': 'Answer', text: 'Cities like New Orleans (~30%), Detroit (~35%), and Baltimore (~38%) have among the lowest murder clearance rates. High-violence cities tend to have lower clearance rates due to high caseloads, witness intimidation, and community distrust.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="clearance-rates" />
     </div>
   );
 }

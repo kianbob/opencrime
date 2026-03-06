@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -291,6 +292,8 @@ export default function CybercrimeTrendsPage() {
           { '@type': 'Question', name: 'Who is most vulnerable to cybercrime?', acceptedAnswer: { '@type': 'Answer', text: 'Americans over 60 lost $3.4 billion to cybercrime in 2023 — the highest dollar amount of any age group. They are particularly targeted by tech support scams and romance fraud.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="cybercrime-trends" />
     </div>
   );
 }

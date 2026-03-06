@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Crime and Poverty — What the Data Actually Shows',
   description: 'Deep analysis of the relationship between economic conditions and crime rates. State-by-state data, international comparisons, and why poverty concentration drives crime patterns.',
+  openGraph: { title: 'Crime and Poverty — What the Data Actually Shows', description: 'State murder rates vary 25x. How economic conditions and concentrated poverty drive crime patterns.', url: 'https://www.opencrime.us/analysis/crime-and-poverty' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/crime-and-poverty' },
 };
 

@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'The Drug-Crime Connection: From Crack to Fentanyl',
   description: 'How drug epidemics have shaped American crime waves. From the 1980s crack crisis to today\'s fentanyl surge — the data on drugs, violence, and arrests.',
+  openGraph: { title: 'The Drug-Crime Connection: From Crack to Fentanyl', description: 'How drug epidemics shaped American crime from the 1980s crack crisis to today\'s fentanyl surge.', url: 'https://www.opencrime.us/analysis/drug-crime' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/drug-crime' },
 };
 

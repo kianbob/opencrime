@@ -12,6 +12,7 @@ type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHi
 export const metadata: Metadata = {
   title: 'Police Funding and Crime Rates: What the Data Shows',
   description: 'Do cities that spend more on policing have less crime? Analysis of police funding vs crime rates across major US cities, with nuanced data-driven conclusions.',
+  openGraph: { title: 'Police Funding and Crime Rates: What the Data Shows', description: 'Do more police spending mean less crime? Data from major US cities reveals a complex picture.', url: 'https://www.opencrime.us/analysis/police-funding' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/police-funding' },
 };
 

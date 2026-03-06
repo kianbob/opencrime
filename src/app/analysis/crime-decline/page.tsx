@@ -11,6 +11,7 @@ import DeclineCharts from './DeclineCharts';
 export const metadata: Metadata = {
   title: 'The Great Crime Decline: Why America Is Safer Than You Think',
   description: 'Violent crime has fallen 52.6% since 1991. An in-depth analysis of 45 years of FBI crime data showing how and why America became dramatically safer.',
+  openGraph: { title: 'The Great Crime Decline', description: 'Violent crime fell 52.6% since 1991. 45 years of FBI data show how America became dramatically safer.', url: 'https://www.opencrime.us/analysis/crime-decline' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/crime-decline' },
 };
 

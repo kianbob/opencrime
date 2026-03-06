@@ -27,6 +27,14 @@ const ALL_ARTICLES = [
   { slug: 'incarceration-nation', title: 'Incarceration Nation: America\'s Prison Problem', tag: 'policy' },
   { slug: 'crime-and-politics', title: 'Do Red States or Blue States Have More Crime?', tag: 'politics' },
   { slug: 'safest-places-to-live', title: 'The Safest Places to Live in America', tag: 'geography' },
+  { slug: 'homicide-in-america', title: 'Homicide in America — Who Kills Whom and Why', tag: 'violence' },
+  { slug: 'cybercrime-trends', title: 'Cybercrime Trends — The $12.5 Billion Crime Wave', tag: 'trends' },
+  { slug: 'recidivism-crisis', title: 'The Recidivism Crisis — 83% Rearrested Within 9 Years', tag: 'policy' },
+  { slug: 'women-and-crime', title: 'Women and Crime — The Gender Gap in Crime Data', tag: 'demographics' },
+  { slug: 'clearance-rates', title: 'Crime Clearance Rates — How Many Crimes Get Solved?', tag: 'policy' },
+  { slug: 'cost-of-crime', title: 'The Cost of Crime: What Does Crime Cost America?', tag: 'economics' },
+  { slug: 'crime-and-guns', title: 'Crime and Guns: What Does the Data Actually Say?', tag: 'violence' },
+  { slug: 'crime-myths', title: '10 Things Everyone Gets Wrong About Crime', tag: 'trends' },
 ];
 
 export default function RelatedAnalysis({ currentSlug, tags }: { currentSlug: string; tags?: string[] }) {

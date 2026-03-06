@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'America\'s Murder Map — Where Homicides Actually Happen',
   description: 'Geographic analysis of murder in America. Top 10 cities account for 21% of all homicides, state murder rates vary 25x, weapon patterns, and victim-offender relationships.',
+  openGraph: { title: 'America\'s Murder Map — Where Homicides Actually Happen', description: 'Top 10 cities account for 21% of all murders. Geographic concentration and patterns in US homicide.', url: 'https://www.opencrime.us/analysis/murder-map' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/murder-map' },
 };
 

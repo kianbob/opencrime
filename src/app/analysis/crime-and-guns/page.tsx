@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -430,6 +431,8 @@ export default function CrimeAndGunsPage() {
           { '@type': 'Question', name: 'Are assault weapons the main gun violence problem?', acceptedAnswer: { '@type': 'Answer', text: 'No. Rifles (including AR-15s) account for about 401 homicides per year, or ~1.5% of all murders. Handguns kill approximately 6,246 people per year — about 15x more. The everyday toll of gun violence is overwhelmingly a handgun problem.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="crime-and-guns" />
     </div>
   );
 }

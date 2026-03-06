@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Crime by Race — The Complete FBI Data Breakdown',
   description: 'Comprehensive analysis of FBI arrest and victim data by race. Black Americans are 13.7% of population but 30.5% of arrests and 51.6% of murder victims. Full data breakdown with context.',
+  openGraph: { title: 'Crime by Race — The Complete FBI Data Breakdown', description: 'Full FBI data on crime by race: arrests, victims, offenders — with essential social context.', url: 'https://www.opencrime.us/analysis/crime-by-race' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/crime-by-race' },
 };
 

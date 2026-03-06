@@ -12,6 +12,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'The Property Crime Paradox: Theft Rising While Violence Falls',
   description: 'Motor vehicle theft up 25% since 2019 while murder drops 15.7%. Analysis of diverging crime trends: why property crime is surging as violent crime falls.',
+  openGraph: { title: 'The Property Crime Paradox', description: 'Motor vehicle theft up 25% while murder drops 15.7%. Inside the diverging trends reshaping American crime.', url: 'https://www.opencrime.us/analysis/property-crime-surge' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/property-crime-surge' },
 };
 

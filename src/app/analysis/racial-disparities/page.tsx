@@ -9,6 +9,7 @@ import AIOverview from '@/components/AIOverview';
 export const metadata: Metadata = {
   title: 'Crime Victimization: Who Bears the Burden? — Race, Age & Gender Data',
   description: 'Homicide is the leading cause of death for Black males 15-34. FBI data reveals the stark geographic and demographic concentration of violent crime in America.',
+  openGraph: { title: 'Crime Victimization: Who Bears the Burden?', description: 'Homicide is the leading cause of death for Black males 15-34. The unequal geography of violence.', url: 'https://www.opencrime.us/analysis/racial-disparities' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/racial-disparities' },
 };
 

@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { loadData, fmtRate, fmtNum } from '@/lib/utils';
@@ -315,6 +316,8 @@ export default function SafestPlacesToLivePage() {
           { '@type': 'Question', name: 'Are small towns safer than cities?', acceptedAnswer: { '@type': 'Answer', text: 'Many small towns are extremely safe, but not all. Rural crime has been rising in recent years. The safest places tend to be suburban communities and college towns rather than remote rural areas.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="safest-places-to-live" />
     </div>
   );
 }

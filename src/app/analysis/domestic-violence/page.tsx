@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'Domestic Violence in America: The Hidden Epidemic',
   description: 'Over 40% of female murder victims are killed by intimate partners. FBI expanded homicide data reveals the scale of domestic violence in America.',
+  openGraph: { title: 'Domestic Violence in America: The Hidden Epidemic', description: 'Over 40% of female murder victims killed by intimate partners. FBI data on the scale of domestic violence.', url: 'https://www.opencrime.us/analysis/domestic-violence' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/domestic-violence' },
 };
 

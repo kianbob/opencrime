@@ -1,3 +1,4 @@
+import RelatedAnalysis from '@/components/RelatedAnalysis';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
@@ -328,6 +329,8 @@ export default function RecidivismCrisisPage() {
           { '@type': 'Question', name: 'What reduces recidivism?', acceptedAnswer: { '@type': 'Answer', text: 'Evidence-based approaches include cognitive behavioral therapy (20-30% reduction), education programs (43% less likely to recidivate per RAND), substance abuse treatment (15-25% reduction), and transitional employment. Texas reduced recidivism by ~20% through comprehensive reform.' }},
         ],
       })}} />
+
+      <RelatedAnalysis currentSlug="recidivism-crisis" />
     </div>
   );
 }

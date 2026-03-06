@@ -9,6 +9,7 @@ import ShareButtons from '@/components/ShareButtons';
 export const metadata: Metadata = {
   title: 'The Opioid-Crime Connection — How Drug Policy Shapes Crime Data',
   description: 'How the opioid epidemic drives property crime, drug arrest disparities despite similar usage rates, and how drug policy creates mass incarceration patterns. War on drugs impact analysis.',
+  openGraph: { title: 'The Opioid-Crime Connection', description: '822K drug arrests annually despite similar usage rates. How opioids drive property crime and mass incarceration.', url: 'https://www.opencrime.us/analysis/opioid-crime-connection' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/opioid-crime-connection' },
 };
 
