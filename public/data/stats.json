@@ -44,10 +44,10 @@
     "homicideRate": 9.8
   },
   "trends": {
-    "violentCrimeChangeyr": -5.4,
-    "violentCrimeChangeyr": -7.2,
     "violentCrimeChangeSincePeak": -52.6,
-    "homicideChangeyr": -15.7
+    "violentCrimeChange1yr": -7.2,
+    "homicideChange1yr": -15.7,
+    "violentCrimeChange3yr": -7.2
   },
   "topCitiesByViolentRate": [
     {

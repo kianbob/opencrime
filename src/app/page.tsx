@@ -27,16 +27,6 @@ type Stats = {
   safestStates: { abbr: string; name: string; violentRate: number }[];
 };
 
-function trendColor(val: number, invertGood = true) {
-  if (invertGood) return val < 0 ? 'text-green-400' : 'text-red-400';
-  return val > 0 ? 'text-green-400' : 'text-red-400';
-}
-
-function trendColorMuted(val: number, invertGood = true) {
-  if (invertGood) return val < 0 ? 'text-green-600' : 'text-red-600';
-  return val > 0 ? 'text-green-600' : 'text-red-600';
-}
-
 export default function HomePage() {
   const arrestRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'TOTAL');
   const stats = loadData<Stats>('stats.json');
@@ -54,76 +44,73 @@ export default function HomePage() {
     { name: 'Burglary', value: y2024.burglary, isViolent: false },
   ];
 
+  const yoyChange = stats.trends.violentCrimeChange1yr;
+  const yoyColor = yoyChange < 0 ? 'text-green-400' : 'text-red-400';
+  const yoyColorMuted = yoyChange < 0 ? 'text-green-600' : 'text-red-600';
+  const homicideChange = stats.trends.homicideChange1yr;
+  const homicideColor = homicideChange < 0 ? 'text-green-600' : 'text-red-600';
+  const peakColor = stats.trends.violentCrimeChangeSincePeak < 0 ? 'text-green-400' : 'text-red-400';
+
   return (
     <div>
       {/* Hero */}
-      <section className="bg-[#1e3a5f] text-white py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-            US Crime Data Explorer
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-200 mb-8 max-w-3xl mx-auto">
-            FBI crime statistics for {fmtNum(stats.totalCities)} cities and all 50 states.
-            45 years of data. Free and open.
-          </p>
+      <section className="bg-[#1e3a5f] text-white py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+              US Crime Data Explorer
+            </h1>
+            <p className="text-lg md:text-xl text-blue-200 max-w-2xl mx-auto">
+              FBI crime statistics for {fmtNum(stats.totalCities)} cities and all 50 states. Free and open.
+            </p>
+          </div>
 
-          {/* Quick Search */}
-          <form action="/search" method="get" className="max-w-xl mx-auto mb-10">
-            <div className="flex gap-2">
+          {/* Search */}
+          <form action="/search" method="get" className="max-w-lg mx-auto mb-10">
+            <div className="relative">
               <input
                 type="text"
                 name="q"
                 placeholder="Search any city or state..."
-                className="flex-1 px-4 py-3 rounded-lg text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="w-full px-5 py-3.5 pr-24 rounded-xl text-gray-900 text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-lg"
               />
-              <button type="submit" className="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-lg font-semibold transition">
+              <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#1e3a5f] hover:bg-[#2a4d7a] text-white px-5 py-2 rounded-lg font-medium text-sm transition">
                 Search
               </button>
             </div>
           </form>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-10">
-            <div className="bg-white/10 rounded-lg p-4">
-              <div className="text-3xl font-bold">{fmtNum(n.violentCrime)}</div>
-              <div className="text-blue-200 text-sm">Violent Crimes (2024)</div>
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-10">
+            <div className="text-center py-4">
+              <div className="text-2xl md:text-3xl font-bold">{fmtNum(n.violentCrime)}</div>
+              <div className="text-blue-300 text-sm mt-1">Violent Crimes (2024)</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4">
-              <div className="text-3xl font-bold">{fmtRate(n.violentRate)}</div>
-              <div className="text-blue-200 text-sm">per 100K People</div>
+            <div className="text-center py-4">
+              <div className="text-2xl md:text-3xl font-bold">{fmtRate(n.violentRate)}</div>
+              <div className="text-blue-300 text-sm mt-1">per 100K People</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4">
-              <div className={`text-3xl font-bold ${trendColor(stats.trends.violentCrimeChange1yr)}`}>{fmtPct(stats.trends.violentCrimeChange1yr)}</div>
-              <div className="text-blue-200 text-sm">vs 2023</div>
+            <div className="text-center py-4">
+              <div className={`text-2xl md:text-3xl font-bold ${yoyColor}`}>{fmtPct(yoyChange)}</div>
+              <div className="text-blue-300 text-sm mt-1">vs 2023</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4">
-              <div className={`text-3xl font-bold ${trendColor(stats.trends.violentCrimeChangeSincePeak)}`}>{fmtPct(stats.trends.violentCrimeChangeSincePeak)}</div>
-              <div className="text-blue-200 text-sm">Since 1991 Peak</div>
+            <div className="text-center py-4">
+              <div className={`text-2xl md:text-3xl font-bold ${peakColor}`}>{fmtPct(stats.trends.violentCrimeChangeSincePeak)}</div>
+              <div className="text-blue-300 text-sm mt-1">Since 1991 Peak</div>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/dashboard" className="bg-white text-[#1e3a5f] px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+
+          {/* CTAs */}
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/dashboard" className="bg-white text-[#1e3a5f] px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition shadow-md">
               Explore Dashboard
             </Link>
-            <Link href="/states" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+            <Link href="/states" className="bg-white/15 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/25 transition">
               Browse States
             </Link>
-            <Link href="/rankings" className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+            <Link href="/rankings" className="bg-white/15 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/25 transition">
               City Rankings
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* What's New */}
-      <section className="bg-blue-50 border-b border-blue-100 py-4">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-            <span className="font-bold text-[#1e3a5f] uppercase tracking-wider text-xs">What&apos;s New</span>
-            <Link href="/officer-safety" className="text-[#1e3a5f] hover:underline">Officer Safety Dashboard →</Link>
-            <Link href="/numbers" className="text-[#1e3a5f] hover:underline">Crime by the Numbers →</Link>
-            <Link href="/tools/time-machine" className="text-[#1e3a5f] hover:underline">Crime Time Machine →</Link>
-            <Link href="/analysis/safest-places-to-live" className="text-[#1e3a5f] hover:underline">Safest Places to Live Guide →</Link>
-            <Link href="/analysis/hate-crimes-america" className="text-[#1e3a5f] hover:underline">Hate Crimes 2024 Deep Dive →</Link>
           </div>
         </div>
       </section>
@@ -138,13 +125,13 @@ export default function HomePage() {
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Violent Crime</h3>
             <div className="text-3xl font-bold text-red-600 mb-1">{fmtNum(n.violentCrime)}</div>
             <div className="text-gray-500">Rate: {fmtRate(n.violentRate)} per 100K</div>
-            <div className={`text-sm mt-2 ${trendColorMuted(stats.trends.violentCrimeChange1yr)}`}>{fmtPct(stats.trends.violentCrimeChange1yr)} from 2023</div>
+            <div className={`text-sm mt-2 ${yoyColorMuted}`}>{fmtPct(yoyChange)} from 2023</div>
           </div>
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Homicides</h3>
             <div className="text-3xl font-bold text-red-700 mb-1">{fmtNum(n.homicide)}</div>
             <div className="text-gray-500">Rate: {fmtRate(n.homicideRate)} per 100K</div>
-            <div className={`text-sm mt-2 ${trendColorMuted(stats.trends.homicideChange1yr)}`}>{fmtPct(stats.trends.homicideChange1yr)} from 2023</div>
+            <div className={`text-sm mt-2 ${homicideColor}`}>{fmtPct(homicideChange)} from 2023</div>
           </div>
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Property Crime</h3>
@@ -279,22 +266,21 @@ export default function HomePage() {
       {/* Featured Analysis */}
       <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="font-heading text-3xl font-bold text-center mb-2">Featured Analysis</h2>
-        <p className="text-center text-gray-500 mb-8 text-sm">Deep-dive articles backed by FBI statistics</p>
+        <p className="text-center text-gray-500 mb-8">In-depth articles backed by FBI statistics</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { href: '/analysis/crime-decline', title: 'The Great Crime Decline', desc: 'Why America is safer than you think — 45 years of data', tag: 'DEEP DIVE', reading: '12 min' },
-            { href: '/analysis/gun-violence', title: 'Gun Violence by the Numbers', desc: 'Firearms in 77% of murders — what FBI data actually shows', tag: 'ANALYSIS', reading: '9 min' },
+            { href: '/analysis/gun-violence', title: 'Gun Violence by the Numbers', desc: 'Firearms in 77% of murders — what FBI data shows', tag: 'ANALYSIS', reading: '9 min' },
             { href: '/analysis/rural-vs-urban', title: 'Rural vs Urban Crime', desc: 'Small cities can be more dangerous than big metros', tag: 'DEEP DIVE', reading: '8 min' },
-            { href: '/analysis/homicide-in-america', title: 'Homicide in America', desc: 'Who kills whom and why — deep analysis with FBI SHR data', tag: 'DEEP DIVE', reading: '11 min' },
+            { href: '/analysis/homicide-in-america', title: 'Homicide in America', desc: 'Who kills whom and why — FBI SHR data deep dive', tag: 'DEEP DIVE', reading: '11 min' },
           ].map(a => (
             <Link key={a.href} href={a.href} className="bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition group flex flex-col">
               <div className="flex items-center justify-between mb-3">
-                <span className={`text-xs font-bold px-2 py-1 rounded ${a.tag === 'DEEP DIVE' ? 'bg-[#1e3a5f] text-white' : 'bg-red-100 text-red-700'}`}>{a.tag}</span>
-                <span className="text-xs text-gray-400">{a.reading} read</span>
+                <span className={`text-xs font-bold px-2 py-0.5 rounded ${a.tag === 'DEEP DIVE' ? 'bg-[#1e3a5f] text-white' : 'bg-red-100 text-red-700'}`}>{a.tag}</span>
+                <span className="text-xs text-gray-400">{a.reading}</span>
               </div>
               <h3 className="font-heading text-base font-bold group-hover:text-[#1e3a5f] transition leading-snug mb-2">{a.title}</h3>
               <p className="text-sm text-gray-500 flex-1">{a.desc}</p>
-              <div className="mt-3 text-xs text-[#1e3a5f] font-medium group-hover:underline">Read →</div>
             </Link>
           ))}
         </div>
@@ -307,17 +293,21 @@ export default function HomePage() {
       <section className="bg-blue-50 py-12">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="font-heading text-3xl font-bold text-center mb-8">Interactive Tools</h2>
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { href: '/tools/compare', icon: '⚖️', title: 'Compare Cities', desc: 'Side-by-side crime comparison' },
               { href: '/tools/state-compare', icon: '🗺️', title: 'Compare States', desc: '40+ year trend comparison' },
               { href: '/tools/risk-calculator', icon: '🎲', title: 'Risk Calculator', desc: 'Your odds of being a victim' },
               { href: '/tools/safety-score', icon: '🛡️', title: 'Safety Score', desc: 'A-F grade for any city' },
+              { href: '/crime-clock', icon: '⏱️', title: 'Crime Clock', desc: 'Real-time crime counter' },
+              { href: '/tools/time-machine', icon: '🕰️', title: 'Time Machine', desc: 'Crime when you were born' },
+              { href: '/crime-dna', icon: '🧬', title: 'Crime DNA', desc: 'City crime fingerprints' },
+              { href: '/tools/city-report', icon: '📋', title: 'City Report', desc: 'Full safety report card' },
             ].map(t => (
               <Link key={t.href} href={t.href} className="bg-white rounded-xl p-4 text-center hover:shadow-md transition group">
-                <div className="text-3xl mb-2">{t.icon}</div>
-                <div className="font-semibold group-hover:text-[#1e3a5f]">{t.title}</div>
-                <div className="text-xs text-gray-500">{t.desc}</div>
+                <div className="text-2xl mb-2">{t.icon}</div>
+                <div className="font-semibold text-sm group-hover:text-[#1e3a5f]">{t.title}</div>
+                <div className="text-xs text-gray-500 mt-1">{t.desc}</div>
               </Link>
             ))}
           </div>
@@ -328,22 +318,26 @@ export default function HomePage() {
       </section>
 
       {/* Unique Insights */}
-      <section className="bg-gray-50 py-12">
+      <section className="py-12">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="font-heading text-3xl font-bold text-center mb-8">Unique Data Insights</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
-              { href: '/crime-clock', icon: '⏱️', title: 'Crime Clock', desc: 'Watch crimes accumulate in real-time. One violent crime every 26 seconds.' },
-              { href: '/crime-dna', icon: '🧬', title: 'Crime DNA', desc: 'Every city has a unique crime fingerprint. See visual composition breakdowns.' },
-              { href: '/violence-concentration', icon: '📍', title: 'Violence Concentration', desc: 'Just 10 cities produce 21% of all murders. See where violence really happens.' },
-              { href: '/population-crime-paradox', icon: '🔄', title: 'Crime Paradox', desc: 'Small towns with big crime and big cities that are surprisingly safe.' },
-              { href: '/city-trajectories', icon: '📈', title: 'City Trajectories', desc: 'Is your city improving, worsening, or volatile? We classified all 9,700+.' },
-              { href: '/most-improved', icon: '🏆', title: 'Most Improved', desc: 'Cities making the biggest strides in reducing crime.' },
+              { href: '/violence-concentration', icon: '📍', title: 'Violence Concentration', desc: 'Just 10 cities produce 21% of all murders.' },
+              { href: '/population-crime-paradox', icon: '🔄', title: 'Crime Paradox', desc: 'Small towns with big crime and big cities that are safe.' },
+              { href: '/city-trajectories', icon: '📈', title: 'City Trajectories', desc: 'Is your city improving, worsening, or volatile?' },
+              { href: '/hidden-crime', icon: '👁️', title: 'Hidden Crime', desc: 'Millions of crimes go unreported every year.' },
+              { href: '/crime-velocity', icon: '🚀', title: 'Crime Velocity', desc: 'Which cities are changing fastest?' },
+              { href: '/most-improved', icon: '🏆', title: 'Most Improved', desc: 'Cities making the biggest strides.' },
             ].map(t => (
-              <Link key={t.href} href={t.href} className="bg-white rounded-xl p-6 hover:shadow-lg transition group border border-gray-200">
-                <div className="text-3xl mb-3">{t.icon}</div>
-                <div className="font-bold text-lg group-hover:text-[#1e3a5f] mb-1">{t.title}</div>
-                <div className="text-sm text-gray-600">{t.desc}</div>
+              <Link key={t.href} href={t.href} className="bg-white rounded-xl p-5 hover:shadow-md transition group border border-gray-200">
+                <div className="flex items-start gap-3">
+                  <div className="text-2xl">{t.icon}</div>
+                  <div>
+                    <div className="font-bold group-hover:text-[#1e3a5f] mb-1">{t.title}</div>
+                    <div className="text-sm text-gray-600">{t.desc}</div>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -351,9 +345,9 @@ export default function HomePage() {
       </section>
 
       {/* Crime Types */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="font-heading text-3xl font-bold text-center mb-8">Browse by Crime Type</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <h2 className="font-heading text-2xl font-bold text-center mb-6">Browse by Crime Type</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { href: '/violent-crime', label: 'Violent Crime', color: 'bg-red-600' },
             { href: '/murder-rate', label: 'Murder', color: 'bg-red-800' },
@@ -364,7 +358,7 @@ export default function HomePage() {
             { href: '/hate-crimes', label: 'Hate Crimes', color: 'bg-purple-700' },
             { href: '/arrests', label: 'Arrests', color: 'bg-gray-700' },
           ].map(c => (
-            <Link key={c.href} href={c.href} className={`${c.color} text-white rounded-xl p-4 text-center hover:opacity-90 transition font-semibold`}>
+            <Link key={c.href} href={c.href} className={`${c.color} text-white rounded-lg py-3 text-center hover:opacity-90 transition font-semibold text-sm`}>
               {c.label}
             </Link>
           ))}
@@ -373,9 +367,9 @@ export default function HomePage() {
 
       {/* Arrest Demographics Summary */}
       {arrestRace && (
-        <section className="max-w-6xl mx-auto px-4 py-12">
-          <h2 className="font-heading text-3xl font-bold text-center mb-4">Arrest Demographics by Race</h2>
-          <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+        <section className="max-w-6xl mx-auto px-4 py-10">
+          <h2 className="font-heading text-2xl font-bold text-center mb-3">Arrest Demographics by Race</h2>
+          <p className="text-center text-gray-500 mb-6 max-w-2xl mx-auto text-sm">
             National arrest data from {fmtNum(arrestRace.total)} total arrests. These figures reflect policing patterns
             and systemic factors, not just the distribution of criminal behavior.
           </p>
@@ -394,34 +388,33 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-4">
+          <div className="text-center mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1">
             <Link href="/arrest-demographics" className="text-[#1e3a5f] hover:underline font-medium text-sm">Full Arrest Demographics →</Link>
-            <span className="mx-2 text-gray-300">|</span>
             <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline font-medium text-sm">Racial Disparities Analysis →</Link>
-            <span className="mx-2 text-gray-300">|</span>
             <Link href="/analysis/crime-by-race" className="text-[#1e3a5f] hover:underline font-medium text-sm">Crime by Race →</Link>
           </div>
         </section>
       )}
 
       {/* About */}
-      <section className="max-w-4xl mx-auto px-4 py-12 text-center">
-        <h2 className="font-heading text-3xl font-bold mb-4">About OpenCrime</h2>
-        <p className="text-lg text-gray-600 mb-6">
-          OpenCrime makes FBI crime statistics accessible to everyone. We process data from the FBI&apos;s
-          Uniform Crime Reporting (UCR) program and present it in a clean, searchable format.
-          No paywalls, no logins, no ads.
-        </p>
-        <p className="text-gray-500">
-          Data source: FBI Crime Data Explorer (CDE). National estimates 1979–2024.
-          City-level data 2020–2024. Updated as new data is released.
-        </p>
-        <p className="text-sm text-gray-400 mt-4">
-          Part of <a href="https://thedataproject.ai" className="underline hover:text-gray-600">TheDataProject.ai</a> network
-        </p>
+      <section className="bg-gray-100 py-10">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="font-heading text-2xl font-bold mb-3">About OpenCrime</h2>
+          <p className="text-gray-600 mb-4">
+            OpenCrime makes FBI crime statistics accessible to everyone. We process data from the FBI&apos;s
+            Uniform Crime Reporting (UCR) program and present it in a clean, searchable format.
+            No paywalls, no logins, no ads.
+          </p>
+          <p className="text-sm text-gray-500">
+            Data: FBI Crime Data Explorer (CDE). National estimates 1979–2024. City-level data 2020–2024.
+          </p>
+          <p className="text-xs text-gray-400 mt-3">
+            Part of <a href="https://thedataproject.ai" className="underline hover:text-gray-600">TheDataProject.ai</a> network
+          </p>
+        </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 py-4">
         <LastUpdated />
       </div>
     </div>
