@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { loadData, fmtNum } from '@/lib/utils';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AIOverview from '@/components/AIOverview';
@@ -52,7 +53,15 @@ export default function CrimeMapPage() {
       <AIOverview insights={insights} />
       <ShareButtons title="Interactive US Crime Map — Crime Rates by State (2024)" />
 
-      <div className="mt-6">
+      <div className="flex flex-wrap gap-3 mt-6 mb-6">
+        <Link href="/states" className="border border-[#1e3a5f] text-[#1e3a5f] px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition">All States Data</Link>
+        <Link href="/rankings" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">City Rankings</Link>
+        <Link href="/violence-inequality" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Violence Inequality</Link>
+        <Link href="/international-comparison" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">US vs World</Link>
+        <Link href="/tools/state-compare" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Compare States</Link>
+      </div>
+
+      <div>
         <CrimeMapClient states={states.map(s => ({
           abbr: s.abbr, name: s.name, population: s.population,
           violentRate: s.violentRate, homicideRate: s.homicideRate,

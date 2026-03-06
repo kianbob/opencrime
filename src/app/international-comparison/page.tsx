@@ -469,6 +469,7 @@ export default function InternationalComparisonPage() {
         <Link href="/analysis/gun-violence" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Gun Violence Analysis</Link>
         <Link href="/analysis/incarceration-nation" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Incarceration Nation</Link>
         <Link href="/analysis/homicide-in-america" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Homicide in America</Link>
+        <Link href="/map" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">🗺️ Interactive Map</Link>
         <Link href="/crime-rate" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">US Crime Rate</Link>
       </div>
 

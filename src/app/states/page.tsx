@@ -58,7 +58,14 @@ export default function StatesPage() {
         </table>
       </div>
 
-      <p className="text-sm text-gray-500 mt-6">
+      <div className="flex flex-wrap gap-3 mt-6 mb-4">
+        <Link href="/map" className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#2a4d7a] transition">🗺️ Interactive Map</Link>
+        <Link href="/tools/state-compare" className="border border-[#1e3a5f] text-[#1e3a5f] px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition">Compare States</Link>
+        <Link href="/violence-inequality" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Violence Inequality Index</Link>
+        <Link href="/state-report-card" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">State Report Cards</Link>
+      </div>
+
+      <p className="text-sm text-gray-500">
         Source: FBI Crime Data Explorer, SRS Estimated Crimes. Rates are per 100,000 residents. 
         Year-over-year change compares violent crime rates.
       </p>

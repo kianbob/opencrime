@@ -160,8 +160,10 @@ export default function DashboardPage() {
       )}
 
       <div className="flex flex-wrap gap-4 mt-8">
+        <Link href="/map" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">🗺️ Interactive Map</Link>
         <Link href="/states" className="bg-[#1e3a5f] text-white px-5 py-2 rounded-lg hover:bg-[#2a4d7a] transition">Browse States</Link>
         <Link href="/rankings" className="bg-red-700 text-white px-5 py-2 rounded-lg hover:bg-red-800 transition">City Rankings</Link>
+        <Link href="/international-comparison" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">US vs World</Link>
         <Link href="/crimes" className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition">Crime Types</Link>
       </div>
 

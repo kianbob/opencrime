@@ -105,11 +105,14 @@ export default function HomePage() {
             <Link href="/dashboard" className="bg-white text-[#1e3a5f] px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition shadow-md">
               Explore Dashboard
             </Link>
-            <Link href="/states" className="bg-white/15 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/25 transition">
-              Browse States
+            <Link href="/map" className="bg-white/15 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/25 transition">
+              🗺️ Interactive Map
             </Link>
             <Link href="/rankings" className="bg-white/15 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/25 transition">
               City Rankings
+            </Link>
+            <Link href="/international-comparison" className="bg-white/15 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/25 transition">
+              US vs World
             </Link>
           </div>
         </div>
@@ -285,7 +288,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="text-center mt-6">
-          <Link href="/analysis" className="text-[#1e3a5f] hover:underline font-medium">All 34 Analysis Articles →</Link>
+          <Link href="/analysis" className="text-[#1e3a5f] hover:underline font-medium">All 39 Analysis Articles →</Link>
         </div>
       </section>
 
@@ -299,9 +302,9 @@ export default function HomePage() {
               { href: '/tools/state-compare', icon: '🗺️', title: 'Compare States', desc: '40+ year trend comparison' },
               { href: '/tools/risk-calculator', icon: '🎲', title: 'Risk Calculator', desc: 'Your odds of being a victim' },
               { href: '/tools/safety-score', icon: '🛡️', title: 'Safety Score', desc: 'A-F grade for any city' },
-              { href: '/crime-clock', icon: '⏱️', title: 'Crime Clock', desc: 'Real-time crime counter' },
+              { href: '/tools/crime-cost', icon: '💰', title: 'Crime Cost', desc: 'What crime costs your city' },
               { href: '/tools/time-machine', icon: '🕰️', title: 'Time Machine', desc: 'Crime when you were born' },
-              { href: '/crime-dna', icon: '🧬', title: 'Crime DNA', desc: 'City crime fingerprints' },
+              { href: '/tools/quiz', icon: '🧠', title: 'Crime Quiz', desc: 'Test your knowledge' },
               { href: '/tools/city-report', icon: '📋', title: 'City Report', desc: 'Full safety report card' },
             ].map(t => (
               <Link key={t.href} href={t.href} className="bg-white rounded-xl p-4 text-center hover:shadow-md transition group">
@@ -324,11 +327,11 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { href: '/violence-concentration', icon: '📍', title: 'Violence Concentration', desc: 'Just 10 cities produce 21% of all murders.' },
-              { href: '/population-crime-paradox', icon: '🔄', title: 'Crime Paradox', desc: 'Small towns with big crime and big cities that are safe.' },
-              { href: '/city-trajectories', icon: '📈', title: 'City Trajectories', desc: 'Is your city improving, worsening, or volatile?' },
-              { href: '/hidden-crime', icon: '👁️', title: 'Hidden Crime', desc: 'Millions of crimes go unreported every year.' },
               { href: '/crime-velocity', icon: '🚀', title: 'Crime Velocity', desc: 'Which cities are changing fastest?' },
-              { href: '/most-improved', icon: '🏆', title: 'Most Improved', desc: 'Cities making the biggest strides.' },
+              { href: '/hidden-crime', icon: '👁️', title: 'Hidden Crime', desc: 'Millions of crimes go unreported every year.' },
+              { href: '/violence-inequality', icon: '📊', title: 'Violence Inequality', desc: 'How concentrated is crime within each state?' },
+              { href: '/decades', icon: '📅', title: 'Crime by Decade', desc: 'How crime changed from the 1980s to today.' },
+              { href: '/crime-correlations', icon: '🔬', title: 'Crime vs Everything', desc: 'Does poverty, income, or gun ownership predict crime?' },
             ].map(t => (
               <Link key={t.href} href={t.href} className="bg-white rounded-xl p-5 hover:shadow-md transition group border border-gray-200">
                 <div className="flex items-start gap-3">

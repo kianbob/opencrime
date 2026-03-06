@@ -28,12 +28,13 @@ export default function Footer() {
             <li><Link href="/tools/risk-calculator" className="hover:text-white">Risk Calculator</Link></li>
             <li><Link href="/tools/time-machine" className="hover:text-white">Crime Time Machine</Link></li>
             <li><Link href="/tools/timeline" className="hover:text-white">Timeline Explorer</Link></li>
+            <li><Link href="/tools/crime-cost" className="hover:text-white">Crime Cost Calculator</Link></li>
+            <li><Link href="/tools/quiz" className="hover:text-white">Crime Quiz</Link></li>
             <li><Link href="/tools/city-report" className="hover:text-white">City Safety Report</Link></li>
+            <li><Link href="/map" className="hover:text-white">Interactive Crime Map</Link></li>
             <li><Link href="/state-report-card" className="hover:text-white">State Report Cards</Link></li>
             <li><Link href="/crime-correlations" className="hover:text-white">Crime Correlations</Link></li>
             <li><Link href="/is-it-safe" className="hover:text-white">Is It Safe?</Link></li>
-            <li><Link href="/numbers" className="hover:text-white">Crime by the Numbers</Link></li>
-            <li><Link href="/officer-safety" className="hover:text-white">Officer Safety</Link></li>
           </ul>
         </div>
         <div>

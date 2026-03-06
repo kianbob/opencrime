@@ -107,6 +107,13 @@ export default function RankingsPage() {
         </div>
       )}
 
+      <div className="flex flex-wrap gap-3 mt-6 mb-4">
+        <Link href="/map" className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#2a4d7a] transition">🗺️ Interactive Map</Link>
+        <Link href="/tools/crime-cost" className="border border-[#1e3a5f] text-[#1e3a5f] px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition">💰 Crime Cost Calculator</Link>
+        <Link href="/international-comparison" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">US vs World</Link>
+        <Link href="/crime-velocity" className="border border-gray-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Crime Velocity Index</Link>
+      </div>
+
       <p className="text-sm text-gray-500">
         Source: FBI Crime Data Explorer. Rankings based on reported offenses per 100,000 residents. 
         Only cities with 100,000+ population included. Crime rates can be affected by reporting practices, 

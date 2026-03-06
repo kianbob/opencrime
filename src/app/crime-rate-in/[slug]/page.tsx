@@ -303,6 +303,12 @@ export default async function CrimeRateInCityPage({ params }: { params: Promise<
           <Link href="/crime-rate" className="text-[#1e3a5f] hover:underline">
             → National Crime Rate Overview
           </Link>
+          <Link href="/map" className="text-[#1e3a5f] hover:underline">
+            → Interactive Crime Map
+          </Link>
+          <Link href="/tools/crime-cost" className="text-[#1e3a5f] hover:underline">
+            → Crime Cost Calculator
+          </Link>
         </div>
       </section>
 
