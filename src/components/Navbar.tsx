@@ -13,30 +13,54 @@ const NAV_LINKS = [
   { href: '/analysis', label: 'Analysis' },
 ];
 
-const TOOLS = [
-  { href: '/tools/compare', label: 'Compare Cities' },
-  { href: '/tools/state-compare', label: 'Compare States' },
-  { href: '/tools/safety-score', label: 'Safety Score' },
-  { href: '/tools/risk-calculator', label: 'Risk Calculator' },
-  { href: '/search', label: 'Search' },
-  { href: '/most-improved', label: 'Most Improved' },
-  { href: '/years', label: 'By Year' },
-  { href: '/crime-clock', label: 'Crime Clock' },
-  { href: '/city-trajectories', label: 'Trajectories' },
-  { href: '/safest-cities', label: 'Safest Cities' },
-  { href: '/most-dangerous-cities', label: 'Most Dangerous' },
-  { href: '/crime-dna', label: 'Crime DNA' },
-  { href: '/violence-concentration', label: 'Violence Map' },
-  { href: '/population-crime-paradox', label: 'Crime Paradox' },
-  { href: '/tools/timeline', label: 'Timeline Explorer' },
-  { href: '/tools/city-report', label: 'City Safety Report' },
-  { href: '/crime-velocity', label: 'Crime Velocity' },
-  { href: '/violence-inequality', label: 'Violence Inequality' },
-  { href: '/hidden-crime', label: 'Hidden Crime' },
-  { href: '/decades', label: 'Decades' },
-  { href: '/city-fingerprint', label: 'City Crime DNA+' },
-  { href: '/tools/time-machine', label: 'Crime Time Machine' },
-  { href: '/state-report-card', label: 'State Report Cards' },
+const TOOLS_CATEGORIES = [
+  {
+    label: 'Compare',
+    items: [
+      { href: '/tools/compare', label: 'Compare Cities' },
+      { href: '/tools/state-compare', label: 'Compare States' },
+    ],
+  },
+  {
+    label: 'Calculators',
+    items: [
+      { href: '/tools/safety-score', label: 'Safety Score' },
+      { href: '/tools/risk-calculator', label: 'Risk Calculator' },
+      { href: '/tools/time-machine', label: 'Crime Time Machine' },
+    ],
+  },
+  {
+    label: 'Rankings',
+    items: [
+      { href: '/most-dangerous-cities', label: 'Most Dangerous' },
+      { href: '/safest-cities', label: 'Safest Cities' },
+      { href: '/most-improved', label: 'Most Improved' },
+      { href: '/rankings', label: 'Rankings' },
+    ],
+  },
+  {
+    label: 'Explore',
+    items: [
+      { href: '/crime-clock', label: 'Crime Clock' },
+      { href: '/crime-dna', label: 'Crime DNA' },
+      { href: '/city-trajectories', label: 'City Trajectories' },
+      { href: '/city-fingerprint', label: 'City Fingerprint' },
+      { href: '/crime-velocity', label: 'Crime Velocity' },
+    ],
+  },
+  {
+    label: 'Data',
+    items: [
+      { href: '/tools/timeline', label: 'Timeline Explorer' },
+      { href: '/tools/city-report', label: 'City Safety Report' },
+      { href: '/state-report-card', label: 'State Report Cards' },
+      { href: '/violence-concentration', label: 'Violence Map' },
+      { href: '/hidden-crime', label: 'Hidden Crime' },
+      { href: '/decades', label: 'Decades' },
+      { href: '/crime-correlations', label: 'Crime Correlations' },
+      { href: '/violence-inequality', label: 'Violence Inequality' },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -63,12 +87,22 @@ export default function Navbar() {
                 Tools ▾
               </Link>
               {toolsOpen && (
-                <div className="absolute top-full left-0 bg-white text-gray-800 rounded-lg shadow-xl py-2 min-w-48 z-50">
-                  {TOOLS.map(t => (
-                    <Link key={t.href} href={t.href} className="block px-4 py-2 text-sm hover:bg-gray-50 transition">
-                      {t.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full right-0 bg-white text-gray-800 rounded-lg shadow-xl py-3 z-50" style={{ width: '480px' }}>
+                  <div className="grid grid-cols-2 gap-x-2 px-3">
+                    {TOOLS_CATEGORIES.map(cat => (
+                      <div key={cat.label} className="mb-3">
+                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider px-2 mb-1">{cat.label}</div>
+                        {cat.items.map(t => (
+                          <Link key={t.href} href={t.href} className="block px-2 py-1.5 text-sm rounded hover:bg-gray-50 transition">
+                            {t.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="border-t border-gray-100 mt-1 pt-2 px-5">
+                    <Link href="/tools" className="text-xs text-[#1e3a5f] font-medium hover:underline">View all tools →</Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -96,10 +130,15 @@ export default function Navbar() {
             ))}
             <div className="border-t border-white/20 mt-2 pt-2">
               <span className="px-3 text-xs text-blue-300 uppercase tracking-wider">Tools</span>
-              {TOOLS.map(t => (
-                <Link key={t.href} href={t.href} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-white/10">
-                  {t.label}
-                </Link>
+              {TOOLS_CATEGORIES.map(cat => (
+                <div key={cat.label} className="mt-2">
+                  <span className="px-3 text-xs text-blue-400 font-semibold">{cat.label}</span>
+                  {cat.items.map(t => (
+                    <Link key={t.href} href={t.href} onClick={() => setOpen(false)} className="block px-5 py-1.5 rounded-lg text-blue-100 hover:text-white hover:bg-white/10 text-sm">
+                      {t.label}
+                    </Link>
+                  ))}
+                </div>
               ))}
             </div>
             <Link href="/about" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-lg text-blue-200 hover:text-white hover:bg-white/10">

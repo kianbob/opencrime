@@ -320,6 +320,25 @@ export default async function CityDetailPage({ params }: { params: Promise<{ slu
         </div>
       </div>
 
+      {/* Cross-links */}
+      <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-3 text-[#1e3a5f]">More for {city.city}</h3>
+        <div className="flex flex-wrap gap-3">
+          <Link href={`/is-it-safe/${slug}`} className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#2a4d7a] transition">
+            Is {city.city} Safe? →
+          </Link>
+          <Link href="/tools/compare" className="border border-[#1e3a5f] text-[#1e3a5f] px-4 py-2 rounded-lg text-sm font-medium hover:bg-white transition">
+            Compare with Another City →
+          </Link>
+          <Link href="/tools/city-report" className="border border-[#1e3a5f] text-[#1e3a5f] px-4 py-2 rounded-lg text-sm font-medium hover:bg-white transition">
+            City Safety Report →
+          </Link>
+          <Link href={`/states/${abbr ? abbr.toLowerCase() : ''}`} className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-white transition">
+            {city.state} State Overview →
+          </Link>
+        </div>
+      </div>
+
       <ShareButtons title={`${city.city}, ${city.state} Crime Rate`} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

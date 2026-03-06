@@ -324,6 +324,22 @@ export default async function StateDetailPage({ params }: { params: Promise<{ ab
         </div>
       </div>
 
+      {/* Cross-links */}
+      <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-6">
+        <h3 className="font-heading text-lg font-bold mb-3 text-[#1e3a5f]">More for {state.name}</h3>
+        <div className="flex flex-wrap gap-3">
+          <Link href={`/state-report-card/${state.abbr.toLowerCase()}`} className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#2a4d7a] transition">
+            {state.name} Report Card →
+          </Link>
+          <Link href="/tools/state-compare" className="border border-[#1e3a5f] text-[#1e3a5f] px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition">
+            Compare with Other States →
+          </Link>
+          <Link href={`/safest-cities-in/${state.abbr.toLowerCase()}`} className="border border-green-600 text-green-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-50 transition">
+            Safest Cities in {state.name} →
+          </Link>
+        </div>
+      </div>
+
       <ShareButtons title={`${state.name} Crime Statistics`} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

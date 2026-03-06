@@ -27,6 +27,16 @@ type Stats = {
   safestStates: { abbr: string; name: string; violentRate: number }[];
 };
 
+function trendColor(val: number, invertGood = true) {
+  if (invertGood) return val < 0 ? 'text-green-400' : 'text-red-400';
+  return val > 0 ? 'text-green-400' : 'text-red-400';
+}
+
+function trendColorMuted(val: number, invertGood = true) {
+  if (invertGood) return val < 0 ? 'text-green-600' : 'text-red-600';
+  return val > 0 ? 'text-green-600' : 'text-red-600';
+}
+
 export default function HomePage() {
   const arrestRace = loadData<{ byRace: RaceRow[] }>('arrest-data.json').byRace.find(r => r.offense === 'TOTAL');
   const stats = loadData<Stats>('stats.json');
@@ -53,9 +63,25 @@ export default function HomePage() {
             US Crime Data Explorer
           </h1>
           <p className="text-xl md:text-2xl text-blue-200 mb-8 max-w-3xl mx-auto">
-            FBI crime statistics for {fmtNum(stats.totalCities)} cities and all 50 states. 
+            FBI crime statistics for {fmtNum(stats.totalCities)} cities and all 50 states.
             45 years of data. Free and open.
           </p>
+
+          {/* Quick Search */}
+          <form action="/search" method="get" className="max-w-xl mx-auto mb-10">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                name="q"
+                placeholder="Search any city or state..."
+                className="flex-1 px-4 py-3 rounded-lg text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-300"
+              />
+              <button type="submit" className="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-lg font-semibold transition">
+                Search
+              </button>
+            </div>
+          </form>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-10">
             <div className="bg-white/10 rounded-lg p-4">
               <div className="text-3xl font-bold">{fmtNum(n.violentCrime)}</div>
@@ -66,11 +92,11 @@ export default function HomePage() {
               <div className="text-blue-200 text-sm">per 100K People</div>
             </div>
             <div className="bg-white/10 rounded-lg p-4">
-              <div className="text-3xl font-bold text-green-400">{fmtPct(stats.trends.violentCrimeChange1yr)}</div>
+              <div className={`text-3xl font-bold ${trendColor(stats.trends.violentCrimeChange1yr)}`}>{fmtPct(stats.trends.violentCrimeChange1yr)}</div>
               <div className="text-blue-200 text-sm">vs 2023</div>
             </div>
             <div className="bg-white/10 rounded-lg p-4">
-              <div className="text-3xl font-bold text-green-400">{fmtPct(stats.trends.violentCrimeChangeSincePeak)}</div>
+              <div className={`text-3xl font-bold ${trendColor(stats.trends.violentCrimeChangeSincePeak)}`}>{fmtPct(stats.trends.violentCrimeChangeSincePeak)}</div>
               <div className="text-blue-200 text-sm">Since 1991 Peak</div>
             </div>
           </div>
@@ -88,6 +114,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* What's New */}
+      <section className="bg-blue-50 border-b border-blue-100 py-4">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+            <span className="font-bold text-[#1e3a5f] uppercase tracking-wider text-xs">What&apos;s New</span>
+            <Link href="/officer-safety" className="text-[#1e3a5f] hover:underline">Officer Safety Dashboard →</Link>
+            <Link href="/numbers" className="text-[#1e3a5f] hover:underline">Crime by the Numbers →</Link>
+            <Link href="/tools/time-machine" className="text-[#1e3a5f] hover:underline">Crime Time Machine →</Link>
+            <Link href="/analysis/safest-places-to-live" className="text-[#1e3a5f] hover:underline">Safest Places to Live Guide →</Link>
+            <Link href="/analysis/hate-crimes-america" className="text-[#1e3a5f] hover:underline">Hate Crimes 2024 Deep Dive →</Link>
+          </div>
+        </div>
+      </section>
+
       <HomepageCharts trendData={trendData} breakdownData={breakdownData} />
 
       {/* Key Stats */}
@@ -98,13 +138,13 @@ export default function HomePage() {
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Violent Crime</h3>
             <div className="text-3xl font-bold text-red-600 mb-1">{fmtNum(n.violentCrime)}</div>
             <div className="text-gray-500">Rate: {fmtRate(n.violentRate)} per 100K</div>
-            <div className="text-sm text-green-600 mt-2">{fmtPct(stats.trends.violentCrimeChange1yr)} from 2023</div>
+            <div className={`text-sm mt-2 ${trendColorMuted(stats.trends.violentCrimeChange1yr)}`}>{fmtPct(stats.trends.violentCrimeChange1yr)} from 2023</div>
           </div>
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Homicides</h3>
             <div className="text-3xl font-bold text-red-700 mb-1">{fmtNum(n.homicide)}</div>
             <div className="text-gray-500">Rate: {fmtRate(n.homicideRate)} per 100K</div>
-            <div className="text-sm text-green-600 mt-2">{fmtPct(stats.trends.homicideChange1yr)} from 2023</div>
+            <div className={`text-sm mt-2 ${trendColorMuted(stats.trends.homicideChange1yr)}`}>{fmtPct(stats.trends.homicideChange1yr)} from 2023</div>
           </div>
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Property Crime</h3>
@@ -238,22 +278,28 @@ export default function HomePage() {
 
       {/* Featured Analysis */}
       <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="font-heading text-3xl font-bold text-center mb-8">Featured Analysis</h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <h2 className="font-heading text-3xl font-bold text-center mb-2">Featured Analysis</h2>
+        <p className="text-center text-gray-500 mb-8 text-sm">Deep-dive articles backed by FBI statistics</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { href: '/analysis/crime-decline', title: 'The Great Crime Decline', desc: 'Why America is safer than you think — 45 years of data', tag: 'DEEP DIVE' },
-            { href: '/analysis/gun-violence', title: 'Gun Violence by the Numbers', desc: 'Firearms in 77% of murders — what FBI data actually shows', tag: 'ANALYSIS' },
-            { href: '/analysis/rural-vs-urban', title: 'Rural vs Urban Crime', desc: 'Small cities can be more dangerous than big metros', tag: 'DEEP DIVE' },
+            { href: '/analysis/crime-decline', title: 'The Great Crime Decline', desc: 'Why America is safer than you think — 45 years of data', tag: 'DEEP DIVE', reading: '12 min' },
+            { href: '/analysis/gun-violence', title: 'Gun Violence by the Numbers', desc: 'Firearms in 77% of murders — what FBI data actually shows', tag: 'ANALYSIS', reading: '9 min' },
+            { href: '/analysis/rural-vs-urban', title: 'Rural vs Urban Crime', desc: 'Small cities can be more dangerous than big metros', tag: 'DEEP DIVE', reading: '8 min' },
+            { href: '/analysis/homicide-in-america', title: 'Homicide in America', desc: 'Who kills whom and why — deep analysis with FBI SHR data', tag: 'DEEP DIVE', reading: '11 min' },
           ].map(a => (
-            <Link key={a.href} href={a.href} className="bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition group">
-              <span className={`text-xs font-bold px-2 py-1 rounded ${a.tag === 'DEEP DIVE' ? 'bg-[#1e3a5f] text-white' : 'bg-red-100 text-red-700'}`}>{a.tag}</span>
-              <h3 className="font-heading text-lg font-bold mt-3 group-hover:text-[#1e3a5f] transition">{a.title}</h3>
-              <p className="text-sm text-gray-500 mt-2">{a.desc}</p>
+            <Link key={a.href} href={a.href} className="bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition group flex flex-col">
+              <div className="flex items-center justify-between mb-3">
+                <span className={`text-xs font-bold px-2 py-1 rounded ${a.tag === 'DEEP DIVE' ? 'bg-[#1e3a5f] text-white' : 'bg-red-100 text-red-700'}`}>{a.tag}</span>
+                <span className="text-xs text-gray-400">{a.reading} read</span>
+              </div>
+              <h3 className="font-heading text-base font-bold group-hover:text-[#1e3a5f] transition leading-snug mb-2">{a.title}</h3>
+              <p className="text-sm text-gray-500 flex-1">{a.desc}</p>
+              <div className="mt-3 text-xs text-[#1e3a5f] font-medium group-hover:underline">Read →</div>
             </Link>
           ))}
         </div>
         <div className="text-center mt-6">
-          <Link href="/analysis" className="text-[#1e3a5f] hover:underline font-medium">All Analysis Articles →</Link>
+          <Link href="/analysis" className="text-[#1e3a5f] hover:underline font-medium">All 34 Analysis Articles →</Link>
         </div>
       </section>
 
@@ -274,6 +320,9 @@ export default function HomePage() {
                 <div className="text-xs text-gray-500">{t.desc}</div>
               </Link>
             ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/tools" className="text-[#1e3a5f] hover:underline font-medium text-sm">View all tools →</Link>
           </div>
         </div>
       </section>
@@ -359,12 +408,12 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 py-12 text-center">
         <h2 className="font-heading text-3xl font-bold mb-4">About OpenCrime</h2>
         <p className="text-lg text-gray-600 mb-6">
-          OpenCrime makes FBI crime statistics accessible to everyone. We process data from the FBI&apos;s 
-          Uniform Crime Reporting (UCR) program and present it in a clean, searchable format. 
+          OpenCrime makes FBI crime statistics accessible to everyone. We process data from the FBI&apos;s
+          Uniform Crime Reporting (UCR) program and present it in a clean, searchable format.
           No paywalls, no logins, no ads.
         </p>
         <p className="text-gray-500">
-          Data source: FBI Crime Data Explorer (CDE). National estimates 1979–2024. 
+          Data source: FBI Crime Data Explorer (CDE). National estimates 1979–2024.
           City-level data 2020–2024. Updated as new data is released.
         </p>
         <p className="text-sm text-gray-400 mt-4">

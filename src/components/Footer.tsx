@@ -10,9 +10,44 @@ export default function Footer() {
             <li><Link href="/dashboard" className="hover:text-white">Dashboard</Link></li>
             <li><Link href="/states" className="hover:text-white">States</Link></li>
             <li><Link href="/cities" className="hover:text-white">Cities</Link></li>
-            <li><Link href="/crimes" className="hover:text-white">Crime Types</Link></li>
             <li><Link href="/rankings" className="hover:text-white">Rankings</Link></li>
             <li><Link href="/search" className="hover:text-white">Search</Link></li>
+            <li><Link href="/crimes" className="hover:text-white">Crime Types</Link></li>
+            <li><Link href="/arrests" className="hover:text-white">Arrests</Link></li>
+            <li><Link href="/hate-crimes" className="hover:text-white">Hate Crimes</Link></li>
+            <li><Link href="/years" className="hover:text-white">By Year</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Data &amp; Tools</h3>
+          <ul className="space-y-2">
+            <li><Link href="/tools/compare" className="hover:text-white">Compare Cities</Link></li>
+            <li><Link href="/tools/state-compare" className="hover:text-white">Compare States</Link></li>
+            <li><Link href="/tools/safety-score" className="hover:text-white">Safety Score</Link></li>
+            <li><Link href="/tools/risk-calculator" className="hover:text-white">Risk Calculator</Link></li>
+            <li><Link href="/tools/time-machine" className="hover:text-white">Crime Time Machine</Link></li>
+            <li><Link href="/tools/timeline" className="hover:text-white">Timeline Explorer</Link></li>
+            <li><Link href="/tools/city-report" className="hover:text-white">City Safety Report</Link></li>
+            <li><Link href="/state-report-card" className="hover:text-white">State Report Cards</Link></li>
+            <li><Link href="/crime-correlations" className="hover:text-white">Crime Correlations</Link></li>
+            <li><Link href="/is-it-safe" className="hover:text-white">Is It Safe?</Link></li>
+            <li><Link href="/numbers" className="hover:text-white">Crime by the Numbers</Link></li>
+            <li><Link href="/officer-safety" className="hover:text-white">Officer Safety</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Analysis</h3>
+          <ul className="space-y-2">
+            <li><Link href="/analysis/crime-decline" className="hover:text-white">The Great Crime Decline</Link></li>
+            <li><Link href="/analysis/gun-violence" className="hover:text-white">Gun Violence</Link></li>
+            <li><Link href="/analysis/homicide-in-america" className="hover:text-white">Homicide in America</Link></li>
+            <li><Link href="/analysis/rural-vs-urban" className="hover:text-white">Rural vs Urban Crime</Link></li>
+            <li><Link href="/analysis/clearance-rates" className="hover:text-white">Clearance Rates</Link></li>
+            <li><Link href="/analysis/racial-disparities" className="hover:text-white">Racial Disparities</Link></li>
+            <li><Link href="/analysis/incarceration-nation" className="hover:text-white">Incarceration Nation</Link></li>
+            <li><Link href="/analysis/cost-of-crime" className="hover:text-white">Cost of Crime</Link></li>
+            <li><Link href="/analysis/crime-myths" className="hover:text-white">10 Crime Myths</Link></li>
+            <li><Link href="/analysis" className="hover:text-white font-medium text-gray-300">View All Articles →</Link></li>
           </ul>
         </div>
         <div>
@@ -28,51 +63,6 @@ export default function Footer() {
             <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Tools & Analysis</h3>
-          <ul className="space-y-2">
-            <li><Link href="/tools/compare" className="hover:text-white">Compare Cities</Link></li>
-            <li><Link href="/tools/state-compare" className="hover:text-white">Compare States</Link></li>
-            <li><Link href="/tools/risk-calculator" className="hover:text-white">Risk Calculator</Link></li>
-            <li><Link href="/tools/safety-score" className="hover:text-white">Safety Score</Link></li>
-            <li><Link href="/arrests" className="hover:text-white">Arrest Data</Link></li>
-            <li><Link href="/hate-crimes" className="hover:text-white">Hate Crimes</Link></li>
-            <li><Link href="/analysis" className="hover:text-white">Analysis Articles</Link></li>
-            <li><Link href="/analysis/crime-decline" className="hover:text-white">The Great Crime Decline</Link></li>
-            <li><Link href="/analysis/gun-violence" className="hover:text-white">Gun Violence</Link></li>
-            <li><Link href="/crime-clock" className="hover:text-white">Crime Clock</Link></li>
-            <li><Link href="/crime-dna" className="hover:text-white">Crime DNA</Link></li>
-            <li><Link href="/violence-concentration" className="hover:text-white">Violence Concentration</Link></li>
-            <li><Link href="/city-trajectories" className="hover:text-white">City Trajectories</Link></li>
-            <li><Link href="/homicide-demographics" className="hover:text-white">Homicide Demographics</Link></li>
-            <li><Link href="/analysis/clearance-rates" className="hover:text-white">Clearance Rates</Link></li>
-            <li><Link href="/analysis/women-and-crime" className="hover:text-white">Women and Crime</Link></li>
-            <li><Link href="/tools/timeline" className="hover:text-white">Timeline Explorer</Link></li>
-            <li><Link href="/tools/city-report" className="hover:text-white">City Safety Report</Link></li>
-            <li><Link href="/crime-velocity" className="hover:text-white">Crime Velocity</Link></li>
-            <li><Link href="/violence-inequality" className="hover:text-white">Violence Inequality</Link></li>
-            <li><Link href="/hidden-crime" className="hover:text-white">Hidden Crime</Link></li>
-            <li><Link href="/decades" className="hover:text-white">Five Decades</Link></li>
-            <li><Link href="/city-fingerprint" className="hover:text-white">City Crime DNA+</Link></li>
-            <li><Link href="/is-it-safe" className="hover:text-white">Is It Safe?</Link></li>
-            <li><Link href="/compare-states" className="hover:text-white">Compare States</Link></li>
-            <li><Link href="/officer-safety" className="hover:text-white">Officer Safety</Link></li>
-            <li><Link href="/numbers" className="hover:text-white">Crime by the Numbers</Link></li>
-            <li><Link href="/tools/time-machine" className="hover:text-white">Crime Time Machine</Link></li>
-            <li><Link href="/state-report-card" className="hover:text-white">State Report Cards</Link></li>
-            <li><Link href="/crime-correlations" className="hover:text-white">Crime Correlations</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Popular States</h3>
-          <ul className="space-y-2">
-            <li><Link href="/states/ca" className="hover:text-white">California</Link></li>
-            <li><Link href="/states/tx" className="hover:text-white">Texas</Link></li>
-            <li><Link href="/states/fl" className="hover:text-white">Florida</Link></li>
-            <li><Link href="/states/ny" className="hover:text-white">New York</Link></li>
-            <li><Link href="/states/il" className="hover:text-white">Illinois</Link></li>
           </ul>
         </div>
         <div>
