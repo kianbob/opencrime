@@ -79,6 +79,7 @@ export default function Footer() {
             <li><a href="https://www.vaccinewatch.org" className="hover:text-white">VaccineWatch</a></li>
             <li><a href="https://www.opensubsidies.org" className="hover:text-white">OpenSubsidies</a></li>
             <li><a href="https://www.openimmigration.us" className="hover:text-white">OpenImmigration</a></li>
+            <li><a href="https://www.givescope.com" className="hover:text-white">GiveScope</a></li>
             <li><a href="https://thedataproject.ai" className="hover:text-white">TheDataProject.ai</a></li>
           </ul>
         </div>
