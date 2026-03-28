@@ -77,13 +77,14 @@ export default function Footer() {
             <li><a href="https://www.openprescriber.org" className="hover:text-white">OpenPrescriber</a></li>
             <li><a href="https://www.openlobby.us" className="hover:text-white">OpenLobby</a></li>
             <li><a href="https://www.vaccinewatch.org" className="hover:text-white">VaccineWatch</a></li>
-            <li><a href="https://www.opensubsidies.org" className="hover:text-white">OpenSubsidies</a></li>
             <li><a href="https://www.openimmigration.us" className="hover:text-white">OpenImmigration</a></li>
             <li><a href="https://www.givescope.com" className="hover:text-white">GiveScope</a></li>
             <li><a href="https://www.spacgraveyard.com" className="hover:text-white">SPACGraveyard</a></li>
             <li><a href="https://www.warcosts.org" className="hover:text-white">WarCosts</a></li>
             <li><a href="https://www.aiexposure.org" className="hover:text-white">AI Exposure</a></li>
             <li><a href="https://www.tarifftax.org" className="hover:text-white">TariffTax</a></li>
+            <li><a href="https://www.shelterscope.com" className="hover:text-white">ShelterScope</a></li>
+            <li><a href="https://www.opencrime.us" className="hover:text-white">OpenCrime</a></li>
             <li><a href="https://thedataproject.ai" className="hover:text-white">TheDataProject.ai</a></li>
           </ul>
         </div>
