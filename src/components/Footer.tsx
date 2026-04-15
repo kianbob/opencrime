@@ -82,7 +82,7 @@ export default function Footer() {
             <li><a href="https://www.spacgraveyard.com" className="hover:text-white">SPACGraveyard</a></li>
             <li><a href="https://www.warcosts.org" className="hover:text-white">WarCosts</a></li>
             <li><a href="https://www.aiexposure.org" className="hover:text-white">AI Exposure</a></li>
-            <li><a href="https://www.tarifftax.org" className="hover:text-white">TariffTax</a></li>
+            <li><a href="https://www.autopilotwatch.com" className="hover:text-white">AutoPilotWatch</a></li>            <li><a href="https://www.tarifftax.org" className="hover:text-white">TariffTax</a></li>
             <li><a href="https://www.shelterscope.com" className="hover:text-white">ShelterScope</a></li>
             <li><a href="https://thedataproject.ai" className="hover:text-white">TheDataProject.ai</a></li>
           </ul>
