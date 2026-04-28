@@ -5,8 +5,8 @@ import Link from 'next/link';
 import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
-  title: 'Crime by State — All 50 States + DC',
-  description: 'Compare crime rates across all 50 US states and Washington DC. Violent crime, murder, property crime rates and year-over-year trends.',
+  title: 'Crime Rates by State — All 50 States + DC Ranked',
+  description: 'Compare crime rates across all 50 US states and DC. Violent crime, murder, and property crime rates ranked with year-over-year trends. Free FBI data.',
   openGraph: { url: 'https://www.opencrime.us/states' },
   alternates: { canonical: 'https://www.opencrime.us/states' },
 };

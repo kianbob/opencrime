@@ -9,8 +9,8 @@ const heading = Playfair_Display({ subsets: ['latin'], variable: '--font-heading
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: { default: 'OpenCrime — US Crime Data Explorer', template: '%s | OpenCrime' },
-  description: 'Explore FBI crime statistics for 9,700+ cities and all 50 states. Crime rates, trends since 1979, rankings, and analysis — free and open.',
+  title: { default: 'Crime Rates by City — Search 9,739 US Cities | OpenCrime', template: '%s | OpenCrime' },
+  description: 'Compare crime rates across 9,739 US cities. Search violent crime, property crime, and safety rankings for any city or state. Free, updated data.',
   metadataBase: new URL('https://www.opencrime.us'),
   openGraph: {
     siteName: 'OpenCrime',
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@type': 'WebSite',
           name: 'OpenCrime',
           url: 'https://www.opencrime.us',
-          description: 'Free FBI crime statistics for 9,700+ US cities. Crime rates, trends, rankings, and analysis.',
+          description: 'Compare crime rates across 9,739 US cities and all 50 states. Search violent crime, property crime, and safety rankings. Free, updated FBI data.',
           potentialAction: {
             '@type': 'SearchAction',
             target: 'https://www.opencrime.us/search?q={search_term_string}',

@@ -8,8 +8,8 @@ import type { NationalTrend } from '@/lib/utils';
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 
 export const metadata: Metadata = {
-  title: 'OpenCrime — US Crime Data Explorer | FBI Statistics for Every City & State',
-  description: 'Explore FBI crime statistics for 9,700+ cities and all 50 states. Crime rates, trends since 1979, rankings, and analysis. Free and open data.',
+  title: 'Crime Rates by City & State — 9,739 Cities, 45 Years of FBI Data | OpenCrime',
+  description: 'Compare crime rates across 9,739 US cities and all 50 states. Violent crime, property crime, murder rates, and safety rankings since 1979. Free FBI data.',
   openGraph: { url: 'https://www.opencrime.us/' },
   alternates: { canonical: 'https://www.opencrime.us/' },
 };
