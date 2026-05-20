@@ -175,7 +175,7 @@ export default function RetailTheftPage() {
         
         <p>
           The FBI's Uniform Crime Reporting (UCR) program tracks larceny-theft, which includes shoplifting 
-          along with other forms of theft. The long-term trend is unambiguous: dramatic decline.
+          along with other forms of theft. The long-term trend is unambiguous: dramatic decline, even as <Link href="/analysis/property-crime-surge" className="text-[#1e3a5f] hover:underline">other property crimes like motor vehicle theft surge</Link>.
         </p>
 
         <h3 className="font-heading text-xl font-semibold mt-8 mb-4">National Larceny-Theft Trends</h3>
@@ -221,7 +221,7 @@ export default function RetailTheftPage() {
 
         <p>
           Even accounting for the post-2020 increase, larceny-theft rates in 2024 remain 40% lower than 2000 levels 
-          and 26% lower than 2010 levels. This long-term decline contradicts claims of a general retail theft crisis.
+          and 26% lower than 2010 levels. This long-term decline contradicts claims of a general retail theft crisis. Use our <Link href="/tools/compare" className="text-[#1e3a5f] hover:underline">city comparison tool</Link> to see how theft rates vary by location.
         </p>
 
         <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Regional Variations</h3>

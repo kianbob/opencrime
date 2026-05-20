@@ -7,7 +7,7 @@ import LastUpdated from '@/components/LastUpdated';
 type CityLite = { s: string; c: string; st: string; p: number; vr: number; mr: number; pr: number; sp: number; tr: string };
 
 export const metadata: Metadata = {
-  title: 'City Safety Report — Get a Safety Grade for Any US City | OpenCrime',
+  title: 'City Safety Report — Grade Any US City',
   description: 'Search any US city and get an instant safety report card with crime rates, letter grades, percentile rankings, and top crime concerns.',
   openGraph: { url: 'https://www.opencrime.us/tools/city-report' },
   alternates: { canonical: 'https://www.opencrime.us/tools/city-report' },

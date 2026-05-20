@@ -43,12 +43,33 @@ export default function AboutPage() {
           <li><strong>Crime types:</strong> Violent crime, property crime, murder, rape, robbery, assault, burglary, larceny, motor vehicle theft</li>
         </ul>
 
+        <h2 className="font-heading">Why We Built This</h2>
+        <p>
+          Crime data is public information, but it&apos;s often buried in dense government reports or
+          hidden behind paywalls. We believe everyone should be able to understand what&apos;s happening
+          in their community without needing a statistics degree or subscription.
+        </p>
+        <p>
+          OpenCrime translates raw FBI data into clear, searchable profiles. Search your city, compare
+          it to others, explore trends over time, and understand the bigger picture of crime in America.
+        </p>
+
         <h2 className="font-heading">Important Notes</h2>
         <ul>
-          <li>Crime statistics reflect <em>reported</em> crimes, not all crimes that occur. Many crimes go unreported.</li>
-          <li>The FBI cautions against using crime data to rank or compare communities. Crime rates are influenced by many factors including population density, economic conditions, climate, policing practices, and reporting methods.</li>
-          <li>There is a gap in national estimates between 2017–2020 due to the FBI&apos;s transition from the Summary Reporting System (SRS) to the National Incident-Based Reporting System (NIBRS).</li>
-          <li>Rates are calculated per 100,000 residents using the population figures provided in the FBI data.</li>
+          <li><strong>Reported vs actual crime:</strong> Crime statistics reflect <em>reported</em> crimes, not all crimes that occur. The Bureau of Justice Statistics estimates roughly half of violent crimes and about a third of property crimes go unreported.</li>
+          <li><strong>Rankings can be misleading:</strong> The FBI cautions against using crime data to rank or compare communities. Crime rates are influenced by many factors including population density, economic conditions, climate, policing practices, demographics, and reporting methods. Use comparisons as one data point, not the whole story.</li>
+          <li><strong>NIBRS transition gap:</strong> There is a gap in national estimates between 2017–2020 due to the FBI&apos;s transition from the Summary Reporting System (SRS) to the National Incident-Based Reporting System (NIBRS). NIBRS captures far more detail about each incident.</li>
+          <li><strong>Rate calculations:</strong> Rates are calculated per 100,000 residents using the population figures provided in the FBI data. This allows fair comparison between cities of different sizes.</li>
+          <li><strong>Missing cities:</strong> Some cities don&apos;t appear if their law enforcement agency didn&apos;t submit complete data to the FBI for that year, or if the city is very small.</li>
+        </ul>
+
+        <h2 className="font-heading">What Makes OpenCrime Different</h2>
+        <ul>
+          <li><strong>Comprehensive coverage:</strong> We cover every city in the FBI&apos;s published data — not just the big ones.</li>
+          <li><strong>Historical context:</strong> 45 years of national data lets you see long-term trends, not just year-to-year noise.</li>
+          <li><strong>Analysis, not just numbers:</strong> Our analysis articles dive deep into patterns most news coverage misses.</li>
+          <li><strong>Transparent methodology:</strong> We document exactly how we process and calculate everything.</li>
+          <li><strong>Completely free:</strong> No subscriptions, no login walls, no ads cluttering the data.</li>
         </ul>
 
         <h2 className="font-heading">No Paywalls, No Ads</h2>
@@ -64,6 +85,24 @@ export default function AboutPage() {
           healthcare, government spending, immigration, prescriber data, lobbying, farm subsidies, and more.
         </p>
 
+        <h2 className="font-heading">Data Sources & Methodology</h2>
+        <p>
+          All data comes from the FBI&apos;s Uniform Crime Reporting (UCR) program via the Crime Data Explorer (CDE).
+          The UCR program collects crime statistics from over 18,000 law enforcement agencies nationwide.
+        </p>
+        <p>
+          We download raw datasets from the FBI CDE, process them for consistency, calculate rates per 100,000 residents,
+          and organize everything into a searchable database. Our methodology is fully documented for transparency.
+        </p>
+        <p>
+          <strong>Key sources:</strong>
+        </p>
+        <ul>
+          <li>FBI Crime Data Explorer (CDE) — <a href="https://cde.ucr.cjis.gov/" className="text-[#1e3a5f] hover:underline" target="_blank" rel="noopener">cde.ucr.cjis.gov</a></li>
+          <li>Bureau of Justice Statistics (BJS) — victimization surveys and supplemental data</li>
+          <li>CDC WONDER — mortality data for homicide trends</li>
+        </ul>
+
         <h2 className="font-heading">Explore</h2>
         <ul>
           <li><Link href="/dashboard">Interactive Dashboard</Link> — 45 years of charts</li>
@@ -74,10 +113,28 @@ export default function AboutPage() {
           <li><Link href="/faq">FAQ</Link> — Common questions answered</li>
         </ul>
 
+        <h2 className="font-heading">Data Limitations & Accuracy</h2>
+        <p>
+          While we strive for accuracy, it&apos;s important to understand the limitations of crime data:
+        </p>
+        <ul>
+          <li><strong>Reporting is voluntary:</strong> Law enforcement agencies aren&apos;t required to submit data to the FBI. Participation rates vary by state and year.</li>
+          <li><strong>Definitions vary:</strong> What counts as "aggravated assault" vs "simple assault" can vary between agencies.</li>
+          <li><strong>Population estimates:</strong> We use FBI-provided population figures, which may differ from Census estimates.</li>
+          <li><strong>Timing:</strong> FBI data is typically released 9-12 months after the reporting year ends.</li>
+        </ul>
+        <p>
+          Despite these limitations, the FBI UCR program remains the most comprehensive source of crime statistics in America.
+          We supplement FBI data with Bureau of Justice Statistics (BJS) victimization surveys and CDC mortality data where relevant.
+        </p>
+
         <h2 className="font-heading">Contact</h2>
         <p>
-          Questions or feedback? Reach us at{' '}
+          Questions or feedback? Found an error? Want to collaborate? Reach us at{' '}
           <a href="mailto:info@thedataproject.ai" className="text-[#1e3a5f] hover:underline">info@thedataproject.ai</a>
+        </p>
+        <p>
+          We welcome feedback from journalists, researchers, law enforcement professionals, and anyone interested in understanding crime data better.
         </p>
       </div>
     </div>

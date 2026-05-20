@@ -5,7 +5,7 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Crime by Decade — How Crime Changed Across 5 Decades in America',
+  title: 'Crime by Decade — 5 Decades of US Trends',
   description: 'Explore crime trends by decade from the 1980s to 2020s. Key events, policy changes, and how violent crime, murder, and property crime evolved.',
   alternates: { canonical: 'https://www.opencrime.us/decades' },
   openGraph: {

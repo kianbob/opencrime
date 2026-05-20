@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SafetyScoreClient from './SafetyScoreClient';
 
 export const metadata: Metadata = {
-  title: 'City Safety Score Calculator — How Safe Is Your City?',
+  title: 'City Safety Score Calculator',
   description: 'Find out how safe your city is compared to the national average. Get a safety grade (A-F) based on FBI crime data for any US city.',
   alternates: { canonical: 'https://www.opencrime.us/tools/safety-score' },
 };

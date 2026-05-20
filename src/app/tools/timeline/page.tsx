@@ -6,7 +6,7 @@ import TimelineClient from './TimelineClient';
 import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
-  title: 'Crime Timeline Explorer — 45 Years of US Crime Trends | OpenCrime',
+  title: 'Crime Timeline — 45 Years of US Trends',
   description: 'Interactive timeline of US crime rates from 1979 to 2024. Explore trends for violent crime, homicide, robbery, assault, property crime, and more.',
   openGraph: { url: 'https://www.opencrime.us/tools/timeline' },
   alternates: { canonical: 'https://www.opencrime.us/tools/timeline' },

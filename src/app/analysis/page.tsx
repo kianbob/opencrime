@@ -126,6 +126,32 @@ export default function AnalysisPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Crime Analysis — In-Depth Articles on US Crime Data",
+        "description": "Data-driven analysis of US crime trends. The great crime decline, gun violence, property crime, rural vs urban crime, and more. All backed by FBI statistics.",
+        "url": "https://www.opencrime.us/analysis",
+        "publisher": {
+          "@type": "Organization",
+          "name": "OpenCrime",
+          "url": "https://www.opencrime.us"
+        },
+        "numberOfItems": totalArticles
+      }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Crime Analysis — In-Depth Articles on US Crime Data",
+        "description": "Data-driven analysis of US crime trends. The great crime decline, gun violence, property crime, rural vs urban crime, and more. All backed by FBI statistics.",
+        "url": "https://www.opencrime.us/analysis",
+        "publisher": {
+          "@type": "Organization",
+          "name": "OpenCrime",
+          "url": "https://www.opencrime.us"
+        },
+        "numberOfItems": totalArticles
+      }) }} />
       <h1 className="font-heading text-3xl font-bold mb-2">Crime Analysis</h1>
       <p className="text-gray-600 mb-8">
         In-depth, data-driven articles on US crime trends and patterns. All backed by FBI statistics.{' '}

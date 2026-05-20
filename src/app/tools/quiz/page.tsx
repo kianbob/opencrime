@@ -5,7 +5,7 @@ import QuizClient from './QuizClient';
 import { loadData } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'How Safe Is Your City? Crime Safety Quiz | OpenCrime',
+  title: 'How Safe Is Your City? Crime Quiz',
   description: 'Take our crime safety quiz to find out how your city compares to the national average. Test your knowledge of crime statistics and discover surprising facts.',
   alternates: { canonical: 'https://www.opencrime.us/tools/quiz' },
   openGraph: {

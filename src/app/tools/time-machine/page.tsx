@@ -7,7 +7,7 @@ import ShareButtons from '@/components/ShareButtons';
 import TimeMachineClient from './TimeMachineClient';
 
 export const metadata: Metadata = {
-  title: 'Crime When You Were Born — Time Machine Tool | OpenCrime',
+  title: 'Crime When You Were Born — Time Machine',
   description: 'Enter your birth year and see what the crime rate was, how it compares to today, and whether crime was rising or falling. Interactive crime history tool with data from 1979-2024.',
   keywords: ['crime rate in year', 'crime when I was born', 'crime rate history', 'historical crime data', 'violent crime by year'],
   alternates: { canonical: 'https://www.opencrime.us/tools/time-machine' },

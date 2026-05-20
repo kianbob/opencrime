@@ -5,7 +5,7 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Compare State Crime Rates — Side-by-Side State Crime Comparison',
+  title: 'Compare State Crime Rates Side-by-Side',
   description: 'Compare crime rates between US states. Side-by-side violent crime, property crime, and homicide rate comparisons using FBI data.',
   alternates: { canonical: 'https://www.opencrime.us/compare-states' },
   openGraph: {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Download Crime Data — Free FBI Crime Statistics',
+  title: 'Download FBI Crime Data — Free CSV & JSON',
   description: 'Download FBI crime data files. City-level crime rates, state trends, national statistics, arrest data, hate crime data, and homicide details.',
   openGraph: { url: 'https://www.opencrime.us/downloads' },
   alternates: { canonical: 'https://www.opencrime.us/downloads' },
@@ -68,11 +68,103 @@ export default function DownloadsPage() {
           <li><strong>Persons Arrested</strong> — Arrest data by offense, demographics, state</li>
           <li><strong>Hate Crime Statistics</strong> — Bias-motivated incidents</li>
         </ul>
+        <h2 className="font-heading">Data Format</h2>
+        <p>
+          All files are in JSON format for easy parsing in any programming language. Each dataset includes:
+        </p>
+        <ul>
+          <li><strong>metadata:</strong> Dataset name, version, last updated date, source</li>
+          <li><strong>data:</strong> Array of records with consistent field names</li>
+          <li><strong>fields:</strong> Data dictionary explaining each field</li>
+        </ul>
+        <p>
+          Example city record structure:
+        </p>
+        <pre className="bg-gray-100 p-3 rounded text-xs overflow-x-auto">{`{
+  "slug": "los-angeles-ca",
+  "name": "Los Angeles",
+  "state": "California",
+  "stateAbbr": "CA",
+  "population": 3898747,
+  "violentCrimeRate": 732.4,
+  "propertyCrimeRate": 2847.3,
+  "murderRate": 6.7,
+  "yoyChange": -8.2,
+  "rank": 142
+}`}</pre>
+
+        <h2 className="font-heading">Usage Examples</h2>
+        <p>
+          Here are some common uses for these datasets:
+        </p>
+        <ul>
+          <li><strong>Research:</strong> Academic studies on crime trends, correlations, policy impacts</li>
+          <li><strong>Journalism:</strong> Data-driven reporting on local/national crime patterns</li>
+          <li><strong>Data visualization:</strong> Build interactive maps, charts, dashboards</li>
+          <li><strong>Machine learning:</strong> Train models to predict crime, identify patterns</li>
+          <li><strong>Policy analysis:</strong> Compare jurisdictions, evaluate interventions</li>
+          <li><strong>App development:</strong> Build safety apps, neighborhood guides, research tools</li>
+        </ul>
+
+        <h2 className="font-heading">Data Updates</h2>
+        <p>
+          The FBI releases annual crime data each fall. We update all datasets as soon as new data is available.
+          Current data reflects the 2024 reporting year, released August 5, 2025.
+        </p>
+        <p>
+          <strong>Update frequency:</strong> Annually (typically September/October)<br />
+          <strong>Last update:</strong> August 5, 2025<br />
+          <strong>Data through:</strong> December 31, 2024<br />
+        </p>
+        <p>
+          Historical files from previous years are available upon request. Email us at{' '}
+          <a href="mailto:info@thedataproject.ai" className="text-[#1e3a5f] hover:underline">info@thedataproject.ai</a>.
+        </p>
+
+        <h2 className="font-heading">Technical Notes</h2>
+        <ul>
+          <li><strong>Character encoding:</strong> UTF-8</li>
+          <li><strong>Line endings:</strong> LF (Unix-style)</li>
+          <li><strong>Compression:</strong> Files are served gzipped when requested with Accept-Encoding</li>
+          <li><strong>CORS:</strong> Enabled for browser-based requests</li>
+          <li><strong>Caching:</strong> Files are cached for 24 hours</li>
+          <li><strong>API:</strong> No API currently, but datasets are effectively a static API</li>
+        </ul>
+
+        <h2 className="font-heading">Data Quality & Caveats</h2>
+        <p>
+          While we strive for accuracy, be aware of these limitations:
+        </p>
+        <ul>
+          <li><strong>Reporting gaps:</strong> Not all agencies report every year; missing data is noted</li>
+          <li><strong>Definition changes:</strong> FBI revised rape definition in 2013; historical comparisons affected</li>
+          <li><strong>NIBRS transition:</strong> 2017-2020 gap in national estimates due to methodology change</li>
+          <li><strong>Population estimates:</strong> Based on Census Bureau data; may not reflect seasonal variation</li>
+          <li><strong>Rounding:</strong> Rates are rounded to 1 decimal place for readability</li>
+        </ul>
+        <p>
+          For detailed methodology, see our <Link href="/methodology" className="text-[#1e3a5f] hover:underline">Methodology</Link> page.
+        </p>
+
         <h2 className="font-heading">License</h2>
         <p>
           FBI data is in the public domain. Our processed JSON files are released under 
           <strong> CC0 (public domain)</strong> — use them for any purpose without restriction.
-          Attribution to OpenCrime is appreciated but not required.
+          Attribution to OpenCrime and the FBI Crime Data Explorer is appreciated but not required.
+        </p>
+        <p>
+          <strong>Suggested citation:</strong>
+        </p>
+        <p className="bg-gray-100 p-3 rounded text-sm">
+          OpenCrime. (2025). <em>Processed FBI Crime Statistics.</em> Retrieved from https://www.opencrime.us/downloads<br />
+          Data source: Federal Bureau of Investigation. Crime Data Explorer. https://cde.ucr.cjis.gov/
+        </p>
+
+        <h2 className="font-heading">Questions or Bulk Access?</h2>
+        <p>
+          Need a different format? Want historical data? Building something cool? Let us know at{' '}
+          <a href="mailto:info@thedataproject.ai" className="text-[#1e3a5f] hover:underline">info@thedataproject.ai</a>.
+          We&apos;re happy to help researchers, journalists, and developers working with crime data.
         </p>
       </div>
     </div>

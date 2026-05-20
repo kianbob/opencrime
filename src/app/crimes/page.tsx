@@ -4,7 +4,7 @@ import Link from 'next/link';
 import CrimeTypeCharts from './CrimeTypeCharts';
 
 export const metadata: Metadata = {
-  title: 'Crime Types — Violent Crime, Property Crime, Murder, Robbery & More',
+  title: 'Crime Types — Violent, Property, Murder & More',
   description: 'Explore all major crime types tracked by the FBI. Violent crime, property crime, murder, rape, robbery, assault, burglary, larceny, motor vehicle theft — with 45 years of national trends.',
   openGraph: { url: 'https://www.opencrime.us/crimes' },
   alternates: { canonical: 'https://www.opencrime.us/crimes' },

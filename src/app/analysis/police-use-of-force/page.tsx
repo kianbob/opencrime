@@ -290,7 +290,7 @@ export default function PoliceUseOfForcePage() {
         
         <p>
           The racial breakdown of police shooting victims is the most scrutinized aspect of use-of-force data. 
-          The raw numbers show clear disparities, but their interpretation is heavily debated:
+          The raw numbers show clear <Link href="/analysis/racial-disparities" className="text-[#1e3a5f] hover:underline">disparities in crime victimization</Link>, but their interpretation is heavily debated:
         </p>
 
         <h3 className="font-heading text-xl font-semibold mt-8 mb-4">Per-Capita Rates by Race</h3>
@@ -643,7 +643,7 @@ export default function PoliceUseOfForcePage() {
         
         <p>
           The US police use of force rates are dramatically higher than other developed nations, 
-          even when accounting for higher crime rates and gun ownership:
+          even when accounting for <Link href="/analysis/crime-and-guns" className="text-[#1e3a5f] hover:underline">higher crime rates and gun ownership</Link>:
         </p>
 
         <div className="overflow-x-auto mb-6">

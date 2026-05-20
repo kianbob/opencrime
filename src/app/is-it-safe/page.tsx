@@ -65,6 +65,50 @@ export default function IsItSafeIndex() {
         ))}
       </div>
 
+      <div className="bg-white rounded-xl border shadow-sm p-6 mb-8">
+        <h2 className="font-heading text-xl font-bold mb-4">Understanding Crime in America</h2>
+        <p className="text-gray-600 mb-3">
+          In 2024, the US recorded approximately <strong>1.22 million violent crimes</strong> — a rate of 359.1 per 100,000 residents.
+          That&apos;s a <strong>5.4% decrease</strong> from the prior year, continuing a multi-year decline from the pandemic-era spike.
+        </p>
+        <p className="text-gray-600 mb-3">
+          Homicides fell to 16,935 (4.98 per 100K) — significantly below the 2020 peak of 6.8 per 100K.
+          Property crime also declined, with theft, burglary, and motor vehicle theft all trending downward.
+        </p>
+        <p className="text-gray-600 mb-3">
+          However, crime varies enormously by city. Some cities with populations under 100,000 have violent crime rates
+          10× the national average, while many mid-sized cities are safer than the average suburb.
+        </p>
+        <p className="text-sm text-gray-500">Source: FBI Crime Data Explorer (CDE), Uniform Crime Reporting Program</p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-4 mb-8">
+        <Link href="/analysis/murder-map" className="block bg-white rounded-xl border p-5 hover:shadow-md transition">
+          <h3 className="font-heading font-bold mb-1">🗺️ Murder Map</h3>
+          <p className="text-sm text-gray-500">Where homicides are concentrated across America</p>
+        </Link>
+        <Link href="/analysis/safest-places-to-live" className="block bg-white rounded-xl border p-5 hover:shadow-md transition">
+          <h3 className="font-heading font-bold mb-1">🏡 Safest Places to Live</h3>
+          <p className="text-sm text-gray-500">The lowest-crime cities in every state</p>
+        </Link>
+        <Link href="/analysis/crime-decline" className="block bg-white rounded-xl border p-5 hover:shadow-md transition">
+          <h3 className="font-heading font-bold mb-1">📉 The Crime Decline</h3>
+          <p className="text-sm text-gray-500">Why crime has been falling for 30 years</p>
+        </Link>
+        <Link href="/tools/compare" className="block bg-white rounded-xl border p-5 hover:shadow-md transition">
+          <h3 className="font-heading font-bold mb-1">⚖️ Compare Cities</h3>
+          <p className="text-sm text-gray-500">Side-by-side crime comparison for any two cities</p>
+        </Link>
+        <Link href="/tools/safety-score" className="block bg-white rounded-xl border p-5 hover:shadow-md transition">
+          <h3 className="font-heading font-bold mb-1">📊 Safety Score</h3>
+          <p className="text-sm text-gray-500">Calculate a composite safety rating for any city</p>
+        </Link>
+        <Link href="/states" className="block bg-white rounded-xl border p-5 hover:shadow-md transition">
+          <h3 className="font-heading font-bold mb-1">🏛️ State Rankings</h3>
+          <p className="text-sm text-gray-500">All 50 states ranked by crime rate</p>
+        </Link>
+      </div>
+
       <div className="bg-gray-50 rounded-xl border p-6 mb-8">
         <h2 className="font-heading text-xl font-bold mb-2">Looking for another city?</h2>
         <p className="text-gray-600 mb-4">

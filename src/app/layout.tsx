@@ -9,7 +9,7 @@ const heading = Playfair_Display({ subsets: ['latin'], variable: '--font-heading
 const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: { default: 'Crime Rates by City — Search 9,739 US Cities | OpenCrime', template: '%s | OpenCrime' },
+  title: { default: 'US Crime Rates by City — 9,739 Cities | OpenCrime', template: '%s | OpenCrime' },
   description: 'Compare crime rates across 9,739 US cities. Search violent crime, property crime, and safety rankings for any city or state. Free, updated data.',
   metadataBase: new URL('https://www.opencrime.us'),
   openGraph: {

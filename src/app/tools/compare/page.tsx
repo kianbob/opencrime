@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import CompareClient from './CompareClient';
 
 export const metadata: Metadata = {
-  title: 'Compare City Crime Rates — Side-by-Side Comparison Tool',
+  title: 'Compare City Crime Rates Side-by-Side',
   description: 'Compare crime rates between any two US cities. Side-by-side violent crime, murder, property crime comparison with FBI data.',
   alternates: { canonical: 'https://www.opencrime.us/tools/compare' },
 };
