@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import MurderCharts from './MurderCharts';
 import AIOverview from '@/components/AIOverview';
+import ExploreMore from '@/components/ExploreMore';
 
 type VictimRace = { race: string; total: number; male: number; female: number };
 type OffenderRace = { race: string; total: number; pct: number };
@@ -31,7 +32,7 @@ type HomicideData = {
 
 export const metadata: Metadata = {
   title: 'US Murder Rate 2024 — Statistics, Trends & City Rankings',
-  description: 'The US murder rate in 2024: 4.98 per 100K, down 15.7% from 2023. City-by-city murder rankings, 45-year trends, and state comparisons from FBI data.',
+  description: 'US murders dropped 15.7% in 2024 — the biggest decline in decades. But 10 cities still account for 21% of all homicides. See which ones and why.',
   openGraph: { url: 'https://www.opencrime.us/murder-rate' },
   alternates: { canonical: 'https://www.opencrime.us/murder-rate' },
 };
@@ -301,6 +302,7 @@ export default function MurderRatePage() {
         ]
       })}} />
 
+      <ExploreMore currentPath="/murder-rate" />
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2024.</p>
     </div>
   );

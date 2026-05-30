@@ -7,10 +7,11 @@ import Link from 'next/link';
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
+import ExploreMore from '@/components/ExploreMore';
 
 export const metadata: Metadata = {
   title: 'Most Dangerous Cities in America 2024 — Crime Rate Rankings',
-  description: 'The most dangerous cities in America ranked by violent crime rate. Complete rankings based on FBI 2024 data for 332 cities with 100,000+ population.',
+  description: 'Which US city has a violent crime rate 7x the national average? See the full 2024 FBI rankings of 332 large cities — #1 will shock you. Updated with latest data.',
   openGraph: { url: 'https://www.opencrime.us/most-dangerous-cities' },
   alternates: { canonical: 'https://www.opencrime.us/most-dangerous-cities' },
 };
@@ -176,6 +177,7 @@ export default function DangerousCitiesPage() {
         </div>
       )}
 
+      <ExploreMore currentPath="/most-dangerous-cities" />
       <ShareButtons title="Most Dangerous Cities in America 2024" />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

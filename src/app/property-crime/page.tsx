@@ -5,13 +5,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
+import ExploreMore from '@/components/ExploreMore';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
 
 export const metadata: Metadata = {
   title: 'Property Crime Statistics 2024 — Burglary, Theft, Auto Theft Rates',
-  description: 'US property crime statistics: burglary, larceny-theft, motor vehicle theft rates. State rankings, city data, 45-year trends. FBI 2024 data.',
+  description: 'Motor vehicle theft surged 105% since 2019 while burglary hit a 50-year low. What\'s driving the shift? 2024 FBI property crime data for every state and city.',
   openGraph: { url: 'https://www.opencrime.us/property-crime' },
   alternates: { canonical: 'https://www.opencrime.us/property-crime' },
 };
@@ -205,6 +206,7 @@ export default function PropertyCrimePage() {
         ]
       })}} />
 
+      <ExploreMore currentPath="/property-crime" />
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2024.</p>
     </div>
   );

@@ -5,13 +5,14 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
+import ExploreMore from '@/components/ExploreMore';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
 
 export const metadata: Metadata = {
   title: 'Violent Crime Statistics 2024 — US Rates, Trends & City Rankings',
-  description: 'US violent crime statistics 2024: murder, assault, robbery, rape rates. 45 years of FBI data. City rankings, state comparisons, historical trends.',
+  description: 'Violent crime fell 5.4% in 2024, but assault still makes up 69% of all violent offenses. 45 years of FBI data reveal surprising trends — are we actually getting safer?',
   openGraph: { url: 'https://www.opencrime.us/violent-crime' },
   alternates: { canonical: 'https://www.opencrime.us/violent-crime' },
 };
@@ -264,6 +265,7 @@ export default function ViolentCrimePage() {
         ]
       })}} />
 
+      <ExploreMore currentPath="/violent-crime" />
       <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2024.</p>
     </div>
   );

@@ -7,10 +7,11 @@ import Link from 'next/link';
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 import ShareButtons from '@/components/ShareButtons';
 import AIOverview from '@/components/AIOverview';
+import ExploreMore from '@/components/ExploreMore';
 
 export const metadata: Metadata = {
   title: 'Safest Cities in America 2024 — Complete Rankings by Crime Rate',
-  description: 'The safest cities in America ranked by violent crime rate. Based on FBI 2024 data for 332 cities with 100,000+ population. Updated with the latest FBI statistics.',
+  description: 'These 50 cities have violent crime rates 75% below the national average. Is yours on the list? 2024 FBI rankings for 332 large cities — see what makes them safe.',
   openGraph: { url: 'https://www.opencrime.us/safest-cities' },
   alternates: { canonical: 'https://www.opencrime.us/safest-cities' },
 };
@@ -167,6 +168,7 @@ export default function SafestCitiesPage() {
         </div>
       </div>
 
+      <ExploreMore currentPath="/safest-cities" />
       <ShareButtons title="Safest Cities in America 2024" />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

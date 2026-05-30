@@ -9,7 +9,7 @@ type RaceRow = { offense: string; total: number; white: number; black: number; n
 
 export const metadata: Metadata = {
   title: 'US Crime Rates by City & State — 9,739 Cities',
-  description: 'Compare crime rates across 9,739 US cities and all 50 states. Violent crime, property crime, murder rates, and safety rankings since 1979. Free FBI data.',
+  description: 'How safe is YOUR city? Search 9,739 cities and all 50 states — violent crime down 5.4% in 2024, but 47 cities still have rates 3x the national average. See where yours ranks.',
   openGraph: { url: 'https://www.opencrime.us/' },
   alternates: { canonical: 'https://www.opencrime.us/' },
 };
@@ -51,8 +51,20 @@ export default function HomePage() {
   const homicideColor = homicideChange < 0 ? 'text-green-600' : 'text-red-600';
   const peakColor = stats.trends.violentCrimeChangeSincePeak < 0 ? 'text-green-400' : 'text-red-400';
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What is the US crime rate in 2024?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2024 is ${fmtRate(n.violentRate)} per 100,000 people, down ${Math.abs(yoyChange).toFixed(1)}% from 2023. The murder rate is ${fmtRate(n.homicideRate)} per 100K.` } },
+      { '@type': 'Question', name: 'Is crime going up or down in the US?', acceptedAnswer: { '@type': 'Answer', text: `Crime is going down. Violent crime dropped ${Math.abs(yoyChange).toFixed(1)}% in 2024, and murders fell ${Math.abs(homicideChange).toFixed(1)}%. Both are well below the 1991 peak.` } },
+      { '@type': 'Question', name: 'What are the most dangerous cities in America?', acceptedAnswer: { '@type': 'Answer', text: `The most dangerous large cities by violent crime rate include ${stats.topCitiesByViolentRate.slice(0, 3).map(c => c.city).join(', ')}. See our full rankings of ${stats.totalCities.toLocaleString()} cities.` } },
+      { '@type': 'Question', name: 'What are the safest cities in America?', acceptedAnswer: { '@type': 'Answer', text: `The safest large cities include ${stats.safestCities.slice(0, 3).map(c => c.city).join(', ')} — all with violent crime rates under 100 per 100K, far below the national average.` } },
+    ],
+  };
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="bg-[#1e3a5f] text-white py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4">

@@ -11,7 +11,7 @@ type RaceRow = { offense: string; total: number; white: number; black: number; n
 
 export const metadata: Metadata = {
   title: 'Most Dangerous & Safest Cities in America — 2024 Rankings',
-  description: 'Complete rankings of the most dangerous and safest cities in America by violent crime rate. Based on FBI 2024 data for 9,700+ cities.',
+  description: 'From safest to most dangerous: every US city ranked by crime rate. The gap between #1 and last is staggering — a 38x difference. Where does yours fall? 2024 FBI data.',
   openGraph: { url: 'https://www.opencrime.us/rankings' },
   alternates: { canonical: 'https://www.opencrime.us/rankings' },
 };
@@ -55,6 +55,7 @@ export default function RankingsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'What is the most dangerous city in America?',acceptedAnswer:{'@type':'Answer',text:'Based on 2024 FBI data, the most dangerous large city by violent crime rate has a rate over 2,000 per 100K — more than 6x the national average of 359.'}},{'@type':'Question',name:'What is the safest city in America?',acceptedAnswer:{'@type':'Answer',text:'The safest large US cities have violent crime rates under 75 per 100K — about 5x lower than the national average. Many are suburban cities in Texas and California.'}},{'@type':'Question',name:'How are city crime rankings calculated?',acceptedAnswer:{'@type':'Answer',text:'Rankings are based on the FBI violent crime rate: the number of murders, rapes, robberies, and aggravated assaults per 100,000 residents, using official Uniform Crime Reporting data.'}}]}) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Most Dangerous & Safest Cities in America — 2024 Rankings","description":"Complete rankings of the most dangerous and safest cities in America by violent crime rate. Based on FBI 2024 data for 9,700+ cities.","url":"https://www.opencrime.us/rankings","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <Breadcrumbs items={[{label:'Rankings'}]} />
       <div className="flex flex-wrap items-start justify-between gap-4 mb-2">

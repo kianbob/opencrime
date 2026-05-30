@@ -6,7 +6,7 @@ import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime Rates for 9,739 US Cities — Rankings',
-  description: 'Search crime rates for 9,739 US cities. Compare violent crime, murder rates, and property crime. Sort by safety ranking or population. Updated FBI data.',
+  description: 'Search crime data for 9,739 US cities — from NYC to towns of 1,000. How does your city compare? Sort by violent crime, murder rate, or safety ranking. Free 2024 FBI data.',
   openGraph: { url: 'https://www.opencrime.us/cities' },
   alternates: { canonical: 'https://www.opencrime.us/cities' },
 };
@@ -17,6 +17,7 @@ export default function CitiesPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'How can I check the crime rate for my city?',acceptedAnswer:{'@type':'Answer',text:'Search for any of 9,739 US cities on this page. Each city profile includes violent crime rate, murder rate, property crime rate, and safety rankings based on FBI data.'}},{'@type':'Question',name:'What does the crime rate per 100,000 mean?',acceptedAnswer:{'@type':'Answer',text:'Crime rate per 100K normalizes crime counts by population, making it possible to compare cities of different sizes. A rate of 500 means 500 crimes per 100,000 residents.'}},{'@type':'Question',name:'How often is city crime data updated?',acceptedAnswer:{'@type':'Answer',text:'Our data uses the latest available FBI Uniform Crime Reporting statistics, currently reflecting 2024 data. The FBI releases updated data annually.'}}]}) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Crime by City — 9,700+ US Cities","description":"Browse crime statistics for 9,700+ US cities. Search, sort, and compare violent crime, murder, and property crime rates.","url":"https://www.opencrime.us/cities","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <h1 className="font-heading text-3xl font-bold mb-2">Crime by City</h1>
       <p className="text-gray-600 mb-6">

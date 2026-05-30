@@ -11,7 +11,7 @@ type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHi
 
 export const metadata: Metadata = {
   title: 'Aggravated Assault Statistics 2024 — US Assault Rates & Trends',
-  description: 'US aggravated assault statistics: rates, trends, weapon data. FBI 2024 data shows assault is the most common violent crime.',
+  description: 'Aggravated assault makes up 69% of all violent crime — more than murder, robbery, and rape combined. See 2024 FBI weapon data, state rankings, and 45-year trends.',
   openGraph: { url: 'https://www.opencrime.us/assault-statistics' },
   alternates: { canonical: 'https://www.opencrime.us/assault-statistics' },
 };

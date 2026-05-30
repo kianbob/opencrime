@@ -6,7 +6,7 @@ import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime Rates by State — All 50 States Ranked',
-  description: 'Compare crime rates across all 50 US states and DC. Violent crime, murder, and property crime rates ranked with year-over-year trends. Free FBI data.',
+  description: 'Which state has the highest crime rate? Spoiler: it\'s not California. Compare all 50 states + DC ranked by violent crime, murder, and property crime. 2024 FBI data.',
   openGraph: { url: 'https://www.opencrime.us/states' },
   alternates: { canonical: 'https://www.opencrime.us/states' },
 };
@@ -16,6 +16,7 @@ export default function StatesPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'Which state has the highest crime rate?',acceptedAnswer:{'@type':'Answer',text:'Based on 2024 FBI data, states in the South and Southwest tend to have the highest violent crime rates. See our full state-by-state rankings for current data.'}},{'@type':'Question',name:'Which state has the lowest crime rate?',acceptedAnswer:{'@type':'Answer',text:'New England and upper Midwest states consistently rank among the safest, with violent crime rates well below the national average of 359 per 100K.'}},{'@type':'Question',name:'Does crime vary significantly by state?',acceptedAnswer:{'@type':'Answer',text:'Yes — the difference between the highest and lowest state violent crime rates is roughly 5x. Geography, poverty rates, urbanization, and policing all play a role.'}}]}) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"Dataset","name":"Crime by State — All 50 States + DC","description":"Compare crime rates across all 50 US states and Washington DC. Violent crime, murder, property crime rates and year-over-year trends.","url":"https://www.opencrime.us/states","creator":{"@type":"Organization","name":"OpenCrime","url":"https://www.opencrime.us"},"license":"https://www.opencrime.us/about","sourceOrganization":"FBI Crime Data Explorer"}` }} />
       <h1 className="font-heading text-3xl font-bold mb-2">Crime by State</h1>
       <p className="text-gray-600 mb-6">

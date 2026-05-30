@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import LastUpdated from '@/components/LastUpdated';
 import AIOverview from '@/components/AIOverview';
+import ExploreMore from '@/components/ExploreMore';
 
 type RaceRow = { offense: string; total: number; white: number; black: number; nativeAmerican: number; asian: number; pacificIslander: number };
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
@@ -12,7 +13,7 @@ type CiusRow = { year: number; violentRate: number; murderRate: number; rapeRate
 
 export const metadata: Metadata = {
   title: 'US Crime Rate 2024 — National Statistics, Trends & Data',
-  description: 'The US crime rate in 2024: 359.1 violent crimes per 100K people, down 5.4% from 2023. 45 years of FBI crime statistics, state comparisons, and historical trends.',
+  description: 'Is crime really going down? The 2024 FBI data says yes — 359.1 per 100K, the lowest in years. But some states buck the trend dramatically. See the full breakdown.',
   openGraph: { url: 'https://www.opencrime.us/crime-rate' },
   alternates: { canonical: 'https://www.opencrime.us/crime-rate' },
 };
@@ -252,6 +253,7 @@ export default function CrimeRatePage() {
         ]
       })}} />
 
+      <ExploreMore currentPath="/crime-rate" />
       <p className="text-sm text-gray-500 mt-8">
         Source: FBI Crime Data Explorer, SRS Estimated Crimes. Last updated August 2025.
       </p>
