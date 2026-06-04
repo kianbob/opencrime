@@ -2,6 +2,11 @@ import Link from 'next/link';
 
 const ALL_ARTICLES = [
   { slug: 'crime-decline', title: 'The Great Crime Decline', tag: 'trends' },
+  { slug: 'violent-crime-trends', title: 'Violent Crime Trends 2025', tag: 'trends' },
+  { slug: 'crime-statistics-by-state', title: 'Crime Statistics by State 2025', tag: 'geography' },
+  { slug: 'most-dangerous-cities-2025', title: 'Most Dangerous Cities 2025', tag: 'geography' },
+  { slug: 'safest-cities-america', title: 'Safest Cities in America 2025', tag: 'geography' },
+  { slug: 'crime-rate-major-cities', title: 'Crime Rates in Major US Cities', tag: 'geography' },
   { slug: 'gun-violence', title: 'Gun Violence by the Numbers', tag: 'violence' },
   { slug: 'property-crime-surge', title: 'The Property Crime Paradox', tag: 'property' },
   { slug: 'rural-vs-urban', title: 'Rural vs Urban Crime', tag: 'geography' },

@@ -12,8 +12,8 @@ type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHi
 type CiusRow = { year: number; violentRate: number; murderRate: number; rapeRate: number; robberyRate: number; assaultRate: number; propertyRate: number };
 
 export const metadata: Metadata = {
-  title: 'US Crime Rate 2024 — National Statistics, Trends & Data',
-  description: 'Is crime really going down? The 2024 FBI data says yes — 359.1 per 100K, the lowest in years. But some states buck the trend dramatically. See the full breakdown.',
+  title: 'US Crime Rate 2025 — National Statistics, Trends & Data',
+  description: 'Is crime really going down? The 2025 FBI data says yes — 359.1 per 100K, the lowest in years. But some states buck the trend dramatically. See the full breakdown.',
   openGraph: { url: 'https://www.opencrime.us/crime-rate' },
   alternates: { canonical: 'https://www.opencrime.us/crime-rate' },
 };
@@ -39,8 +39,8 @@ export default function CrimeRatePage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'US Crime Rate 2024' }]} />
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">US Crime Rate 2024</h1>
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'US Crime Rate 2025' }]} />
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">US Crime Rate 2025</h1>
 
       <AIOverview insights={[
         "America's violent crime rate of 359.1 per 100K is the lowest since the early 1970s — before the crack epidemic, before mass incarceration.",
@@ -73,7 +73,7 @@ export default function CrimeRatePage() {
       <div className="prose prose-lg max-w-none mb-8">
         <h2 className="font-heading">National Crime Statistics at a Glance</h2>
         <p>
-          In 2024, the United States recorded {fmtNum(n.violentCrime)} violent crimes — a rate of {fmtRate(n.violentRate)} per 
+          In 2025, the United States recorded {fmtNum(n.violentCrime)} violent crimes — a rate of {fmtRate(n.violentRate)} per 
           100,000 residents. This represents a <strong>5.4% decline</strong> from 2023 and continues the long-term 
           downward trend in American crime.
         </p>
@@ -82,7 +82,7 @@ export default function CrimeRatePage() {
           and the lowest rate in over a decade. The US population was {fmtNum(n.population)}.
         </p>
 
-        <h2 className="font-heading">2024 Crime Breakdown</h2>
+        <h2 className="font-heading">2025 Crime Breakdown</h2>
         <table>
           <thead><tr><th>Crime Type</th><th>Total</th><th>Rate per 100K</th></tr></thead>
           <tbody>
@@ -101,7 +101,7 @@ export default function CrimeRatePage() {
         <h2 className="font-heading">Historical Context</h2>
         <p>
           US violent crime peaked in 1991 at {fmtRate(peak?.violentRate ?? 0)} per 100,000, with a murder rate of {fmtRate(peak?.homicideRate ?? 0)}. 
-          Since then, violent crime has fallen by more than half. The 2024 rate of {fmtRate(n.violentRate)} is roughly 
+          Since then, violent crime has fallen by more than half. The 2025 rate of {fmtRate(n.violentRate)} is roughly 
           comparable to rates last seen in the late 1960s.
         </p>
         <p>
@@ -109,10 +109,10 @@ export default function CrimeRatePage() {
           but rates have since fallen below pre-pandemic levels and continue to decline.
         </p>
 
-        <h2 className="font-heading">Historical Crime Rates 2005–2024 (CIUS Data)</h2>
+        <h2 className="font-heading">Historical Crime Rates 2005–2025 (CIUS Data)</h2>
         <p>
           The following table shows crime rates per 100,000 population from the FBI&apos;s Crime in the United States (CIUS) reports,
-          covering 2005 through 2024. This provides a granular view of how each crime type has trended over two decades.
+          covering 2005 through 2025. This provides a granular view of how each crime type has trended over two decades.
         </p>
       </div>
 
@@ -206,7 +206,7 @@ export default function CrimeRatePage() {
 
       <div className="prose prose-lg max-w-none mb-8">
         <h2 className="font-heading">Crime Rate by State</h2>
-        <p>Crime rates vary enormously by state. The top 5 states by violent crime rate in 2024:</p>
+        <p>Crime rates vary enormously by state. The top 5 states by violent crime rate in 2025:</p>
       </div>
 
       <div className="bg-white rounded-xl shadow-sm border overflow-hidden mb-8">
@@ -247,9 +247,9 @@ export default function CrimeRatePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'FAQPage',
         mainEntity: [
-          { '@type': 'Question', name: 'What is the US crime rate in 2024?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2024 is ${n.violentRate.toFixed(1)} per 100,000 residents, based on ${n.violentCrime.toLocaleString()} reported violent crimes.` }},
-          { '@type': 'Question', name: 'Is crime going up or down in America?', acceptedAnswer: { '@type': 'Answer', text: 'Crime is going down. Violent crime dropped 5.4% from 2023 to 2024 and is down 52.6% from the 1991 peak. The US is safer now than at any point since the 1960s.' }},
-          { '@type': 'Question', name: 'What is the US murder rate?', acceptedAnswer: { '@type': 'Answer', text: `The US murder rate in 2024 is ${n.homicideRate.toFixed(2)} per 100,000, with ${n.homicide.toLocaleString()} total murders. This is a 15.7% decline from 2023.` }},
+          { '@type': 'Question', name: 'What is the US crime rate in 2025?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2025 is ${n.violentRate.toFixed(1)} per 100,000 residents, based on ${n.violentCrime.toLocaleString()} reported violent crimes.` }},
+          { '@type': 'Question', name: 'Is crime going up or down in America?', acceptedAnswer: { '@type': 'Answer', text: 'Crime is going down. Violent crime dropped 5.4% from 2023 to 2025 and is down 52.6% from the 1991 peak. The US is safer now than at any point since the 1960s.' }},
+          { '@type': 'Question', name: 'What is the US murder rate?', acceptedAnswer: { '@type': 'Answer', text: `The US murder rate in 2025 is ${n.homicideRate.toFixed(2)} per 100,000, with ${n.homicide.toLocaleString()} total murders. This is a 15.7% decline from 2023.` }},
         ]
       })}} />
 
