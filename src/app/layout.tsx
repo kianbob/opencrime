@@ -25,7 +25,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
-      <body className="bg-gray-50 text-gray-900 antialiased min-h-screen flex flex-col">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-9872374508496229" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9872374508496229" crossOrigin="anonymous"></script>
+      </head>      <body className="bg-gray-50 text-gray-900 antialiased min-h-screen flex flex-col">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebSite',
