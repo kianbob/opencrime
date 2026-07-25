@@ -11,7 +11,7 @@ type RaceRow = { offense: string; total: number; white: number; black: number; n
 
 export const metadata: Metadata = {
   title: 'Most Dangerous & Safest Cities in America — 2024 Rankings',
-  description: 'From safest to most dangerous: every US city ranked by crime rate. The gap between #1 and last is staggering — a 38x difference. Where does yours fall? 2024 FBI data.',
+  description: 'Every US city ranked from safest to most dangerous — a 38x gap between #1 and last. See where your city falls in 2024 FBI crime rate rankings.',
   openGraph: { url: 'https://www.opencrime.us/rankings' },
   alternates: { canonical: 'https://www.opencrime.us/rankings' },
 };

@@ -7,11 +7,11 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Crime Statistics by State 2025 — Rankings, Rates & FBI Data | OpenCrime',
+  title: 'Crime Statistics by State 2026 — Rankings, Rates & FBI Data | OpenCrime',
   description: 'Compare crime rates across all 50 states with the latest FBI data. See which states have the highest violent crime, lowest murder rates, and biggest year-over-year changes.',
   alternates: { canonical: 'https://www.opencrime.us/analysis/crime-statistics-by-state' },
   openGraph: {
-    title: 'Crime Statistics by State 2025 — Complete Rankings',
+    title: 'Crime Statistics by State 2026 — Complete Rankings',
     description: 'All 50 states ranked by violent crime, murder, and property crime rates using FBI data.',
     url: 'https://www.opencrime.us/analysis/crime-statistics-by-state',
   },
@@ -49,7 +49,7 @@ export default function CrimeStatsByStatePage() {
         <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
       </div>
 
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Crime Statistics by State 2025: Complete Rankings & Analysis</h1>
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Crime Statistics by State 2026: Complete Rankings & Analysis</h1>
       <p className="text-lg text-gray-600 mb-6">
         How does your state compare? We ranked all 50 states (plus DC) using the latest FBI Uniform Crime
         Reporting data — covering violent crime, murder, and property crime rates per 100,000 residents.
@@ -64,7 +64,7 @@ export default function CrimeStatsByStatePage() {
         `The gap between the most and least dangerous state is ${fmtRate(sorted[0].violentRate - safest[0].violentRate)} per 100K — a ${(sorted[0].violentRate / safest[0].violentRate).toFixed(1)}x difference`,
       ]} />
 
-      <ShareButtons title="Crime Statistics by State 2025" />
+      <ShareButtons title="Crime Statistics by State 2026" />
 
       {/* National overview */}
       <h2 className="font-heading text-2xl font-bold mt-10 mb-4">National Overview</h2>
@@ -265,7 +265,7 @@ export default function CrimeStatsByStatePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: 'Crime Statistics by State 2025 — Complete Rankings & Analysis',
+        headline: 'Crime Statistics by State 2026 — Complete Rankings & Analysis',
         description: 'All 50 states ranked by violent crime, murder, and property crime rates using FBI data.',
         url: 'https://www.opencrime.us/analysis/crime-statistics-by-state',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },

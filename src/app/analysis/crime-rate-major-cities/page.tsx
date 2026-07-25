@@ -8,11 +8,11 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Crime Rates in Major US Cities 2025 — Chicago, LA, NYC, Houston, Philadelphia | OpenCrime',
+  title: 'Crime Rates in Major US Cities 2026 — Chicago, LA, NYC, Houston, Philadelphia | OpenCrime',
   description: 'Crime rate comparison for America\'s biggest cities: Chicago, Los Angeles, New York, Houston, and Philadelphia. See violent crime, murder rates, and how each city compares to the national average.',
   alternates: { canonical: 'https://www.opencrime.us/analysis/crime-rate-major-cities' },
   openGraph: {
-    title: 'Crime Rates in Major US Cities 2025',
+    title: 'Crime Rates in Major US Cities 2026',
     description: 'How do Chicago, LA, NYC, Houston, and Philly compare? FBI data reveals surprising answers.',
     url: 'https://www.opencrime.us/analysis/crime-rate-major-cities',
   },
@@ -58,7 +58,7 @@ export default function CrimeRateMajorCitiesPage() {
         `${majorCities.sort((a, b) => b.murderRate - a.murderRate)[0].city} has the highest murder rate at ${fmtRate(majorCities.sort((a, b) => b.murderRate - a.murderRate)[0].murderRate)} per 100K`,
       ] : ['Data loading...']} />
 
-      <ShareButtons title="Crime Rates in Major US Cities 2025" />
+      <ShareButtons title="Crime Rates in Major US Cities 2026" />
 
       {/* Side by side comparison */}
       <h2 className="font-heading text-2xl font-bold mt-10 mb-4">Head-to-Head Comparison</h2>
@@ -223,7 +223,7 @@ export default function CrimeRateMajorCitiesPage() {
             <Link key={c.slug} href={`/crime-rate-in/${c.slug}`} className="text-[#1e3a5f] hover:underline">{c.city} Crime Data →</Link>
           ))}
           <Link href="/cities" className="text-[#1e3a5f] hover:underline">Browse All Cities →</Link>
-          <Link href="/analysis/most-dangerous-cities-2025" className="text-[#1e3a5f] hover:underline">Most Dangerous Cities 2025 →</Link>
+          <Link href="/analysis/most-dangerous-cities-2026" className="text-[#1e3a5f] hover:underline">Most Dangerous Cities 2026 →</Link>
           <Link href="/analysis/safest-cities-america" className="text-[#1e3a5f] hover:underline">Safest Cities in America →</Link>
           <Link href="/analysis/violent-crime-trends" className="text-[#1e3a5f] hover:underline">Violent Crime Trends →</Link>
         </div>
@@ -232,7 +232,7 @@ export default function CrimeRateMajorCitiesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: 'Crime Rates in Major US Cities 2025',
+        headline: 'Crime Rates in Major US Cities 2026',
         description: 'Crime rate comparison for Chicago, Los Angeles, New York, Houston, and Philadelphia using FBI data.',
         url: 'https://www.opencrime.us/analysis/crime-rate-major-cities',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },

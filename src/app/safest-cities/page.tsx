@@ -11,7 +11,7 @@ import ExploreMore from '@/components/ExploreMore';
 
 export const metadata: Metadata = {
   title: 'Safest Cities in America 2024 — Complete Rankings by Crime Rate',
-  description: 'These 50 cities have violent crime rates 75% below the national average. Is yours on the list? 2024 FBI rankings for 332 large cities — see what makes them safe.',
+  description: '50 US cities with violent crime rates 75%+ below the national average. 2024 FBI rankings for 332 large cities — is your city on the safest list?',
   openGraph: { url: 'https://www.opencrime.us/safest-cities' },
   alternates: { canonical: 'https://www.opencrime.us/safest-cities' },
 };

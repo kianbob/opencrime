@@ -8,11 +8,11 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Safest Cities in America 2025 — Low Crime Rankings | OpenCrime',
+  title: 'Safest Cities in America 2026 — Low Crime Rankings | OpenCrime',
   description: 'The 50 safest cities in the US with populations over 100K, ranked by violent crime rate. Find cities with crime rates 70-90% below the national average.',
   alternates: { canonical: 'https://www.opencrime.us/analysis/safest-cities-america' },
   openGraph: {
-    title: 'Safest Cities in America 2025',
+    title: 'Safest Cities in America 2026',
     description: 'The 50 safest US cities ranked by crime rate — some have rates 90% below the national average.',
     url: 'https://www.opencrime.us/analysis/safest-cities-america',
   },
@@ -49,13 +49,13 @@ export default function SafestCitiesAmericaPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Safest Cities in America 2025' }]} />
+      <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Safest Cities in America 2026' }]} />
 
       <div className="mb-6">
         <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
       </div>
 
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Safest Cities in America 2025: Complete Rankings</h1>
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Safest Cities in America 2026: Complete Rankings</h1>
       <p className="text-lg text-gray-600 mb-6">
         Looking for a safe place to live? We ranked {large.length} US cities with populations over 100,000
         by their violent crime rates. The safest cities have rates 70-90% below the national average —
@@ -70,7 +70,7 @@ export default function SafestCitiesAmericaPage() {
         `The safest city's violent crime rate is ${(safest[0].violentRate).toFixed(0)} per 100K — safer than many European capitals`,
       ]} />
 
-      <ShareButtons title="Safest Cities in America 2025" />
+      <ShareButtons title="Safest Cities in America 2026" />
 
       {/* Highlight box */}
       <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-8">
@@ -248,7 +248,7 @@ export default function SafestCitiesAmericaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: 'Safest Cities in America 2025',
+        headline: 'Safest Cities in America 2026',
         description: 'The 50 safest US cities ranked by violent crime rate using FBI data.',
         url: 'https://www.opencrime.us/analysis/safest-cities-america',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },

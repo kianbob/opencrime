@@ -8,17 +8,17 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Most Dangerous Cities in America 2025 — Updated FBI Rankings | OpenCrime',
-  description: 'The 25 most dangerous cities in the US for 2025, ranked by violent crime rate. See which cities top the list, how they compare to the national average, and which are improving.',
-  alternates: { canonical: 'https://www.opencrime.us/analysis/most-dangerous-cities-2025' },
+  title: 'Most Dangerous Cities in America 2026 — Updated FBI Rankings | OpenCrime',
+  description: 'The 25 most dangerous cities in the US for 2026, ranked by violent crime rate. See which cities top the list, how they compare to the national average, and which are improving.',
+  alternates: { canonical: 'https://www.opencrime.us/analysis/most-dangerous-cities-2026' },
   openGraph: {
-    title: 'Most Dangerous Cities in America 2025',
+    title: 'Most Dangerous Cities in America 2026',
     description: 'Updated FBI rankings: the 25 most dangerous US cities by violent crime rate.',
-    url: 'https://www.opencrime.us/analysis/most-dangerous-cities-2025',
+    url: 'https://www.opencrime.us/analysis/most-dangerous-cities-2026',
   },
 };
 
-export default function MostDangerousCities2025Page() {
+export default function MostDangerousCities2026Page() {
   const allCities = loadData<CityIndex[]>('city-index.json');
   const national = loadData<NationalTrend[]>('national-trends.json');
   const n = national[national.length - 1];
@@ -45,13 +45,13 @@ export default function MostDangerousCities2025Page() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Most Dangerous Cities 2025' }]} />
+      <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Most Dangerous Cities 2026' }]} />
 
       <div className="mb-6">
         <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
       </div>
 
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Most Dangerous Cities in America 2025</h1>
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Most Dangerous Cities in America 2026</h1>
       <p className="text-lg text-gray-600 mb-6">
         Which American cities have the highest crime rates? We analyzed FBI data for {large.length} cities
         with populations over 100,000 to identify the most dangerous places in the country — and uncover
@@ -66,7 +66,7 @@ export default function MostDangerousCities2025Page() {
         `Among mega-cities (500K+), ${megaCities[0].city} ranks worst at ${fmtRate(megaCities[0].violentRate)} per 100K`,
       ]} />
 
-      <ShareButtons title="Most Dangerous Cities in America 2025" />
+      <ShareButtons title="Most Dangerous Cities in America 2026" />
 
       {/* Key stat boxes */}
       <div className="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
@@ -202,22 +202,22 @@ export default function MostDangerousCities2025Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: 'Most Dangerous Cities in America 2025',
+        headline: 'Most Dangerous Cities in America 2026',
         description: 'The 25 most dangerous US cities ranked by violent crime rate using FBI data.',
-        url: 'https://www.opencrime.us/analysis/most-dangerous-cities-2025',
+        url: 'https://www.opencrime.us/analysis/most-dangerous-cities-2026',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
       })}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: [
-          { '@type': 'Question', name: 'What is the most dangerous city in America 2025?', acceptedAnswer: { '@type': 'Answer', text: `${dangerous[0].city}, ${dangerous[0].state} has the highest violent crime rate at ${fmtRate(dangerous[0].violentRate)} per 100,000 residents — ${(dangerous[0].violentRate / natRate).toFixed(1)}x the national average.` }},
+          { '@type': 'Question', name: 'What is the most dangerous city in America 2026?', acceptedAnswer: { '@type': 'Answer', text: `${dangerous[0].city}, ${dangerous[0].state} has the highest violent crime rate at ${fmtRate(dangerous[0].violentRate)} per 100,000 residents — ${(dangerous[0].violentRate / natRate).toFixed(1)}x the national average.` }},
           { '@type': 'Question', name: 'What city has the highest murder rate?', acceptedAnswer: { '@type': 'Answer', text: `${deadliest[0].city}, ${deadliest[0].state} has the highest murder rate at ${fmtRate(deadliest[0].murderRate)} per 100,000 residents.` }},
           { '@type': 'Question', name: 'Is crime getting worse in American cities?', acceptedAnswer: { '@type': 'Answer', text: 'Overall, violent crime has declined significantly from its 1991 peak. However, some cities have seen recent increases while others continue to improve.' }},
         ],
       })}} />
 
-      <RelatedAnalysis currentSlug="most-dangerous-cities-2025" />
+      <RelatedAnalysis currentSlug="most-dangerous-cities-2026" />
     </div>
   );
 }

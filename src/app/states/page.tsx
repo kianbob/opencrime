@@ -6,7 +6,7 @@ import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime Rates by State — All 50 States Ranked',
-  description: 'Which state has the highest crime rate? Spoiler: it\'s not California. Compare all 50 states + DC ranked by violent crime, murder, and property crime. 2024 FBI data.',
+  description: 'All 50 states ranked by violent crime rate — the gap between #1 and #50 is 5x. Compare murder, assault, and property crime rates. 2024 FBI data included.',
   openGraph: { url: 'https://www.opencrime.us/states' },
   alternates: { canonical: 'https://www.opencrime.us/states' },
 };

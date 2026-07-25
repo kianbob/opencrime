@@ -8,11 +8,11 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'Violent Crime Trends 2025 — Is Crime Going Up or Down? | OpenCrime',
-  description: 'Is violent crime rising or falling in 2025? 45 years of FBI data reveal the real trend. Murder is down 35% from 2020, but some crimes are surging. See the full picture.',
+  title: 'Violent Crime Trends 2026 — Is Crime Going Up or Down? | OpenCrime',
+  description: 'Is violent crime rising or falling in 2026? 45 years of FBI data reveal the real trend. Murder is down 35% from 2020, but some crimes are surging. See the full picture.',
   alternates: { canonical: 'https://www.opencrime.us/analysis/violent-crime-trends' },
   openGraph: {
-    title: 'Violent Crime Trends 2025 — The Real Numbers',
+    title: 'Violent Crime Trends 2026 — The Real Numbers',
     description: '45 years of FBI data show whether crime is actually going up or down.',
     url: 'https://www.opencrime.us/analysis/violent-crime-trends',
   },
@@ -64,13 +64,13 @@ export default function ViolentCrimeTrendsPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Violent Crime Trends 2025' }]} />
+      <Breadcrumbs items={[{ label: 'Analysis', href: '/analysis' }, { label: 'Violent Crime Trends 2026' }]} />
 
       <div className="mb-6">
         <span className="bg-[#1e3a5f] text-white text-xs font-bold px-2 py-1 rounded">DEEP DIVE</span>
       </div>
 
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Violent Crime Trends 2025: Is Crime Going Up or Down?</h1>
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Violent Crime Trends 2026: Is Crime Going Up or Down?</h1>
       <p className="text-lg text-gray-600 mb-6">
         It&apos;s the question everyone argues about: is crime getting worse? The answer depends on your
         timeframe. Here&apos;s what 45 years of FBI data actually show — and why the recent trends are
@@ -86,7 +86,7 @@ export default function ViolentCrimeTrendsPage() {
         `${fmtNum(n.violentCrime)} total violent crimes reported in ${n.year}`,
       ]} />
 
-      <ShareButtons title="Violent Crime Trends 2025" />
+      <ShareButtons title="Violent Crime Trends 2026" />
 
       {/* Headline stats */}
       <div className="bg-[#1e3a5f] text-white rounded-xl p-6 mb-8">
@@ -259,7 +259,7 @@ export default function ViolentCrimeTrendsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: 'Violent Crime Trends 2025: Is Crime Going Up or Down?',
+        headline: 'Violent Crime Trends 2026: Is Crime Going Up or Down?',
         description: '45 years of FBI data reveal the real violent crime trend in America.',
         url: 'https://www.opencrime.us/analysis/violent-crime-trends',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
@@ -268,7 +268,7 @@ export default function ViolentCrimeTrendsPage() {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: [
-          { '@type': 'Question', name: 'Is violent crime going up or down in 2025?', acceptedAnswer: { '@type': 'Answer', text: `The violent crime rate is ${fmtRate(n.violentRate)} per 100,000 — ${violentChange < 0 ? 'down' : 'up'} ${Math.abs(violentChange).toFixed(1)}% from the previous year and ${declineFromPeak.toFixed(0)}% below the ${peak.year} peak.` }},
+          { '@type': 'Question', name: 'Is violent crime going up or down in 2026?', acceptedAnswer: { '@type': 'Answer', text: `The violent crime rate is ${fmtRate(n.violentRate)} per 100,000 — ${violentChange < 0 ? 'down' : 'up'} ${Math.abs(violentChange).toFixed(1)}% from the previous year and ${declineFromPeak.toFixed(0)}% below the ${peak.year} peak.` }},
           { '@type': 'Question', name: 'Is the murder rate dropping?', acceptedAnswer: { '@type': 'Answer', text: `Yes. The murder rate has fallen ${murderDeclineFrom2020.toFixed(0)}% since the 2020 COVID spike and is now at ${fmtRate(n.homicideRate)} per 100,000.` }},
           { '@type': 'Question', name: 'What caused the 2020 crime spike?', acceptedAnswer: { '@type': 'Answer', text: 'A combination of pandemic disruption, social unrest, police pullbacks, court closures, and economic stress led to a record one-year increase in murder rates.' }},
           { '@type': 'Question', name: 'How does current crime compare to the 1990s?', acceptedAnswer: { '@type': 'Answer', text: `Today\'s violent crime rate of ${fmtRate(n.violentRate)} per 100K is ${declineFromPeak.toFixed(0)}% below the ${peak.year} peak of ${fmtRate(peak.violentRate)} per 100K.` }},

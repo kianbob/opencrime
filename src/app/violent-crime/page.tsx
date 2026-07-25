@@ -11,7 +11,7 @@ type RaceRow = { offense: string; total: number; white: number; black: number; n
 type EthRow = { offense: string; totalEthnicity: number; hispanic: number; notHispanic: number; hispanicPct: number; notHispanicPct: number };
 
 export const metadata: Metadata = {
-  title: 'Violent Crime Statistics 2025 — US Rates, Trends & City Rankings',
+  title: 'Violent Crime Statistics 2026 — US Rates, Trends & City Rankings',
   description: 'How many violent crimes happen in the US each year? 1.2M+ reported in the latest FBI data. Assault makes up 71% of all offenses. See 45 years of trends, city rankings, and demographic breakdowns.',
   openGraph: { url: 'https://www.opencrime.us/violent-crime' },
   alternates: { canonical: 'https://www.opencrime.us/violent-crime' },
@@ -39,14 +39,14 @@ export default function ViolentCrimePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Violent Crime Statistics 2025' }]} />
-      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Violent Crime Statistics 2025</h1>
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Violent Crime Statistics 2026' }]} />
+      <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Violent Crime Statistics 2026</h1>
       <p className="text-lg text-gray-600 mb-8">
         Comprehensive overview of violent crime in the United States using the latest FBI data.
       </p>
 
       <AIOverview insights={[
-        "1.22 million violent crimes were reported in 2025 — but the real number may be nearly double, as roughly 42% of violent crime goes unreported.",
+        "1.22 million violent crimes were reported in 2026 — but the real number may be nearly double, as roughly 42% of violent crime goes unreported.",
         "Aggravated assault accounts for 71% of all violent crime — far more than robbery (17%), rape (10%), or murder (1.4%).",
         "The violent crime rate has fallen in 34 of the last 45 years, with the sharpest drops in the 1990s and 2020s.",
         "Summer months see 15-20% more violent crime than winter — temperature is one of the strongest predictors of assault.",
@@ -78,10 +78,10 @@ export default function ViolentCrimePage() {
       </div>
 
       <div className="prose prose-lg max-w-none mb-8">
-        <h2 className="font-heading">2025 Violent Crime Breakdown</h2>
+        <h2 className="font-heading">2026 Violent Crime Breakdown</h2>
         <p>
           The FBI classifies four offenses as violent crime: murder/non-negligent manslaughter, 
-          rape, robbery, and aggravated assault. In 2025, there were {fmtNum(n.violentCrime)} violent 
+          rape, robbery, and aggravated assault. In 2026, there were {fmtNum(n.violentCrime)} violent 
           crimes — a rate of {fmtRate(n.violentRate)} per 100,000 residents.
         </p>
       </div>
@@ -254,19 +254,19 @@ export default function ViolentCrimePage() {
         </div>
       </div>
 
-      <div className="mt-8"><ShareButtons title="Violent Crime Statistics 2025" /></div>
+      <div className="mt-8"><ShareButtons title="Violent Crime Statistics 2026" /></div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'FAQPage',
         mainEntity: [
-          { '@type': 'Question', name: 'What is the violent crime rate in the US?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2025 was ${n.violentRate.toFixed(1)} per 100,000 — a ${((1 - n.violentRate / peak.violentRate) * 100).toFixed(0)}% decline from the ${peak.year} peak.` }},
+          { '@type': 'Question', name: 'What is the violent crime rate in the US?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2026 was ${n.violentRate.toFixed(1)} per 100,000 — a ${((1 - n.violentRate / peak.violentRate) * 100).toFixed(0)}% decline from the ${peak.year} peak.` }},
           { '@type': 'Question', name: 'What are the 4 types of violent crime?', acceptedAnswer: { '@type': 'Answer', text: 'The FBI classifies four offenses as violent crime: murder/non-negligent manslaughter, rape, robbery, and aggravated assault.' }},
           { '@type': 'Question', name: 'Is violent crime increasing or decreasing?', acceptedAnswer: { '@type': 'Answer', text: 'Violent crime has been on a long-term decline since the early 1990s. There was a temporary increase during 2020-2021 (COVID pandemic), but rates have since resumed their downward trend.' }},
         ]
       })}} />
 
       <ExploreMore currentPath="/violent-crime" />
-      <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2025.</p>
+      <p className="text-sm text-gray-500 mt-8">Source: FBI Crime Data Explorer, 2026.</p>
     </div>
   );
 }

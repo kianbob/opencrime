@@ -6,7 +6,7 @@ import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime Rates for 9,739 US Cities — Rankings',
-  description: 'Search crime data for 9,739 US cities — from NYC to towns of 1,000. How does your city compare? Sort by violent crime, murder rate, or safety ranking. Free 2024 FBI data.',
+  description: 'Compare crime rates for 9,739 US cities — sort by violent crime, murder rate, or safety ranking. From NYC to small towns. Free 2024 FBI data explorer.',
   openGraph: { url: 'https://www.opencrime.us/cities' },
   alternates: { canonical: 'https://www.opencrime.us/cities' },
 };

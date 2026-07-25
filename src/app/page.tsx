@@ -9,7 +9,7 @@ type RaceRow = { offense: string; total: number; white: number; black: number; n
 
 export const metadata: Metadata = {
   title: 'US Crime Rates by City & State — 9,739 Cities',
-  description: 'How safe is YOUR city? Search 9,739 cities and all 50 states — violent crime down 5.4% in 2024, but 47 cities still have rates 3x the national average. See where yours ranks.',
+  description: 'Search 9,739 cities and 50 states for crime rates. Violent crime down 5.4% in 2024 — but 47 cities still exceed 3x the national average. Find your city now.',
   openGraph: { url: 'https://www.opencrime.us/' },
   alternates: { canonical: 'https://www.opencrime.us/' },
 };

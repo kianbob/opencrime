@@ -7,7 +7,7 @@ import AIOverview from '@/components/AIOverview';
 import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
-  title: 'The Safest Places to Live in America (2025) — Data-Driven Guide | OpenCrime',
+  title: 'The Safest Places to Live in America (2026) — Data-Driven Guide | OpenCrime',
   description: 'Top 50 safest cities, 25 safest small towns, and safest states ranked by FBI crime data. Find the safest places to live based on violent crime rates.',
   keywords: ['safest places to live', 'safest cities in America', 'safest states', 'safest small towns', 'low crime cities'],
   alternates: { canonical: 'https://www.opencrime.us/analysis/safest-places-to-live' },
