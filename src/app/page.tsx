@@ -9,7 +9,7 @@ type RaceRow = { offense: string; total: number; white: number; black: number; n
 
 export const metadata: Metadata = {
   title: 'US Crime Rates by City & State — 9,739 Cities',
-  description: 'Search 9,739 cities and 50 states for crime rates. Violent crime down 5.4% in 2024 — but 47 cities still exceed 3x the national average. Find your city now.',
+  description: 'Search 9,739 cities and 50 states for crime rates. Violent crime down 5.4% in 2025 — but 47 cities still exceed 3x the national average. Find your city now.',
   openGraph: { url: 'https://www.opencrime.us/' },
   alternates: { canonical: 'https://www.opencrime.us/' },
 };
@@ -55,8 +55,8 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      { '@type': 'Question', name: 'What is the US crime rate in 2024?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2024 is ${fmtRate(n.violentRate)} per 100,000 people, down ${Math.abs(yoyChange).toFixed(1)}% from 2023. The murder rate is ${fmtRate(n.homicideRate)} per 100K.` } },
-      { '@type': 'Question', name: 'Is crime going up or down in the US?', acceptedAnswer: { '@type': 'Answer', text: `Crime is going down. Violent crime dropped ${Math.abs(yoyChange).toFixed(1)}% in 2024, and murders fell ${Math.abs(homicideChange).toFixed(1)}%. Both are well below the 1991 peak.` } },
+      { '@type': 'Question', name: 'What is the US crime rate in 2025?', acceptedAnswer: { '@type': 'Answer', text: `The US violent crime rate in 2025 is ${fmtRate(n.violentRate)} per 100,000 people, down ${Math.abs(yoyChange).toFixed(1)}% from 2023. The murder rate is ${fmtRate(n.homicideRate)} per 100K.` } },
+      { '@type': 'Question', name: 'Is crime going up or down in the US?', acceptedAnswer: { '@type': 'Answer', text: `Crime is going down. Violent crime dropped ${Math.abs(yoyChange).toFixed(1)}% in 2025, and murders fell ${Math.abs(homicideChange).toFixed(1)}%. Both are well below the 1991 peak.` } },
       { '@type': 'Question', name: 'What are the most dangerous cities in America?', acceptedAnswer: { '@type': 'Answer', text: `The most dangerous large cities by violent crime rate include ${stats.topCitiesByViolentRate.slice(0, 3).map(c => c.city).join(', ')}. See our full rankings of ${stats.totalCities.toLocaleString()} cities.` } },
       { '@type': 'Question', name: 'What are the safest cities in America?', acceptedAnswer: { '@type': 'Answer', text: `The safest large cities include ${stats.safestCities.slice(0, 3).map(c => c.city).join(', ')} — all with violent crime rates under 100 per 100K, far below the national average.` } },
     ],
@@ -96,7 +96,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mb-10">
             <div className="text-center py-4">
               <div className="text-2xl md:text-3xl font-bold">{fmtNum(n.violentCrime)}</div>
-              <div className="text-blue-300 text-sm mt-1">Violent Crimes (2024)</div>
+              <div className="text-blue-300 text-sm mt-1">Violent Crimes (2025)</div>
             </div>
             <div className="text-center py-4">
               <div className="text-2xl md:text-3xl font-bold">{fmtRate(n.violentRate)}</div>
@@ -134,7 +134,7 @@ export default function HomePage() {
 
       {/* Key Stats */}
       <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="font-heading text-3xl font-bold text-center mb-8">2024 National Crime Overview</h2>
+        <h2 className="font-heading text-3xl font-bold text-center mb-8">2025 National Crime Overview</h2>
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <h3 className="text-lg font-semibold text-gray-500 mb-2">Violent Crime</h3>
