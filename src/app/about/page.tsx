@@ -82,7 +82,7 @@ export default function AboutPage() {
         <p>
           OpenCrime is part of <a href="https://thedataproject.ai" className="text-[#1e3a5f] hover:underline">TheDataProject.ai</a>, 
           a network of free data platforms making public records accessible. Our sister sites cover 
-          healthcare, government spending, immigration, prescriber data, lobbying, farm subsidies, and more.
+          healthcare, government spending, immigration, prescriber data, lobbying, construction permits (<a href="https://permitcore.io" className="text-[#1e3a5f] hover:underline">PermitCore</a>), and more.
         </p>
 
         <h2 className="font-heading">Data Sources & Methodology</h2>
