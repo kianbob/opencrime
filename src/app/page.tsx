@@ -418,7 +418,8 @@ export default function HomePage() {
           <p className="text-gray-600 mb-4">
             OpenCrime makes FBI crime statistics accessible to everyone. We process data from the FBI&apos;s
             Uniform Crime Reporting (UCR) program and present it in a clean, searchable format.
-            No paywalls, no logins, no ads.
+            No paywalls, no logins, no ads. For comprehensive FBI crime data by state, city and county, see{' '}
+            <a href="https://americanfactbook.org/crime" className="underline hover:text-gray-800">American Factbook&apos;s crime hub</a>.
           </p>
           <p className="text-sm text-gray-500">
             Data: FBI Crime Data Explorer (CDE). National estimates 1979–2024. City-level data 2020–2024.
