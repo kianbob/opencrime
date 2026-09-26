@@ -10,8 +10,8 @@ import DeclineCharts from './DeclineCharts';
 
 export const metadata: Metadata = {
   title: 'The Great Crime Decline: Why America Is Safer Than You Think',
-  description: 'Violent crime has fallen 52.6% since 1991. An in-depth analysis of 45 years of FBI crime data showing how and why America became dramatically safer.',
-  openGraph: { title: 'The Great Crime Decline', description: 'Violent crime fell 52.6% since 1991. 45 years of FBI data show how America became dramatically safer.', url: 'https://www.opencrime.us/analysis/crime-decline' },
+  description: 'Violent crime has fallen 56.8% since 1991. An in-depth analysis of 46 years of FBI crime data showing how and why America became dramatically safer.',
+  openGraph: { title: 'The Great Crime Decline', description: 'Violent crime fell 56.8% since 1991. 46 years of FBI data show how America became dramatically safer.', url: 'https://www.opencrime.us/analysis/crime-decline' },
   alternates: { canonical: 'https://www.opencrime.us/analysis/crime-decline' },
 };
 
@@ -35,7 +35,7 @@ export default function CrimeDeclinePage() {
   const fewerCrimes = Math.round((peak.violentRate - n2024.violentRate) / 100000 * n2024.population);
 
   const aiInsights = [
-    `Violent crime has fallen 52.6% since 1991, from ${fmtRate(peak.violentRate)} to ${fmtRate(n2024.violentRate)} per 100,000`,
+    `Violent crime has fallen 56.8% since 1991, from ${fmtRate(peak.violentRate)} to ${fmtRate(n2024.violentRate)} per 100,000`,
     `Murder rates dropped ${((1 - n2024.homicideRate / peak.homicideRate) * 100).toFixed(0)}% from the 1991 peak`,
     "Property crime declined even more dramatically — down 68% since 1980",
     "The US is safer now than at any point since the early 1960s",
@@ -334,7 +334,7 @@ export default function CrimeDeclinePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Article',
         headline: 'The Great Crime Decline: Why America Is Safer Than You Think',
-        description: 'Violent crime has fallen 52.6% since 1991. An in-depth analysis of 45 years of FBI data.',
+        description: 'Violent crime has fallen 56.8% since 1991. An in-depth analysis of 46 years of FBI data.',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
         datePublished: '2026-03-04',
       })}} />

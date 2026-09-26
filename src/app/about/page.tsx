@@ -37,9 +37,9 @@ export default function AboutPage() {
         <h2 className="font-heading">Our Data</h2>
         <p>All data comes from the FBI&apos;s Uniform Crime Reporting (UCR) program:</p>
         <ul>
-          <li><strong>National estimates:</strong> 1979–2024 (45 years of trend data)</li>
+          <li><strong>National estimates:</strong> 1979–2025 (46 years of trend data)</li>
           <li><strong>State-level data:</strong> All 50 states + DC</li>
-          <li><strong>City-level data:</strong> 9,700+ cities (2020–2024)</li>
+          <li><strong>City-level data:</strong> 9,700+ cities (2020–2025)</li>
           <li><strong>Crime types:</strong> Violent crime, property crime, murder, rape, robbery, assault, burglary, larceny, motor vehicle theft</li>
         </ul>
 

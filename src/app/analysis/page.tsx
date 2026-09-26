@@ -22,7 +22,8 @@ const categories: { label: string; articles: Article[] }[] = [
   {
     label: 'Crime Trends',
     articles: [
-      { slug: 'crime-decline', title: 'The Great Crime Decline: Why America Is Safer Than You Think', desc: 'Violent crime has fallen 52% since 1991. We analyze 45 years of data to understand the biggest public safety story nobody talks about.', tag: 'DEEP DIVE' },
+      { slug: '2025-historic-crime-drop', title: '2025 Historic Crime Drop — Largest Decline Since 1936', desc: 'FBI data confirms 2025 saw the largest single-year drop in violent crime and murder since records began. Violent crime fell 9.3%, murder dropped 18.1%.', tag: 'BREAKING' },
+      { slug: 'crime-decline', title: 'The Great Crime Decline: Why America Is Safer Than You Think', desc: 'Violent crime has fallen 57% since 1991. We analyze 46 years of data to understand the biggest public safety story nobody talks about.', tag: 'DEEP DIVE' },
       { slug: 'seasonal-crime', title: 'Seasonal Crime Patterns: When Does Crime Happen?', desc: 'Violent crime peaks in summer, property crime in fall. Holiday DV spikes, weekend violence patterns, and what temperature does to aggression.', tag: 'ANALYSIS' },
       { slug: 'cost-of-crime', title: 'The Cost of Crime: What Does Crime Actually Cost America?', desc: '$2.6 trillion annually. Murder alone costs $152 billion. Per-crime cost estimates, state-level costs, and the economic case for prevention.', tag: 'DEEP DIVE' },
     ],

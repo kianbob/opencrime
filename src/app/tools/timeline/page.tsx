@@ -7,7 +7,7 @@ import LastUpdated from '@/components/LastUpdated';
 
 export const metadata: Metadata = {
   title: 'Crime Timeline — 45 Years of US Trends',
-  description: 'Interactive timeline of US crime rates from 1979 to 2024. Explore trends for violent crime, homicide, robbery, assault, property crime, and more.',
+  description: 'Interactive timeline of US crime rates from 1979 to 2025. Explore trends for violent crime, homicide, robbery, assault, property crime, and more.',
   openGraph: { url: 'https://www.opencrime.us/tools/timeline' },
   alternates: { canonical: 'https://www.opencrime.us/tools/timeline' },
 };
@@ -27,7 +27,7 @@ export default function TimelinePage() {
 
       <h1 className="font-heading text-4xl font-bold mb-2">Crime Timeline Explorer</h1>
       <p className="text-lg text-gray-600 mb-8">
-        Explore 45 years of crime trends in the United States. Select a crime type to see how rates have changed from 1979 to 2024.
+        Explore 46 years of crime trends in the United States. Select a crime type to see how rates have changed from 1979 to 2025.
       </p>
 
       <TimelineClient data={data} />
@@ -39,7 +39,7 @@ export default function TimelinePage() {
         '@type': 'WebApplication',
         name: 'Crime Timeline Explorer',
         url: 'https://www.opencrime.us/tools/timeline',
-        description: 'Interactive timeline of US crime rates from 1979 to 2024.',
+        description: 'Interactive timeline of US crime rates from 1979 to 2025.',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
       })}} />

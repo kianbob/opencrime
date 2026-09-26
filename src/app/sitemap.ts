@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/crime-velocity', '/violence-inequality', '/hidden-crime', '/decades', '/city-fingerprint',
     '/crime-stories', '/arrest-efficiency', '/arrest-demographics', '/arson',
     '/years', '/contact', '/who-are-victims', '/weapon-shift',
-    '/analysis', '/analysis/crime-decline', '/analysis/gun-violence',
+    '/analysis', '/analysis/2025-historic-crime-drop', '/analysis/crime-decline', '/analysis/gun-violence',
     '/analysis/property-crime-surge', '/analysis/rural-vs-urban',
     '/analysis/police-funding', '/analysis/drug-crime',
     '/analysis/domestic-violence', '/analysis/racial-disparities',

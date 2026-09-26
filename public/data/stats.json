@@ -1,12 +1,28 @@
 {
-  "lastUpdated": "2026-03-04",
+  "lastUpdated": "2026-09-26",
   "dataYears": {
-    "estimated": "1979-2024",
+    "estimated": "1979-2025",
     "cityLevel": "2020-2024"
   },
   "totalCities": 9739,
   "totalStates": 51,
   "national2024": {
+    "year": 2025,
+    "population": 341805000,
+    "violentCrime": 1119768,
+    "violentRate": 327.6,
+    "homicide": 14085,
+    "homicideRate": 4.12,
+    "rape": 117835,
+    "robbery": 167851,
+    "aggravatedAssault": 805611,
+    "propertyCrime": 5244087,
+    "propertyRate": 1534.2,
+    "burglary": 656374,
+    "larceny": 3901058,
+    "motorVehicleTheft": 686655
+  },
+  "national2023": {
     "year": 2024,
     "population": 340110988,
     "violentCrime": 1221345,
@@ -22,32 +38,16 @@
     "larceny": 4326531,
     "motorVehicleTheft": 880327
   },
-  "national2023": {
-    "year": 2023,
-    "population": 336806231,
-    "violentCrime": 1278301,
-    "violentRate": 379.5,
-    "homicide": 19907,
-    "homicideRate": 5.91,
-    "rape": 134517,
-    "robbery": 225969,
-    "aggravatedAssault": 897908,
-    "propertyCrime": 6514295,
-    "propertyRate": 1934.1,
-    "burglary": 852963,
-    "larceny": 4579322,
-    "motorVehicleTheft": 1082010
-  },
   "peakYear": {
     "year": 1991,
     "violentRate": 758.2,
     "homicideRate": 9.8
   },
   "trends": {
-    "violentCrimeChangeSincePeak": -52.6,
-    "violentCrimeChange1yr": -7.2,
-    "homicideChange1yr": -15.7,
-    "violentCrimeChange3yr": -7.2
+    "violentCrimeChangeSincePeak": -56.8,
+    "violentCrimeChange1yr": -9.3,
+    "homicideChange1yr": -18.1,
+    "violentCrimeChange3yr": -12.4
   },
   "topCitiesByViolentRate": [
     {

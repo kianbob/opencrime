@@ -670,5 +670,21 @@
     "burglary": 779542,
     "larceny": 4326531,
     "motorVehicleTheft": 880327
+  },
+  {
+    "year": 2025,
+    "population": 341805000,
+    "violentCrime": 1119768,
+    "violentRate": 327.6,
+    "homicide": 14085,
+    "homicideRate": 4.12,
+    "rape": 117835,
+    "robbery": 167851,
+    "aggravatedAssault": 805611,
+    "propertyCrime": 5244087,
+    "propertyRate": 1534.2,
+    "burglary": 656374,
+    "larceny": 3901058,
+    "motorVehicleTheft": 686655
   }
 ]

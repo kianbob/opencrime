@@ -9,11 +9,11 @@ import ShareButtons from '@/components/ShareButtons';
 
 export const metadata: Metadata = {
   title: 'Violent Crime Trends 2026 — Is Crime Going Up or Down? | OpenCrime',
-  description: 'Is violent crime rising or falling in 2026? 45 years of FBI data reveal the real trend. Murder is down 35% from 2020, but some crimes are surging. See the full picture.',
+  description: 'Is violent crime rising or falling in 2026? 46 years of FBI data reveal the real trend. Murder is down 35% from 2020, but some crimes are surging. See the full picture.',
   alternates: { canonical: 'https://www.opencrime.us/analysis/violent-crime-trends' },
   openGraph: {
     title: 'Violent Crime Trends 2026 — The Real Numbers',
-    description: '45 years of FBI data show whether crime is actually going up or down.',
+    description: '46 years of FBI data show whether crime is actually going up or down.',
     url: 'https://www.opencrime.us/analysis/violent-crime-trends',
   },
 };
@@ -73,7 +73,7 @@ export default function ViolentCrimeTrendsPage() {
       <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">Violent Crime Trends 2026: Is Crime Going Up or Down?</h1>
       <p className="text-lg text-gray-600 mb-6">
         It&apos;s the question everyone argues about: is crime getting worse? The answer depends on your
-        timeframe. Here&apos;s what 45 years of FBI data actually show — and why the recent trends are
+        timeframe. Here&apos;s what 46 years of FBI data actually show — and why the recent trends are
         more complicated than either &quot;crime is surging&quot; or &quot;everything is fine&quot; headlines suggest.
       </p>
 
@@ -260,7 +260,7 @@ export default function ViolentCrimeTrendsPage() {
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: 'Violent Crime Trends 2026: Is Crime Going Up or Down?',
-        description: '45 years of FBI data reveal the real violent crime trend in America.',
+        description: '46 years of FBI data reveal the real violent crime trend in America.',
         url: 'https://www.opencrime.us/analysis/violent-crime-trends',
         publisher: { '@type': 'Organization', name: 'OpenCrime', url: 'https://www.opencrime.us' },
       })}} />

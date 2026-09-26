@@ -112,7 +112,7 @@ export default function CrimeByRacePage() {
         <div className="grid md:grid-cols-4 gap-4 text-center">
           <div>
             <div className="text-3xl font-bold">{fmtNum(totalArrests?.total || 0)}</div>
-            <div className="text-gray-300 text-sm">Total Arrests (2024)</div>
+            <div className="text-gray-300 text-sm">Total Arrests (2025)</div>
           </div>
           <div>
             <div className="text-3xl font-bold">{fmtPct((totalArrests?.white || 0) / (totalArrests?.total || 1))}</div>
@@ -139,15 +139,15 @@ export default function CrimeByRacePage() {
         <h2 className="font-heading text-2xl font-bold mt-10 mb-6">The Raw Numbers: What FBI Data Shows</h2>
         
         <p>
-          In 2024, law enforcement agencies reported approximately {fmtNum(totalArrests?.total || 0)} arrests to the 
+          In 2025, law enforcement agencies reported approximately {fmtNum(totalArrests?.total || 0)} arrests to the 
           FBI. The racial breakdown reveals stark disparities that have persisted for decades:
         </p>
 
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
-          <h3 className="font-semibold mb-3 text-blue-800">2024 US Population vs. Arrest Percentages</h3>
+          <h3 className="font-semibold mb-3 text-blue-800">2025 US Population vs. Arrest Percentages</h3>
           <div className="grid md:grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold mb-3">Population (2024 Census estimates)</h4>
+              <h4 className="font-semibold mb-3">Population (2025 Census estimates)</h4>
               <ul className="space-y-1">
                 <li>• White (non-Hispanic): 58.4%</li>
                 <li>• Black: 13.7%</li>
@@ -690,7 +690,7 @@ export default function CrimeByRacePage() {
         '@context': 'https://schema.org', '@type': 'Article',
         headline: 'Crime by Race — The Complete FBI Data Breakdown',
         publisher: { '@type': 'Organization', name: 'OpenCrime' },
-        datePublished: '2026-03-04',
+        datePublished: '2026-09-26',
       })}} />
     </div>
   );

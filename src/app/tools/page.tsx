@@ -18,7 +18,7 @@ const toolCategories = [
       { href: '/tools/safety-score', title: 'Safety Score', desc: 'Get a safety grade (A-F) for any city based on FBI data', icon: '🛡️' },
       { href: '/tools/risk-calculator', title: 'Crime Risk Calculator', desc: 'Calculate your statistical odds of being a crime victim', icon: '🎲' },
       { href: '/tools/time-machine', title: 'Crime Time Machine', desc: 'See what crime looked like in any city in any year', icon: '⏳' },
-      { href: '/tools/timeline', title: 'Timeline Explorer', desc: 'Explore crime trends over 45 years with an interactive chart', icon: '📅' },
+      { href: '/tools/timeline', title: 'Timeline Explorer', desc: 'Explore crime trends over 46 years with an interactive chart', icon: '📅' },
       { href: '/tools/crime-cost', title: 'Crime Cost Calculator', desc: 'Estimate the economic cost of crime in any city', icon: '💰' },
       { href: '/tools/quiz', title: 'Crime Safety Quiz', desc: 'Test your knowledge of US crime statistics', icon: '🧠' },
       { href: '/tools/city-report', title: 'City Safety Report', desc: 'Generate a full crime report for any city', icon: '📋' },
